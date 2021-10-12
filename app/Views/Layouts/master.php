@@ -12,13 +12,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
 
-
-    <style>
-		body {
-			background-color: rgb(200, 200, 225);
-			color: darkblue;
-		}
-    </style>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 

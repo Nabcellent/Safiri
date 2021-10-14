@@ -8,6 +8,6 @@
 				<h2>Welcome to Travel Advisory 101.</h2>
 			</div>
 		</div>
-	</div>sasa
+	</div>Boss
 
 <?= $this->endSection() ?>

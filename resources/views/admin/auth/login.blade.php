@@ -1,4 +1,5 @@
 @extends('admin.layouts.guest')
+@section('title', 'Login')
 @section('content')
     <!-- error page start //-->
     <div class="container-fluid">

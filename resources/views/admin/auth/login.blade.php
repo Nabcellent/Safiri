@@ -3,7 +3,7 @@
     <!-- error page start //-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-5"><img class="bg-img-cover bg-center" src="assets/images/login/3.jpg" alt="looginpage"/></div>
+            <div class="col-xl-5"><img class="bg-img-cover bg-center" src="{{ asset('images/admin/login/2.jpg') }}" alt="looginpage"/></div>
             <div class="col-xl-7 p-0">
                 <div class="login-card">
                     @if($errors->any())
@@ -64,12 +64,13 @@
                                 </li>
                             </ul>
                         </div>
-                        <p>Don't have account?<a class="ms-2" href="{{ route('admin.register') }}">Create Account</a></p>
+                        <p>Don't have account?<a class="ms-2" href="{{ route('admin.get.register') }}">Create Account</a></p>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
     <script>
         (function () {
             "use strict";

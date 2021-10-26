@@ -62,3 +62,11 @@ Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store']
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('logout');
+
+Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function() {
+    //  AUTH ROUTES
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->middleware('guest')->name('get.login');
+    Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest')->name('post.login');
+    Route::get('/register', [RegisteredUserController::class, 'create'])->middleware('guest')->name('get.register');
+    Route::post('/register', [RegisteredUserController::class, 'store'])->middleware('guest')->name('post.register');
+});

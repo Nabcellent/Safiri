@@ -7,22 +7,24 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
-class UserSeeder extends Seeder {
+class UserSeeder extends Seeder
+{
     /**
      * Run the database seeds.
      *
      * @return void
      */
     public function run() {
-        Schema::disableForeignKeyConstraints();
+        /*Schema::disableForeignKeyConstraints();
         User::truncate();
-        Schema::enableForeignKeyConstraints();
+        Schema::enableForeignKeyConstraints();*/
 
         User::create([
-            "first_name"              => "Re.d",
-            "last_name"              => "_Beard",
+            "first_name"        => "Re.d",
+            "last_name"         => "_Beard",
             "phone"             => 110039317,
-            "is_admin"         => 7,
+            "gender"             => 'male',
+            "is_admin"          => 7,
             "email"             => 'nabcellent.dev@gmail.com',
             "password"          => Hash::make("M1gu3l.!"),
             "email_verified_at" => now(),

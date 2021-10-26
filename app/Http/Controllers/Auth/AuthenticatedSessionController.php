@@ -3,24 +3,53 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
-class AuthenticatedSessionController extends Controller {
+class AuthenticatedSessionController extends Controller
+{
     /**
-     * Display the admin login view.
+     * Display the login view.
      *
      * @return View
      */
-    public function login(): View {
-        return view('admin.auth.login');
+    public function create(): View {
+        return view('auth.login');
     }
 
     /**
-     * Display the admin register view.
+     * Handle an incoming authentication request.
      *
-     * @return View
+     * @param LoginRequest $request
+     * @return RedirectResponse
+     * @throws ValidationException
      */
-    public function register(): View {
-        return view('admin.auth.register');
+    public function store(LoginRequest $request): RedirectResponse {
+        $request->authenticate();
+
+        $request->session()->regenerate();
+
+        return redirect()->intended(RouteServiceProvider::HOME);
+    }
+
+    /**
+     * Destroy an authenticated session.
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function destroy(Request $request): RedirectResponse {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

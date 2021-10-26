@@ -1,0 +1,121 @@
+
+/*test Nav bar color */
+.pagination-theme .page-item .page-link {
+	color: #24695c !important;
+}
+
+.pagination-theme .page-item .page-link:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.pagination-theme .page-item.active .page-link {
+	color: #fff !important;
+	background-color: #24695c !important;
+	border-color: #24695c;
+}
+
+.pagination-primary .page-item .page-link {
+	color: #24695c !important;
+}
+
+.pagination-primary .page-item .page-link:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.pagination-primary .page-item.active .page-link {
+	color: #fff !important;
+	background-color: #24695c !important;
+	border-color: #24695c;
+}
+
+.pagination-secondary .page-item .page-link {
+	color: #ba895d !important;
+}
+
+.pagination-secondary .page-item .page-link:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.pagination-secondary .page-item.active .page-link {
+	color: #fff !important;
+	background-color: #ba895d !important;
+	border-color: #ba895d;
+}
+
+.pagination-success .page-item .page-link {
+	color: #1b4c43 !important;
+}
+
+.pagination-success .page-item .page-link:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.pagination-success .page-item.active .page-link {
+	color: #fff !important;
+	background-color: #1b4c43 !important;
+	border-color: #1b4c43;
+}
+
+.pagination-danger .page-item .page-link {
+	color: #d22d3d !important;
+}
+
+.pagination-danger .page-item .page-link:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.pagination-danger .page-item.active .page-link {
+	color: #fff !important;
+	background-color: #d22d3d !important;
+	border-color: #d22d3d;
+}
+
+.pagination-info .page-item .page-link {
+	color: #717171 !important;
+}
+
+.pagination-info .page-item .page-link:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.pagination-info .page-item.active .page-link {
+	color: #fff !important;
+	background-color: #717171 !important;
+	border-color: #717171;
+}
+
+.pagination-dark .page-item .page-link {
+	color: #2c323f !important;
+}
+
+.pagination-dark .page-item .page-link:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.pagination-dark .page-item.active .page-link {
+	color: #fff !important;
+	background-color: #2c323f !important;
+	border-color: #2c323f;
+}
+
+.pagination-warning .page-item .page-link {
+	color: #e2c636 !important;
+}
+
+.pagination-warning .page-item .page-link:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.pagination-warning .page-item.active .page-link {
+	color: #fff !important;
+	background-color: #e2c636 !important;
+	border-color: #e2c636;
+}

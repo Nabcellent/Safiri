@@ -1,0 +1,31 @@
+.jstree-default .jstree-clicked {
+	background-color: rgba(36, 105, 92, 0.2);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	color: #24695c;
+}
+
+.vakata-context, .vakata-context ul {
+	background-color: #fff;
+	border: none;
+	-webkit-box-shadow: 0 0 2px 2px #efefef;
+	box-shadow: 0 0 2px 2px #efefef;
+}
+
+.vakata-context li a .vakata-contextmenu-sep, .vakata-context ul li a .vakata-contextmenu-sep {
+	display: none;
+}
+
+.vakata-context li a:hover, .vakata-context ul li a:hover {
+	background-color: #97dbcf;
+	-webkit-box-shadow: None;
+	box-shadow: None;
+}
+
+.vakata-context .vakata-context-separator, .vakata-context ul .vakata-context-separator {
+	display: none;
+}
+
+.jstree-default .jstree-anchor {
+	font-weight: 500;
+}

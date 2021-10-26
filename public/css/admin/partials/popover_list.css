@@ -1,0 +1,40 @@
+.popover {
+	border: 1px solid #e6edef;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.popover-header {
+	background-color: rgba(36, 105, 92, 0.1);
+	border-color: #e6edef;
+	color: #24695c;
+}
+
+.popover-body {
+	border-color: #e6edef;
+	background-color: #fff;
+}
+
+.popover-main .btn-showcase a {
+	color: #fff;
+}
+
+.popover-main .btn-showcase button:last-child {
+	margin-right: 0;
+}
+
+
+.list-group-item.active {
+	background-color: #24695c;
+	border-color: #24695c;
+}
+
+.list-group i {
+	margin-right: 10px;
+}
+
+.list-group img {
+	height: 40px;
+	width: 40px;
+	margin-right: 10px;
+}

@@ -1,0 +1,165 @@
+
+.icon-lists h6 {
+	color: #898989;
+	font-weight: 400;
+}
+
+.icon-lists > div:hover {
+	background-color: rgba(36, 105, 92, 0.1);
+	color: #24695c;
+}
+
+.icon-lists > div:hover i {
+	color: #24695c;
+}
+
+.icon-lists div {
+	cursor: pointer;
+	line-height: 60px;
+	white-space: nowrap;
+	border-radius: 4px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.icon-lists div i {
+	margin: 0 15px 0 10px;
+	font-size: 24px;
+}
+
+.icon-lists.whether-icon svg {
+	height: 50px;
+	width: 50px;
+}
+
+.icon-lists.feather-icons .media svg {
+	margin: 0 15px 0 10px;
+}
+
+.icon-lists .feather-icon .icon-first h6 {
+	display: none;
+}
+
+.flag-icons, .feather-icons {
+	margin-bottom: -15px;
+	margin-top: -15px;
+}
+
+.flag-icons div, .feather-icons div {
+	line-height: 1;
+	word-wrap: break-word;
+	overflow: auto;
+}
+
+.flag-icons div .flag-icon, .feather-icons div .flag-icon {
+	height: 50px;
+	width: 50px;
+}
+
+.flag-icons div .media, .feather-icons div .media {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+}
+
+.flag-icons div .media-body h6, .feather-icons div .media-body h6 {
+	margin-bottom: 0;
+	font-size: 14px;
+	max-width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.flag-icons div .media-body h5, .feather-icons div .media-body h5 {
+	background-color: #24695c;
+	display: inline-block;
+	padding: 3px 5px;
+	font-size: 11px;
+	border-radius: 3px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	color: #fff;
+}
+
+.icon-hover-bottom {
+	background-color: #fdfeff;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	-webkit-box-shadow: 0px 0px 1px 1px #e6edef;
+	box-shadow: 0px 0px 1px 1px #e6edef;
+	z-index: 999;
+}
+
+.icon-hover-bottom .icon-popup {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	width: 100%;
+	padding: 20px;
+}
+
+.icon-hover-bottom .icon-popup .close-icon {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	font-size: 20px;
+	color: #cccccc;
+	cursor: pointer;
+}
+
+.icon-hover-bottom .icon-popup > div {
+	display: inline-block;
+}
+
+.icon-hover-bottom .icon-popup > div .flag-icon {
+	width: 60px;
+	height: 60px;
+}
+
+.icon-hover-bottom .icon-popup .icon-class {
+	margin: 0 20px;
+	cursor: pointer;
+}
+
+.icon-hover-bottom .icon-title {
+	display: block;
+	color: #2c323f;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+.icon-hover-bottom .form-group input {
+	min-width: 300px;
+	background-color: #fff;
+}
+
+.fa-fa-icon-show-div, .icons-show-div {
+	display: none;
+}
+
+.icon-first i {
+	color: #898989;
+}
+
+.icon-first h6 {
+	display: none;
+}
+
+@media only screen and (max-width: 480px) {
+	.flag-icons div .media, .feather-icons div .media {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}

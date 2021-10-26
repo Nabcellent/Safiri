@@ -1,0 +1,36 @@
+.grid-showcase {
+	margin-bottom: -10px;
+}
+
+.grid-showcase span {
+	display: block;
+	border: 1px solid #e6edef;
+	padding: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	background-color: rgba(36, 105, 92, 0.1);
+	color: #24695c;
+	font-weight: 600;
+}
+
+.grid-align {
+	margin-bottom: -30px;
+}
+
+.grid-align .row {
+	padding: 15px 0;
+	min-height: 10rem;
+	border: 1px solid rgba(36, 105, 92, 0.03);
+	margin-bottom: 30px;
+	background-color: rgba(36, 105, 92, 0.03);
+}
+
+.grid-wrrapper .table-striped tbody tr:nth-of-type(odd) {
+	--bs-table-accent-bg: unset;
+	background-color: rgba(36, 105, 92, 0.1);
+	color: #24695c;
+}
+
+.grid-wrrapper .table-striped tbody tr:nth-of-type(odd) th, .grid-wrrapper .table-striped tbody tr:nth-of-type(odd) td {
+	color: #24695c;
+}

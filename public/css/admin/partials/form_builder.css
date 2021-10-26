@@ -1,0 +1,354 @@
+
+.form-builder .drag-box {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.form-builder .drag-box fieldset {
+	border: 1px dotted #e6edef;
+	min-height: 655px;
+	padding: 30px;
+	width: 100%;
+	overflow: hidden;
+	margin-top: 30px;
+	border-radius: 4px;
+}
+
+.form-builder .component {
+	cursor: pointer;
+}
+
+.form-builder .component label {
+	padding-top: 8px;
+}
+
+.form-builder .component .form-group input, .form-builder .component .form-group textarea, .form-builder .component .form-group select {
+	border-radius: 4px;
+}
+
+.form-builder .component .form-group .input-group #prependedcheckbox, .form-builder .component .form-group .input-group #prependedtext {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-builder .component .form-group .input-group #appendedcheckbox {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-right-color: transparent;
+}
+
+.form-builder .component .form-group .input-group #appendedtext, .form-builder .component .form-group .input-group #buttondropdown {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.form-builder .component .form-group .input-group #buttondropdown {
+	margin-right: -1px;
+}
+
+.form-builder .component .form-group .input-group .input-group-btn button {
+	border-radius: 4px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-builder .component .form-group .input-group .input-group-prepend .btn-right, .form-builder .component .form-group .input-group .input-group-prepend .checkbox-radius {
+	border-radius: 4px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-builder .component .form-group .pl-md-radios {
+	padding-left: 37px;
+}
+
+.form-builder input {
+	cursor: pointer;
+}
+
+.form-builder textarea {
+	resize: vertical;
+}
+
+.form-builder .popover {
+	z-index: 8;
+	opacity: 1;
+	left: -290px !important;
+	top: 95px !important;
+}
+
+.form-builder .popover .control-group {
+	cursor: default;
+}
+
+.form-builder .popover input {
+	cursor: pointer;
+}
+
+.form-builder .render {
+	min-height: 500px;
+	width: 100%;
+	border-radius: 4px;
+	background-color: #f5f7fb;
+	border-color: #e6edef;
+}
+
+.form-builder .popover .controls {
+	margin-left: 0;
+}
+
+.form-builder .popover .control-label {
+	text-align: left;
+}
+
+.form-builder .popover form {
+	width: 100%;
+}
+
+.form-builder .popover .fade.left.in {
+	left: -215px;
+}
+
+.form-builder .target:after {
+	float: left;
+	content: " ";
+	height: 77px;
+	margin-top: 3px;
+	background: #e6edef;
+	width: 100%;
+	border: 1px dashed #e6edef;
+}
+
+.drag form {
+	padding: 10px 5px;
+	border: 1px dotted #e6edef;
+	position: absolute;
+	background: #fff;
+	-webkit-box-shadow: 0 0 30px #e6edef;
+	box-shadow: 0 0 30px #e6edef;
+	overflow: hidden;
+}
+
+.drag form input {
+	border-radius: 5px;
+}
+
+.form-builder-header-1 {
+	background-color: #e6edef;
+	padding: 15px;
+	border-radius: 5px;
+	min-height: 67px;
+}
+
+.form-builder-header-1 h6 {
+	margin-bottom: 0;
+	margin-top: 10px;
+	line-height: 2.2;
+}
+
+.form-builder .help-block {
+	font-size: 12px;
+}
+
+.form-builder input {
+	border-radius: 4px !important;
+}
+
+.form-builder .form-group .col-md-12 {
+	padding: 0;
+}
+
+.form-builder .popover {
+	width: 300px;
+}
+
+.form-builder .popover-header {
+	background-color: #24695c;
+	padding: 15px;
+}
+
+.form-builder .popover-body {
+	padding: 15px;
+}
+
+.form-builder .popover-body .form-group.row {
+	padding: 0 15px;
+}
+
+.form-builder .popover-body .form-group.row .col-lg-12 {
+	padding: 0;
+}
+
+.dropdown-menu {
+	background-color: #f5f7fb;
+}
+
+.form-builder-column #pills-tabContent .theme-form .form-group, .form-builder-column #pills-tabContent .theme-form .ui-draggable {
+	margin-bottom: 0 !important;
+}
+
+.form-builder-column #pills-tabContent .theme-form .form-group .checkbox label, .form-builder-column #pills-tabContent .theme-form .ui-draggable .checkbox label {
+	margin-top: 0;
+}
+
+.form-builder-column #pills-tabContent .theme-form .form-group input, .form-builder-column #pills-tabContent .theme-form .ui-draggable input {
+	border-radius: 4px;
+}
+
+.form-builder-column #pills-tabContent .theme-form .form-group .input-group #prependedcheckbox, .form-builder-column #pills-tabContent .theme-form .ui-draggable .input-group #prependedcheckbox {
+	margin-right: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-builder-column #pills-tabContent .theme-form .form-group .input-group input, .form-builder-column #pills-tabContent .theme-form .ui-draggable .input-group input {
+	margin-right: 15px;
+}
+
+.form-builder-column #pills-tabContent .theme-form .form-group .input-group .input-group-prepend .input-group-text input, .form-builder-column #pills-tabContent .theme-form .ui-draggable .input-group .input-group-prepend .input-group-text input {
+	margin-right: 0;
+}
+
+.form-builder-column #pills-tabContent .theme-form .form-group .input-group .input-group-btn button, .form-builder-column #pills-tabContent .theme-form .ui-draggable .input-group .input-group-btn button {
+	border-radius: 4px;
+}
+
+.form-builder-column #pills-tabContent .theme-form .form-group select, .form-builder-column #pills-tabContent .theme-form .ui-draggable select {
+	border-radius: 4px;
+}
+
+.form-builder-column #pills-tabContent .theme-form .form-group .m-t-help-block, .form-builder-column #pills-tabContent .theme-form .ui-draggable .m-t-help-block {
+	margin-top: -3px;
+}
+
+.form-builder-column #pills-tabContent #pills-button .theme-form button {
+	margin-bottom: 6px;
+}
+
+.form-builder-column .droppable-active {
+	background-color: #24695c !important;
+	opacity: 0.1;
+}
+
+.form-builder-column .form-body {
+	min-height: 540px;
+}
+
+.form-builder-column .draggable {
+	cursor: move;
+}
+
+.form-builder-column .drag-bx {
+	border: 1px dotted #e6edef;
+	border-radius: 4px;
+}
+
+.form-builder-column .help-block {
+	color: #e6edef;
+}
+
+.form-builder-column .tools a {
+	cursor: pointer;
+	font-size: 80%;
+}
+
+.form-builder-2 .form-group {
+	margin-bottom: 0 !important;
+}
+
+.form-builder-2 .form-group .checkbox label {
+	margin-top: 0;
+}
+
+.form-builder-2 .form-group input {
+	border-radius: 4px;
+}
+
+.form-builder-2 .form-group .input-group #prependedcheckbox {
+	margin-right: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-builder-2 .form-group .input-group input {
+	margin-right: 15px;
+}
+
+.form-builder-2 .form-group .input-group .input-group-prepend .input-group-text input {
+	margin-right: 0;
+}
+
+.form-builder-2 .form-group .input-group .input-group-btn button {
+	border-radius: 4px;
+}
+
+.form-builder-2 .form-group select {
+	border-radius: 4px;
+}
+
+.form-builder-2 .form-group .m-t-help-block {
+	margin-top: -3px;
+}
+
+.form-builder-2-header {
+	background-color: #e6edef;
+	padding: 15px;
+	border-radius: 5px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	margin-bottom: 30px;
+}
+
+.form-builder-2-header > div {
+	display: inline-block;
+	width: 49%;
+}
+
+.form-builder-2-header > div nav {
+	text-align: right;
+	float: right;
+}
+
+.draggable input {
+	border-radius: 5px;
+}
+
+.draggable select {
+	border-radius: 4px;
+}
+
+
+
+.form-builder .help-block {
+	margin-bottom: 0;
+	color: #cccccc;
+	text-transform: capitalize;
+}
+
+.form-builder .btn-light {
+	color: #cccccc;
+}
+
+.form-builder .copy-btn {
+	padding: 8px;
+}
+
+.form-builder .nav-primary .nav-link.active, .form-builder .nav-primary .nav-primary .show > .nav-link, .form-builder .nav-primary .nav-pills.nav-primary .nav-link.active, .form-builder .nav-primary .nav-pills.nav-primary .show > .nav-link {
+	border-radius: 4px;
+}
+
+.form-builder .nav-primary .nav-link, .form-builder .nav-primary .nav-pills.nav-primary .nav-link {
+	color: #000;
+	font-weight: 500;
+}
+
+.form-builder #components {
+	margin-top: 30px;
+}
+
+.form-builder #components #viewhtml {
+	height: 526px;
+}

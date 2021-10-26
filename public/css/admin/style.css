@@ -1,0 +1,1401 @@
+@charset "UTF-8";
+/*-----------------------------------------------------------------------------------
+    Template Name: viho Admin
+    Template URI: themes.pixelstrap.com/viho
+    Description: This is Admin theme
+    Author: Pixelstrap
+    Author URI: https://themeforest.net/user/pixelstrap
+-----------------------------------------------------------------------------------
+
+01. General CSS
+02. Generic CSS
+03. Card CSS
+04. Loader CSS
+05. Header CSS
+06. Button CSS
+07. Color CSS
+08. GRID CSS
+09. Error-page  CSS
+10. Icon css
+11. Form Builder 1 CSS
+12. Form Builder 2 CSS
+13. Email Application  CSS
+14. Chat CSS
+15. Alert CSS
+16. Popover CSS
+17. List CSS
+18. Switch  CSS
+19. Mega option CSS
+20. Touchspin  CSS
+21. Select 2 CSS
+22. User profile css
+23. Progress CSS
+24. According CSS
+25. Authentication CSS
+26. Form CSS
+27. Coming Soon CSS
+28. Radio CSS
+29. Form Input CSS
+30. Data-table CSS
+31. JS datagrid CSS
+32. Page CSS
+33. Ecommerce  CSS
+34. Pricing CSS
+35. Form builder css
+36. NAV CSS
+37. Dropdown CSS
+38. Landing CSS
+39. Table  CSS
+40. Alertbox-call-out CSS
+41. Chart CSS
+42. Timeline CSS
+43. Timeline 2 CSS
+44. Tabs CSS
+45. Gallery CSS
+47. Footer CSS
+48. Form Wizard
+49. Badge CSS
+50. Tree CSS
+51. Search CSS
+52. Datepicker CSS
+53. Dashboard CSS
+54. Tour  CSS
+55. theme layout CSS
+56. Ribbon CSS
+57. breadcrumb CSS
+58. Steps  CSS
+59. Customizer CSS
+60. RTL CSS
+61. base_inputs CSS
+62. Responsive css
+63. Box-layout css
+64. Button Builder css
+65. Button Builder color picker CSS
+66. FullCalendar CSS
+67. Dashboard 2
+68. Dashboard 3
+70. Document css
+71. Faq CSS
+73. knowledgebase CSS
+75. Learning CSS
+76. Order History css
+77. Print CSS
+78. Sidebar CSS
+79. social app
+80. avatars
+82. cart
+84. checkout
+85. bookmark app
+86. contacts
+88. Invoice
+89. Formwidgets
+90. Base_inputs
+91. Project list
+92. File Manager
+
+ */
+/**=====================
+     01. General CSS Start
+==========================**/
+@import "./partials/general.css";
+/**=====================
+      01. General CSS Ends
+==========================**/
+
+
+
+/**=====================
+     02. Generic CSS Start
+==========================**/
+@import "./partials/generic.css";
+/**=====================
+     02. Generic CSS Ends
+==========================**/
+
+
+
+/**=====================
+    03.  Card CSS Start
+==========================**/
+@import './partials/card.css';
+/**=====================
+    03. Card CSS End
+==========================**/
+
+
+
+/**=====================
+     04. Loader CSS Start
+==========================**/
+@import './partials/loader.css';
+/**=====================
+     04. Loader CSS Ends
+==========================**/
+
+
+
+/**=====================
+    05. Header CSS Start
+==========================**/
+@import './partials/header.css';
+/**=====================
+    05. Header CSS Ends
+==========================**/
+
+
+
+/**=====================
+    78. Sidebar CSS Start
+==========================**/
+@import './partials/sidebar.css';
+/**=====================
+    78. Sidebar CSS Ends
+==========================**/
+
+
+
+/**=====================
+    06. Button CSS start
+==========================**/
+@import './partials/button.css';
+/**=====================
+     06. Button CSS end
+==========================**/
+
+
+
+/**=====================
+     07. Color CSS Start
+==========================**/
+@import './partials/color.css';
+/**=====================
+     07. Color CSS Ends
+==========================**/
+/**=====================
+      08. GRID CSS Start
+==========================**/
+@import './partials/grid.css';
+/**=====================
+      08. GRID CSS Ends
+==========================**/
+
+
+
+/**=====================
+     09. Error-page  CSS Start
+==========================**/
+@import './partials/error.css';
+/**=====================
+     09. Error-page CSS Ends
+==========================**/
+
+
+
+/**=====================
+    10. ICON CSS Start
+==========================**/
+@import './partials/icon.css';
+/**=====================
+     10. ICON CSS Ends
+==========================**/
+
+
+
+/**=====================
+     11. Form Builder 1 CSS Start
+==========================**/
+/**=====================
+    11. Form Builder 1 CSS Ends
+==========================**/
+@import './partials/form_builder.css';
+/**=====================
+     12. Form Builder 2 CSS Start
+==========================**/
+/**=====================
+     12. Form Builder 2 CSS Ends
+==========================**/
+
+
+
+/**====================================
+    13.  Email Application  CSS Start
+========================================**/
+@import './partials/email.css';
+/**=================================
+    13.  Email Application  CSS Ends
+====================================**/
+
+
+
+/**=====================
+     14. Chat CSS Start
+==========================**/
+@import './partials/chat.css';
+/**=====================
+    14.  Chat CSS Ends
+==========================**/
+
+
+
+/**=====================
+     15. Alert CSS start
+==========================**/
+@import './partials/alert.css';
+/**=====================
+     15. Alert CSS end
+==========================**/
+
+
+
+/**=====================
+     16. Popover CSS Start
+==========================**/
+/**=====================
+     16. Popover CSS Ends
+==========================**/
+@import './partials/popover_list.css';
+/**=====================
+     17. List CSS Start
+==========================**/
+/**=====================
+     17. List CSS Ends
+==========================**/
+
+
+
+/**=====================
+    18. Switch CSS Start
+==========================**/
+@import "partials/switch.css";
+/**=====================
+     18. Switch  CSS Ends
+==========================**/
+
+
+
+/**=====================
+   19. Mega option CSS Start
+==========================**/
+@import "partials/mega_option.css";
+/**=====================
+     19. Mega option CSS Ends
+==========================**/
+
+
+
+/**=====================
+    20.  Touchspin  CSS Start
+==========================**/
+@import "partials/touchspin.css";
+/**=====================
+     20. TouchSpin  CSS Ends
+==========================**/
+
+
+
+/**=====================
+     21. Select 2 CSS Start
+==========================**/
+@import "partials/select2.css";
+/**=====================
+     21. Select 2 CSS Ends
+==========================**/
+
+
+
+/**=====================
+     22. User profile css start
+==========================**/
+@import "partials/profile.css";
+/**============================
+     22. User profile css Ends
+==============================**/
+
+
+
+/**=====================
+     23. Progress CSS Start
+==========================**/
+@import "partials/progress.css";
+/**=====================
+     23. Progress CSS Ends
+==========================**/
+
+
+
+/**=====================
+    24. According CSS start
+==========================**/
+@import "partials/according.css";
+/**=====================
+     24. According CSS Ends
+==========================**/
+
+
+
+/**=====================
+    25. Authentication CSS Start
+==========================**/
+@import "partials/authentication.css";
+/**==========================
+    25. Authentication CSS Ends
+==========================**/
+
+
+
+/**=====================
+    26. Form CSS Start
+==========================**/
+@import "partials/form.css";
+/**=====================
+    26. Form CSS Ends
+==========================**/
+
+
+
+/**=====================
+     27. Coming Soon CSS Start
+==========================**/
+@import "partials/coming_soon.css";
+/**=====================
+    27. Coming Soon CSS Ends
+==========================**/
+
+
+
+/**=====================
+     28. Radio CSS Start
+==========================**/
+@import "partials/radio.css";
+/**=====================
+     28. Radio CSS Ends
+==========================**/
+
+
+
+/**=====================
+     29. Form Input CSS Start
+==========================**/
+@import "partials/form_input.css";
+/**=====================
+     29. Form Input CSS Ends
+==========================**/
+
+
+
+/**=====================
+    30. Data-table CSS Start
+==========================**/
+@import "partials/datatable.css";
+/**=====================
+     30. Data-table CSS Ends
+==========================**/
+
+
+
+/**=====================
+     31. JS datagrid CSS Start
+==========================**/
+@import "partials/datagrid.css";
+/**=====================
+     31. JS datagrid CSS Ends
+==========================**/
+
+
+
+/**=====================
+     32. pagination CSS Start
+==========================**/
+@import "partials/pagination.css";
+/**=====================
+     32. pagination CSS Ends
+==========================**/
+
+
+
+/**=====================
+    33.  Ecommerce  CSS Start
+==========================**/
+@import "partials/ecommerce.css";
+/**=====================
+    33. Ecommerce  CSS End
+==========================**/
+
+
+
+/**=====================
+     34. Pricing CSS Start
+==========================**/
+@import "partials/pricing.css";
+/**=====================
+    34. Pricing CSS Ends
+==========================**/
+
+
+
+/**=====================
+     36. NAV CSS Start
+==========================**/
+@import "partials/nav.css";
+/**=====================
+     36. NAV CSS Ends
+==========================**/
+
+
+
+/**=====================
+    37. Dropdown CSS Start
+==========================**/
+@import "partials/dropdown.css";
+/**=====================
+    37. Dropdown CSS Ends
+==========================**/
+
+
+
+/**=====================
+     38. Landing CSS Start
+==========================**/
+@import "partials/landing.css";
+/**=====================
+     38. Landing CSS Ends
+==========================**/
+
+
+
+/**=====================
+     39. Table  CSS Start
+==========================**/
+@import "partials/table.css";
+/**=====================
+     39.Table CSS Ends
+==========================**/
+
+
+
+/**=====================
+    41. Chart CSS Start
+==========================**/
+@import "partials/chart.css";
+/**=====================
+     41. Chart CSS End
+==========================**/
+
+
+
+/**=====================
+     42. Timeline CSS Start
+==========================**/
+@import "partials/timeline.css";
+/**=====================
+     42. Timeline  CSS Ends
+==========================**/
+
+
+
+/**=====================
+    44. Tabs CSS Start
+==========================**/
+@import "partials/tabs.css";
+/**=====================
+     44. Tabs CSS Ends
+==========================**/
+
+
+
+/**=====================
+     45. Gallery CSS Start
+==========================**/
+@import "partials/gallery.css";
+/**=====================
+     45. Gallery CSS Ends
+==========================**/
+
+
+
+/**=====================
+     47. Footer CSS Start
+==========================**/
+@import "partials/footer.css";
+/**=====================
+     47. Footer CSS Ends
+==========================**/
+
+
+
+/**===========================
+     48. Form Wizard CSS Start
+=============================**/
+@import "partials/form_wizard.css";
+/**=====================
+    48. Form Wizard CSS Ends
+==========================**/
+
+
+
+/**=====================
+    49. Badge CSS start
+==========================**/
+@import "partials/badge.css";
+/**=====================
+    49. Badge CSS Ends
+==========================**/
+
+
+
+/**=====================
+     50. Tree CSS Start
+==========================**/
+@import "partials/tree.css";
+/**=====================
+     50. Tree CSS Ends
+==========================**/
+
+
+
+/**=====================
+     51. Search CSS Start
+==========================**/
+@import "partials/search.css";
+/**=====================
+    51. Search CSS Ends
+==========================**/
+
+
+
+/**=====================
+    52. Datepicker CSS Start
+==========================**/
+@import "partials/datepicker.css";
+/**=====================
+   52. Datepicker CSS End
+==========================**/
+
+
+
+/**=====================
+     54. Tour  CSS Start
+==========================**/
+@import "partials/tour.css";
+/**=====================
+    54. Tour  CSS Ends
+==========================**/
+
+
+
+/**=====================
+   55. theme layout CSS Start
+==========================**/
+@import "partials/theme.css";
+/**=====================
+   55. theme layout CSS ends
+==========================**/
+
+
+
+/**=====================
+    56.  Ribbon CSS Start
+==========================**/
+@import "partials/ribbon.css";
+/**=====================
+     56. Ribbon CSS Ends
+==========================**/
+
+
+
+/**=====================
+    57. breadcrumb CSS Start
+==========================**/
+@import "partials/breadcrumb.css";
+/**=====================
+    57. breadcrumb CSS ends
+==========================**/
+
+
+
+/**=====================
+    58. Steps  CSS Start
+==========================**/
+@import "partials/steps.css";
+/**=====================
+    58. Steps  CSS ends
+==========================**/
+
+
+
+/**=====================
+   59. Customizer  CSS Start
+==========================**/
+@import "partials/customizer.css";
+/**=====================
+     59.Customizer CSS Ends
+==========================**/
+
+
+
+/**=====================
+     71. Faq CSS start
+==========================**/
+@import "partials/faq.css";
+/**=====================
+     71. Faq CSS end
+==========================**/
+
+
+
+/**=====================
+     73. knowledgebase CSS start
+==========================**/
+@import "partials/knowledge_base.css";
+/**=====================
+     73. knowledgebase CSS end
+==========================**/
+
+
+/**=====================
+     70.  Document CSS Start
+==========================**/
+@import "partials/document.css";
+/**=====================
+     70. Document CSS Ends
+==========================**/
+
+
+
+/**=====================
+     75. Learning CSS start
+==========================**/
+@import "partials/learning.css";
+/**=====================
+     75. Learning CSS end
+==========================**/
+
+
+/**=====================
+     76. Order History CSS start
+==========================**/
+@import "partials/order_history.css";
+/**=====================
+     76. Order History CSS end
+==========================**/
+
+
+
+/**=====================
+     79. social app css start
+==========================**/
+@import "partials/social.css";
+/**=====================
+     79. social app CSS end
+==========================**/
+
+
+
+/**=====================
+    80. avatars CSS start
+==========================**/
+@import "partials/avatar.css";
+/**=====================
+     80. avatars CSS Ends
+==========================**/
+
+
+
+/**=====================
+    82. cart CSS start
+==========================**/
+@import "partials/cart.css";
+/**=====================
+    82. cart CSS Ends
+==========================**/
+
+
+
+/**=====================
+    84. Checkout CSS start
+==========================**/
+@import "partials/checkout.css";
+/**=====================
+    86. Checkout CSS Ends
+==========================**/
+
+
+
+/**=====================
+      86. contacts CSS Start
+==========================**/
+@import "partials/contacts.css";
+/**=====================
+    86. contacts CSS Ends
+==========================**/
+
+
+
+/**========================
+    88.  Invoice CSS Start
+=============================**/
+@import "partials/invoice.css";
+/**========================
+    88.  Invoice CSS end
+==========================**/
+
+
+
+/**========================
+  89.  Form Widgets CSS Start
+=============================**/
+@import "partials/form_widgets.css";
+/**========================
+  89. Form Widgets CSS end
+=============================**/
+
+
+
+/**=====================
+   90. base_inputs CSS start
+==========================**/
+@import "partials/base_input.css";
+/**=====================
+  90. base_inputs CSS ends
+==========================**/
+
+
+
+/**==========================
+   91. Project list css start
+=============================**/
+@import "partials/project_list.css";
+/**==========================
+   91. Project list css end
+=============================**/
+
+
+
+/**=====================
+    File Manager
+==========================**/
+@import "partials/file_manager.css";
+/**=====================
+     File Manager
+==========================**/
+
+
+
+/**=====================
+    53. Dashboard CSS Start
+==========================**/
+@import "partials/dashboard.css";
+/**=====================
+  53. Dashboard CSS Ends
+==========================**/
+
+
+
+/**=====================
+    60. RTL CSS Start
+==========================**/
+@import "rtl.css";
+/**=====================
+    60. RTL CSS Ends
+==========================**/
+
+/**=====================
+    63. Box-layout CSS start
+==========================**/
+@media only screen and (min-width: 1280px) {
+	.box-layout .page-wrapper.horizontal-wrapper .page-body-wrapper {
+		margin-top: 40px !important;
+		overflow: hidden;
+	}
+
+	.box-layout .page-wrapper.horizontal-wrapper .page-body-wrapper .page-body {
+		min-height: calc(100vh - 165px);
+		margin-top: 0;
+		top: 80px;
+		overflow-y: scroll !important;
+		max-height: calc(100vh - 220px);
+		padding-bottom: 80px;
+	}
+
+	.box-layout .page-wrapper.horizontal-wrapper .page-main-header {
+		margin-top: 40px;
+	}
+
+	.box-layout .page-wrapper.horizontal-wrapper .page-main-header.close_icon {
+		margin-left: auto;
+	}
+
+	.box-layout .page-wrapper.horizontal-wrapper .page-body-wrapper {
+		width: 1280px;
+	}
+
+	.box-layout .page-wrapper.horizontal-wrapper .page-body-wrapper.horizontal-menu header.main-nav {
+		width: 1280px;
+		top: 80px;
+		margin: 0;
+		overflow-x: unset;
+		position: relative;
+	}
+
+	.box-layout .page-wrapper.horizontal-wrapper .page-body-wrapper.horizontal-menu header.main-nav .main-navbar #mainnav {
+		width: 1280px;
+		margin-left: auto;
+		margin-right: auto;
+		position: unset;
+	}
+
+	.box-layout .page-wrapper.compact-sidebar.compact-wrapper .page-body-wrapper header.main-nav {
+		height: calc(100vh - 206px);
+		width: 155px;
+	}
+
+	.box-layout .page-wrapper.compact-sidebar.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu {
+		height: calc(100vh - 240px);
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.box-layout .page-wrapper.compact-sidebar.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu .dropdown .menu-title.active ~ .menu-content {
+		left: 24.7%;
+		top: 118px;
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-body-wrapper {
+		margin-top: 40px !important;
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-main-header {
+		margin-top: 40px;
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-main-header.close_icon {
+		margin-left: auto;
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+		margin-left: 255px;
+		min-height: calc(100vh - 165px);
+		margin-top: 0;
+		top: 80px;
+		overflow-y: scroll !important;
+		max-height: calc(100vh - 130px);
+		padding-bottom: 80px;
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-body-wrapper .page-body::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 6px rgba(36, 105, 92, 0.2);
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-body-wrapper .page-body::-webkit-scrollbar-thumb, .box-layout .page-wrapper.compact-wrapper .page-body-wrapper .page-body::-webkit-scrollbar {
+		width: 6px;
+		border-radius: 13px;
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-body-wrapper .page-body::-webkit-scrollbar-thumb {
+		background-color: rgba(36, 105, 92, 0.1);
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav {
+		position: fixed;
+		border-bottom: none;
+		top: 100px;
+		z-index: 3;
+		height: auto;
+		line-height: inherit;
+		width: 255px;
+		height: 100%;
+		text-align: left;
+		-webkit-transition: 0.5s;
+		transition: 0.5s;
+		padding-top: 25px;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		margin-left: 7px;
+		height: calc(100vh - 201px);
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav.close_icon {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav.close_icon ~ footer {
+		margin-left: 0;
+		width: 1280px;
+		-webkit-transition: 0.5s;
+		transition: 0.5s;
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu {
+		height: calc(100vh - 510px);
+	}
+
+	.box-layout .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav.main-nav .main-navbar .nav-menu > li {
+		padding: 0 10px;
+	}
+
+	.box-layout .page-wrapper.modern-sidebar.compact-wrapper .page-main-header {
+		margin: 0 auto;
+	}
+
+	.box-layout .page-wrapper.modern-sidebar.compact-wrapper .page-body-wrapper {
+		padding-top: 40px;
+	}
+
+	.box-layout .page-wrapper.modern-sidebar.compact-wrapper .page-body-wrapper header.main-nav {
+		top: 103px;
+		height: calc(100vh - 190px);
+		margin-left: unset;
+	}
+
+	.box-layout .page-wrapper.modern-sidebar.compact-wrapper .page-body-wrapper .page-body {
+		max-height: calc(100vh - 170px);
+		min-height: calc(100vh - 170px);
+		top: 0;
+		margin: 0 auto;
+		margin-left: 255px;
+		padding-bottom: 30px;
+	}
+
+	.box-layout .page-wrapper.modern-sidebar.compact-wrapper .page-body-wrapper footer {
+		z-index: 3;
+	}
+
+	.box-layout .page-wrapper .main-navbar .tab-content {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.box-layout .page-wrapper .page-main-header .main-header-right .main-header-left {
+		width: 255px;
+	}
+
+	.box-layout .page-wrapper .page-main-header .main-header-right .nav-right .nav-menus {
+		padding: 20px 25px;
+	}
+
+	.box-layout .page-wrapper ul.close_icon > li label {
+		padding: 0;
+	}
+
+	.box-layout .page-wrapper ul.close_icon > li label:after {
+		display: none;
+	}
+
+	.box-layout .page-wrapper .bookmark ul {
+		margin-right: -1px;
+	}
+
+	.box-layout .page-wrapper #batchDelete .jsgrid-grid-header .jsgrid-table tr th .btn {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.box-layout .page-wrapper .btn-group-showcase .btn-radio .btn-group .radio input[type="radio"] {
+		display: none;
+	}
+
+	.box-layout .page-wrapper .media.bitcoin-graph {
+		display: block;
+	}
+
+	.box-layout .page-wrapper .media.bitcoin-graph .top-bitcoin {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.box-layout .page-wrapper .media.bitcoin-graph .media-body {
+		margin-top: 30px;
+	}
+
+	.box-layout .page-wrapper .media.bitcoin-graph .media-body .bitcoin-content .bitcoin-numbers h6 {
+		font-size: 14PX;
+	}
+
+	.box-layout .page-wrapper .media.bitcoin-graph .media-body .bitcoin-content.text-end {
+		text-align: center !important;
+	}
+
+	.box-layout .page-wrapper .alert.inverse p {
+		max-width: 238px;
+		display: block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.box-layout .page-wrapper .page-main-header .main-header-right {
+		margin: 0;
+	}
+
+	.box-layout .page-wrapper .page-main-header .vertical-menu-main .mega-menu {
+		width: 1050px !important;
+		max-width: 1050px !important;
+		left: -80px !important;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper {
+		width: 1280px;
+		-webkit-box-shadow: 1px 3px 25px rgba(0, 0, 0, 0.07);
+		box-shadow: 1px 3px 25px rgba(0, 0, 0, 0.07);
+		margin: 0 auto;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .learning-comment {
+		margin-left: -14px !important;
+		float: left !important;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .todo .todo-list-wrapper #todo-list li .task-responsive {
+		min-width: 1087px;
+		overflow: auto;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .browse div[class^="col-"]:nth-child(3) {
+		margin-top: 30px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .current-progress table tbody tr td:last-child {
+		width: 147px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .server-chart #latency-chart {
+		width: 497px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .active-order-table {
+		max-width: 443px;
+		overflow: auto;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .active-order-table table tbody tr td p {
+		width: 100px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .activity .media .gradient-round.gradient-line-1:after {
+		height: 57px;
+		bottom: -64px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .activity .media .gradient-round.small-line:after {
+		height: 36px;
+		bottom: -43px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .activity .media .gradient-round.medium-line:after {
+		height: 40px;
+		bottom: -48px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper footer {
+		width: 1025px;
+		margin: 0 auto;
+		right: 0;
+		padding-right: 15px;
+		margin-left: 255px;
+		width: 1280px;
+		margin: 0 auto;
+		padding-left: 15px;
+		margin-bottom: 40px !important;
+		position: fixed;
+		left: 50%;
+		-webkit-transform: translate(-50%, 0);
+		transform: translate(-50%, 0);
+		z-index: 3;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .footer-fix {
+		margin-left: 567px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .chat-box .chat-history .call-content {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		min-width: 300px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .chat-box .chat-history .call-content > div {
+		z-index: 8;
+		background-color: rgba(255, 255, 255, 0.75);
+		background-blend-mode: overlay;
+		width: 100%;
+		padding: 30px;
+		left: 15px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .chat-box .chat-history .call-content button {
+		width: 40%;
+		font-size: 14px;
+		margin: 0 auto;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .chat-box .chat-history .call-icons {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .chat-box .chat-history .call-icons ul li {
+		border: 1px solid #717171;
+		width: 50px;
+		height: 50px;
+		padding: 8px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .chat-box .chat-history .receiver-img {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .chat-box .chat-history .receiver-img img {
+		width: 38%;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .chat-box .chat-history .total-time h2 {
+		font-size: 28px;
+		color: #717171;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper canvas#myLineCharts {
+		width: 100%;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .chat-right-aside {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 60%;
+		flex: 0 0 60%;
+		max-width: 60%;
+		overflow: hidden;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .caller-img {
+		position: absolute;
+		width: 100%;
+		max-width: 100%;
+		left: 15px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .caller-img img {
+		opacity: 0.7;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .browser-widget img {
+		height: 65px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .weather-widget-two .bottom-whetherinfo .whether-content {
+		top: 39px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .custom-card .card-header img {
+		margin-top: -73px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .custom-card .card-profile img {
+		height: 130px;
+		top: -17px;
+	}
+
+	.box-layout .page-wrapper .page-body-wrapper .select2 {
+		width: 901.781px;
+	}
+
+	.box-layout .page-wrapper .page-main-header {
+		max-width: 1280px;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		-webkit-transition: 0.5s;
+		transition: 0.5s;
+	}
+
+	.box-layout .page-wrapper .page-main-header.open {
+		padding-left: 0;
+		-webkit-transition: 0.5s;
+		transition: 0.5s;
+	}
+
+	.box-layout .page-wrapper .page-builder .ge-canvas.ge-layout-desktop {
+		margin-top: 50px;
+	}
+
+	.box-layout .page-wrapper .page-builder .ge-addRowGroup {
+		margin-bottom: 10px;
+	}
+
+	.box-layout .page-wrapper .pricing-wrapper-card {
+		padding: 50px 20px;
+	}
+
+	.box-layout .page-wrapper .card .blog-box.blog-grid.set-min-height {
+		min-height: 400px;
+	}
+
+	.box-layout .page-wrapper .flot-chart-placeholder#donut-color-chart-morris-daily {
+		min-height: 430px;
+	}
+
+	.box-layout .page-wrapper .flot-chart-placeholder#donut-color-chart-morris {
+		min-height: 430px;
+	}
+
+	.box-layout .page-wrapper .box-col-12 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+
+	.box-layout .page-wrapper .box-col-6 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+
+	.box-layout .page-wrapper .box-col-3 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 25%;
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+
+	.box-layout .page-wrapper .box-col-7 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 60%;
+		flex: 0 0 60%;
+		max-width: 60%;
+	}
+
+	.box-layout .page-wrapper .box-col-5 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 40%;
+		flex: 0 0 40%;
+		max-width: 40%;
+	}
+
+	.box-layout .page-wrapper .box-col-8 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 66.66667%;
+		flex: 0 0 66.66667%;
+		max-width: 66.66667%;
+	}
+
+	.box-layout .page-wrapper .box-col-4 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 33.33%;
+		flex: 0 0 33.33%;
+		max-width: 33%;
+	}
+
+	.box-layout .page-wrapper .chat-box .chat-right-aside {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: calc(100% - 15px);
+		overflow: hidden;
+	}
+
+	.box-layout .page-wrapper .chat-box .chat-right-aside .chat .chat-header .chat-menu-icons li a i {
+		font-size: 19px;
+	}
+
+	.box-layout .page-wrapper .chat-box .chat-right-aside.bitcoin-chat {
+		max-width: 100%;
+	}
+
+	.box-layout .page-wrapper .chat-box .toogle-bar {
+		display: inline-block;
+		margin-right: 0 !important;
+	}
+
+	.box-layout .page-wrapper .chat-menu {
+		right: 0;
+		border-top: 1px solid #e6edef;
+		opacity: 0;
+		-webkit-transform: translateY(-30px);
+		transform: translateY(-30px);
+		visibility: hidden;
+		top: 81px;
+		position: absolute;
+		z-index: 9;
+		background-color: #f5f7fb;
+		-webkit-transition: all linear 0.3s;
+		transition: all linear 0.3s;
+	}
+
+	.box-layout .page-wrapper .chat-menu.show {
+		opacity: 1;
+		visibility: visible;
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px);
+		-webkit-transition: all linear 0.3s;
+		transition: all linear 0.3s;
+		padding-bottom: 25px;
+	}
+
+	.box-layout .page-wrapper .ct-10.total-chart .ct-chart-bar .ct-series .ct-bar {
+		stroke-width: 23px !important;
+	}
+
+	.box-layout .page-wrapper .email-wrap .email-body .email-compose .cke_contents.cke_reset {
+		max-height: 165px;
+	}
+
+	.box-layout .page-wrapper .email-wrap .email-right-aside .email-body .inbox {
+		height: 644px;
+	}
+
+	.box-layout .page-wrapper .email-wrap .email-content .email-top .user-emailid:after {
+		right: -10px;
+	}
+
+	.box-layout .page-wrapper .todo .notification-popup {
+		right: 320px;
+	}
+
+	.box-layout .page-wrapper .touchspin {
+		padding: 0 10px;
+	}
+
+	.box-layout .page-wrapper .vertical-menu-main {
+		width: 1280px;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+	}
+
+	.box-layout .page-wrapper .vertical-menu-main .mega-menu {
+		width: 1050px !important;
+		max-width: 1050px !important;
+		left: -320px !important;
+	}
+
+	.box-layout .page-wrapper .comingsoon video {
+		min-width: 67%;
+		width: 67%;
+	}
+
+	.box-layout .page-wrapper .auth-bg-effect .second-effect {
+		left: 55%;
+	}
+
+	.box-layout .page-wrapper .auth-bg-video video {
+		min-width: 67%;
+		width: 67%;
+	}
+
+	.box-layout .page-wrapper .search-page .search-vid-block > div {
+		margin-top: 30px;
+	}
+}
+
+/**=====================
+    63. Box-layout CSS ends
+==========================**/

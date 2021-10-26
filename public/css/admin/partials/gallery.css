@@ -1,0 +1,414 @@
+
+.profile-img-style img, .scroll-bar-wrap img {
+	width: 100%;
+}
+
+.gallery {
+	margin-bottom: -30px;
+}
+
+.gallery > a {
+	margin-bottom: 30px;
+}
+
+.gallery > a:before {
+	content: "\edee";
+	font-family: IcoFont;
+	position: absolute;
+	height: calc(100% - 10px);
+	left: 20px;
+	width: calc(100% - 40px);
+	background-color: rgba(255, 255, 255, 0.27);
+	top: 5px;
+	-webkit-transform: scale(0);
+	transform: scale(0);
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	font-size: 30px;
+	color: #000;
+}
+
+.gallery > a:hover:before {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.gallery > a .img-thumbnail {
+	border-radius: 0;
+}
+
+.gallery-with-description {
+	margin-bottom: -30px;
+}
+
+.gallery-with-description a > div {
+	padding: 10px;
+	border: 1px solid #e4e6ec;
+	margin-bottom: 30px;
+}
+
+.gallery-with-description a:hover {
+	text-decoration: none !important;
+}
+
+.gallery-with-description h4 {
+	color: #2c323f;
+	margin-top: 15px;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.gallery-with-description p {
+	color: #999;
+}
+
+.lg-backdrop {
+	background-color: #fff;
+}
+
+.lg-outer .lg-actions .lg-next, .lg-outer .lg-actions .lg-prev {
+	background-color: white;
+	border: 1px solid #efefef;
+}
+
+.lg-outer .lg-actions .lg-next:hover, .lg-outer .lg-actions .lg-prev:hover {
+	color: #2c323f;
+}
+
+.lg-outer .lg-toolbar {
+	background-color: rgba(255, 255, 255, 0.45);
+	border-bottom: 1px solid #2c323f;
+}
+
+.lg-outer .lg-toolbar .lg-icon:hover {
+	color: #2c323f;
+}
+
+.lg-outer #lg-counter {
+	color: #2c323f;
+}
+
+.lg-outer .lg-sub-html {
+	background-color: rgba(255, 255, 255, 0.45);
+}
+
+.lg-outer .lg-sub-html h4 {
+	font-size: inherit;
+	color: #2c323f;
+}
+
+.lg-outer .lg-sub-html p {
+	color: #2c323f;
+}
+
+.lg-outer .lg-thumb-outer {
+	background-color: #e6edef;
+}
+
+.lg-outer .lg-thumb-item {
+	padding: 4px;
+	border: 1px solid #efefef;
+	border-radius: 0;
+}
+
+.lg-outer .lg-thumb-item .active, .lg-outer .lg-thumb-item:hover {
+	border-color: #000;
+}
+
+.gallery a:before, .gallery a:after {
+	content: none;
+}
+
+.gallery .img-hover > div {
+	overflow: hidden;
+}
+
+.gallery .hover-1 img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.gallery .hover-1 img:hover {
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+.gallery .hover-2 img {
+	width: 100%;
+	height: auto;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	-webkit-transform: translateX(0px);
+	transform: translateX(0px);
+}
+
+.gallery .hover-2:hover img {
+	-webkit-transform: translateX(40px) scale(1.2);
+	transform: translateX(40px) scale(1.2);
+}
+
+.gallery .hover-3 img {
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.gallery .hover-3:hover img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.gallery .hover-4 img {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.gallery .hover-4:hover img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.gallery .hover-5 img {
+	margin-left: 30px;
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.gallery .hover-5:hover img {
+	margin-left: 0;
+}
+
+.gallery .hover-6 img {
+	-webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(15deg) scale(1.4);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.gallery .hover-6:hover img {
+	-webkit-transform: rotate(0) scale(1);
+	transform: rotate(0) scale(1);
+}
+
+.gallery .hover-7 img {
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.gallery .hover-7:hover img {
+	-webkit-filter: blur(0);
+	filter: blur(0);
+}
+
+.gallery .hover-8 img {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.gallery .hover-8:hover img {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
+}
+
+.gallery .hover-9 img {
+	-webkit-filter: sepia(100%);
+	filter: sepia(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.gallery .hover-9:hover img {
+	-webkit-filter: sepia(0);
+	filter: sepia(0);
+}
+
+.gallery .hover-10 img {
+	-webkit-filter: grayscale(0) blur(0);
+	filter: grayscale(0) blur(0);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.gallery .hover-10:hover img {
+	-webkit-filter: grayscale(100%) blur(3px);
+	filter: grayscale(100%) blur(3px);
+}
+
+.gallery .hover-11 img {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.gallery .hover-11:hover img {
+	opacity: .5;
+}
+
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.gallery .hover-13:hover img {
+	opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
+
+@-webkit-keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+
+@keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+
+.gallery .hover-14 div {
+	position: relative;
+}
+
+.gallery .hover-14 div:before {
+	position: absolute;
+	top: 0;
+	left: -75%;
+	z-index: 2;
+	display: block;
+	content: '';
+	width: 50%;
+	height: 100%;
+	background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.3)));
+	background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+	-webkit-transform: skewX(-25deg);
+	transform: skewX(-25deg);
+}
+
+.gallery .hover-14 div:hover:before {
+	-webkit-animation: shine .75s;
+	animation: shine .75s;
+}
+
+.gallery .hover-15 div {
+	position: relative;
+}
+
+.gallery .hover-15 div:before {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 2;
+	display: block;
+	content: '';
+	width: 0;
+	height: 0;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 100%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+
+.gallery .hover-15 div:hover:before {
+	-webkit-animation: circle .75s;
+	animation: circle .75s;
+}
+
+@-webkit-keyframes circle {
+	0% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		width: 200%;
+		height: 200%;
+		opacity: 0;
+	}
+}
+
+@keyframes circle {
+	0% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		width: 200%;
+		height: 200%;
+		opacity: 0;
+	}
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+*:after, *:before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.grid {
+	position: relative;
+}
+
+/* clear fix */
+.grid:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+/* ---- .grid-item ---- */
+.grid-item img {
+	max-width: 100%;
+	padding: 0.25rem;
+	background-color: #fff;
+	border: 1px solid #dee2e6;
+}
+
+.gallery-with-description .grid-item img {
+	border: 0;
+	padding: 0;
+}

@@ -1,0 +1,146 @@
+
+.avatars .avatar {
+	display: inline-block;
+	margin-right: 10px;
+	position: relative;
+}
+
+.avatars .avatar:last-child {
+	margin-right: 0;
+}
+
+.avatars .avatar .b-r-30 {
+	border-radius: 30px;
+}
+
+.avatars .avatar .b-r-35 {
+	border-radius: 35px;
+}
+
+.avatars .avatar .b-r-25 {
+	border-radius: 25px;
+}
+
+.avatars .avatar .b-r-15 {
+	border-radius: 15px;
+}
+
+.avatars .avatar.ratio img {
+	width: auto;
+}
+
+.avatars .avatar .height-100 {
+	height: 100px;
+}
+
+.avatars .avatar .height-90 {
+	height: 90px;
+}
+
+.avatars .avatar .height-80 {
+	height: 80px;
+}
+
+.avatars .avatar .height-70 {
+	height: 70px;
+}
+
+.avatars .avatar .height-60 {
+	height: 60px;
+}
+
+.avatars .avatar .height-50 {
+	height: 50px;
+}
+
+.avatars .avatar .status {
+	position: absolute;
+	background-color: #999;
+	bottom: 0;
+	right: 4px;
+	border-radius: 100%;
+	border: 1px solid #fff;
+}
+
+.avatars .avatar .status-100 {
+	width: 25px;
+	height: 25px;
+}
+
+.avatars .avatar .status-90 {
+	width: 20px;
+	height: 20px;
+}
+
+.avatars .avatar .status-80 {
+	width: 15px;
+	height: 15px;
+}
+
+.avatars .avatar .status-70 {
+	width: 12px;
+	height: 12px;
+}
+
+.avatars .avatar .status-60 {
+	width: 10px;
+	height: 10px;
+}
+
+.avatars .avatar .status-50 {
+	width: 9px;
+	height: 9px;
+}
+
+.avatars .avatar .status-40 {
+	width: 8px;
+	height: 8px;
+}
+
+.avatars .avatar .status-30 {
+	width: 7px;
+	height: 7px;
+}
+
+.customers ul li img {
+	border: 2px solid #fff;
+	-webkit-box-shadow: -2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: -2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+}
+
+.customers ul li img:hover {
+	-webkit-transform: translateY(-4px) scale(1.02);
+	transform: translateY(-4px) scale(1.02);
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+}
+
+.customers ul li + li {
+	margin-left: -22px;
+}
+
+.customers ul li:nth-child(4) {
+	margin-left: -4px;
+}
+
+.customers.avatar-group {
+	margin-right: 30px;
+}
+
+.customers.avatar-group:last-child {
+	margin-right: 0;
+}
+
+.avatar-showcase {
+	margin-bottom: -10px;
+}
+
+.avatar-showcase .avatars .avatar {
+	margin-bottom: 10px;
+}
+
+.avatar-showcase .avatar-group {
+	margin-bottom: 10px;
+}

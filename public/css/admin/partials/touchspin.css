@@ -1,0 +1,53 @@
+.bootstrap-touchspin input.touchspin {
+	padding: 0 12px;
+}
+
+.bootstrap-touchspin .input-group .btn {
+	padding: 10px 20px;
+}
+
+.bootstrap-touchspin .touchspin-vertical-tab .input-group .input-group-btn-vertical {
+	position: relative;
+	white-space: nowrap;
+	width: 1%;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.bootstrap-touchspin .touchspin-vertical-tab .input-group .input-group-btn-vertical .bootstrap-touchspin-down {
+	margin-top: -2px;
+}
+
+.bootstrap-touchspin .touchspin-vertical-tab .input-group .input-group-btn-vertical i {
+	position: absolute;
+	top: 4px;
+	left: 7px;
+	font-size: 10px;
+	font-weight: normal;
+}
+
+.bootstrap-touchspin .touchspin-vertical-tab .input-group .input-group-btn-vertical > .btn {
+	display: block;
+	float: none;
+	width: 100%;
+	max-width: 100%;
+	padding: 9px;
+	margin-left: -1px;
+	position: relative;
+}
+
+.bootstrap-touchspin .input-group {
+	font-family: "Rubik", sans-serif, sans-serif;
+}
+
+.bootstrap-touchspin .input-group .btn {
+	border-radius: 0 !important;
+}
+
+.bootstrap-touchspin .dropdown-basic .dropdown .dropbtn {
+	padding: 9px 30px;
+}
+
+.bootstrap-touchspin .dropdown-basic .dropdown .dropdown-content {
+	z-index: 9999;
+}

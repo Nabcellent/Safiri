@@ -1,0 +1,306 @@
+
+.radial-bar.radial-bar-lg:after, .radial-bar.radial-bar-lg > img {
+	width: 70px;
+	height: 70px;
+	margin-left: 15px;
+	margin-top: 15px;
+	line-height: 70px;
+}
+
+.radial-bar.radial-bar-sm:after, .radial-bar.radial-bar-sm > img {
+	width: 35px;
+	height: 35px;
+	margin-left: 7.5px;
+	margin-top: 7.5px;
+	line-height: 35px;
+}
+
+.radial-bar.radial-bar-xs:after, .radial-bar.radial-bar-xs > img {
+	width: 20px;
+	height: 20px;
+	margin-left: 5.5px;
+	margin-top: 4.5px;
+	line-height: 21px;
+}
+
+.cke_wysiwyg_frame, .cke_wysiwyg_div {
+	background-color: #fff;
+}
+
+.chart-block canvas {
+	width: 100% !important;
+}
+
+.chart-block #pie-sparkline-chart {
+	width: auto !important;
+}
+
+.chart-block .chart-overflow {
+	overflow: hidden;
+	text-align: center;
+}
+
+.candidcahrt {
+	width: 100%;
+	height: 470px;
+}
+
+.amcharts-export-canvas {
+	position: absolute;
+	display: none;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #fff;
+}
+
+.amcharts-export-canvas .canvas-container {
+	-webkit-transition: opacity .5s ease-out;
+	transition: opacity .5s ease-out;
+}
+
+.amcharts-export-canvas.active {
+	display: block;
+}
+
+.amcharts-export-canvas.dropbox .canvas-container {
+	opacity: .5;
+}
+
+.flot-chart-container {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	height: 400px;
+}
+
+.flot-chart-container #toggling-series-flot {
+	width: 79% !important;
+}
+
+.all-chart .flot-chart-container {
+	height: 350px;
+}
+
+.flot-chart-placeholder {
+	width: 100%;
+	height: 100%;
+	font-size: 14px;
+	line-height: 1.2em;
+	text-align: center;
+}
+
+.flot-chart-placeholder .legend table {
+	border-spacing: 5px;
+}
+
+.morris-hover {
+	position: absolute;
+	z-index: 8;
+}
+
+.morris-hover.morris-default-style {
+	border-radius: 10px;
+	padding: 6px;
+	color: #898989;
+	background: #fff;
+	border: solid 1px #e6edef;
+	font-family: sans-serif;
+	font-size: 12px;
+	text-align: center;
+}
+
+.morris-hover.morris-default-style .morris-hover-row-label {
+	font-weight: bold;
+	margin: 0.25em 0;
+}
+
+.morris-hover.morris-default-style .morris-hover-point {
+	white-space: nowrap;
+	margin: 0.1em 0;
+}
+
+.chart-sparkline {
+	position: absolute;
+	left: 0;
+	top: 0;
+	visibility: hidden;
+	background: rgba(49, 49, 49, 0.7);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+	color: #fff;
+	font: 10px "Rubik", sans-serif, sans-serif;
+	text-align: left;
+	white-space: nowrap;
+	padding: 5px;
+	border: 1px solid rgba(49, 49, 49, 0.75);
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	z-index: 10000;
+	border-radius: 5px;
+}
+
+.chart-sparkline .jqsfield {
+	color: #fff;
+	font: 10px "Rubik", sans-serif, sans-serif;
+	text-align: left;
+}
+
+.radial-bar {
+	position: relative;
+	display: inline-block;
+	border-radius: 50%;
+	background-color: transparent;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	width: 80px;
+	height: 80px;
+	font-size: 18px;
+	background-clip: content-box;
+}
+
+.radial-bar:after {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	text-align: center;
+	font-weight: 500;
+	color: #455a64;
+	content: attr(data-label);
+	background-color: #fff;
+	z-index: 1;
+	width: 56px;
+	height: 56px;
+	margin-left: 12px;
+	margin-top: 12px;
+	line-height: 56px;
+}
+
+.radial-bar > img {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	text-align: center;
+	font-weight: 500;
+	color: #455a64;
+	z-index: 3;
+	width: 56px;
+	height: 56px;
+	margin-left: 12px;
+	margin-top: 12px;
+	line-height: 56px;
+}
+
+.radial-bar-danger.radial-bar-20 {
+	background-image: linear-gradient(90deg, #efefef 50%, transparent 50%, transparent), linear-gradient(162deg, #d22d3d 50%, #efefef 50%, #efefef);
+}
+
+.radial-bar.radial-bar-lg {
+	width: 100px;
+	height: 100px;
+	font-size: 20px;
+}
+
+.radial-bar.radial-bar-sm {
+	width: 50px;
+	height: 50px;
+	font-size: 12px;
+}
+
+.radial-bar.radial-bar-xs {
+	width: 30px;
+	height: 30px;
+	font-size: 8px;
+}
+
+.pieLabel div {
+	color: #fff !important;
+}
+
+.pieLabel div input[type=checkbox] {
+	margin: 7px;
+}
+
+.knob-chart {
+	min-height: 255px;
+}
+
+.knob-chart .chart-clock-main {
+	position: relative;
+	width: 200px;
+	margin: 45px auto;
+}
+
+.knob-chart .chart-clock-main .clock-large {
+	position: absolute;
+	left: -48px;
+	top: -45px;
+}
+
+.knob-chart .chart-clock-main .clock-medium {
+	position: absolute;
+	left: 2px;
+	top: 5px;
+}
+
+.knob-chart .chart-clock-main .clock-small {
+	position: absolute;
+	left: 15px;
+	top: 55px;
+}
+
+.peity-charts svg {
+	width: 100%;
+	height: 250px;
+}
+
+.peity-charts.peity-chart-primary svg polygon {
+	fill: rgba(36, 105, 92, 0.5);
+}
+
+.peity-charts.peity-chart-primary svg polyline {
+	stroke: #24695c;
+}
+
+p.data-attributes svg {
+	margin-right: 10px;
+}
+
+.knob-block {
+	position: relative;
+}
+
+.knob-block input {
+	display: -webkit-box !important;
+	display: -ms-flexbox !important;
+	display: flex !important;
+	-webkit-box-align: center !important;
+	-ms-flex-align: center !important;
+	align-items: center !important;
+	-webkit-box-pack: center !important;
+	-ms-flex-pack: center !important;
+	justify-content: center !important;
+	height: 100% !important;
+	width: 100% !important;
+	left: 0 !important;
+	top: 0 !important;
+	margin-left: 0 !important;
+	margin-top: -3px !important;
+}
+
+.apex-chart {
+	margin: 0 auto;
+}
+
+.apexcharts-menu-item {
+	width: 110px;
+}
+
+.word-tree {
+	height: 400px;
+}

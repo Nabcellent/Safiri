@@ -1,0 +1,199 @@
+
+.height-35 {
+	height: 35px !important;
+}
+
+label {
+	margin-bottom: 5px;
+	font-weight: 600;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+.form-control, .form-select {
+	background-color: #fff;
+	font-size: 14px;
+	border-color: #e6edef;
+	color: #717171;
+}
+
+.form-control:focus, .form-select:focus {
+	border-color: #e6edef;
+	background-color: #fff;
+	-webkit-box-shadow: 0 0 0 0.2rem rgba(171, 140, 228, 0.05);
+	box-shadow: 0 0 0 0.2rem rgba(171, 140, 228, 0.05);
+}
+
+.theme-form .form-control :focus {
+	-webkit-box-shadow: 0 0 0 0.2rem rgba(171, 140, 228, 0.05);
+	box-shadow: 0 0 0 0.2rem rgba(171, 140, 228, 0.05);
+}
+
+.theme-form.sm-form .form-group {
+	margin-bottom: 14px;
+}
+
+.theme-form .form-group {
+	margin-bottom: 20px;
+}
+
+.theme-form .form-group textarea {
+	border-color: #efefef;
+}
+
+.theme-form .form-group textarea::-webkit-input-placeholder {
+	color: #898989;
+	font-size: 14px;
+	letter-spacing: 1px;
+	font-weight: 100;
+}
+
+.theme-form .form-group input[type=text], .theme-form .form-group input[type=email], .theme-form .form-group input[type=search],
+.theme-form .form-group input[type=password], .theme-form .form-group input[type=number], .theme-form .form-group input[type=tel], .theme-form .form-group input[type=date], .theme-form .form-group input[type=datetime-local], .theme-form .form-group input[type=time], .theme-form .form-group input[type=datetime-local], .theme-form .form-group input[type=month], .theme-form .form-group input[type=week],
+.theme-form .form-group input[type=url], .theme-form .form-group input[type=file], .theme-form .form-group select {
+	border-color: #e6edef;
+	font-size: 14px;
+	color: #898989;
+}
+
+.theme-form .form-group input[type=text]::-webkit-input-placeholder, .theme-form .form-group input[type=email]::-webkit-input-placeholder, .theme-form .form-group input[type=search]::-webkit-input-placeholder,
+.theme-form .form-group input[type=password]::-webkit-input-placeholder, .theme-form .form-group input[type=number]::-webkit-input-placeholder, .theme-form .form-group input[type=tel]::-webkit-input-placeholder, .theme-form .form-group input[type=date]::-webkit-input-placeholder, .theme-form .form-group input[type=datetime-local]::-webkit-input-placeholder, .theme-form .form-group input[type=time]::-webkit-input-placeholder, .theme-form .form-group input[type=datetime-local]::-webkit-input-placeholder, .theme-form .form-group input[type=month]::-webkit-input-placeholder, .theme-form .form-group input[type=week]::-webkit-input-placeholder,
+.theme-form .form-group input[type=url]::-webkit-input-placeholder, .theme-form .form-group input[type=file]::-webkit-input-placeholder, .theme-form .form-group select::-webkit-input-placeholder {
+	color: #898989;
+	font-size: 14px;
+	letter-spacing: 1px;
+	font-weight: 100;
+}
+
+.theme-form .form-group select.form-control:not([size]):not([multiple]) {
+	border-color: #efefef;
+	font-size: 14px;
+}
+
+.theme-form .checkbox label {
+	padding-left: 10px;
+}
+
+.theme-form .form-divider {
+	position: relative;
+	clear: both;
+	height: 0;
+	margin: 30px 0;
+	border-top: 1px solid #efefef;
+}
+
+.theme-form .form-divider:before {
+	position: absolute;
+	top: -11px;
+	left: 40%;
+	margin-left: -10px;
+	padding: 0 5px;
+	content: "Or Signup With";
+	color: #2b2b2b;
+	background: #fff;
+}
+
+.theme-form .login-divider {
+	position: relative;
+	clear: both;
+	height: 0;
+	margin: 30px 0;
+	border-top: 1px solid #efefef;
+}
+
+.theme-form .login-divider:before {
+	position: absolute;
+	top: -11px;
+	left: 40%;
+	margin-left: -10px;
+	padding: 0 5px;
+	color: #2b2b2b;
+	background: #fff;
+	content: "Or Login With";
+}
+
+.theme-form .btn-fb {
+	background-color: #50598e;
+	color: #fff;
+	width: 100%;
+}
+
+.theme-form .btn-twitter {
+	background-color: #6fa2d8;
+	color: #fff;
+	width: 100%;
+}
+
+.theme-form .btn-google {
+	background-color: #c64e40;
+	color: #fff;
+	width: 100%;
+}
+
+.form-inline {
+	display: -webkit-inline-box;
+}
+
+.form-inline .form-group {
+	margin-right: 15px;
+}
+
+.form-inline .form-group .col-form-label {
+	margin-right: 5px;
+}
+
+.search-form .form-group:before {
+	position: absolute;
+	content: "";
+	width: 1px;
+	height: 25px;
+	background: #e8ebf2;
+	left: 82px;
+	top: 50px;
+}
+
+.search-form .form-group:after {
+	position: absolute;
+	content: "\f002";
+	font-family: FontAwesome;
+	top: 50px;
+	left: 53px;
+	color: #8e8e8e;
+}
+
+.search-form input {
+	border: 1px solid #e6edef;
+	padding: 10px 10px 10px 70px;
+	border-radius: 50px;
+}
+
+.form-label-align-right label {
+	text-align: right;
+	padding-top: 17px;
+	font-weight: 500;
+}
+
+.custom-file-label {
+	line-height: 1.8;
+}
+
+.custom-file-label::after {
+	line-height: 1.8;
+}
+
+.input-group-text {
+	border-color: #e6edef;
+	font-weight: 500;
+}
+
+.dropdown-menu {
+	border: 1px solid #e6edef;
+}
+
+.animated-modal .form-select {
+	display: inline-block;
+	width: auto;
+	vertical-align: middle;
+}

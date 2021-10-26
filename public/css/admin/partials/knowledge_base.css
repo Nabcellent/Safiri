@@ -1,0 +1,217 @@
+
+.knowledgebase-bg {
+	height: 500px;
+	margin-bottom: 30px;
+}
+
+.knowledgebase-search {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	left: 5%;
+}
+
+.knowledgebase-search h3 {
+	font-weight: 600;
+}
+
+.knowledgebase-search .form-inline {
+	background-color: #fff;
+	width: 500px;
+	padding: 12px 50px;
+	border-radius: 10px;
+	border: 1px solid #e6edef;
+	margin-top: 10px;
+	position: relative;
+}
+
+.knowledgebase-search .form-inline ::-webkit-input-placeholder {
+	color: #cccccc;
+}
+
+.knowledgebase-search .form-inline ::-moz-placeholder {
+	color: #cccccc;
+}
+
+.knowledgebase-search .form-inline :-ms-input-placeholder {
+	color: #cccccc;
+}
+
+.knowledgebase-search .form-inline ::-ms-input-placeholder {
+	color: #cccccc;
+}
+
+.knowledgebase-search .form-inline ::placeholder {
+	color: #cccccc;
+}
+
+.knowledgebase-search .form-inline svg {
+	position: absolute;
+	left: 20px;
+	width: 20px;
+	top: 17px;
+	stroke: #cccccc;
+}
+
+.browse {
+	margin-bottom: -20px;
+}
+
+.browse > div {
+	margin-bottom: 20px;
+}
+
+.browse .browse-articles h6 {
+	font-weight: 600;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #e6edef;
+	color: #59667a;
+	padding-left: 25px;
+	position: relative;
+	line-height: 1.5;
+}
+
+.browse .browse-articles h6 span svg {
+	width: 16px;
+	height: 16px;
+	margin-right: 10px;
+	vertical-align: text-top;
+	position: absolute;
+	left: 0;
+	top: 4px;
+}
+
+.browse .browse-articles ul li {
+	border-radius: 8px;
+	position: relative;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.browse .browse-articles ul li:last-child {
+	padding-bottom: 0;
+}
+
+.browse .browse-articles ul li h5 {
+	vertical-align: text-top;
+	font-size: 14px;
+	margin-bottom: unset;
+	color: #999;
+	width: 100%;
+	padding-left: 20px;
+	line-height: 1.6;
+	font-weight: 500;
+	position: relative;
+}
+
+.browse .browse-articles ul li h5 span.badge {
+	margin-left: auto;
+}
+
+.browse .browse-articles ul li h5 svg {
+	width: 14px;
+	height: 14px;
+	margin-right: 10px;
+	vertical-align: text-top;
+	position: absolute;
+	left: 0;
+	top: 4px;
+}
+
+.browse .browse-articles ul li a {
+	color: #242934;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 100%;
+}
+
+.browse .browse-articles ul li:hover h5 {
+	color: #24695c;
+}
+
+@media only screen and (max-width: 1199px) {
+	.knowledgebase-bg {
+		height: 400px;
+	}
+
+	.knowledgebase-search .form-inline {
+		width: 400px;
+		padding: 7px 45px;
+	}
+
+	.knowledgebase-search .form-inline svg {
+		top: 14px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.browse .browse-articles h6 {
+		margin-bottom: 10px;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+	.browse .browse-articles h6 {
+		margin-bottom: 10px;
+	}
+
+	.knowledgebase-bg {
+		height: 250px;
+	}
+
+	.knowledgebase-search {
+		width: calc(100% - 30px);
+		left: 15px;
+		height: calc(100% - 30px);
+		background-color: rgba(255, 255, 255, 0.7);
+	}
+
+	.knowledgebase-search .form-inline {
+		width: 90%;
+		padding: 3px 45px;
+	}
+
+	.knowledgebase-search .form-inline svg {
+		top: 8px;
+	}
+
+	.knowledgebase-search > div {
+		width: 100%;
+		text-align: center;
+		padding: 15px;
+		border-right: 10px;
+	}
+
+	.knowledgebase-search > div h3 {
+		font-size: 20px;
+		margin-bottom: 0;
+	}
+
+	.knowledgebase-search > div .form-group {
+		margin-bottom: 0;
+	}
+}
+
+@media only screen and (max-width: 360px) {
+	.browse .browse-articles ul li h5 {
+		width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.browse .browse-articles ul li h5 span.badge {
+		display: none;
+	}
+}

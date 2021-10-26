@@ -1,0 +1,172 @@
+
+.table-bordered td, .table-bordered th {
+	border-color: #e6edef !important;
+}
+
+.pills-component {
+	width: 20%;
+}
+
+.product-page-width {
+	width: 80%;
+}
+
+.table {
+	margin-bottom: 0;
+}
+
+.table th, .table td {
+	padding: 0.75rem;
+}
+
+.table th {
+	color: #242934;
+}
+
+.table td {
+	color: #242934;
+}
+
+.table [class*='bg-'] {
+	color: #fff;
+}
+
+.table .bg-light {
+	color: #242934;
+}
+
+.table tfoot {
+	font-weight: bold;
+}
+
+.table thead.bg-primary tr th {
+	color: #fff;
+}
+
+.table thead.table-primary {
+	background-color: rgba(36, 105, 92, 0.1);
+	--bs-table-bg: rgba(var(--primary-color), 0.1);
+	color: #24695c;
+}
+
+.table thead.table-primary tr th {
+	color: #24695c;
+}
+
+.table-inverse th, .table-inverse td {
+	color: #fff;
+}
+
+.table[class*='bg-'] th, .table[class*='bg-'] td {
+	color: #fff;
+}
+
+.table-hover tbody tr:hover {
+	background-color: rgba(36, 105, 92, 0.1);
+	--bs-table-accent-bg: unset;
+}
+
+.table-hover tbody tr:hover th, .table-hover tbody tr:hover td {
+	color: #24695c;
+}
+
+.table-xl td, .table-xl th {
+	padding: 1.25rem 2rem;
+	font-size: 120%;
+}
+
+.table-lg td, .table-lg th {
+	padding: 0.9rem 2rem;
+	font-size: 110%;
+}
+
+.table-de td, .table-de th {
+	padding: 0.75rem 2rem;
+}
+
+.table-sm th, .table-sm td {
+	padding: 0.5rem 2rem;
+	font-size: 90%;
+}
+
+.table-xs th, .table-xs td {
+	padding: 0.2rem 2rem;
+	font-size: 80%;
+}
+
+.table-border-horizontal tr, .table-border-horizontal th, .table-border-horizontal td {
+	border-top: 1px solid #f2f4ff;
+	padding: 0.75rem 2rem;
+}
+
+.table-border-vertical tr, .table-border-vertical th, .table-border-vertical td {
+	border-top: 0;
+	border-right: 1px solid #f2f4ff;
+}
+
+.table-border-vertical tr td:last-child {
+	border-right: none;
+}
+
+.table-bordernone td {
+	border: 0;
+}
+
+.table-bordernone .bd-t-none {
+	border-top: none;
+}
+
+.table-bordernone .u-s-tb {
+	padding: 11px;
+}
+
+.table-inverse {
+	color: #fff;
+	background-color: #292b2c;
+}
+
+.table-inverse th, .table-inverse td {
+	border-color: #fff;
+}
+
+.table-inverse.table-bordered {
+	border: 0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(245, 247, 250, 0.5);
+}
+
+.table-bordered td, .table-bordered th {
+	border-color: #fdfeff;
+}
+
+.table > :not(:last-child) > :last-child > * {
+	border-color: #e6edef;
+}
+
+thead, tbody, tfoot, tr, td, th {
+	border-color: #e6edef;
+}
+
+.table-styling.table-primary.table-striped tbody tr:nth-of-type(odd) {
+	--bs-table-accent-bg: unset;
+}
+
+.table-styling.table-primary.table-striped tbody tr:nth-of-type(odd):hover {
+	color: #24695c;
+}
+
+.table-styling.table-primary.table-striped tbody tr:nth-of-type(even):hover th, .table-styling.table-primary.table-striped tbody tr:nth-of-type(even):hover td {
+	color: #fff;
+}
+
+.table-success {
+	background-color: rgba(27, 76, 67, 0.1);
+	--bs-table-bg: rgba(var(--success-color), 0.1);
+	color: #1b4c43;
+}
+
+.table-success tr th {
+	color: #1b4c43;
+}

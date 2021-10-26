@@ -1,0 +1,114 @@
+.invoice p {
+	color: #999;
+}
+
+.invoice .invo-header {
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #e6edef;
+}
+
+.invoice .table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(36, 105, 92, 0.05);
+	--bs-table-accent-bg: unset;
+}
+
+.invoice .table-striped tbody tr h6 {
+	text-transform: capitalize;
+	color: #24695c;
+}
+
+.invoice .invo-profile {
+	margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 1199px) {
+	.invoice h4 {
+		margin-bottom: 0px;
+	}
+
+	.invoice h3 {
+		margin-bottom: 0px;
+	}
+
+	.invoice .invo-header .media-left img {
+		width: 55% !important;
+	}
+
+	.invoice .invo-profile .media {
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+		border-bottom: 1px solid #e6edef;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.invoice .card .card-body {
+		padding: 20px;
+	}
+
+	.invoice h4 {
+		font-size: 20px;
+	}
+
+	.invoice h3 {
+		font-size: 20px;
+	}
+
+	.invoice table td {
+		min-width: 150px;
+	}
+
+	.invoice table td:first-child {
+		min-width: 280px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.invoice .invo-pal {
+		margin-top: 15px;
+		text-align: left !important;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+	.invoice h4 {
+		font-size: 18px;
+	}
+
+	.invoice h3 {
+		font-size: 14px;
+	}
+
+	.invoice p {
+		font-size: 13px;
+	}
+
+	.invoice .invo-header .media-body {
+		text-align: right;
+	}
+
+	.invoice .text-xs-center {
+		margin-top: 20px;
+		text-align: center !important;
+	}
+
+	.invoice .text-md-end {
+		text-align: left;
+	}
+}
+
+@media only screen and (max-width: 420px) {
+	.invoice .invo-header .media-left img {
+		width: 50% !important;
+	}
+
+	.invoice .invo-profile .media {
+		display: block;
+	}
+
+	.invoice .invo-profile .media .media-body {
+		margin-left: 0 !important;
+		margin-top: 10px;
+	}
+}

@@ -1,0 +1,189 @@
+
+.prooduct-details-box {
+	margin-bottom: 30px;
+}
+
+.prooduct-details-box .close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	height: 16px;
+	cursor: pointer;
+}
+
+.prooduct-details-box .media {
+	border: 1px solid #e6edef;
+	width: 100%;
+	position: relative;
+	display: block;
+}
+
+.prooduct-details-box .media .media-body {
+	padding: 15px;
+}
+
+.prooduct-details-box .rating {
+	color: #ffaf45;
+}
+
+.prooduct-details-box .price {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.prooduct-details-box .price span {
+	margin-left: 5px;
+	color: #717171;
+}
+
+.prooduct-details-box ul.rating li {
+	display: inline-block;
+}
+
+.prooduct-details-box .product-name h6 {
+	color: #242934;
+	font-size: 15px;
+}
+
+.prooduct-details-box .btn {
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+	font-size: 9px;
+	padding: 2px 5px;
+}
+
+.order-history .input-group {
+	text-align: right;
+	max-width: 300px;
+}
+
+.order-history table th {
+	min-width: 170px;
+}
+
+.order-history table th,
+.order-history table td {
+	text-align: center;
+}
+
+.order-history table thead tr th {
+	vertical-align: middle;
+	border-top: none;
+	background-color: rgba(36, 105, 92, 0.05);
+	border: 1px solid #24695c;
+	padding: 15px;
+	font-size: 16px;
+	color: #24695c;
+	font-weight: 600;
+}
+
+.order-history table .qty-box {
+	width: 120px;
+	margin: 0 auto;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.order-history table .qty-box input {
+	padding: 0;
+	border: none;
+	background-color: transparent;
+}
+
+.order-history table .qty-box input:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: none;
+}
+
+.order-history table .qty-box .input-group {
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	background-color: transparent;
+	border-radius: 5px;
+	border: 1px solid #e6edef;
+	overflow: hidden;
+}
+
+.order-history table .qty-box .btn {
+	background-color: transparent;
+	padding: 8px 13px;
+	font-size: 10px;
+}
+
+.order-history table tbody tr td {
+	vertical-align: middle;
+	color: #999;
+	font-weight: 600;
+}
+
+.order-history table tbody tr td .product-name a {
+	font-size: 15px;
+	color: #898989;
+}
+
+.order-history table tbody tr td .product-name .order-process {
+	font-size: 13px;
+	padding-left: 15px;
+}
+
+.order-history table tbody tr td .product-name .order-process .order-process-circle {
+	position: relative;
+}
+
+.order-history table tbody tr td .product-name .order-process .order-process-circle:before {
+	position: absolute;
+	content: '';
+	width: 4px;
+	height: 4px;
+	border-radius: 100%;
+	background-color: #898989;
+	left: -15px;
+	top: 4px;
+}
+
+.order-history table tbody tr td .product-name .order-process .order-process-circle.shipped-order:before {
+	background-color: #1b4c43;
+}
+
+.order-history table tbody tr td .product-name .order-process .order-process-circle.cancel-order:before {
+	background-color: #d22d3d;
+}
+
+.order-history table tbody tr td.total-amount {
+	color: #242934;
+}
+
+.order-history .product-name h6 {
+	color: #242934;
+	margin-bottom: unset;
+	font-size: 14px;
+}
+
+.whishlist-main > div {
+	margin-bottom: -30px;
+}
+
+@media only screen and (max-width: 1199px) {
+	.order-history table {
+		width: 900px;
+		overflow: auto;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.order-history table tbody tr td .product-name a {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+	.wishlist .text-end {
+		text-align: left !important;
+	}
+}

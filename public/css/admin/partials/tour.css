@@ -1,0 +1,159 @@
+
+.introjs-helperLayer {
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+}
+
+.introjs-tooltipReferenceLayer {
+	background-color: transparent;
+}
+
+.introjs-helperNumberLayer {
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	background: #d22d3d;
+	background: -webkit-gradient(linear, left top, left bottom, from(#24695c), to(#24695c));
+	background: linear-gradient(to bottom, #24695c 0%, #24695c 100%);
+	border: 3px solid #fff;
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.introjs-arrow {
+	border: 12px solid #fff;
+}
+
+.introjs-arrow.top {
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: #24695c;
+	border-left-color: transparent;
+}
+
+.introjs-arrow.top-right {
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: #24695c;
+	border-left-color: transparent;
+}
+
+.introjs-arrow.top-middle {
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: #24695c;
+	border-left-color: transparent;
+}
+
+.introjs-arrow.right {
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	border-left-color: #24695c;
+}
+
+.introjs-arrow.right-bottom {
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	border-left-color: #24695c;
+}
+
+.introjs-arrow.bottom {
+	border-top-color: #24695c;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+}
+
+.introjs-arrow.left {
+	border-top-color: transparent;
+	border-right-color: #24695c;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+}
+
+.introjs-arrow.left-bottom {
+	border-top-color: transparent;
+	border-right-color: #24695c;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+}
+
+.introjs-tooltip {
+	background-color: #24695c;
+	-webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+	color: #fff;
+	border-color: #24695c;
+}
+
+.introjs-button {
+	border: 1px solid #efefef;
+	text-shadow: 1px 1px 0 #fff;
+	color: #242934 !important;
+	background-color: #fff;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+	background-image: linear-gradient(#fff, #fff);
+}
+
+.introjs-button:hover {
+	border-color: #efefef;
+}
+
+.introjs-button:focus, .introjs-button:active {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#e6edef), to(#efefef));
+	background-image: linear-gradient(#e6edef, #efefef);
+}
+
+.introjs-skipbutton {
+	color: #24695c;
+}
+
+.introjs-prevbutton.introjs-fullbutton {
+	border: 1px solid #efefef;
+}
+
+.introjs-disabled {
+	color: #24695c;
+	border-color: #efefef;
+}
+
+.introjs-disabled:hover, .introjs-disabled:focus {
+	color: #24695c;
+	border-color: #efefef;
+}
+
+.introjs-bullets ul li a {
+	background: #e6edef;
+}
+
+.introjs-bullets ul li a:hover {
+	background: #fff;
+}
+
+.introjs-bullets ul li a.active {
+	background: #fff;
+}
+
+.introjs-progress {
+	background-color: #e6edef;
+}
+
+.introjs-progressbar {
+	background-color: #24695c;
+}
+
+.introjs-hint:hover > .introjs-hint-pulse {
+	border: 5px solid rgba(60, 60, 60, 0.57);
+}
+
+.introjs-hint-pulse {
+	border: 5px solid rgba(60, 60, 60, 0.27);
+	background-color: rgba(136, 136, 136, 0.24);
+}
+
+.introjs-hint-dot {
+	border: 10px solid rgba(146, 146, 146, 0.36);
+}

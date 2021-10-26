@@ -1,0 +1,37 @@
+.breadcrumb-colored {
+	padding: 12px 16px;
+	border-radius: 4px;
+}
+
+.breadcrumb-colored li a {
+	color: #fff;
+}
+
+.breadcrumb-colored li.active {
+	color: #fff;
+	opacity: 0.7;
+}
+
+.breadcrumb-colored .breadcrumb-item:before {
+	color: #fff;
+}
+
+.breadcrumb-colored .breadcrumb-item.txt-dark:before {
+	color: #000;
+}
+
+.breadcrumb-icon {
+	--bs-breadcrumb-divider: '>';
+}
+
+.breadcrumb-icon li {
+	display: inline-block;
+}
+
+.breadcrumb-no-divider {
+	--bs-breadcrumb-divider: '';
+}
+
+.breadcrumb-item.active {
+	text-transform: capitalize;
+}

@@ -1,0 +1,336 @@
+
+.card {
+	margin-bottom: 30px;
+	border: 1px solid #e6edef;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	letter-spacing: 0.5px;
+	border-radius: 0;
+	background-color: #fff;
+}
+
+.card .card-header {
+	padding: 30px;
+	border-bottom: none;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	position: relative;
+	background-color: #fff;
+}
+
+.card .card-header.card-no-border {
+	border-bottom: none !important;
+}
+
+.card .card-header h4 {
+	font-size: 24px;
+	font-weight: 500;
+}
+
+.card .card-header h5 {
+	font-size: 22px;
+	font-weight: 500;
+}
+
+.card .card-header h5:not(.mb-0) {
+	margin-bottom: 0;
+	text-transform: capitalize;
+	font-weight: 600;
+	line-height: 1.3;
+	color: #2c323f;
+}
+
+.card .card-header > span {
+	font-size: 12px;
+	color: rgba(36, 41, 52, 0.7);
+	margin-top: 5px;
+	display: block;
+	letter-spacing: 1px;
+}
+
+.card .card-header.bg-primary h4, .card .card-header.bg-secondary h4, .card .card-header.bg-success h4, .card .card-header.bg-danger h4, .card .card-header.bg-warning h4 {
+	color: #fff;
+}
+
+.card .card-header.bg-primary h5, .card .card-header.bg-secondary h5, .card .card-header.bg-success h5, .card .card-header.bg-danger h5, .card .card-header.bg-warning h5 {
+	color: #fff;
+}
+
+.card .card-header.bg-primary > span, .card .card-header.bg-secondary > span, .card .card-header.bg-success > span, .card .card-header.bg-danger > span, .card .card-header.bg-warning > span {
+	color: #fff;
+}
+
+.card .card-body {
+	padding: 30px;
+	background-color: transparent;
+}
+
+.card .card-body p:last-child {
+	margin-bottom: 0;
+}
+
+.card .card-body.bg-primary p, .card .card-body.bg-secondary p, .card .card-body.bg-success p, .card .card-body.bg-danger p, .card .card-body.bg-warning p {
+	color: #fff;
+}
+
+.card .sub-title {
+	border-bottom: 1px solid rgba(36, 105, 92, 0.2);
+	padding-bottom: 5px;
+	margin-bottom: 8px;
+	font-size: 18px;
+}
+
+.card .card-footer {
+	background-color: transparent;
+	border-top: 1px solid #e6edef;
+	padding: 30px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.card .card-footer.bg-primary, .card .card-footer.bg-secondary, .card .card-footer.bg-success, .card .card-footer.bg-danger, .card .card-footer.bg-warning {
+	color: #fff;
+}
+
+.setting-list {
+	border-radius: 0 0 0 7px;
+	position: absolute;
+	right: 20px;
+	top: 22px;
+	display: inline-block;
+	float: right;
+	z-index: 1;
+	background-color: #fff;
+}
+
+.setting-list .setting-option {
+	text-align: right;
+	width: 35px;
+	height: 35px;
+	overflow: hidden;
+	-webkit-transition: 0.3s ease-in-out;
+	transition: 0.3s ease-in-out;
+}
+
+.setting-list .setting-option li {
+	display: inline-block;
+}
+
+.setting-list .setting-option li:first-child i.icon-angle-double-right {
+	font-size: 14px;
+}
+
+.setting-list .setting-option.open-setting {
+	width: 190px;
+}
+
+.setting-list .setting-option.setting-vertical {
+	text-align: center;
+	height: 40px;
+}
+
+.setting-list .setting-option.setting-vertical li {
+	display: block;
+	margin: 5px 0;
+}
+
+.setting-list .setting-option.setting-vertical li:first-child i.icon-angle-double-right {
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+.setting-list .setting-option.setting-vertical.open-setting {
+	height: 170px;
+	width: 35px;
+}
+
+.setting-list i {
+	margin: 0 5px;
+	cursor: pointer;
+	line-height: 20px;
+}
+
+.setting-list i.icofont-refresh {
+	font-size: 13px;
+}
+
+.card.card-load .card-loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	background-color: rgba(255, 255, 255, 0.7);
+	z-index: 8;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+.card.card-load .card-loader i {
+	margin: 0 auto;
+	color: #24695c;
+	font-size: 20px;
+}
+
+.card.full-card {
+	position: fixed;
+	top: 0;
+	z-index: 99999;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	right: 0;
+	border-radius: 0;
+	border: 1px solid #efefef;
+	width: calc(100vw - 12px);
+	height: calc(100vh);
+}
+
+.card.full-card .card-body {
+	overflow: auto;
+}
+
+.card-absolute {
+	margin-top: 20px;
+}
+
+.card-absolute .card-header {
+	position: absolute;
+	top: -20px;
+	margin-bottom: 30px;
+	left: 15px;
+	border-radius: 0.25rem;
+	padding: 10px 15px;
+}
+
+.card-absolute .card-header h5 {
+	font-size: 17px;
+}
+
+.card-absolute .card-header h5.text-white {
+	-webkit-text-fill-color: #fff;
+}
+
+.card-absolute .card-body {
+	margin-top: 10px;
+}
+
+.card-header .border-tab {
+	margin-bottom: -13px;
+}
+
+.custom-card {
+	overflow: hidden;
+	padding: 30px;
+}
+
+.custom-card .card-header {
+	padding: 0;
+}
+
+.custom-card .card-header img {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+.custom-card .card-profile {
+	text-align: center;
+}
+
+.custom-card .card-profile img {
+	height: 110px;
+	padding: 7px;
+	background-color: #f5f7fb;
+	z-index: 1;
+	position: relative;
+}
+
+.custom-card .card-social {
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.custom-card .card-social li {
+	display: inline-block;
+}
+
+.custom-card .card-social li:nth-child(n+2) {
+	margin-left: 10px;
+}
+
+.custom-card .card-social li a {
+	width: 35px;
+	height: 35px;
+	border-radius: 5px;
+	background-color: rgba(36, 105, 92, 0.1);
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	color: #24695c;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+.custom-card .card-social li:hover a {
+	background-color: #24695c;
+	color: #fff;
+}
+
+.custom-card .profile-details h4 {
+	font-weight: 600;
+	color: #242934;
+}
+
+.custom-card .profile-details h6 {
+	margin-bottom: 30px;
+	margin-top: 10px;
+	color: #999;
+	font-size: 14px;
+}
+
+.custom-card .card-footer {
+	padding: 0;
+}
+
+.custom-card .card-footer > div {
+	padding: 15px;
+	text-align: center;
+}
+
+.custom-card .card-footer > div + div {
+	border-left: 1px solid #efefef;
+}
+
+.custom-card .card-footer > div h3 {
+	margin-bottom: 0;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.custom-card .card-footer > div h6 {
+	font-size: 13px;
+	color: #999;
+}
+
+.custom-card .card-footer > div i {
+	font-size: 24px;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+.custom-card .card-footer > div .m-b-card {
+	margin-bottom: 10px;
+}

@@ -1,0 +1,490 @@
+
+.file-sidebar .card .card-body,
+.file-sidebar .card .card-header, .file-content .card .card-body,
+.file-content .card .card-header {
+	padding: 20px !important;
+}
+
+.file-sidebar .card .file-manager, .file-content .card .file-manager {
+	padding-top: unset !important;
+}
+
+.file-sidebar ul li + li {
+	margin-top: 8px;
+}
+
+.file-sidebar .btn {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.file-sidebar .btn.btn-light:hover {
+	color: #24695c !important;
+}
+
+.file-sidebar .btn.btn-light:hover svg {
+	stroke: #24695c;
+}
+
+.file-sidebar .btn svg {
+	width: 15px;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+
+.file-sidebar .pricing-plan {
+	border: 1px solid #e6edef;
+	border-radius: 5px;
+	margin-top: 10px;
+	padding: 15px;
+	position: relative;
+	overflow: hidden;
+}
+
+.file-sidebar .pricing-plan h6 {
+	font-weight: 500;
+	font-size: 14px;
+	margin-bottom: 5px;
+	color: #898989;
+}
+
+.file-sidebar .pricing-plan h5 {
+	font-weight: 600;
+}
+
+.file-sidebar .pricing-plan p {
+	margin-bottom: 10px;
+	color: #999;
+}
+
+.file-sidebar .pricing-plan .btn {
+	display: inline-block;
+}
+
+.file-sidebar .pricing-plan .bg-img {
+	position: absolute;
+	top: 40px;
+	opacity: 0.1;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	right: -40px;
+}
+
+.file-sidebar h6 {
+	font-size: 14px;
+}
+
+.file-manager h5 {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.file-manager > h6 {
+	opacity: 0.6;
+	font-weight: 400 !important;
+	font-size: 15px;
+	margin-bottom: 20px;
+	color: #999;
+}
+
+.file-manager .files .file-box:nth-child(1) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 10ms;
+	animation: fadeIncustom 0.5s linear 10ms;
+}
+
+.file-manager .files .file-box:nth-child(2) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 20ms;
+	animation: fadeIncustom 0.5s linear 20ms;
+}
+
+.file-manager .files .file-box:nth-child(3) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 30ms;
+	animation: fadeIncustom 0.5s linear 30ms;
+}
+
+.file-manager .files .file-box:nth-child(4) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 40ms;
+	animation: fadeIncustom 0.5s linear 40ms;
+}
+
+.file-manager .files .file-box:nth-child(5) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 50ms;
+	animation: fadeIncustom 0.5s linear 50ms;
+}
+
+.file-manager .files .file-box:nth-child(6) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 60ms;
+	animation: fadeIncustom 0.5s linear 60ms;
+}
+
+.file-manager .files .file-box:nth-child(7) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 70ms;
+	animation: fadeIncustom 0.5s linear 70ms;
+}
+
+.file-manager .files .file-box:nth-child(8) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 80ms;
+	animation: fadeIncustom 0.5s linear 80ms;
+}
+
+.file-manager .files .file-box:nth-child(9) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 90ms;
+	animation: fadeIncustom 0.5s linear 90ms;
+}
+
+.file-manager .files .file-box:nth-child(10) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 100ms;
+	animation: fadeIncustom 0.5s linear 100ms;
+}
+
+.file-manager .files .file-box:nth-child(11) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 110ms;
+	animation: fadeIncustom 0.5s linear 110ms;
+}
+
+.file-manager .files .file-box:nth-child(12) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 120ms;
+	animation: fadeIncustom 0.5s linear 120ms;
+}
+
+.file-manager .files .file-box:nth-child(13) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 130ms;
+	animation: fadeIncustom 0.5s linear 130ms;
+}
+
+.file-manager .files .file-box:nth-child(14) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 140ms;
+	animation: fadeIncustom 0.5s linear 140ms;
+}
+
+.file-manager .files .file-box:nth-child(15) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 150ms;
+	animation: fadeIncustom 0.5s linear 150ms;
+}
+
+.file-manager .files h6 {
+	margin-top: 10px;
+	margin-bottom: 0;
+	text-transform: capitalize;
+}
+
+.file-manager p {
+	opacity: 0.9;
+	font-size: 12px;
+	color: #999;
+}
+
+.files h6, .folder h6 {
+	font-size: 14px;
+}
+
+.file-content .ellips {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	opacity: 0.7;
+}
+
+.file-content .form-inline {
+	border: 1px solid #e6edef;
+	border-radius: 5px;
+	padding: 0 20px;
+}
+
+.file-content .form-inline i {
+	padding-right: 10px;
+	color: #898989;
+	line-height: 3;
+}
+
+.file-content .form-inline input::-webkit-input-placeholder {
+	color: #898989;
+}
+
+.file-content .form-inline input:focus {
+	outline: none !important;
+}
+
+.file-content .search-form input {
+	padding: 5px 10px 5px 70px;
+	border-radius: 5px;
+}
+
+.file-content .search-form .form-group:before {
+	left: 82px;
+	top: 37px;
+}
+
+.file-content .search-form .form-group:after {
+	top: 39px;
+	left: 53px;
+}
+
+.file-content .btn svg {
+	height: 15px;
+	margin-right: 2px;
+	vertical-align: middle;
+}
+
+.file-content h4 {
+	font-weight: 600;
+}
+
+.file-content .folder .folder-box {
+	border: 1px solid #e6edef;
+	border-radius: 5px;
+	padding: 15px;
+	background-color: rgba(36, 105, 92, 0.05);
+	width: calc(25% - 15px);
+	display: inline-block;
+}
+
+.file-content .folder .folder-box:nth-child(1) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 10ms;
+	animation: fadeIncustom 0.5s linear 10ms;
+}
+
+.file-content .folder .folder-box:nth-child(2) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 20ms;
+	animation: fadeIncustom 0.5s linear 20ms;
+}
+
+.file-content .folder .folder-box:nth-child(3) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 30ms;
+	animation: fadeIncustom 0.5s linear 30ms;
+}
+
+.file-content .folder .folder-box:nth-child(4) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 40ms;
+	animation: fadeIncustom 0.5s linear 40ms;
+}
+
+.file-content .folder .folder-box:nth-child(5) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 50ms;
+	animation: fadeIncustom 0.5s linear 50ms;
+}
+
+.file-content .folder .folder-box:nth-child(6) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 60ms;
+	animation: fadeIncustom 0.5s linear 60ms;
+}
+
+.file-content .folder .folder-box:nth-child(7) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 70ms;
+	animation: fadeIncustom 0.5s linear 70ms;
+}
+
+.file-content .folder .folder-box:nth-child(8) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 80ms;
+	animation: fadeIncustom 0.5s linear 80ms;
+}
+
+.file-content .folder .folder-box:nth-child(9) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 90ms;
+	animation: fadeIncustom 0.5s linear 90ms;
+}
+
+.file-content .folder .folder-box:nth-child(10) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 100ms;
+	animation: fadeIncustom 0.5s linear 100ms;
+}
+
+.file-content .folder .folder-box:nth-child(11) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 110ms;
+	animation: fadeIncustom 0.5s linear 110ms;
+}
+
+.file-content .folder .folder-box:nth-child(12) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 120ms;
+	animation: fadeIncustom 0.5s linear 120ms;
+}
+
+.file-content .folder .folder-box:nth-child(13) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 130ms;
+	animation: fadeIncustom 0.5s linear 130ms;
+}
+
+.file-content .folder .folder-box:nth-child(14) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 140ms;
+	animation: fadeIncustom 0.5s linear 140ms;
+}
+
+.file-content .folder .folder-box:nth-child(15) {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: fadeIncustom 0.5s linear 150ms;
+	animation: fadeIncustom 0.5s linear 150ms;
+}
+
+.file-content .files .file-box {
+	border: 1px solid #e6edef;
+	border-radius: 5px;
+	padding: 15px;
+	background-color: rgba(36, 105, 92, 0.05);
+	width: calc(25% - 15px);
+	display: inline-block;
+	position: relative;
+}
+
+.file-content .files .file-box .file-top {
+	height: 100px;
+	background-color: #fff;
+	border: 1px solid #e6edef;
+	border-radius: 5px;
+	font-size: 36px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+@media screen and (max-width: 1440px) {
+	.file-content .folder .folder-box .media {
+		display: block;
+		text-align: center;
+	}
+
+	.file-content .folder .folder-box .media .media-body {
+		margin-left: 0 !important;
+		margin-top: 5px;
+	}
+}
+
+@media screen and (max-width: 1366px) {
+	.file-content .files {
+		margin-bottom: -10px;
+	}
+
+	.file-content .files .file-box {
+		width: calc(50% - 15px);
+		margin-bottom: 10px;
+		margin-right: 8px;
+	}
+
+	.file-content .card-header .btn {
+		padding: 8px 15px;
+	}
+
+	.file-content .folder .folder-box {
+		padding: 13px;
+		width: calc(50% - 15px);
+		margin-bottom: 10px;
+	}
+
+	.file-content .folder .folder-box .media i {
+		font-size: 30px;
+	}
+
+	.file-sidebar .btn {
+		padding: 8px 15px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.file-content .folder {
+		margin-bottom: -10px;
+	}
+
+	.file-content .folder .folder-box {
+		width: calc(50% - 15px);
+		margin-bottom: 10px;
+		margin-right: 8px;
+	}
+
+	.file-content .media {
+		display: block;
+		text-align: center;
+	}
+
+	.file-content .media .media-body {
+		margin-top: 10px;
+		text-align: center !important;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.file-content .folder .folder-box, .file-content .files .file-box {
+		width: calc(100%);
+		margin-right: unset;
+	}
+
+	.file-content h4 {
+		font-size: 20px;
+	}
+
+	.file-content .card-header .btn {
+		padding: 7px 10px;
+		font-size: 12px;
+	}
+
+	.file-manager > h6 {
+		font-size: 14px;
+	}
+}

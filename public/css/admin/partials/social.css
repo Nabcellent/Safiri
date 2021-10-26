@@ -1,0 +1,428 @@
+
+.social-tab {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	padding: 30px;
+}
+
+.social-tab ul {
+	border-bottom: none !important;
+}
+
+.social-tab ul li a {
+	font-weight: 600;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	background-color: rgba(36, 105, 92, 0.05);
+}
+
+.social-tab ul li a svg {
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
+	color: #24695c;
+}
+
+.social-tab ul li a:hover {
+	border-color: transparent !important;
+}
+
+.social-tab ul li a.active {
+	background-color: #24695c !important;
+	color: #fff !important;
+}
+
+.social-tab ul li a.active svg {
+	color: #fff;
+}
+
+.social-tab ul li:nth-child(n+2) {
+	margin-left: 20px;
+}
+
+.social-tab .input-group {
+	width: 280px;
+}
+
+.social-tab .input-group .form-control {
+	background-color: rgba(36, 105, 92, 0.08);
+	border-color: #e6edef;
+	height: 40px;
+	padding-left: 13px;
+	font-size: 14px;
+}
+
+.social-tab .input-group .input-group-text {
+	background-color: #24695c;
+}
+
+.social-tab .input-group .input-group-text i {
+	color: #fff;
+}
+
+.social-network span {
+	margin-bottom: 10px;
+	display: block;
+}
+
+.social-list .media {
+	margin-bottom: 20px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.social-list .media:last-child {
+	margin-bottom: 0;
+}
+
+.social-list .media .media-body a {
+	color: #999;
+}
+
+.social-list .media .media-body span {
+	font-weight: 600;
+	color: #242934;
+}
+
+.social-list .media .media-body:hover a {
+	color: #24695c;
+}
+
+.photos {
+	margin-bottom: -10px;
+}
+
+.photos ul li {
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	width: 65px;
+}
+
+.photos ul li img {
+	width: 100%;
+}
+
+.new-users-social {
+	margin-bottom: 30px;
+}
+
+.new-users-social .media img {
+	width: 58px;
+}
+
+.new-users-social .media .media-body {
+	margin-top: 10px;
+}
+
+.new-users-social svg circle {
+	color: #999;
+}
+
+.like-content span i {
+	font-size: 14px;
+}
+
+.timeline-content p {
+	margin-top: 30px;
+	color: #999;
+}
+
+.timeline-content .comment-number i {
+	color: #999;
+	margin-right: 20px;
+}
+
+.timeline-content .comments-box {
+	margin-top: 30px;
+}
+
+.timeline-content .comments-box .input-group {
+	margin-top: 6px;
+}
+
+.timeline-content .comments-box .input-group .input-txt-bx::-webkit-input-placeholder {
+	color: #999;
+}
+
+.timeline-content .comments-box .input-group .input-txt-bx::-moz-placeholder {
+	color: #999;
+}
+
+.timeline-content .comments-box .input-group .input-txt-bx:-ms-input-placeholder {
+	color: #999;
+}
+
+.timeline-content .comments-box .input-group .input-txt-bx::-ms-input-placeholder {
+	color: #999;
+}
+
+.timeline-content .comments-box .input-group .input-txt-bx::placeholder {
+	color: #999;
+}
+
+.timeline-content .comments-box .input-group .input-group-append .btn i {
+	font-size: 20px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	color: #999;
+}
+
+.timeline-content .comments-box .input-group .input-group-text {
+	background-color: #24695c;
+	padding: 10px;
+}
+
+.timeline-content .comments-box .input-group .input-group-text img {
+	width: 22px;
+	height: 22px;
+}
+
+.social-chat {
+	margin-top: 30px;
+}
+
+.social-chat span span {
+	font-weight: normal;
+	color: #999;
+	font-size: 12px;
+}
+
+.social-chat .media-body {
+	padding: 30px;
+	border: 1px solid #e6edef;
+	position: relative;
+}
+
+.social-chat .media-body p {
+	margin-top: 5px;
+}
+
+.social-chat .media-body:before {
+	content: '';
+	position: absolute;
+	top: 19px;
+	right: 100%;
+	border: 7px solid transparent;
+	border-right: 7px solid #59667a;
+}
+
+.social-chat .media-body:after {
+	content: '';
+	position: absolute;
+	top: 19px;
+	right: 100%;
+	border: 7px solid transparent;
+	border-right: 7px solid #fff;
+}
+
+.social-chat .your-msg, .social-chat .other-msg {
+	margin-bottom: 30px;
+}
+
+.social-chat .other-msg {
+	margin-left: 40px;
+}
+
+.socialprofile span {
+	color: #999;
+}
+
+.socialprofile h5 {
+	margin-bottom: 10px;
+}
+
+.socialprofile .social-btngroup {
+	margin: 15px 0;
+}
+
+.socialprofile .likes-profile h5 span {
+	color: #242934;
+}
+
+.socialprofile .social-group {
+	margin-top: 15px;
+}
+
+.socialprofile .social-group ul li:nth-child(4) {
+	margin-left: -22px;
+}
+
+.social-status form .form-group .form-control-social {
+	border: 1px solid #e6edef;
+	padding-left: 15px;
+	margin-bottom: 30px;
+	width: 100%;
+	height: 40px;
+	border-radius: 5px;
+}
+
+.social-status .media {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.social-status .media:last-child {
+	margin-bottom: 0;
+}
+
+.social-status .media .social-status {
+	content: '';
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	background-color: #fff;
+	bottom: 0;
+	left: 35px;
+	border-radius: 100%;
+}
+
+.social-status .media .social-online {
+	border: 3px solid #1b4c43;
+}
+
+.social-status .media .social-busy {
+	border: 3px solid #e2c636;
+}
+
+.social-status .media .social-offline {
+	border: 3px solid #59667a;
+}
+
+.social-status .media .media-body p {
+	color: #999;
+	font-size: 13px;
+	margin-bottom: 5px;
+}
+
+.social-status .media .media-body span + span {
+	color: #999;
+}
+
+.social-status .media .media-body .light-span {
+	color: #999;
+}
+
+.social-header h5 span:first-child {
+	line-height: 1.48;
+}
+
+.social-header h5 span svg circle {
+	color: #999;
+}
+
+.details-about + .details-about {
+	margin-top: 15px;
+}
+
+.details-about .your-details p {
+	color: #999;
+	line-height: 1.6;
+}
+
+.avatar-showcase .friend-pic {
+	margin-right: 8px;
+	margin-bottom: 10px;
+}
+
+.avatar-showcase .pepole-knows ul li {
+	display: inline-block;
+	margin-right: 21px;
+	margin-bottom: 10px;
+}
+
+.avatar-showcase .pepole-knows ul li:last-child {
+	margin-right: 0;
+}
+
+.avatar-showcase .pepole-knows ul li .add-friend h6 {
+	margin-top: 3px;
+}
+
+.avatar-showcase .pepole-knows ul li .add-friend span {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.activity-log .my-activity + .my-activity {
+	margin-top: 15px;
+}
+
+.activity-log .my-activity h6 {
+	margin-bottom: 15px;
+}
+
+.activity-log .my-activity p {
+	margin-bottom: 5px;
+	color: #999;
+}
+
+.activity-log .my-activity p span svg {
+	width: 15px;
+	height: 15px;
+}
+
+.social-app-profile .card .socialprofile h5 {
+	margin-bottom: 5px;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.social-app-profile .card .socialprofile h4 {
+	font-size: 20px;
+}
+
+.social-app-profile .card .socialprofile h6 {
+	margin-bottom: unset;
+}
+
+.social-app-profile .card .socialprofile span {
+	font-size: 12px;
+}
+
+.social-app-profile .card .socialprofile span .badge {
+	font-size: 10px;
+	padding: 2px 3px;
+	font-weight: 400;
+}
+
+@media (max-width: 480px) {
+	.social-app-profile .card .socialprofile h4 {
+		font-size: 18px;
+	}
+
+	.customers ul li img {
+		width: 25px !important;
+	}
+
+	.socialprofile .social-group {
+		margin-top: 10px;
+	}
+
+	.photos ul li {
+		width: 49px;
+	}
+
+	.new-users-social .media img {
+		width: 50px;
+	}
+}

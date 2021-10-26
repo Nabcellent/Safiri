@@ -1,0 +1,124 @@
+
+.clockpicker-canvas line {
+	stroke: #24695c;
+}
+
+.clockpicker-canvas-fg, .clockpicker-canvas-bearing {
+	fill: #24695c;
+}
+
+.daterangepicker td.available:hover, .daterangepicker th.available:hover {
+	background-color: #24695c;
+}
+
+.datepicker--day-name {
+	color: #000;
+	font-weight: bold;
+}
+
+.datepicker--cell.-current- {
+	color: #000;
+	border-radius: 5px;
+	font-weight: bold;
+	border: 2px solid #24695c;
+}
+
+.datepicker--cell.-focus- {
+	background: #24695c;
+	color: #fff;
+}
+
+.datepicker--cell.-selected- {
+	background: #24695c;
+}
+
+.daterangepicker.ltr {
+	color: #898989;
+	z-index: 8;
+}
+
+.daterangepicker.ltr tr {
+	font-size: 13px;
+}
+
+.daterangepicker.ltr tr td {
+	height: 34px;
+	width: 34px;
+}
+
+.daterangepicker.ltr tr td.in-range {
+	background-color: #fafafa;
+}
+
+.daterangepicker.ltr tr td.active {
+	background-color: #24695c;
+}
+
+.daterangepicker.ltr .ranges {
+	float: none;
+}
+
+.daterangepicker.ltr .ranges li {
+	color: #24695c;
+}
+
+.daterangepicker.ltr .ranges li:hover {
+	background-color: #24695c;
+	border: 1px solid #24695c;
+	color: #fff;
+}
+
+.daterangepicker.ltr .ranges li.active {
+	background-color: #24695c;
+	border: 1px solid #24695c;
+	color: #fff;
+}
+
+.daterangepicker.ltr .calendar-time select {
+	color: #898989;
+}
+
+.datetime-picker .bootstrap-datetimepicker-widget.dropdown-menu {
+	width: auto;
+}
+
+.date-range-picker > div:last-child .theme-form {
+	margin-bottom: 0px;
+}
+
+.daterangepicker:before {
+	border-bottom: 7px solid #efefef;
+}
+
+.daterangepicker .daterangepicker_input i {
+	font-size: 14px;
+	color: #59667a;
+}
+
+.daterangepicker .input-mini {
+	border-color: #efefef !important;
+	font-size: 14px;
+	color: #59667a;
+}
+
+.daterangepicker th, .daterangepicker td {
+	height: 34px;
+	width: 34px;
+}
+
+.daterangepicker th:hover, .daterangepicker td:hover {
+	color: #2c323f;
+}
+
+.daterangepicker th.prev, .daterangepicker th.next, .daterangepicker td.prev, .daterangepicker td.next {
+	color: #fff;
+	height: 34px;
+	width: 34px;
+	background-color: #24695c;
+}
+
+.daterangepicker th.month, .daterangepicker td.month {
+	color: #24695c;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}

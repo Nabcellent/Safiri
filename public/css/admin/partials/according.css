@@ -1,0 +1,93 @@
+
+.default-according .card {
+	margin-bottom: 0;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.default-according .card + .card {
+	margin-top: 10px;
+}
+
+.default-according .card .btn-link {
+	font-weight: 500;
+	color: #242934;
+	font-size: 16px;
+}
+
+.default-according .card .btn-link:focus, .default-according .card .btn-link:hover {
+	text-decoration: none;
+}
+
+.default-according .card .card-header {
+	padding: 1rem 1.25rem;
+	border-bottom: 1px solid #e6edef;
+}
+
+.default-according .card .card-header i {
+	position: initial;
+	font-size: 20px;
+	display: inline-block;
+	vertical-align: text-bottom;
+	margin-right: 5px;
+}
+
+.default-according .card .card-header h5 {
+	margin-top: 2px;
+}
+
+.default-according .card .card-body {
+	border-top: none !important;
+	padding: 20px;
+}
+
+.default-according .card .card-body h5 {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.default-according .card .card-body h6 {
+	color: #999;
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+.default-according .card .card-body ul.rating li {
+	display: inline-block;
+}
+
+.default-according.style-1 button {
+	width: 100%;
+	text-align: left;
+}
+
+.default-according.style-1 button:before {
+	right: 20px;
+	position: absolute;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.default-according.style-1 button[aria-expanded="true"]:before {
+	content: "";
+	font-family: IcoFont;
+}
+
+.default-according.style-1 button[aria-expanded="false"]:before {
+	content: "";
+	font-family: IcoFont;
+}
+
+@media (max-width: 480px) {
+	.default-according .card .card-header {
+		padding-right: 32px;
+	}
+
+	.default-according .card .card-header h5 {
+		font-size: 16px;
+	}
+
+	.default-according.style-1 button:before {
+		right: 10px;
+	}
+}

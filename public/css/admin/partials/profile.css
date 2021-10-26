@@ -1,0 +1,397 @@
+
+.user-profile .follow .follow-num {
+	font-size: 18px;
+	color: #2b2b2b;
+	font-family: "Rubik", sans-serif, sans-serif;
+	font-weight: 600;
+}
+
+.user-profile .follow span {
+	color: #59667a;
+}
+
+.user-profile .follow ul.follow-list {
+	border-top: 1px solid #e6edef;
+}
+
+.user-profile .follow ul.follow-list li {
+	display: inline-block;
+	padding-top: 15px;
+}
+
+.user-profile .follow ul.follow-list li:nth-child(n+2) {
+	margin-left: 15px;
+	padding-left: 15px;
+	border-left: 1px solid #e6edef;
+}
+
+.user-profile .profile-img-style {
+	padding: 30px;
+}
+
+.user-profile .profile-img-style .img-container {
+	margin-top: 30px;
+}
+
+.user-profile .profile-img-style .user-name {
+	font-size: 18px;
+	color: #2b2b2b;
+	margin: 0;
+	font-weight: 600;
+}
+
+.user-profile .profile-img-style p {
+	line-height: 30px;
+	font-size: 14px;
+	color: #898989;
+	margin-bottom: 0;
+}
+
+.user-profile .profile-img-style .media img {
+	width: 50px;
+}
+
+.user-profile .like-comment a {
+	color: #898989;
+}
+
+.user-profile .like-comment a:hover {
+	color: #d22d3d;
+}
+
+.user-profile .like-comment span {
+	font-family: "Rubik", sans-serif, sans-serif;
+}
+
+.user-profile .social-media ul.user-list-social {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom: 20px;
+}
+
+.user-profile .social-media ul.user-list-social li:nth-child(n+2) {
+	margin-left: 5px;
+}
+
+.user-profile .social-media ul.user-list-social li a {
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	border-radius: 5px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	background-color: rgba(36, 105, 92, 0.08);
+}
+
+.user-profile .social-media ul.user-list-social li a i {
+	font-size: 14px;
+	color: #24695c;
+}
+
+.user-profile .social-media ul.user-list-social li:hover a {
+	background-color: #24695c;
+}
+
+.user-profile .social-media ul.user-list-social li:hover a i {
+	color: #fff;
+}
+
+.user-profile .profile-header {
+	height: 420px;
+	padding: 30px;
+	display: -webkit-box !important;
+	display: -ms-flexbox !important;
+	display: flex !important;
+}
+
+.user-profile .profile-header .profile-img-wrrap {
+	display: none;
+}
+
+.user-profile .profile-header .userpro-box {
+	background-color: #fff;
+	padding: 30px;
+	max-width: 380px;
+	margin-top: auto;
+	margin-bottom: auto;
+	text-align: center;
+}
+
+.user-profile .profile-header .userpro-box .img-wrraper {
+	position: relative;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	margin: auto;
+}
+
+.user-profile .profile-header .userpro-box .avatar {
+	width: 100px;
+	height: 100px;
+	max-width: 155px;
+	max-height: 155px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+	border: 7px solid rgba(36, 105, 92, 0.08);
+	margin-bottom: 15px;
+}
+
+.user-profile .profile-header .userpro-box .avatar img {
+	width: 100%;
+	height: 100%;
+}
+
+.user-profile .profile-header .userpro-box .icon-wrapper {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	height: 35px;
+	width: 35px;
+	border-radius: 50%;
+	background-color: #fff;
+	cursor: pointer;
+	overflow: hidden;
+	margin: 0 auto;
+	font-size: 17px;
+	-webkit-box-shadow: 0 0 6px 3px rgba(68, 102, 242, 0.1);
+	box-shadow: 0 0 6px 3px rgba(68, 102, 242, 0.1);
+}
+
+.user-profile .profile-header .userpro-box .icon-wrapper i {
+	color: #24695c;
+}
+
+.user-profile .profile-header .userpro-box h4 {
+	color: #2b2b2b;
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.user-profile .profile-header .userpro-box h6 {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #999;
+	margin-bottom: 15px;
+}
+
+.user-profile .profile-post {
+	padding: 30px;
+}
+
+.user-profile .profile-post .post-header {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.user-profile .profile-post .post-header .media {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.user-profile .profile-post .post-header .media img {
+	width: 60px;
+}
+
+.user-profile .profile-post .post-header .media h5 {
+	color: #2b2b2b;
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 3px;
+}
+
+.user-profile .profile-post .post-header .media h6 {
+	color: #999;
+	font-size: 14px;
+	margin-bottom: 0;
+}
+
+.user-profile .profile-post .post-header .post-setting i {
+	color: #999;
+	font-size: 22px;
+}
+
+.user-profile .profile-post .post-body p {
+	color: #999;
+}
+
+.user-profile .profile-post .post-body .post-react {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.user-profile .profile-post .post-body .post-react ul li {
+	display: inline-block;
+}
+
+.user-profile .profile-post .post-body .post-react ul li:nth-child(n+2) {
+	margin-left: -20px;
+}
+
+.user-profile .profile-post .post-body .post-react ul li img {
+	width: 30px;
+	height: 30px;
+}
+
+.user-profile .profile-post .post-body .post-react h6 {
+	font-size: 14px;
+	color: #717171;
+	margin-bottom: 0;
+	margin-left: 15px;
+}
+
+.user-profile .profile-post .post-body .post-comment li {
+	display: inline-block;
+	color: #717171;
+}
+
+.user-profile .profile-post .post-body .post-comment li label {
+	margin-bottom: 0;
+	font-weight: 500;
+}
+
+.user-profile .profile-post .post-body .post-comment li label a {
+	color: #717171;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	line-height: 1;
+}
+
+.user-profile .profile-post .post-body .post-comment li label a svg {
+	width: 14px;
+	height: 14px;
+}
+
+.user-profile .profile-post .post-body .post-comment li label a span {
+	margin-left: 10px;
+}
+
+.user-profile .profile-post .post-body .post-comment li:nth-child(n+2) {
+	margin-left: 15px;
+}
+
+.user-profile .post-about ul {
+	margin-bottom: 20px;
+}
+
+.user-profile .post-about ul li {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.user-profile .post-about ul li .icon {
+	width: 35px;
+	height: 35px;
+	border-radius: 5px;
+	background-color: rgba(36, 105, 92, 0.08);
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	margin-right: 15px;
+}
+
+.user-profile .post-about ul li .icon svg {
+	width: 18px;
+	height: 18px;
+	color: #24695c;
+}
+
+.user-profile .post-about ul li h5 {
+	color: #2b2b2b;
+	text-transform: capitalize;
+}
+
+.user-profile .post-about ul li p {
+	font-size: 12px;
+	line-height: 1;
+	text-transform: capitalize;
+}
+
+.user-profile .post-about ul li:nth-child(n+2) {
+	margin-top: 20px;
+}
+
+.edit-profile .profile-title {
+	border-bottom: 1px solid #e6edef;
+	margin-bottom: 15px;
+	padding-bottom: 20px;
+}
+
+.edit-profile .profile-title .media {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.edit-profile .profile-title .media .media-body {
+	margin-left: 25px;
+}
+
+.edit-profile .card .card-header h4 {
+	font-weight: 600;
+}
+
+.edit-profile .card .card-body h3 {
+	font-weight: 600;
+}
+
+.edit-profile .table > :not(:last-child) > :last-child > * {
+	border: 1px solid #e6edef;
+}

@@ -1,0 +1,53 @@
+
+.jsgrid .jsgrid-grid-body .jsgrid-cell {
+	padding: 0.75rem;
+}
+
+.jsgrid .jsgrid-pager-container {
+	text-align: right;
+}
+
+.jsgrid .jsgrid-pager {
+	padding: 0;
+	margin-top: 20px;
+}
+
+.jsgrid .jsgrid-pager .jsgrid-pager-nav-inactive-button {
+	margin-right: -5px;
+}
+
+.jsgrid .jsgrid-pager .jsgrid-pager-nav-inactive-button:first-child {
+	border-radius: 5px 0 0 5px;
+}
+
+.jsgrid .jsgrid-pager .jsgrid-pager-page ~ .jsgrid-pager-nav-button {
+	margin-left: -5px;
+}
+
+.jsgrid .jsgrid-pager .jsgrid-pager-page ~ .jsgrid-pager-nav-button:last-child {
+	border-radius: 0 5px 5px 0;
+}
+
+.jsgrid .jsgrid-pager [class*="jsgrid-pager"] {
+	display: inline-block;
+	min-width: 1.5em;
+	padding: 0.5em 1em;
+	border: 1px solid #e6edef;
+}
+
+.jsgrid .jsgrid-pager .jsgrid-pager-page a {
+	color: #2c323f;
+}
+
+.jsgrid .jsgrid-pager .jsgrid-pager-current-page {
+	color: #2c323f;
+}
+
+.jsgrid .jsgrid-selected-row > .jsgrid-cell {
+	background: #e6edef;
+	border-color: #fafafa;
+}
+
+.jsgrid .jsgrid-header-row > .jsgrid-header-cell {
+	padding: 0.75rem;
+}

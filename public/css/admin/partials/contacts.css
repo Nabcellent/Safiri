@@ -1,0 +1,359 @@
+
+.alert-contactadd {
+	background-color: #fff;
+	border: 1px solid var(--theme-deafult);
+	width: 12%;
+	padding: 10px;
+}
+
+.updateimg {
+	position: absolute;
+	left: 15px;
+	width: 100px;
+	top: 32px;
+	line-height: 93px;
+	opacity: 0;
+}
+
+#right-history {
+	top: 81px;
+	right: -320px;
+	height: 100%;
+	position: fixed;
+	width: 320px;
+	z-index: 9;
+	background-color: #fff;
+	-webkit-transition: .5s;
+	transition: .5s;
+	-webkit-box-shadow: 0 0 9px rgba(191, 191, 191, 0.36);
+	box-shadow: 0 0 9px rgba(191, 191, 191, 0.36);
+}
+
+#right-history h6 span a {
+	color: #242934;
+}
+
+#right-history.show {
+	right: 0;
+	-webkit-transition: .3s;
+	transition: .3s;
+}
+
+.history-details > div {
+	padding: 30px 0;
+}
+
+.history-details .media {
+	padding: 30px 15px;
+	border-top: 1px solid #f4f4f4;
+}
+
+.history-details .media i {
+	padding: 5px;
+	background: #fed112;
+	color: #fff;
+	border-radius: 100%;
+}
+
+.history-details .media h6 {
+	margin-bottom: 5px;
+}
+
+.delete-contact {
+	display: none;
+}
+
+.more-data {
+	-webkit-animation: displayTransition 1s;
+	animation: displayTransition 1s;
+}
+
+.contact-editform {
+	padding: 30px;
+	padding-left: unset;
+	-webkit-animation: displayTransition 1s;
+	animation: displayTransition 1s;
+}
+
+.contact-editform a {
+	display: block;
+}
+
+.contact-editform button {
+	margin-top: 30px;
+}
+
+.contact-editform .select2-container .select2-selection--single {
+	height: 39px !important;
+	border-color: #e6edef !important;
+	background-color: #f5f7fb;
+}
+
+#deletemodal .modal-header {
+	border-bottom: none;
+}
+
+#deletemodal .modal-header .delete-data span svg {
+	vertical-align: middle;
+	margin-right: 15px;
+}
+
+.contact-options li .btn-category {
+	line-height: 39px;
+	border-radius: 3px;
+	padding-left: 40px !important;
+	padding: 0;
+	color: #24695c;
+	font-weight: 500;
+}
+
+.list-persons p {
+	font-family: "Roboto", sans-serif, sans-serif;
+}
+
+.list-persons .profile-mail {
+	padding: 30px 0;
+}
+
+.list-persons .profile-mail .media {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.list-persons .profile-mail .media img {
+	width: auto;
+	height: 100px;
+}
+
+.list-persons .profile-mail .media .media-body h5 {
+	margin-bottom: 5px;
+	font-weight: 700;
+}
+
+.list-persons .profile-mail .media .media-body ul {
+	margin-top: 5px;
+}
+
+.list-persons .profile-mail .media .media-body ul li {
+	display: inline-block;
+}
+
+.list-persons .profile-mail .media .media-body ul li a {
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.list-persons .profile-mail .media .media-body ul li + li {
+	padding-left: 10px;
+	margin-left: 5px;
+	border-left: 2px solid #f4f4f4;
+}
+
+.list-persons .profile-mail .email-general {
+	padding-top: 20px;
+	margin-top: 20px;
+	border-top: 1px solid #ddd;
+}
+
+.list-persons .profile-mail .email-general ul {
+	padding-right: 20px;
+}
+
+.list-persons .profile-mail .email-general ul li {
+	color: #898989;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	font-weight: 500;
+}
+
+.list-persons .profile-mail .email-general ul li:last-child {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+.list-persons .profile-mail .email-general ul li > span {
+	float: right;
+}
+
+.list-persons .profile-mail .email-general p span {
+	margin-left: 30px;
+}
+
+.list-persons .profile-mail .email-general .gender {
+	margin-top: 30px;
+}
+
+.contacts-tabs .nav-pills {
+	border-right: 1px solid #e6edef;
+	height: 100%;
+}
+
+.contacts-tabs .nav-pills .nav-link.active,
+.contacts-tabs .nav-pills .nav-link > .nav-link,
+.contacts-tabs .nav-pills .show.active,
+.contacts-tabs .nav-pills .show > .nav-link {
+	background-color: rgba(36, 105, 92, 0.1);
+	color: #242934;
+}
+
+.contacts-tabs .nav-pills .nav-link.active h6,
+.contacts-tabs .nav-pills .nav-link > .nav-link h6,
+.contacts-tabs .nav-pills .show.active h6,
+.contacts-tabs .nav-pills .show > .nav-link h6 {
+	color: #24695c;
+}
+
+.contacts-tabs .nav-pills .nav-link {
+	color: #242934;
+	padding: 0;
+}
+
+.contacts-tabs .nav-pills .nav-link .media .img-50 {
+	height: 50px;
+}
+
+.contacts-tabs .nav-pills .nav-link + .nav-link {
+	border-top: 1px solid #e6edef;
+}
+
+.contacts-tabs .nav-pills .media {
+	padding: 20px;
+}
+
+.contacts-tabs .tab-content .tab-content-child {
+	-webkit-animation: displayTransition 1s;
+	animation: displayTransition 1s;
+}
+
+@media only screen and (max-width: 991px) {
+	#right-history {
+		top: 60px;
+	}
+
+	.updateimg {
+		top: 21px;
+	}
+
+	.list-persons .profile-mail {
+		padding: 20px;
+	}
+
+	.list-persons .profile-mail .email-general .gender {
+		margin-top: 20px;
+	}
+
+	.contact-editform button {
+		margin-top: 20px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.contact-editform {
+		padding: 20px;
+	}
+
+	.contact-editform.pl-0 {
+		padding-left: 20px !important;
+	}
+
+	.contacts-tabs .nav-pills {
+		border-right: none;
+		border-bottom: 1px solid #e6edef;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+	#right-history {
+		width: 270px;
+	}
+
+	.updateimg {
+		top: 16px;
+		left: 29px;
+	}
+
+	.contacts-tabs .media img.m-r-20 {
+		margin-right: 15px;
+	}
+
+	.contacts-tabs .nav-pills .media {
+		padding: 15px;
+	}
+
+	.list-persons .profile-mail {
+		padding: 15px;
+	}
+
+	.list-persons .profile-mail .media img {
+		height: 80px;
+		width: 80px !important;
+	}
+
+	.list-persons .profile-mail .email-general .gender {
+		margin-top: 15px;
+	}
+
+	.list-persons .profile-mail .email-general ul {
+		padding-right: unset;
+	}
+
+	.list-persons .profile-mail .email-general ul li {
+		font-size: 12px;
+	}
+
+	.list-persons .nav-pills .nav-link .media .media-body {
+		text-align: left;
+	}
+
+	.contact-editform {
+		padding: 15px;
+	}
+
+	.contact-editform button {
+		margin-top: 15px;
+	}
+
+	.contact-editform.pl-0 {
+		padding-left: 15px !important;
+	}
+
+	.contact-editform form .row > div .row > div > div,
+	.contact-options form .row > div .row > div > div {
+		margin-bottom: 0;
+	}
+
+	.contact-editform form .row > div .row > div + div,
+	.contact-options form .row > div .row > div + div {
+		margin-top: 15px;
+	}
+
+	.list-persons .profile-mail .media .media-body h5 {
+		font-size: 16px;
+	}
+
+	.bookmark-tabcontent .tab-content .card .card-header h5 {
+		font-size: 16px;
+	}
+}
+
+@media only screen and (max-width: 360px) {
+	.updateimg {
+		line-height: 73px;
+		width: 80px;
+	}
+
+	.list-persons .profile-mail .email-general p span {
+		margin-left: 10px;
+	}
+
+	.list-persons .profile-mail .media {
+		display: block;
+	}
+
+	.list-persons .profile-mail .media img {
+		height: 80px;
+		width: 80px !important;
+		margin-bottom: 15px;
+	}
+}

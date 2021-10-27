@@ -19,8 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
-Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function() {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -30,4 +29,5 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function() {
     });
 });
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';

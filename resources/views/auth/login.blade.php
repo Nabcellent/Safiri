@@ -7,19 +7,20 @@
             <div class="col-xl-7"><img class="bg-img-cover bg-center" src="{{ asset('images/admin/login/2.jpg') }}" alt="looginpage"/></div>
             <div class="col-xl-5 p-0">
                 <div class="login-card">
-                    @if($errors->any())
-                        <div
-                            class="alert alert-danger alert-dismissible fade show text-white py-2 px-3 d-flex align-items-center justify-content-between"
-                            role="alert">
-                            <span><strong>Oops!</strong> {{ $errors->first() }}</span>
-                            <a href="#"><i class="fas fa-times text-white ps-3" data-bs-dismiss="alert"></i></a>
-                        </div>
-                    @endif
-
                     <form action="{{ route('login') }}" method="POST" class="theme-form login-form needs-validation" novalidate="">
                         @csrf
                         <h4>Sign In</h4>
                         <h6>Welcome back! Sign in to your account.</h6>
+
+                        @if($errors->any())
+                            <div
+                                class="alert alert-danger alert-dismissible fade show text-white py-2 px-3 d-flex align-items-center justify-content-between"
+                                role="alert">
+                                <span><strong>Oops!</strong> {{ $errors->first() }}</span>
+                                <a href="#"><i class="fas fa-times text-white ps-3" data-bs-dismiss="alert"></i></a>
+                            </div>
+                        @endif
+
                         <div class="form-group">
                             <label>Email Address</label>
                             <div class="input-group">

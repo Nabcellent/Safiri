@@ -10,6 +10,16 @@
                           novalidate>
                         <h4>Create your account</h4>
                         <h6>Enter your personal details to create account</h6>
+
+                        @if($errors->any())
+                            <div
+                                class="alert alert-danger alert-dismissible fade show text-white py-2 px-3 d-flex align-items-center justify-content-between"
+                                role="alert">
+                                <span><strong>Oops!</strong> {{ $errors->first() }}</span>
+                                <a href="#"><i class="fas fa-times text-white ps-3" data-bs-dismiss="alert"></i></a>
+                            </div>
+                        @endif
+
                         <div class="form-group">
                             <label>Your Name</label>
                             <div class="small-group">

@@ -1,56 +1,104 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('admin.layouts.guest')
+@section('title', 'Login')
+@section('content')
+    <!-- error page start //-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-7"><img class="bg-img-cover bg-center" src="{{ asset('images/admin/login/2.jpg') }}" alt="looginpage"/></div>
+            <div class="col-xl-5 p-0">
+                <div class="login-card">
+                    @if($errors->any())
+                        <div
+                            class="alert alert-danger alert-dismissible fade show text-white py-2 px-3 d-flex align-items-center justify-content-between"
+                            role="alert">
+                            <span><strong>Oops!</strong> {{ $errors->first() }}</span>
+                            <a href="#"><i class="fas fa-times text-white ps-3" data-bs-dismiss="alert"></i></a>
+                        </div>
+                    @endif
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                    <form action="{{ route('login') }}" method="POST" class="theme-form login-form needs-validation" novalidate="">
+                        @csrf
+                        <h4>Sign In</h4>
+                        <h6>Welcome back! Sign in to your account.</h6>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="icon-email"></i></span>
+                                <input class="form-control" type="email" name="email" value="{{ old('email') }}" aria-label required placeholder="John@doe.com"/>
+                                <div class="invalid-tooltip">Please enter a valid email.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="icon-lock"></i></span>
+                                <input class="form-control" type="password" name="password" required="" placeholder="*********" aria-label/>
+                                <div class="invalid-tooltip">Please enter password.</div>
+                                <div class="show-hide"><span class="show"> </span></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <input id="checkbox1" type="checkbox" name="remember"/>
+                                <label class="text-muted" for="checkbox1">{{ __('Remember me') }}</label>
+                            </div>
+                            @if (Route::has('password.request'))
+                                <a class="link" href="{{ route('password.request') }}">{{ __('Forgot password?') }}</a>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+                        </div>
+                        <div class="login-social-title">
+                            <h5>Sign In with</h5>
+                        </div>
+                        <div class="form-group">
+                            <ul class="login-social">
+                                <li>
+                                    <a href="https://www.linkedin.com/login" target="_blank"><i class="bi bi-google"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/login" target="_blank"><i data-feather="github"> </i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/login" target="_blank"><i data-feather="twitter"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p>Don't have account?<a class="ms-2" href="{{ route('admin.get.register') }}">Create Account</a></p>
+                    </form>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+    <script>
+        (function () {
+            "use strict";
+            window.addEventListener(
+                "load",
+                function () {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    let forms = document.getElementsByClassName("needs-validation");
+                    // Loop over them and prevent submission
+                    let validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener(
+                            "submit",
+                            function (event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
+                                form.classList.add("was-validated");
+                            },
+                            false
+                        );
+                    });
+                },
+                false
+            );
+        })();
+    </script>
 
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+@endsection

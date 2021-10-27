@@ -8,7 +8,7 @@
           content="admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities."/>
     <meta name="keywords" content="admin template, admin template, dashboard template, flat admin template, responsive admin template, web app"/>
     <meta name="author" content="pixelstrap"/>
-    <title>{{ config('app.name', 'TA') }} - @yield('title')</title>
+    <title>{{ config('app.name', 'Safiri') }} - @yield('title')</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/x-icon"/>
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon"/>
 

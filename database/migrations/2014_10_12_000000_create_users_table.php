@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->integer('phone')->nullable();
             $table->boolean('is_admin')->default(true);
             $table->string('email', 100)->unique();
+            $table->string('google_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

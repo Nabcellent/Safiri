@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <ul class="login-social">
                                 <li>
-                                    <a href="https://www.linkedin.com/login" target="_blank"><i class="bi bi-google"></i></a>
+                                    <a href="{{ route('login.google') }}" target="_blank"><i class="bi bi-google"></i></a>
                                 </li>
                                 <li>
                                     <a href="https://www.instagram.com/login" target="_blank"><i data-feather="github"> </i></a>

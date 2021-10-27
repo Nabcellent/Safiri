@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -68,3 +69,6 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function() {
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])->middleware('guest')->name('get.login');
     Route::get('/register', [RegisteredUserController::class, 'create'])->middleware('guest')->name('get.register');
 });
+
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('auth/google/callback', [GoogleController::class, 'handleCallback']);

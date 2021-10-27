@@ -7,11 +7,14 @@
     "require": {
         "php": "^7.3|^8.0",
         "ext-curl": "*",
+        "ext-json": "*",
+        "accentinteractive/laravel-logcleaner": "^1.0",
         "barryvdh/laravel-ide-helper": "^2.10",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
+        "laravel/socialite": "^5.2",
         "laravel/tinker": "^2.5",
         "skagarwal/google-places-api": "^1.7"
     },

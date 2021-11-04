@@ -1,3 +1,5 @@
+{{--    TOASTIFY    --}}
+<link rel="stylesheet" href="{{ asset('vendor/toastify/toastify.min.css') }}">
 
 <!-- Font Awesome-->
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/fontawesome/css/all.min.css') }}">
@@ -20,7 +22,9 @@
 <!-- Plugins css Ends-->
 <!-- Bootstrap css-->
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap5/bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap5/bootstrap-icons.css') }}">
 <!-- App css-->
 <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/style.css') }}">
 <!-- Responsive css-->
 <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/global.css') }}">

@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\DestinationController;
+use App\Http\Controllers\Admin\DestinationController as AdminDestinationController;
+use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,14 +19,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::prefix('/destinations')->name('destinations.')->group(function() {
+    Route::get('/', [DestinationController::class, 'index'])->name('index');
+    Route::get('/show/{id}', [DestinationController::class, 'show'])->name('show');
+    Route::get('/booking/{id}', [DestinationController::class, 'booking'])->name('show.booking');
+});
+
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function() {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::prefix('/destinations')->middleware('auth')->name('destination.')->group(function() {
-        Route::get('/', [DestinationController::class, 'index'])->name('index');
+    Route::prefix('/destinations')->middleware('auth')->name('destinations.')->group(function() {
+        Route::get('/', [AdminDestinationController::class, 'index'])->name('index');
+        Route::post('/store', [AdminDestinationController::class, 'store'])->name('store');
     });
 });
 

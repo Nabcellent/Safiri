@@ -1,0 +1,82 @@
+@import 'bootstrap.red.css';
+:root {
+    --safiri-green: #24695c;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+.fs-9 {
+    font-size: 9px!important
+}
+.fs-10 {
+    font-size: 10px !important
+}
+.fs-11 {
+    font-size: 11px !important
+}
+.fs-12 {
+    font-size: 12px !important
+}
+.fs-13 {
+    font-size: 13px !important
+}
+.fs-14 {
+    font-size: 14px !important
+}
+.fs-15 {
+    font-size: 15px !important
+}
+.fs-16 {
+    font-size: 16px !important
+}
+.fs-17 {
+    font-size: 17px !important
+}
+.fs-18 {
+    font-size: 18px !important
+}
+.fs-20 {
+    font-size: 20px !important
+}
+.fs-22 {
+    font-size: 22px !important
+}
+.fs-24 {
+    font-size: 24px !important
+}
+.fw-medium {
+    font-weight: 500
+}
+.fw-semibold {
+    font-weight: 600
+}
+
+del {
+    color:#6c757d!important;
+}
+
+
+.toastify {
+    font-weight: bolder;
+}
+
+.toastify.success {
+    background: linear-gradient(30deg, #24695c, rgba(10, 170, 100, .8), #73a5ff);
+}
+
+.toastify.info {
+    background: linear-gradient(30deg, #24695c, rgba(37, 157, 138, .8), #73a5ff);
+}
+
+.toastify.warning {
+    background: linear-gradient(30deg, rgb(235, 166, 18), rgba(235, 166, 18, .8), #73a5ff);
+    color: rgb(30, 30, 30);
+}
+
+.toastify.danger {
+    background: linear-gradient(30deg, rgb(200, 20, 10), rgba(1200, 20, 10, .8), #73a5ff);
+}

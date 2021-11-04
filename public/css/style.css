@@ -1,10 +1,125 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 11pt;
 }
 
 body {
-	background-color: rgb(200, 200, 225);
-	color: darkblue;
+    overflow-x: hidden;
+    background-color: #f5f7fb;
+    color: var(--safiri-green);
+}
+
+
+
+/*------------------------------------------------------------------------------------------------------------
+*                           GLOBAL OVERRIDES
+*------------------------------------------------------------------------------------------------------------*/
+.form-control {
+    font-size: 10pt;
+}
+
+
+
+/*------------------------------------------------------------------------------------------------------------
+*                           SEARCH BAR
+*------------------------------------------------------------------------------------------------------------*/
+#search-bar .search-form {
+    position: relative
+}
+
+#search-bar .search-form .fa-search {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    color: #9ca3af
+}
+
+#search-bar .search-form span {
+    position: absolute;
+    right: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 1px solid #d1d5db
+}
+
+#search-bar .left-pan {
+    padding-left: 10px
+}
+
+#search-bar .left-pan i {
+    padding-left: 10px
+}
+
+#search-bar .form-input {
+    height: 50px;
+    text-indent: 33px;
+    border-radius: 10px
+}
+
+#search-bar .form-input::placeholder {
+    font-size: 10pt;
+}
+
+#search-bar .form-input:focus {
+    box-shadow: none;
+    border: none
+}
+
+
+/*------------------------------------------------------------------------------------------------------------
+*                           HOME
+*------------------------------------------------------------------------------------------------------------*/
+#home .banner-bg {
+    background: url('/images/admin/big-masonry/7.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+#home .listing img {
+    width: 100%;
+    object-fit: cover;
+}
+#home .listing .card {
+    border: 1px solid rgba(0, 0, 0, .3);
+}
+#home .testimonials .circle {
+    width: 3rem;
+    height: 3rem;
+    background-color: lightgray;
+    bottom: -3%;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+
+
+/*------------------------------------------------------------------------------------------------------------
+*                           DESTINATIONS
+*------------------------------------------------------------------------------------------------------------*/
+#destinations .banner-bg img {
+    height: 15rem;
+    object-fit: cover;
+    opacity: .7;
+}
+#destinations .banner-bg .card-img-overlay {
+    background-color: rgba(0, 0, 0, .5);
+}
+#destinations .filter .sticky-sidebar {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#destinations .filter .list-group-item,
+#destinations .listing-item .list-group-item {
+    background-color: transparent;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
 }

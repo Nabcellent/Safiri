@@ -1,8 +1,15 @@
 <div class="page-main-header">
     <div class="main-header-right row m-0">
         <div class="main-header-left">
-            <div class="logo-wrapper"><a href="dashboard.html"><img class="img-fluid" src="/images/admin/logo/logo.png" alt=""></a></div>
-            <div class="dark-logo-wrapper"><a href="dashboard.html"><img class="img-fluid" src="/images/admin/logo/dark-logo.png" alt=""></a>
+            <div class="logo-wrapper">
+                <a href="dashboard.html">
+                    <h4 class="fw-bolder">SAFIRI</h4>
+                </a>
+            </div>
+            <div class="dark-logo-wrapper">
+                <a href="dashboard.html">
+                    <h4 class="fw-bolder">SAFIRI</h4>
+                </a>
             </div>
             <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle"> </i></div>
         </div>
@@ -20,7 +27,7 @@
         </div>
         <div class="nav-right col pull-right right-menu p-0">
             <ul class="nav-menus">
-                <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
+                <li><a class="text-dark" href="#!" onclick="toggleFullScreen()"><i data-feather="maximize"></i></a></li>
                 <li class="onhover-dropdown">
                     <div class="notification-box"><i data-feather="bell"></i><span class="dot-animated"></span></div>
                     <ul class="notification-dropdown onhover-show-div">
@@ -67,7 +74,7 @@
                     </ul>
                 </li>
                 <li>
-                    <div class="mode"><i class="fa fa-moon-o"></i></div>
+                    <div class="mode"><i class="fas fa-moon"></i></div>
                 </li>
                 <li class="onhover-dropdown">
                     <i data-feather="message-square"></i>

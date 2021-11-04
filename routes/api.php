@@ -19,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('/destination')->group(function() {
-    Route::get('/v1/all', [DestinationController::class, 'index']);
+Route::prefix('/destination')->name('api.destinations.')->group(function() {
+    Route::get('/v1/all', [DestinationController::class, 'index'])->name('index');
 });

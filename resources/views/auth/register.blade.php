@@ -1,13 +1,13 @@
 @extends('admin.layouts.guest')
 @section('title', 'Register')
 @section('content')
-    <!-- error page start //-->
+
     <div class="container-fluid p-0">
         <div class="row m-0">
             <div class="col-xl-5 p-0">
                 <div class="login-card">
                     <form action="{{ route('register') }}" method="POST" class="theme-form login-form needs-validation"
-                          novalidate>
+                          novalidate>@csrf
                         <h4>Create your account</h4>
                         <h6>Enter your personal details to create account</h6>
 
@@ -20,9 +20,9 @@
                             </div>
                         @endif
 
-                        <div class="form-group">
-                            <label>Your Name</label>
-                            <div class="small-group">
+                        <div class="row">
+                            <div class="col form-group">
+                                <small>First name</small>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                     <input class="form-control" type="text" required placeholder="First Name"
@@ -31,6 +31,9 @@
                                            aria-label=""/>
                                     <div class="invalid-tooltip">First name is required</div>
                                 </div>
+                            </div>
+                            <div class="col form-group">
+                                <small>Last name</small>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                     <input class="form-control" type="text" required placeholder="Last Name"
@@ -42,33 +45,68 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Email Address</label>
+                            <small>Email Address</small>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="icon-email"></i></span>
-                                <input class="form-control" type="email" required placeholder="Test@gmail.com"
-                                       value="{{ old('first_name', $googleUser->email ?? '') }}" aria-label/>
+                                <input class="form-control" type="email" name="email" required
+                                       placeholder="John@doe.com"
+                                       value="{{ old('email', $googleUser->email ?? '') }}" aria-label/>
                                 <div class="invalid-tooltip">Please enter a valid email.</div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="icon-lock"></i></span>
-                                <input class="form-control" type="password" name="password" required
-                                       placeholder="*********" aria-label/>
-                                <div class="show-hide"><span class="show"> </span></div>
-                                <div class="invalid-tooltip">Password is required.</div>
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-auto">
+                                <div class="input-group">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="male"
+                                               value="male"
+                                               @if(old('gender') === "male") checked @endif required>
+                                        <label class="form-check-label" for="male">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="female"
+                                               value="female"
+                                               @if(old('gender') === "female") checked @endif required>
+                                        <label class="form-check-label" for="female">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col form-group">
+                                <small>Password</small>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                                    <input class="form-control" type="password" name="password" required
+                                           placeholder="*********" aria-label/>
+                                    <a href="javascript:void(0)" class="input-group-text">
+                                        <i class="bi bi-eye-slash toggle-password"></i>
+                                    </a>
+                                    <div class="invalid-tooltip">Confirmation password is required.</div>
+                                </div>
+                            </div>
+                            <div class="col form-group">
+                                <small>Confirm password</small>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                                    <input class="form-control" type="password" name="password_confirmation" required
+                                           placeholder="*********" aria-label/>
+                                    <a href="javascript:void(0)" class="input-group-text">
+                                        <i class="bi bi-eye-slash toggle-password"></i>
+                                    </a>
+                                    <div class="invalid-tooltip">Password is required.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="checkbox">
-                                <input id="checkbox1" type="checkbox"/>
-                                <label class="text-muted" for="checkbox1">Agree with<span>Privacy Policy </span></label>
+                                <input id="agree" type="checkbox"/>
+                                <label class="text-muted" for="agree">Agree with<span> Privacy Policy</span>.</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <input type="hidden" name="google_id" value="{{ old('google_id', $googleUser->id ?? '') }}">
-                            <button class="btn btn-primary btn-block" type="submit">Create Account</button>
+                            <button class="btn btn-sm btn-primary btn-block" type="submit">Create Account</button>
                         </div>
                         <div class="login-social-title">
                             <h5>Sign Up with</h5>
@@ -76,7 +114,7 @@
                         <div class="form-group">
                             <ul class="login-social">
                                 <li>
-                                    <a href="https://www.linkedin.com/login" target="_blank">
+                                    <a href="{{ route('auth.google') }}" target="_blank">
                                         <i class="bi bi-google"></i>
                                     </a>
                                 </li>
@@ -100,6 +138,8 @@
                 <img class="bg-img-cover bg-center" src="{{ asset('images/admin/login/1.jpg') }}" alt="looginpage"/>
             </div>
         </div>
+        <a href="{{ route('home') }}" class="btn btn-sm btn-outline-primary fw-bold fs-13 py-2 px-3 position-fixed shadow-sm"
+           style="bottom:1rem; right:1rem; border-radius: 20px">SAFIRI</a>
     </div>
 
     <script>

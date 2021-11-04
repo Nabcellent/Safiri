@@ -4,10 +4,12 @@
     <!-- error page start //-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-7"><img class="bg-img-cover bg-center" src="{{ asset('images/admin/login/2.jpg') }}" alt="looginpage"/></div>
+            <div class="col-xl-7"><img class="bg-img-cover bg-center" src="{{ asset('images/admin/login/2.jpg') }}"
+                                       alt="looginpage"/></div>
             <div class="col-xl-5 p-0">
                 <div class="login-card">
-                    <form action="{{ route('login') }}" method="POST" class="theme-form login-form needs-validation" novalidate="">
+                    <form action="{{ route('login') }}" method="POST" class="theme-form login-form needs-validation"
+                          novalidate="">
                         @csrf
                         <h4>Sign In</h4>
                         <h6>Welcome back! Sign in to your account.</h6>
@@ -25,7 +27,8 @@
                             <label>Email Address</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="icon-email"></i></span>
-                                <input class="form-control" type="email" name="email" value="{{ old('email') }}" aria-label required placeholder="John@doe.com"/>
+                                <input class="form-control" type="email" name="email" value="{{ old('email') }}"
+                                       aria-label required placeholder="Jane@doe.com"/>
                                 <div class="invalid-tooltip">Please enter a valid email.</div>
                             </div>
                         </div>
@@ -33,9 +36,12 @@
                             <label>Password</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="icon-lock"></i></span>
-                                <input class="form-control" type="password" name="password" required="" placeholder="*********" aria-label/>
+                                <input class="form-control" type="password" name="password" required=""
+                                       placeholder="*********" aria-label/>
+                                <a href="javascript:void(0)" class="input-group-text">
+                                    <i class="bi bi-eye-slash toggle-password"></i>
+                                </a>
                                 <div class="invalid-tooltip">Please enter password.</div>
-                                <div class="show-hide"><span class="show"> </span></div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -48,7 +54,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+                            <button class="btn btn-sm btn-primary btn-block" type="submit">Sign In</button>
                         </div>
                         <div class="login-social-title">
                             <h5>Sign In with</h5>
@@ -56,21 +62,30 @@
                         <div class="form-group">
                             <ul class="login-social">
                                 <li>
-                                    <a href="{{ route('login.google') }}" target="_blank"><i class="bi bi-google"></i></a>
+                                    <a href="{{ route('auth.google') }}" target="_blank">
+                                        <i class="bi bi-google"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.instagram.com/login" target="_blank"><i data-feather="github"> </i></a>
+                                    <a href="https://www.instagram.com/login" target="_blank">
+                                        <i data-feather="github"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.linkedin.com/login" target="_blank"><i data-feather="twitter"></i></a>
+                                    <a href="https://www.linkedin.com/login" target="_blank">
+                                        <i data-feather="twitter"></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
-                        <p>Don't have account?<a class="ms-2" href="{{ route('admin.get.register') }}">Create Account</a></p>
+                        <p>Don't have account?<a class="ms-2" href="{{ route('admin.get.register') }}">Create
+                                Account</a></p>
                     </form>
                 </div>
             </div>
         </div>
+        <a href="{{ route('home') }}" class="btn btn-sm btn-outline-primary fw-bold fs-13 py-2 px-3 position-fixed shadow-sm"
+           style="bottom:1rem; left:1rem; border-radius: 20px">SAFIRI</a>
     </div>
 
     <script>

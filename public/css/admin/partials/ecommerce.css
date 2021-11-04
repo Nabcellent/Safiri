@@ -560,7 +560,32 @@
 
 .product-box:hover .product-hover {
 	opacity: 1;
-	border-radius: 0%;
+	border-radius: 0;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.product-box.saving {
+    position: relative;
+}
+
+.product-box .saving-overlay {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    display: none;
+}
+
+.product-box.saving .product-hover {
+    background-color: rgba(10, 100, 50, 0.8);
+	opacity: 1;
+	border-radius: 0;
+    filter: blur(3px) grayscale(100%);
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	-webkit-transition: all 0.3s ease;

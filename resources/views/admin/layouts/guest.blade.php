@@ -12,12 +12,11 @@
     <link rel="icon" href="assets/images/favicon.png" type="image/x-icon"/>
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon"/>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
     <!-- Plugins css start-->
 
     <!-- Font Awesome-->
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap5/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap5/bootstrap-icons.css') }}">
     <!-- ico-font-->
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/viho/css/icofont.css') }}"/>
     <!-- Themify icon-->
@@ -27,6 +26,7 @@
     <!-- Feather icon-->
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/viho/css/feather-icon.css') }}"/>
     <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/global.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/style.css') }}"/>
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/responsive.css') }}">
@@ -65,7 +65,13 @@
 <script src="{{ asset('vendor/viho/js/script.js') }}"></script>
 <!-- Plugins JS Ends-->
 <!-- Plugin used-->
-
+<script>
+    $(document).on('click', '.toggle-password', function() {
+        const passwordField = $(this).closest('div').find('input');
+        $( passwordField ).prop( "type", ( i, val ) => val === 'password' ? 'text' : 'password');
+        $(this).toggleClass('bi-eye');
+    });
+</script>
 <!-- -->
 
 </body>

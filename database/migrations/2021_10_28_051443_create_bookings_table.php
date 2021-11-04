@@ -24,7 +24,7 @@ class CreateBookingsTable extends Migration
             $table->float('amount_paid');
             $table->float('service_fee')->nullable();
             $table->timestamp('start_at');
-            $table->timestamp('end_at');
+            $table->timestamp('end_at')->nullable();
             $table->timestamps();
         });
     }

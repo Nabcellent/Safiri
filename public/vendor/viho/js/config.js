@@ -1,5 +1,5 @@
-var primary = localStorage.getItem("primary") || '#24695c';
-var secondary = localStorage.getItem("secondary") || '#ba895d';
+let primary = localStorage.getItem("primary") || '#24695c';
+let secondary = localStorage.getItem("secondary") || '#ba895d';
 
 window.vihoAdminConfig = {
 	// Theme Primary Color
@@ -7,22 +7,21 @@ window.vihoAdminConfig = {
 	// theme secondary color
 	secondary: secondary,
 };
-localStorage.clear();
 
-// defalt layout
-$("#default-demo").click(function(){      
+// default layout
+$("#default-demo").on('click', function(){
     localStorage.setItem('page-wrapper', 'page-wrapper compact-wrapper');
     localStorage.setItem('page-body-wrapper', 'sidebar-icon');
 });
 
 // compact layout
-$("#compact-demo").click(function(){   
+$("#compact-demo").on('click', function(){
     localStorage.setItem('page-wrapper', 'page-wrapper compact-wrapper compact-sidebar');
     localStorage.setItem('page-body-wrapper', 'sidebar-icon');
 });
 
 // modern layout
-$("#modern-demo").click(function(){   
+$("#modern-demo").on('click', function(){
     localStorage.setItem('page-wrapper', 'page-wrapper compact-wrapper modern-sidebar');
     localStorage.setItem('page-body-wrapper', 'sidebar-icon');
 });

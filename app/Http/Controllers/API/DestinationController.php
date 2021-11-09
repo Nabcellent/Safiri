@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Events\SaveDestination;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Session;
 use SKAgarwal\GoogleApi\Exceptions\GooglePlacesApiException;
 use SKAgarwal\GoogleApi\PlacesApi;
-use Throwable;
 
 class DestinationController extends Controller
 {

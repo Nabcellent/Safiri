@@ -6,12 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Jobs\SaveDestination;
 use App\Models\Category;
 use App\Models\Destination;
-use App\Models\Setting;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Arr;
 use SKAgarwal\GoogleApi\PlacesApi;
 use Throwable;
 

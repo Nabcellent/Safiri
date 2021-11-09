@@ -32,7 +32,7 @@
 
 <div class="px-5 py-3 bg-light">
     <div class="container-fluid py-2 d-flex justify-between align-items-center">
-        <h5 class="fw-bold">SAFIRI</h5>
+        <h5 class="fw-bold text-dark">SAFIRI</h5>
         <div id="search-bar" class="container">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-6">
@@ -41,7 +41,7 @@
                         <input type="text" class="form-control form-input" placeholder="Search destinations..." aria-label>
                         <span class="left-pan d-flex align-items-center">
                             <i class="fa fa-microphone"></i>
-                            <select name="destination" id="destination" class="border-0 bg-transparent form-control">
+                            <select name="destination" id="destination" class="border-0 bg-transparent form-control" aria-label="">
                                 <option value="" selected hidden>Destinations</option>
                                 <option value="">Some place</option>
                                 <option value="">Some place</option>

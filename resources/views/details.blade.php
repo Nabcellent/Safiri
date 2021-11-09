@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Details')
 @push('links')
     <link rel="stylesheet" href="{{ asset('vendor/swiper/swiper.min.css') }}"/>
     <style>

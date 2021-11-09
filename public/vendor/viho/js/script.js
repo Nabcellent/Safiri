@@ -283,10 +283,10 @@ $('.show-hide').parent().find('input[name="login[password]"]').attr('type', 'pas
 //landing header //
 $(".toggle-menu").click(function(){
     $('.landing-menu').toggleClass('open');
-});   
+});
 $(".menu-back").click(function(){
     $('.landing-menu').toggleClass('open');
-});    
+});
 
 $('.product-size ul li ').on('click', function(e) {
     $(".product-size ul li ").removeClass("active");
@@ -294,19 +294,10 @@ $('.product-size ul li ').on('click', function(e) {
 });
 
 $('.email-sidebar .email-aside-toggle ').on('click', function(e) {
-    $(".email-sidebar .email-left-aside ").toggleClass("open");   
+    $(".email-sidebar .email-left-aside ").toggleClass("open");
 });
 
 
 $('.job-sidebar .job-toggle ').on('click', function(e) {
-    $(".job-sidebar .job-left-aside ").toggleClass("open");   
+    $(".job-sidebar .job-left-aside ").toggleClass("open");
 });
-
-
-$(".mode").on("click", function () {
-        $('.mode i').toggleClass("fa-moon-o").toggleClass("fa-lightbulb-o");
-        // $('.mode-sun').toggleClass("show")
-        $('body').toggleClass("dark-only");
-        var color = $(this).attr("data-attr");
-        localStorage.setItem('body', 'dark-only');
-    });

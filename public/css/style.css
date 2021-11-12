@@ -84,6 +84,12 @@ body {
 #home .listing .card {
     border: 1px solid rgba(0, 0, 0, .3);
 }
+#home .listing .swiper img {
+    height: 170px;
+}
+.swiper-btn-prev, .swiper-btn-next {
+    cursor: pointer
+}
 #home .testimonials .circle {
     width: 3rem;
     height: 3rem;
@@ -123,3 +129,9 @@ body {
     border: none;
     border-bottom: 1px solid #fff;
 }
+
+
+
+/*------------------------------------------------------------------------------------------------------------
+*                           FOOTER
+*------------------------------------------------------------------------------------------------------------*/

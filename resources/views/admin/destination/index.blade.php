@@ -1,10 +1,13 @@
 @extends('admin.layouts.app')
+@section('title', 'Destinations')
 @once
     @push('links')
         <!-- Plugins css start-->
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/viho/css/select2.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/viho/css/owlcarousel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('vendor/viho/css/range-slider.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/loadingBtn/ldbtn.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/loadingBtn/loading.min.css') }}">
         <!-- Plugins css Ends-->
     @endpush
 @endonce
@@ -12,14 +15,22 @@
 
     <div class="container-fluid">
         <div class="page-header">
-            <div class="row">
+            <div class="row justify-content-between">
                 <div class="col-lg-6">
                     <h3>Product</h3>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../dashboard.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item">ECommerce</li>
                         <li class="breadcrumb-item active">Product</li>
                     </ol>
+                </div>
+                <div class="col-auto">
+                    <button
+                        class="btn btn-sm btn-outline-primary ld-ext-right @if($savingDestinations) running disabled @endif"
+                        id="save-destinations" title="Save destinations">
+                        @if($savingDestinations) Saving... @else <i class="fas fa-cloud-download"></i> @endif
+                        <span class="ld ld-ring ld-spin"></span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -45,9 +56,9 @@
                 method: 'GET',
                 url: 'http://localhost:8000/api/destination/v1/all',
                 success: response => {
-                    console.log(response)
+                    window.DESTINATIONS = response;
 
-                    const destinations = response.map(place => {
+                    const HTML_DESTINATIONS = response.map(place => {
                         const rating = place.rating ? `<small>Rating - ${place.rating}</small>` : '';
 
                         let openingHours = place.opening_hours
@@ -67,39 +78,32 @@
 											<li>
 												<a data-bs-toggle="modal" data-bs-target="#exampleModalCenter16"><i class="icon-eye"></i></a>
 											</li>
+											<li>
+												<a data-id="${place.place_id}" class="save-destination" title="Save"><i class="icon-save"></i></a>
+											</li>
 										</ul>
 									</div>
 								</div>
+                                <div class="position-absolute saving-overlay py-2 px-3 ld-ext-right">
+                                    Saving...<span class="ld ld-ring ld-spin"></span>
+                                </div>
 								<div class="modal fade" id="exampleModalCenter16">
 									<div class="modal-dialog modal-lg modal-dialog-centered">
 										<div class="modal-content">
 											<div class="modal-header">
 												<div class="product-box row">
-													<div class="product-img col-lg-6"><img class="img-fluid" src="/images/admin/ecommerce/01.jpg"
-													                                       alt=""/></div>
+													<div class="product-img col-lg-6">
+                                                        <img class="img-fluid" src="/images/admin/ecommerce/01.jpg" alt=""/>
+                                                    </div>
 													<div class="product-details col-lg-6 text-start">
-														<a href="product-page.html"><h4>Man's Jacket</h4></a>
+														<a href="product-page.html"><h4>${place.name}</h4></a>
 														<div class="product-price">
-															$26.00
-															<del>$35.00</del>
+															$26.00 <del>$35.00</del>
 														</div>
 														<div class="product-view">
-															<h6 class="f-w-600">Product Details</h6>
+															<h6 class="f-w-600">Destination Details</h6>
 															<p class="mb-0">Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
 																accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.</p>
-														</div>
-														<div class="product-size">
-															<ul>
-																<li>
-																	<button class="btn btn-outline-light" type="button">M</button>
-																</li>
-																<li>
-																	<button class="btn btn-outline-light" type="button">L</button>
-																</li>
-																<li>
-																	<button class="btn btn-outline-light" type="button">Xl</button>
-																</li>
-															</ul>
 														</div>
 														<div class="product-qnty">
 															<h6 class="f-w-600">Quantity</h6>
@@ -108,8 +112,9 @@
 																	<input class="touchspin text-center" type="text" value="5"/>
 																</div>
 															</fieldset>
-															<div class="addcart-btn"><a class="btn btn-primary me-3" href="cart.html">Add to Cart </a><a
-																		class="btn btn-primary" href="product-page.html">View Details</a></div>
+															<div class="addcart-btn">
+                                                                <a class="btn btn-primary me-3" href="cart.html">Save</a>
+                                                            </div>
 														</div>
 													</div>
 												</div>
@@ -122,8 +127,7 @@
 									<a href="product-page.html"><h4>${place.name}</h4></a>
 									<div class="d-flex justify-content-between"><p>${openingHours}</p> ${rating} </div>
 									<div class="product-price">
-										$26.00
-										<del>$35.00</del>
+										$26.00<del>$35.00</del>
 									</div>
 								</div>
 							</div>
@@ -131,7 +135,7 @@
 					</div>`
                     })
 
-                    $('.product-wrapper-grid > .row').html(destinations)
+                    $('.product-wrapper-grid > .row').html(HTML_DESTINATIONS)
                 },
                 error: error => {
                     console.log(error)
@@ -154,6 +158,64 @@
             <script src="{{ asset('vendor/viho/js/tooltip-init.js') }}"></script>
             <script src="{{ asset('vendor/viho/js/product-tab.js') }}"></script>
             <!-- Plugins JS Ends-->
+
+            <script>
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $('#save-destinations').on('click', function () {
+                    storeDestinations({destinations: window.DESTINATIONS}, $(this))
+                });
+
+                $(document).on('click', '.save-destination', function () {
+                    $(this).closest('ul').addClass('d-none');
+                    $(this).closest('.product-box').find($('.saving-overlay')).show(300);
+                    $(this).closest('.product-box').addClass('saving');
+
+                    storeDestinations({place_id: $(this).data('id')}, $(this))
+                });
+
+                const storeDestinations = (data, element) => {
+                    $.ajax({
+                        data: data,
+                        url: `{{ route('admin.destinations.store') }}`,
+                        method: 'POST',
+                        beforeSend: () => {
+                            if(data.destinations) {
+                                element.html(`Saving... <span class="ld ld-ring ld-spin"></span>`).addClass('running disabled')
+                            }
+                        },
+                        success: response => toast({
+                            msg: response.message,
+                            type: (response.status ? 'success' : 'warning')
+                        }),
+                        error: error => {
+                            console.log(error)
+
+                            sweet({
+                                title: 'Error',
+                                msg: 'Something went wrong while saving destinations.',
+                                type: 'error'
+                            })
+                        },
+                        complete: xhr => {
+                            let err = eval("(" + xhr.responseText + ")");
+
+                            if (err.status !== true) element.prop('disabled', false).removeClass('running')
+
+                            if(data.place_id) {
+                                element.closest('.product-box').find($('.saving-overlay')).hide(300);
+                                element.closest('.product-box').removeClass('saving');
+                                element.closest('ul').removeClass('d-none');
+                                element.closest('li').remove()
+                            }
+                        }
+                    });
+                }
+            </script>
         @endpush
     @endonce
 @endsection

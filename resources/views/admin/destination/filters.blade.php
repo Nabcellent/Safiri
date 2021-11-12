@@ -12,8 +12,7 @@
 			</div>
 			<div class="d-none-productlist filter-toggle">
 				<h6 class="mb-0">
-					Filters<span class="ms-2"><i class="toggle-data" data-feather="chevron-down"></i>
-								</span>
+					Filters<span class="ms-2"><i class="toggle-data" data-feather="chevron-down"></i></span>
 				</h6>
 			</div>
 			<div class="grid-options d-inline-block">

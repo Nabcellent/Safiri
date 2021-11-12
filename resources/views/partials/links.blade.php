@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/style.css') }}">
+
 <link href="{{ asset('vendor/bootstrap5/bootstrap.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('vendor/bootstrap5/bootstrap-icons.css') }}">
 

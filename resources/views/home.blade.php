@@ -65,9 +65,9 @@
                                         <img src="{{ asset("images/destinations/{$destination->image}") }}"
                                              class="card-img p-2"
                                              alt="...">
-                                        <div class="card-img-overlay">
+                                        <a href="{{ route('destinations.show', $destination->id) }}" class="card-img-overlay">
                                             <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
-                                        </div>
+                                        </a>
                                         <div class="card-body position-relative">
                                             <h5 class="card-title fs-13 fw-bold"
                                                 style="height: 2rem">{{ $destination->name }}</h5>
@@ -75,13 +75,13 @@
                                                 {{ $destination->vicinity }}
                                             </p>
                                             <div class="d-flex justify-content-between align-items-end">
-                                                <div class="small fw-bold" style="height: 3rem">
+                                                <div class="small fw-bold" style="height: 2rem">
                                                     <p class="mb-0">KSH.20,000</p>
                                                     @if($destination->id === 2)
                                                         <del class="small">25,000</del>
                                                     @endif
                                                 </div>
-                                                <a href="{{ route('destinations.show.booking', ['id' => 1]) }}"
+                                                <a href="{{ route('destinations.show.booking', ['id' => $destination->id]) }}"
                                                    class="btn btn-sm btn-primary fs-13 fw-bold rounded-3">Book Now</a>
                                             </div>
                                         </div>
@@ -122,9 +122,9 @@
                                         <img src="{{ asset("images/destinations/{$destination->image}") }}"
                                              class="card-img p-2"
                                              alt="...">
-                                        <div class="card-img-overlay">
+                                        <a href="{{ route('destinations.show', $destination->id) }}" class="card-img-overlay">
                                             <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
-                                        </div>
+                                        </a>
                                         <div class="card-body position-relative">
                                             <h5 class="card-title fs-13 fw-bold"
                                                 style="height: 2rem">{{ $destination->name }}</h5>
@@ -132,13 +132,13 @@
                                                 {{ $destination->vicinity }}
                                             </p>
                                             <div class="d-flex justify-content-between align-items-end">
-                                                <div class="small fw-bold" style="height: 3rem">
+                                                <div class="small fw-bold" style="height: 2rem">
                                                     <p class="mb-0">KSH.20,000</p>
                                                     @if($destination->id === 2)
                                                         <del class="small">25,000</del>
                                                     @endif
                                                 </div>
-                                                <a href="{{ route('destinations.show.booking', ['id' => 1]) }}"
+                                                <a href="{{ route('destinations.show.booking', ['id' => $destination->id]) }}"
                                                    class="btn btn-sm btn-primary fs-13 fw-bold rounded-3">Book Now</a>
                                             </div>
                                         </div>
@@ -199,13 +199,13 @@
                             <!-- Slides -->
                             @foreach($destinations as $destination)
                                 <div class="swiper-slide">
-                                    <div class="card bg-transparent shadow" style="width: 18rem;">
+                                    <div class="card bg-transparent shadow" style="width: 17rem;">
                                         <img src="{{ asset("images/destinations/{$destination->image}") }}"
                                              class="card-img p-2"
                                              alt="...">
-                                        <div class="card-img-overlay">
+                                        <a href="{{ route('destinations.show', $destination->id) }}" class="card-img-overlay">
                                             <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
-                                        </div>
+                                        </a>
                                         <div class="card-body position-relative">
                                             <h5 class="card-title fs-13 fw-bold"
                                                 style="height: 2rem">{{ $destination->name }}</h5>
@@ -213,13 +213,13 @@
                                                 {{ $destination->vicinity }}
                                             </p>
                                             <div class="d-flex justify-content-between align-items-end">
-                                                <div class="small fw-bold" style="height: 3rem">
+                                                <div class="small fw-bold" style="height: 2rem">
                                                     <p class="mb-0">KSH.20,000</p>
                                                     @if($destination->id === 2)
                                                         <del class="small">25,000</del>
                                                     @endif
                                                 </div>
-                                                <a href="{{ route('destinations.show.booking', ['id' => 1]) }}"
+                                                <a href="{{ route('destinations.show.booking', ['id' => $destination->id]) }}"
                                                    class="btn btn-sm btn-primary fs-13 fw-bold rounded-3">Book Now</a>
                                             </div>
                                         </div>

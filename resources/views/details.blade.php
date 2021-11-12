@@ -2,40 +2,6 @@
 @section('title', 'Details')
 @push('links')
     <link rel="stylesheet" href="{{ asset('vendor/swiper/swiper.min.css') }}"/>
-    <style>
-        .swiper {
-            width: 45rem;
-            height: 30rem;
-        }
-
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-        }
-
-        .swiper-slide img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .thumbSwiper {
-            height: 20%;
-            box-sizing: border-box;
-            padding: 10px 0;
-        }
-
-        .thumbSwiper .swiper-slide {
-            width: 25%;
-            height: 100%;
-            opacity: 0.4;
-        }
-
-        .thumbSwiper .swiper-slide-thumb-active {
-            opacity: 1;
-        }
-    </style>
 @endpush
 @section('content')
 
@@ -44,7 +10,7 @@
             <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('destinations.index') }}">Domestic deals</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Maasai Mara trip package</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $destination->name }}</li>
             </ol>
         </nav>
 
@@ -56,14 +22,13 @@
                         <div class="swiper-wrapper">
                             <!-- Slides -->
                             <div class="swiper-slide">
-                                <img src="{{ asset('https://swiperjs.com/demos/images/nature-1.jpg') }}" alt="">
+                                <img src="{{ asset("images/destinations/{$destination->image}") }}" alt="">
                             </div>
-                            <div class="swiper-slide">
-                                <img src="{{ asset('https://swiperjs.com/demos/images/nature-2.jpg') }}" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ asset('https://swiperjs.com/demos/images/nature-3.jpg') }}" alt="">
-                            </div>
+                            @foreach($destination->destinationImages as $image)
+                                <div class="swiper-slide">
+                                    <img src="{{ asset("images/destinations/$image->image") }}" alt="">
+                                </div>
+                            @endforeach
                         </div>
                         <!-- If we need pagination -->
                         <div class="swiper-pagination"></div>
@@ -75,14 +40,13 @@
                     <div thumbsSlider="" class="swiper thumbSwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt=""/>
+                                <img src="{{ asset("images/destinations/{$destination->image}") }}" alt=""/>
                             </div>
+                            @foreach($destination->destinationImages as $image)
                             <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt=""/>
+                                <img src="{{ asset("images/destinations/$image->image") }}" alt=""/>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt=""/>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -90,13 +54,13 @@
                 <div class="col">
                     <div class="row mb-5">
                         <div class="col">
-                            <h3>Maasai Mara Trip Package</h3>
-                            <p>--- rating ---</p>
+                            <h3>{{ $destination->name }}</h3>
+                            <p>--- rating: {{ $destination->rating }} ---</p>
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <ul class="col-md-6 list-group-flush">
+                        <ul class="col-xxl-8 list-group-flush">
                             <li class="list-group-item bg-transparent d-flex row">
                                 <div class="col">Lorem</div>
                                 <div class="col">Lorem ipsum</div>

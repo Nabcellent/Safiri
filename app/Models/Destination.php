@@ -22,6 +22,9 @@ class Destination extends Model
         'vicinity',
         'distance',
         'location',
+        'website',
+        'rating',
+        'description',
     ];
 
     protected $casts = [

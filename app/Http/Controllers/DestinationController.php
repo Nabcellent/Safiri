@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destination;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -39,10 +42,21 @@ class DestinationController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return Response
+     * @return Response|RedirectResponse
      */
-    public function show(int $id): Response {
-        return response()->view('details');
+    public function show(int $id): Response|RedirectResponse {
+        try {
+            $data = [
+                'destination' => Destination::with('destinationImages')->findOrFail($id),
+            ];
+
+//            dd($data['destination']);
+
+            return response()->view('details', $data);
+        } catch (Exception $e) {
+            dd($e);
+            return failNotFound();
+        }
     }
 
     /**

@@ -133,5 +133,43 @@ body {
 
 
 /*------------------------------------------------------------------------------------------------------------
+*                           DETAILS
+*------------------------------------------------------------------------------------------------------------*/
+#details .swiper {
+    width: 45rem;
+    height: 30rem;
+}
+
+#details .swiper-slide {
+    background-position: center;
+    background-size: cover;
+}
+
+#details .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#details .thumbSwiper {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+#details .thumbSwiper .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+#details .thumbSwiper .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+
+
+/*------------------------------------------------------------------------------------------------------------
 *                           FOOTER
 *------------------------------------------------------------------------------------------------------------*/

@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="{{ asset('vendor/bootstrap5/bootstrap-icons.css') }}">
 
 <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/all.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/toastify/toastify.min.css') }}">
+
 <link rel="stylesheet" href="{{ asset('css/admin/partials/general.css') }}">
 
 @stack('links')

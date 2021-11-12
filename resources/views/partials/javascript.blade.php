@@ -33,22 +33,4 @@
     @if (session('sweet_success'))
     sweet({msg: '{{ session('sweet_success') }}', type: 'success', title: 'GREAT!!'});
     @endif
-
-
-    window.sweet = data => {
-        Swal.fire({
-            title: data.title ? data.title : 'Oops...',
-            text: data.msg,
-            icon: data.type
-        });
-    }
-
-    window.toast = data => {
-        Toastify({
-            text: data.msg,
-            duration: 7000,
-            close: true,
-            className: data.type,
-        }).showToast();
-    }
 </script>

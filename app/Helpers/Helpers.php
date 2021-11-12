@@ -46,6 +46,11 @@ if(!function_exists('deleteOk')) {
         return goWithSuccess($routeName, __('msg.del_ok'));
     }
 }
+if(!function_exists('failNotFound')) {
+    function failNotFound($msg = 'The resource you requested was not found!', $routeName = null): RedirectResponse {
+        return goWithError(__($msg), $routeName);
+    }
+}
 if(!function_exists('toastInfo')) {
     function toastInfo($msg, $routeName = null): RedirectResponse {
         return goWithInfo($routeName, $msg);
@@ -99,7 +104,7 @@ if(!function_exists('goWithDanger')) {
         return goToRoute($to)->with('flash_danger', $msg);
     }
 }
-if(!function_exists('goWithDanger')) {
+if(!function_exists('goWithError')) {
     function goWithError($msg = "Error...! ☹", $to = null): RedirectResponse {
         $route = $to
             ? goToRoute($to)

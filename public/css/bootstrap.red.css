@@ -17,6 +17,11 @@
     background-color: var(--safiri-green);
 }
 
+.bg-primary {
+    background-color: #24695c !important;
+    color: #fff;
+}
+
 
 @media (min-width: 768px) {
     .px-md-7 {

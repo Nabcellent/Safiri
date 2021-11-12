@@ -1,16 +1,16 @@
-<footer class="container mt-5 py-4">
+<footer class="container mt-5 bg-primary p-4">
     <hr>
     <div class="row">
         <div class="col">
             <div class="row text-success">
                 <div class="col">
-                    <h5 class="fw-bold text-dark">Get in touch</h5>
+                    <h5 class="fw-bold text-white">Get in touch</h5>
                     <p>Help</p>
                     <p>About Us</p>
                     <p>Destinations</p>
                 </div>
                 <div class="col">
-                    <h5 class="fw-bold text-dark">Connections</h5>
+                    <h5 class="fw-bold text-white">Connections</h5>
                     <p>Facebook</p>
                     <p>Twitter</p>
                     <p>Instagram</p>
@@ -18,7 +18,7 @@
                     <p>LinkedIn</p>
                 </div>
                 <div class="col">
-                    <h5 class="fw-bold text-dark">Account</h5>
+                    <h5 class="fw-bold text-white">Account</h5>
                     <p>Your account</p>
                     <p>Return Center</p>
                     <p>Chat with us</p>

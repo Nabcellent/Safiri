@@ -12,6 +12,11 @@ body {
     color: var(--safiri-green);
 }
 
+img {
+    height: 100%;
+    object-fit: cover;
+}
+
 
 
 /*------------------------------------------------------------------------------------------------------------
@@ -84,6 +89,7 @@ body {
 #home .listing .card {
     border: 1px solid rgba(0, 0, 0, .3);
 }
+#details .listing .swiper img,
 #home .listing .swiper img {
     height: 170px;
 }
@@ -122,6 +128,14 @@ body {
 #destinations .listing-item .list-group-item {
     background-color: transparent;
 }
+#destinations .listing-item .image img {
+    height: 275px;
+}
+#destinations .listing-item .card-body {
+    height: 200px;
+}
+
+
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #495057;
@@ -135,36 +149,36 @@ body {
 /*------------------------------------------------------------------------------------------------------------
 *                           DETAILS
 *------------------------------------------------------------------------------------------------------------*/
-#details .swiper {
+#details .main-swiper .swiper {
     width: 45rem;
     height: 30rem;
 }
 
-#details .swiper-slide {
+#details .main-swiper .swiper-slide {
     background-position: center;
     background-size: cover;
 }
 
-#details .swiper-slide img {
+#details .main-swiper .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-#details .thumbSwiper {
+#details .main-swiper .thumbSwiper {
     height: 20%;
     box-sizing: border-box;
     padding: 10px 0;
 }
 
-#details .thumbSwiper .swiper-slide {
+#details .main-swiper .thumbSwiper .swiper-slide {
     width: 25%;
     height: 100%;
     opacity: 0.4;
 }
 
-#details .thumbSwiper .swiper-slide-thumb-active {
+#details .main-swiper .thumbSwiper .swiper-slide-thumb-active {
     opacity: 1;
 }
 

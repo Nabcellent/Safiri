@@ -19,6 +19,7 @@ class CreateBookingsTable extends Migration
             $table->foreignId('destination_id')->constrained()->cascadeOnDelete();
             $table->foreignId('package_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('payment_method_id')->constrained()->restrictOnDelete();
+            $table->smallInteger('guests')->default(1);
             $table->boolean('is_paid')->default(false);
             $table->float('price');
             $table->float('amount_paid');

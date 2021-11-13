@@ -69,8 +69,10 @@
                                             <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
                                         </a>
                                         <div class="card-body position-relative">
-                                            <h5 class="card-title fs-13 fw-bold"
-                                                style="height: 2rem">{{ $destination->name }}</h5>
+                                            <a href="{{ route('destinations.show', $destination->id) }}">
+                                                <h5 class="card-title fs-13 fw-bold"
+                                                    style="height: 2rem">{{ $destination->name }}</h5>
+                                            </a>
                                             <p class="card-text text-secondary small text-truncate mb-1">
                                                 {{ $destination->vicinity }}
                                             </p>
@@ -126,8 +128,10 @@
                                             <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
                                         </a>
                                         <div class="card-body position-relative">
-                                            <h5 class="card-title fs-13 fw-bold"
-                                                style="height: 2rem">{{ $destination->name }}</h5>
+                                            <a href="{{ route('destinations.show', $destination->id) }}">
+                                                <h5 class="card-title fs-13 fw-bold"
+                                                    style="height: 2rem">{{ $destination->name }}</h5>
+                                            </a>
                                             <p class="card-text text-secondary small text-truncate mb-1">
                                                 {{ $destination->vicinity }}
                                             </p>
@@ -207,14 +211,16 @@
                                             <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
                                         </a>
                                         <div class="card-body position-relative">
-                                            <h5 class="card-title fs-13 fw-bold"
-                                                style="height: 2rem">{{ $destination->name }}</h5>
+                                            <a href="{{ route('destinations.show', $destination->id) }}">
+                                                <h5 class="card-title fs-13 fw-bold"
+                                                    style="height: 2rem">{{ $destination->name }}</h5>
+                                            </a>
                                             <p class="card-text text-secondary small text-truncate mb-1">
                                                 {{ $destination->vicinity }}
                                             </p>
                                             <div class="d-flex justify-content-between align-items-end">
                                                 <div class="small fw-bold" style="height: 2rem">
-                                                    <p class="mb-0">KSH.20,000</p>
+                                                    <p class="mb-0">KSH.{{ number_format($destination->price) }}</p>
                                                     @if($destination->id === 2)
                                                         <del class="small">25,000</del>
                                                     @endif
@@ -245,7 +251,6 @@
             const swiperOptions = {
                 // Optional parameters
                 spaceBetween: 30,
-                centeredSlides: true,
                 grabCursor: true,
                 loop: true,
 

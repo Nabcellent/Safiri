@@ -2,18 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destination;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
 
 class DestinationController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return Response
+     * @return Response|RedirectResponse
      */
-    public function index(): Response {
-        return response()->view('destinations');
+    public function index(): Response|RedirectResponse {
+        try {
+            $data = [
+                'destinations' => Destination::paginate(10),
+            ];
+
+            return response()->view('destinations',$data);
+        } catch (Exception $e) {
+            return failNotFound();
+        }
     }
 
     /**
@@ -31,28 +41,49 @@ class DestinationController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return Response
      */
-    public function store(Request $request) {
-        //
+    public function reserve(Request $request) {
+        $data = $request->all();
+        $data['dates'] = collect(explode('~', $data['dates']))->map(function($date) {
+            return Carbon::createFromFormat('d/m/Y', trim($date));
+        });
+        dd($data['dates'], $dates);
     }
 
     /**
      * Display the specified resource.
      *
      * @param int $id
-     * @return Response
+     * @return Response|RedirectResponse
      */
-    public function show(int $id): Response {
-        return response()->view('details');
+    public function show(int $id): Response|RedirectResponse {
+        try {
+            $data = [
+                'destination' => Destination::with(['destinationImages', 'category'])->findOrFail($id),
+                "suggestedDestinations" => Destination::inRandomOrder()->take(7)->get(),
+            ];
+
+            return response()->view('details', $data);
+        } catch (Exception $e) {
+            return failNotFound();
+        }
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return Response
+     * @return RedirectResponse|Response
      */
-    public function booking(int $id): Response {
-        return response()->view('booking');
+    public function booking(int $id): Response|RedirectResponse {
+        try {
+            $data = [
+                'destination' => Destination::with(['category'])->findOrFail($id),
+            ];
+
+            return response()->view('booking', $data);
+        } catch (Exception $e) {
+            return failNotFound();
+        }
     }
 
     /**

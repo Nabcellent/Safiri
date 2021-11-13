@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -22,11 +23,18 @@ class Destination extends Model
         'vicinity',
         'distance',
         'location',
+        'website',
+        'rating',
+        'description',
     ];
 
     protected $casts = [
         'location' => 'array'
     ];
+
+    public function category(): BelongsTo {
+        return self::belongsTo(Category::class);
+    }
 
     public function destinationImages(): HasMany {
         return self::hasMany(DestinationImage::class);

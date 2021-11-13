@@ -2,40 +2,6 @@
 @section('title', 'Details')
 @push('links')
     <link rel="stylesheet" href="{{ asset('vendor/swiper/swiper.min.css') }}"/>
-    <style>
-        .swiper {
-            width: 45rem;
-            height: 30rem;
-        }
-
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-        }
-
-        .swiper-slide img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .thumbSwiper {
-            height: 20%;
-            box-sizing: border-box;
-            padding: 10px 0;
-        }
-
-        .thumbSwiper .swiper-slide {
-            width: 25%;
-            height: 100%;
-            opacity: 0.4;
-        }
-
-        .thumbSwiper .swiper-slide-thumb-active {
-            opacity: 1;
-        }
-    </style>
 @endpush
 @section('content')
 
@@ -44,11 +10,11 @@
             <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('destinations.index') }}">Domestic deals</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Maasai Mara trip package</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $destination->name }}</li>
             </ol>
         </nav>
 
-        <div class="container-fluid px-lg-10">
+        <div class="container-fluid px-lg-10 main-swiper">
             <div class="row px-lg-10">
                 <div class="col">
                     <div class="swiper mainSwiper">
@@ -56,14 +22,13 @@
                         <div class="swiper-wrapper">
                             <!-- Slides -->
                             <div class="swiper-slide">
-                                <img src="{{ asset('https://swiperjs.com/demos/images/nature-1.jpg') }}" alt="">
+                                <img src="{{ asset("images/destinations/{$destination->image}") }}" alt="">
                             </div>
-                            <div class="swiper-slide">
-                                <img src="{{ asset('https://swiperjs.com/demos/images/nature-2.jpg') }}" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ asset('https://swiperjs.com/demos/images/nature-3.jpg') }}" alt="">
-                            </div>
+                            @foreach($destination->destinationImages as $image)
+                                <div class="swiper-slide">
+                                    <img src="{{ asset("images/destinations/$image->image") }}" alt="">
+                                </div>
+                            @endforeach
                         </div>
                         <!-- If we need pagination -->
                         <div class="swiper-pagination"></div>
@@ -75,14 +40,13 @@
                     <div thumbsSlider="" class="swiper thumbSwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt=""/>
+                                <img src="{{ asset("images/destinations/{$destination->image}") }}" alt=""/>
                             </div>
+                            @foreach($destination->destinationImages as $image)
                             <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt=""/>
+                                <img src="{{ asset("images/destinations/$image->image") }}" alt=""/>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt=""/>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -90,16 +54,16 @@
                 <div class="col">
                     <div class="row mb-5">
                         <div class="col">
-                            <h3>Maasai Mara Trip Package</h3>
-                            <p>--- rating ---</p>
+                            <h3>{{ $destination->name }}</h3>
+                            <p>--- rating: {{ $destination->rating }} ---</p>
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <ul class="col-md-6 list-group-flush">
+                        <ul class="col-xxl-8 list-group-flush">
                             <li class="list-group-item bg-transparent d-flex row">
-                                <div class="col">Lorem</div>
-                                <div class="col">Lorem ipsum</div>
+                                <div class="col">Category</div>
+                                <div class="col">{{ ucwords(str_replace('_', ' ', $destination->category->title)) }}</div>
                             </li>
                             <li class="list-group-item bg-transparent d-flex row">
                                 <div class="col">Availability</div>
@@ -107,7 +71,7 @@
                             </li>
                             <li class="list-group-item bg-transparent d-flex row">
                                 <div class="col">Location</div>
-                                <div class="col">Nairobi, Kenya</div>
+                                <div class="col">{{ $destination->vicinity }}</div>
                             </li>
                         </ul>
                     </div>
@@ -117,10 +81,12 @@
                             class="col card-body d-flex justify-content-between align-items-center border shadow-sm p-4"
                             style="border-radius:20px">
                             <div class="price">
-                                <h5>KSH.3,623</h5>
-                                <del>KSH.4,856</del>
+                                <h5>KSH.{{ number_format($destination->price) }}</h5>
+                                @isset($destination->discount)
+                                    <del class="text-muted small">KSH.25,000</del>
+                                @endisset
                             </div>
-                            <a href="{{ route('destinations.show.booking', ['id' => 1]) }}"
+                            <a href="{{ route('destinations.show.booking', ['id' => $destination->id]) }}"
                                class="btn btn-primary me-md-5 px-5">
                                 <i class="fas fa-plus"></i> Reserve
                             </a>
@@ -187,37 +153,63 @@
 
         <hr>
 
-        <div class="container listing py-3">
+
+        <div class="container listing my-3">
             <div class="d-flex justify-content-between">
                 <h6 class="m-0 fw-bold">Other destinations you may like:</h6>
                 <a class="link-primary" href="{{ route('destinations.index') }}">More destinations <i
                         class="fas fa-arrow-right"></i></a>
             </div>
             <div class="row py-3">
-
-                @for($i = 0; $i < 4; $i++)
-                    <div class="col-3">
-                        <div class="card bg-transparent shadow" style="width: 18rem;">
-                            <img src="{{ asset('images/admin/big-masonry/14.jpg') }}" class="card-img p-2" alt="...">
-                            <div class="card-img-overlay">
-                                <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
-                            </div>
-                            <div class="card-body position-relative">
-                                <h5 class="card-title fs-13 fw-bold">Mombasa holiday trip</h5>
-                                <p class="card-text text-secondary small">Space for a small product description</p>
-                                <div class="d-flex justify-content-between align-items-end">
-                                    <div class="small fw-bold" style="height: 2rem">
-                                        <p class="mb-0">KSH.20,000</p>
-                                        @if($i === 2)
-                                            <del class="text-muted">25,000</del>
-                                        @endif
+                <div class="col">
+                    <!-- Slider main container -->
+                    <button type="button" aria-label="previous" style="position:absolute;top:47%;left:-20px"
+                            class="swiper-btn-prev carousel__back-button btn bg-transparent border-0 p-0">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div class="swiper intl">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            @foreach($suggestedDestinations as $destination)
+                                <div class="swiper-slide">
+                                    <div class="card bg-transparent shadow" style="width: 17rem;">
+                                        <img src="{{ asset("images/destinations/{$destination->image}") }}"
+                                             class="card-img p-2"
+                                             alt="...">
+                                        <a href="{{ route('destinations.show', $destination->id) }}" class="card-img-overlay">
+                                            <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
+                                        </a>
+                                        <div class="card-body position-relative">
+                                            <a href="{{ route('destinations.show', $destination->id) }}">
+                                                <h5 class="card-title fs-13 fw-bold"
+                                                    style="height: 2rem">{{ $destination->name }}</h5>
+                                            </a>
+                                            <p class="card-text text-secondary small text-truncate mb-1">
+                                                {{ $destination->vicinity }}
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-end">
+                                                <div class="small fw-bold" style="height: 2rem">
+                                                    <p class="mb-0">KSH.{{ number_format($destination->price) }}</p>
+                                                    @if($destination->id === 2)
+                                                        <del class="small">25,000</del>
+                                                    @endif
+                                                </div>
+                                                <a href="{{ route('destinations.show.booking', ['id' => $destination->id]) }}"
+                                                   class="btn btn-sm btn-primary fs-13 fw-bold rounded-3">Book Now</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <a href="#" class="btn btn-sm btn-primary fs-13 fw-bold rounded-3">Book Now</a>
                                 </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
-                @endfor
+                    <button type="button" aria-label="next" style="position:absolute;top:47%;right:-20px"
+                            class="swiper-btn-next btn bg-transparent border-0 p-0">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
 
             </div>
         </div>
@@ -266,6 +258,26 @@
                 },
             });
 
+            const swiperIntl = new Swiper('.swiper.intl', {
+                // Optional parameters
+                slidesPerView: 5,
+                spaceBetween: 30,
+                grabCursor: true,
+                loop: true,
+
+                autoplay: {
+                    delay: 7000,
+                    disableOnInteraction: true,
+                },
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-btn-next',
+                    prevEl: '.swiper-btn-prev',
+                },
+            })
+
         </script>
     @endpush
 @endsection
+

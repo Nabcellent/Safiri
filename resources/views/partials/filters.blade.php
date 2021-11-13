@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/ionrangeslider/ion.rangeSlider.min.css') }}">
 @endpush
 
-<div class="filter col-sm-3">
+<div class="filter col-md">
     <div class="sticky-sidebar">
         <div class="sticky-top pt-4">
             <div><h6 class="fw-bold mb-4 text-uppercase">Categories</h6></div>

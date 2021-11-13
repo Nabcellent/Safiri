@@ -23,6 +23,7 @@ Route::prefix('/destinations')->name('destinations.')->group(function() {
     Route::get('/', [DestinationController::class, 'index'])->name('index');
     Route::get('/show/{id}', [DestinationController::class, 'show'])->name('show');
     Route::get('/booking/{id}', [DestinationController::class, 'booking'])->name('show.booking');
+    Route::post('/booking/{id}', [DestinationController::class, 'reserve'])->name('reserve');
 });
 
 

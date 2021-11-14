@@ -62,13 +62,6 @@
                         <ul class="nav-submenu menu-content" style="display: none;">
                             <li><a href="{{ route('admin.destinations.index') }}">Grid</a></li>
                             <li><a href="ecommerce/list-products.html">List</a></li>
-                            <li><a href="ecommerce/product-page.html">Product page</a></li>
-                            <li><a href="ecommerce/payment-details.html">Payment Details</a></li>
-                            <li><a href="ecommerce/order-history.html">Order History</a></li>
-                            <li><a href="ecommerce/invoice-template.html">Invoice</a></li>
-                            <li><a href="ecommerce/cart.html">Cart</a></li>
-                            <li><a href="ecommerce/checkout.html">Checkout</a></li>
-                            <li><a href="ecommerce/pricing.html">Pricing</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

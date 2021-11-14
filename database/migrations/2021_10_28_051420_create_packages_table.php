@@ -15,7 +15,7 @@ class CreatePackagesTable extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('destination_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('destination_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->smallInteger('capacity')->nullable();
             $table->float('price');
             $table->float('discount')->default(0);

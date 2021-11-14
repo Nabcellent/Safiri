@@ -15,16 +15,18 @@ class CreateDestinationsTable extends Migration
         Schema::create('destinations', function(Blueprint $table) {
             $table->id();
             $table->string('place_id')->unique();
-            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('name');
             $table->string('image');
-            $table->float('price', '');
+            $table->float('price');
+            $table->string('rates', 20)->default('daily');
             $table->json('location');
             $table->string('vicinity')->nullable();
-            $table->float('distance');
+            $table->json('availability')->nullable();
             $table->string('description')->nullable();
-            $table->tinyInteger('rating')->nullable();
+            $table->float('rating', 3, 1)->nullable();
             $table->string('website')->nullable();
+            $table->string('icon')->nullable();
             $table->boolean('active')->default(true);
             $table->string('active_msg')->nullable();
             $table->timestamps();

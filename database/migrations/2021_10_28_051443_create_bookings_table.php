@@ -15,10 +15,9 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('destination_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('package_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('payment_method_id')->constrained()->restrictOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('destination_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('payment_method_id')->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->smallInteger('guests')->default(1);
             $table->boolean('is_paid')->default(false);
             $table->float('price');

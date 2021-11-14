@@ -21,15 +21,17 @@ class Destination extends Model
         'image',
         'price',
         'vicinity',
-        'distance',
         'location',
         'website',
         'rating',
+        'icon',
+        'availability',
         'description',
     ];
 
     protected $casts = [
-        'location' => 'array'
+        'location' => 'array',
+        'availability' => 'array',
     ];
 
     public function category(): BelongsTo {
@@ -38,5 +40,9 @@ class Destination extends Model
 
     public function destinationImages(): HasMany {
         return self::hasMany(DestinationImage::class);
+    }
+
+    public function reviews(): HasMany {
+        return self::hasMany(Review::class);
     }
 }

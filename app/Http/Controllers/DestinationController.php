@@ -43,10 +43,12 @@ class DestinationController extends Controller
      */
     public function reserve(Request $request) {
         $data = $request->all();
-        $data['dates'] = collect(explode('~', $data['dates']))->map(function($date) {
-            return Carbon::createFromFormat('d/m/Y', trim($date));
+        $data['dates'] = collect(explode('~', $data['dates']))->mapWithKeys(function($date, $key) {
+            $key = $key === 0 ? 'start_at' : 'end_at';
+
+            return [$key => Carbon::createFromFormat('d/m/Y', trim($date))];
         });
-        dd($data['dates'], $dates);
+        dd($data);
     }
 
     /**

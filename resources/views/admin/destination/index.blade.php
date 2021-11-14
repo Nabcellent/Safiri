@@ -24,7 +24,17 @@
                         <li class="breadcrumb-item active">Product</li>
                     </ol>
                 </div>
-                <div class="col-auto">
+                <div class="col-auto d-flex align-items-center">
+                    <button class="btn btn-sm btn-outline-primary ld-ext-right" id="first-page" title="First page"
+                            style="display:none;">
+                        <i class="fas fa-angle-double-left"></i>
+                        <span class="ld ld-ring ld-spin"></span>
+                    </button>
+                    <button class="btn btn-sm btn-outline-primary ld-ext-right me-2" id="next-page" title="Next page"
+                            style="display:none;">
+                        <i class="fas fa-angle-right"></i>
+                        <span class="ld ld-ring ld-spin"></span>
+                    </button>
                     <button
                         class="btn btn-sm btn-outline-primary ld-ext-right @if($savingDestinations) running disabled @endif"
                         id="save-destinations" title="Save destinations">
@@ -52,20 +62,23 @@
 
     <script>
         $(() => {
-            $.ajax({
-                method: 'GET',
-                url: 'http://localhost:8000/api/destination/v1/all',
-                success: response => {
-                    window.DESTINATIONS = response;
+            window.DESTINATIONS = [];
+            const nextPageBtn = $('#next-page'),
+                firstPageBtn = $('#first-page')
 
-                    const HTML_DESTINATIONS = response.map(place => {
-                        const rating = place.rating ? `<small>Rating - ${place.rating}</small>` : '';
+            const showDestinations = destinations => {
+                const HTML_DESTINATIONS = destinations.map(place => {
+                    if (!place.photo) return;
 
-                        let openingHours = place.opening_hours
-                            ? place.opening_hours['open_now'] ? 'Open' : 'Closed'
-                            : 'N/A';
+                    window.DESTINATIONS.push(place)
 
-                        return `<div class="col-xl-3 col-sm-6 xl-4">
+                    const rating = place.rating ? `<small>Rating - ${place.rating}</small>` : '';
+
+                    let openingHours = place.opening_hours
+                        ? place.opening_hours['open_now'] ? 'Open' : 'Closed'
+                        : 'N/A';
+
+                    return `<div class="col-xl-3 col-sm-6 xl-4">
 						<div class="card">
 							<div class="product-box">
 								<div class="product-img">
@@ -133,13 +146,50 @@
 							</div>
 						</div>
 					</div>`
-                    })
+                })
 
-                    $('.product-wrapper-grid > .row').html(HTML_DESTINATIONS)
-                },
-                error: error => {
-                    console.log(error)
-                }
+                $('.product-wrapper-grid > .row').html(HTML_DESTINATIONS)
+            }
+
+            const fetchDestinations = data => {
+                $.ajax({
+                    data,
+                    method: 'GET',
+                    url: 'http://localhost:8000/api/destination/v1/all',
+                    success: response => {
+                        if (response.next_page_token) {
+                            nextPageBtn.attr('data-id', response.next_page_token).show(300)
+                        } else {
+                            nextPageBtn.hide(300)
+                        }
+
+                        showDestinations(response.destinations)
+
+                        nextPageBtn.removeClass('running disabled')
+                        firstPageBtn.removeClass('running disabled')
+                    },
+                    error: error => {
+                        console.log(error)
+                    },
+                })
+            }
+
+            fetchDestinations()
+
+            nextPageBtn.on('click', function () {
+                nextPageBtn.addClass('running disabled')
+
+                fetchDestinations({pagetoken: nextPageBtn.data('id')})
+
+                firstPageBtn.show(300)
+            })
+
+            firstPageBtn.on('click', function () {
+                nextPageBtn.attr('data-id', [])
+                nextPageBtn.removeAttr('data-id')
+                firstPageBtn.addClass('running disabled')
+
+                fetchDestinations()
             })
         })
     </script>
@@ -171,11 +221,13 @@
                 });
 
                 $(document).on('click', '.save-destination', function () {
+                    const savingOverlay = $(this).closest('.product-box').find($('.saving-overlay'));
+
                     $(this).closest('ul').addClass('d-none');
-                    $(this).closest('.product-box').find($('.saving-overlay')).show(300);
+                    savingOverlay.show(300);
                     $(this).closest('.product-box').addClass('saving');
 
-                    storeDestinations({place_id: $(this).data('id')}, $(this))
+                    storeDestinations({place_id: $(this).data('id')}, savingOverlay)
                 });
 
                 const storeDestinations = (data, element) => {
@@ -184,9 +236,7 @@
                         url: `{{ route('admin.destinations.store') }}`,
                         method: 'POST',
                         beforeSend: () => {
-                            if(data.destinations) {
-                                element.html(`Saving... <span class="ld ld-ring ld-spin"></span>`).addClass('running disabled')
-                            }
+                            element.html(`Saving... <span class="ld ld-ring ld-spin"></span>`).addClass('running disabled')
                         },
                         success: response => toast({
                             msg: response.message,
@@ -206,11 +256,10 @@
 
                             if (err.status !== true) element.prop('disabled', false).removeClass('running')
 
-                            if(data.place_id) {
-                                element.closest('.product-box').find($('.saving-overlay')).hide(300);
+                            if (data.place_id) {
+                                element.hide(300);
                                 element.closest('.product-box').removeClass('saving');
-                                element.closest('ul').removeClass('d-none');
-                                element.closest('li').remove()
+                                element.closest('.product-box').find($('ul')).removeClass('d-none');
                             }
                         }
                     });

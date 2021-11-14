@@ -36,22 +36,6 @@ class DestinationController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return Response
-     */
-    public function reserve(Request $request) {
-        $data = $request->all();
-        $data['dates'] = collect(explode('~', $data['dates']))->mapWithKeys(function($date, $key) {
-            $key = $key === 0 ? 'start_at' : 'end_at';
-
-            return [$key => Carbon::createFromFormat('d/m/Y', trim($date))];
-        });
-        dd($data);
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param int $id
@@ -65,24 +49,6 @@ class DestinationController extends Controller
             ];
 
             return response()->view('details', $data);
-        } catch (Exception $e) {
-            return failNotFound();
-        }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return RedirectResponse|Response
-     */
-    public function booking(int $id): Response|RedirectResponse {
-        try {
-            $data = [
-                'destination' => Destination::with(['category'])->findOrFail($id),
-            ];
-
-            return response()->view('booking', $data);
         } catch (Exception $e) {
             return failNotFound();
         }

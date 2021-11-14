@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DestinationController as AdminDestinationController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +23,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::prefix('/destinations')->name('destinations.')->group(function() {
     Route::get('/', [DestinationController::class, 'index'])->name('index');
     Route::get('/show/{id}', [DestinationController::class, 'show'])->name('show');
-    Route::get('/booking/{id}', [DestinationController::class, 'booking'])->name('show.booking');
-    Route::post('/booking/{id}', [DestinationController::class, 'reserve'])->name('reserve');
+    Route::get('/booking/{id}', [BookingController::class, 'booking'])->name('show.booking');
+    Route::post('/booking/{id}', [BookingController::class, 'reserve'])->name('reserve');
 });
 
 

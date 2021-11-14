@@ -14,3 +14,7 @@ window.toast = data => {
         className: data.type,
     }).showToast();
 }
+
+window._number_format = number => {
+    return new Intl.NumberFormat().format(number)
+}

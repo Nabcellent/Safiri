@@ -52,9 +52,9 @@
 			</div>
 		</div>
 		<div class="col-md-9 col-sm-10 text-end">
-			<span class="f-w-600 m-r-5">Showing Products 1 - 24 Of 200 Results</span>
+			<span class="f-w-600 m-r-5">Showing Destinations 1 - 24 Of 200 Results</span>
 			<div class="select2-drpdwn-product select-options d-inline-block">
-				<select class="form-control btn-square" name="select">
+				<select class="form-control btn-square" name="select" aria-label="">
 					<option value="opt1">Featured</option>
 					<option value="opt2">Lowest Prices</option>
 					<option value="opt3">Highest Prices</option>
@@ -78,20 +78,25 @@
 									<div class="product-filter">
 										<h6 class="f-w-600">Category</h6>
 										<div class="checkbox-animated mt-0">
-											<label class="d-block" for="edo-ani5"> <input class="radio_animated" id="edo-ani5"
-											                                              type="radio" data-original-title="" title=""/>Man
+											<label class="d-block" for="edo-ani5">
+                                                <input class="radio_animated" id="edo-ani5"
+                                                       type="radio" data-original-title="" title=""/>Man
 												Shirt </label>
-											<label class="d-block" for="edo-ani6"> <input class="radio_animated" id="edo-ani6"
-											                                              type="radio" data-original-title="" title=""/>Man
+											<label class="d-block" for="edo-ani6">
+                                                <input class="radio_animated" id="edo-ani6"
+                                                       type="radio" data-original-title="" title=""/>Man
 												Jeans </label>
-											<label class="d-block" for="edo-ani7"> <input class="radio_animated" id="edo-ani7"
-											                                              type="radio" data-original-title="" title=""/>Woman
+											<label class="d-block" for="edo-ani7">
+                                                <input class="radio_animated" id="edo-ani7"
+                                                       type="radio" data-original-title="" title=""/>Woman
 												Top </label>
-											<label class="d-block" for="edo-ani8"> <input class="radio_animated" id="edo-ani8"
-											                                              type="radio" data-original-title="" title=""/>Woman
+											<label class="d-block" for="edo-ani8">
+                                                <input class="radio_animated" id="edo-ani8"
+                                                       type="radio" data-original-title="" title=""/>Woman
 												Jeans </label>
-											<label class="d-block" for="edo-ani9"> <input class="radio_animated" id="edo-ani9"
-											                                              type="radio" data-original-title="" title=""/>Man
+											<label class="d-block" for="edo-ani9">
+                                                <input class="radio_animated" id="edo-ani9"
+                                                       type="radio" data-original-title="" title=""/>Man
 												T-shirt </label>
 										</div>
 									</div>

@@ -67,7 +67,9 @@
                                     <div class="card mb-0">
                                         <div class="media p-20">
                                             <div class="radio radio-primary me-3">
-                                                <input id="mpesa" type="radio" name="payment_method" value="mpesa"/>
+                                                <input id="mpesa" type="radio" name="payment_method" value="mpesa"
+                                                       required
+                                                       checked/>
                                                 <label for="mpesa"></label>
                                             </div>
                                             <div class="media-body">
@@ -75,7 +77,7 @@
                                                     class="mt-0 mega-title-badge d-flex justify-content-between align-items-center">
                                                     <div>
                                                         <p class="small mb-0">MPESA</p>
-                                                        <i class="bi bi-cash-coin"></i>
+                                                        <i class="bi bi-phone-vibrate-fill"></i>
                                                     </div>
                                                     <span
                                                         class="badge badge-primary pull-right digits">KSH.2,837.50</span>
@@ -88,8 +90,9 @@
                                     <div class="card mb-0">
                                         <div class="media p-20">
                                             <div class="radio radio-secondary me-3">
-                                                <input id="paypal" type="radio" name="payment_method" value="paypal"/>
-                                                <label for="paypal"></label>
+                                                <input id="-paypal" type="radio" name="payment_method" value="paypal"
+                                                       required/>
+                                                <label for="-paypal"></label>
                                             </div>
                                             <div class="media-body">
                                                 <div
@@ -104,6 +107,30 @@
                                                         </svg>
                                                     </div>
                                                     <span class="badge badge-secondary pull-right digits">$ 2.8</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                <div class="col-sm-6 ps-sm-0">
+                                    <div class="card mb-0">
+                                        <div class="media p-20">
+                                            <div class="radio radio-primary me-3">
+                                                <input id="cash" type="radio" name="payment_method" value="cash"
+                                                       required/>
+                                                <label for="cash"></label>
+                                            </div>
+                                            <div class="media-body">
+                                                <div
+                                                    class="mt-0 mega-title-badge d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <p class="small mb-0">CASH</p>
+                                                        <i class="bi bi-cash-coin"></i>
+                                                    </div>
+                                                    <span
+                                                        class="badge badge-primary pull-right digits">KSH.2,837.50</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -138,8 +165,10 @@
                     <div class="d-grid">
                         <input type="hidden" name="destination_id" value="{{ $destination->id }}">
                         <button type="submit" class="btn btn-block btn-primary ld-ext-right">
-                            Confirm reservation<span class="ld ld-ring ld-spin"></span>
+                            Confirm Reservation <i class="fas fa-map-pin"></i><span class="ld ld-ring ld-spin"></span>
                         </button>
+                        <div id="paypal_payment_button"
+                             style="position:relative;z-index:1;height:2.2rem;display:none"></div>
                     </div>
                 </form>
 
@@ -189,9 +218,12 @@
         <script src="{{ asset('vendor/viho/js/datepicker/daterange-picker/moment.min.js') }}"></script>
         <script src="{{ asset('vendor/viho/js/datepicker/daterange-picker/daterangepicker.js') }}"></script>
         <script src="{{ asset('vendor/viho/js/datepicker/daterange-picker/daterange-picker.custom.js') }}"></script>
+        <script
+            src="https://www.paypal.com/sdk/js?client-id=AfzK9bEaxQ_TP4LIXl0Pp-akLxoKvaReVchEVlTfiRWdseaa1l1o-iXQ92FlhBla_M73KSLf4Y6NBWOG&disable-funding=credit,card&buyer-country=KE&components=buttons"></script>
+        <script src="{{ asset('js/payment.js') }}"></script>
         <script>
             /**--------------------------------------------------------------------------------------------
-             *                                  INTERNATIONAL INPUT TELEPHONE
+             *                                  INIT INTERNATIONAL INPUT TELEPHONE
              * */
             const PhoneEl = document.querySelector("#phone"),
                 datesEl = $('input[name="dates"]');
@@ -229,7 +261,7 @@
 
 
             /**--------------------------------------------------------------------------------------------
-             *                                  DATEPICKER
+             *                                  INIT DATEPICKER
              * */
             datesEl.daterangepicker({
                 autoUpdateInput: false,
@@ -243,11 +275,28 @@
             });
         </script>
         <script>
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            /**--------------------------------------------------------------------------------------------
+             *                                  PROCESS BOOKING SUBMISSION
+             * */
+            $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+
+            const checkoutForm = $('#checkout-form'),
+                submitButton = $('#booking-form button[type="submit"]');
+
+            let paymentMethod = $('input[name="payment_method"]:checked').val();
+
+            $('input[name="payment_method"]').on('change', function () {
+                paymentMethod = $(this).val()
+
+                if (paymentMethod === 'paypal') {
+                    submitButton.hide(300);
+                    $('#paypal_payment_button').show(300)
+                } else {
+                    submitButton.html(`Confirm Reservation <i class="fas fa-map-pin"></i>`)
+                    submitButton.show(300);
+                    $('#paypal_payment_button').hide(300)
                 }
-            });
+            })
 
             $('#booking-form').on('submit', function (e) {
                 e.preventDefault()
@@ -255,25 +304,33 @@
                 const data = {}
                 $(this).serializeArray().map(input => data[input.name] = input.value)
 
-                const submitButton = $(this).find($('button[type="submit"]'))
+                const submitBooking = () => {
+                    $.ajax({
+                        data,
+                        url: ``,
+                        method: `POST`,
+                        dataType: 'json',
+                        /*beforeSend: () => submitButton.prop('disabled', true).html(`Reserving...
+                                            <span class="ld ld-ring ld-spin"></span>`).addClass('running'),*/
+                        success: response => {
+                            console.log(response)
+                        },
+                        complete: (xhr) => {
+                            let err = eval("(" + xhr.responseText + ")");
 
-                $.ajax({
-                    data,
-                    url: ``,
-                    method: `POST`,
-                    dataType: 'json',
-                    /*beforeSend: () => submitButton.prop('disabled', true).html(`Reserving...
-										<span class="ld ld-ring ld-spin"></span>`).addClass('running'),*/
-                    success: response => {
-                        console.log(response)
-                    },
-                    complete: (xhr) => {
-                        let err = eval("(" + xhr.responseText + ")");
-
-                        if (err.status !== true) submitButton.prop('disabled', false).html(`Confirm reservation
+                            if (err.status !== true) submitButton.prop('disabled', false).html(`Confirm reservation
 										<span class="ld ld-ring ld-spin"></span>`).removeClass('running')
-                    }
-                })
+                        }
+                    })
+                }
+
+                if (paymentMethod === 'mpesa') {
+                    payWithMpesa(data)
+                } else if (paymentMethod === 'paypal') {
+                    submitBooking()
+                } else {
+                    submitBooking()
+                }
             })
         </script>
     @endpush

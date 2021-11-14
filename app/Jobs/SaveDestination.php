@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Destination;
 use App\Models\Setting;
 use Exception;
-use Faker\Factory;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Bus\Queueable;
@@ -14,6 +13,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Arr;
 use SKAgarwal\GoogleApi\PlacesApi;
 use Throwable;
 
@@ -61,14 +61,19 @@ class SaveDestination implements ShouldQueue
                 if($destination['photo']) {
                     error_log("$i. Saving destination and details for..." . $destination['name']);
 
-                    foreach($destination['types'] as $category) {
-                        Category::updateOrCreate(['title' => $category], ['title' => $category]);
-                    }
+                    $categoryTitle = Arr::first($destination['types']);
+                    $category = ['title' => $categoryTitle];
+                    Category::updateOrCreate($category, $category);
 
-                    error_log("------  Saved categories... : " . implode(',', $destination['types']) . "!");
+                    error_log("------  Saved category... : " . $categoryTitle . "!");
 
                     $destination = Destination::updateOrCreate(['place_id' => $destination['place_id']],
                         appendToApiDestination($destination));
+
+                    if(empty($destination->image)) {
+                        $destination->image = downloadPhoto($destination['photo']);
+                        $destination->save();
+                    }
 
                     $this->processDetails($destination);
 
@@ -105,14 +110,12 @@ class SaveDestination implements ShouldQueue
 
         $result = $response['result'];
 
-        $photos = collect($result['photos'])->take(3)->map(function($photo) use ($destination) {
-            return [
-                'destination_id' => $destination->id,
-                'reference'      => $photo['photo_reference'],
-                'image'          => savePhoto(getPhotoUrl($photo['photo_reference']))
-            ];
-        })->toArray();
+        if(isset($result['opening_hours'])) {
+            $destination->availability = $result['opening_hours'];
+            $destination->save();
+        }
 
-        $destination->destinationImages()->insert($photos);
+        //  SAVE DESTINATION REVIEWS & PHOTOS *IF NOT EXISTS
+        savePhotosAndReviews($destination, $result);
     }
 }

@@ -9,6 +9,7 @@
 <script src="{{ asset('vendor/bootstrap5/bootstrap.bundle.min.js') }}"></script>
 {{--    TOASTIFY    --}}
 <script src="{{ asset('vendor/toastify/toastify.min.js') }}"></script>
+<script src="{{ asset('vendor/sweetalert/sweetalert.js') }}"></script>
 
 <!-- Plugins JS start-->
 
@@ -24,5 +25,6 @@
 <script src="{{ asset('vendor/viho/js/script.js') }}"></script>
 <script src="{{ asset('vendor/viho/js/theme-customizer/customizer.js') }}"></script>
 <script src="{{ asset('js/admin/theme.js') }}"></script>
+<script src="{{ asset('js/global.js') }}"></script>
 
 @include('partials.javascript')

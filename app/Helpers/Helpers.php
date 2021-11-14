@@ -4,8 +4,11 @@
 
 use App\Models\Category;
 use App\Models\Setting;
+use Ballen\Distical\Calculator as DistanceCalculator;
+use Ballen\Distical\Entities\LatLong;
 use Faker\Factory;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -169,23 +172,76 @@ if(!function_exists('getPhotoUrl')) {
     }
 }
 if(!function_exists('appendToApiDestination')) {
-    function appendToApiDestination($destination, $image = null) {
-        $destination['image'] = $image ?? savePhoto($destination['photo']);
-        $destination['category_id'] = Category::whereIn('title', $destination['types'])->inRandomOrder()->first()->id;
-        $destination['price'] = Factory::create()->randomFloat('2', 1000, 100000);
-        $destination['distance'] = Factory::create()->randomFloat('2', 10, 1000);
+    function appendToApiDestination($destination) {
+        $destination['category_id'] = Category::whereTitle(Arr::first($destination['types']))->first()->id;
+        $destination['price'] = calculatePrice($destination);
         $destination['location'] = $destination['geometry']['location'];
 
         return $destination;
     }
 }
-if(!function_exists('savePhoto')) {
-    function savePhoto(string $url): string {
+if(!function_exists('downloadPhoto')) {
+    function downloadPhoto(string $url): string {
         $imageName = uniqid() . Factory::create()->randomElement(['.png', '.jpg']);
         $filePath = public_path("/images/destinations/$imageName");
 
         file_put_contents($filePath, file_get_contents($url));
 
         return $imageName;
+    }
+}
+if(!function_exists('savePhotosAndReviews')) {
+    function savePhotosAndReviews($destination, $destinationResult): bool {
+        try {
+            collect($destinationResult['reviews'])->take(3)->each(function($review) use ($destination) {
+                $review = [
+                    'destination_id' => $destination->id,
+                    'name'           => $review['author_name'],
+                    'comment'        => $review['text'],
+                    'rating'         => $review['rating'],
+                    'profile_photo'  => $review['profile_photo_url'],
+                    'created_at'     => Carbon::createFromTimestampMs($review['time'])
+                ];
+
+                $destination->reviews()->updateOrCreate([
+                    'name'           => $review['name'],
+                    'destination_id' => $review['destination_id']
+                ], $review);
+            });
+
+            if(!$destination->destinationImages()->exists()) {
+                $photos = collect($destinationResult['photos'])->take(3)->map(function($photo) use ($destination) {
+                    return [
+                        'destination_id' => $destination->id,
+                        'reference'      => $photo['photo_reference'],
+                        'image'          => downloadPhoto(getPhotoUrl($photo['photo_reference']))
+                    ];
+                })->toArray();
+
+                $destination->destinationImages()->insert($photos);
+            }
+
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+}
+if(!function_exists('calculatePrice')) {
+    function calculatePrice($destinationResult): float {
+        $safiriLocation = new LatLong(-1.286389, 36.817223);
+        $placeGeometry = $destinationResult['geometry']['location'];
+        $placeLocation = new LatLong($placeGeometry['lat'], $placeGeometry['lng']);
+        $distanceCalculator = new DistanceCalculator($safiriLocation, $placeLocation);
+
+        $distance = [
+            'km'    => $distanceCalculator->get()->asKilometres(),
+            'miles' => $distanceCalculator->get()->asMiles(),
+            'nm'    => $distanceCalculator->get()->asNauticalMiles(),
+        ];
+
+//        dd($destinationResult['user_ratings_total'] / $destinationResult['rating']);
+
+        return $distance['nm'] * (pow($destinationResult['rating'] ?? ($distance['miles'] + 3), 3) * 70);
     }
 }

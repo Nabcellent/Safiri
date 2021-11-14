@@ -62,7 +62,7 @@
                     <div class="row mb-3">
                         <ul class="col-xxl-8 list-group-flush">
                             <li class="list-group-item bg-transparent d-flex row">
-                                <div class="col">Category</div>
+                                <div class="col">Type</div>
                                 <div class="col">{{ ucwords(str_replace('_', ' ', $destination->category->title)) }}</div>
                             </li>
                             <li class="list-group-item bg-transparent d-flex row">

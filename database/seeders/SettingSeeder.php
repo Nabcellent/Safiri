@@ -20,10 +20,10 @@ class SettingSeeder extends Seeder
 
         $data = [
             ['type' => 'saving_destinations', 'description' => false],
-            ['type' => 'app_email', 'description' => 'safiri.@twm.com'],
+            ['type' => 'app_email', 'description' => 'safiri@twm.com'],
             ['type' => 'app_phone', 'description' => '12345678'],
             ['type' => 'app_address', 'description' => 'Nairobi, Kenya 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016'],
-            ['type' => 'default_user_password', 'description' => '$afiri.'],
+            ['type' => 'default_user_password', 'description' => '$afir1.'],
         ];
 
         Setting::insert($data);

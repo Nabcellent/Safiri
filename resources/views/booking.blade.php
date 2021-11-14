@@ -20,6 +20,11 @@
     </style>
 @endpush
 @section('content')
+    @php
+        $pricePerRating = $destination->price;
+        $serviceCharge = 275;
+        $total = $destination->price + $serviceCharge;
+    @endphp
 
     <div id="details">
         <nav class="container-fluid my-2" aria-label="breadcrumb">
@@ -54,7 +59,7 @@
 
                     <div class="form-group">
                         <label class="small">Guests *</label>
-                        <input class="form-control form-control-lg" type="number" name="guests"
+                        <input class="form-control form-control-lg" type="number" name="guests" value="1" min="1"
                                placeholder="Number of guests *" aria-label/>
                     </div>
 
@@ -62,8 +67,8 @@
 
                     <div class="card-body megaoptions-border-space-sm bg-transparent">
                         <div class="mega-inline d-block">
-                            <div class="row">
-                                <div class="col-sm-6 ps-sm-0">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-6 ps-sm-0 my-2">
                                     <div class="card mb-0">
                                         <div class="media p-20">
                                             <div class="radio radio-primary me-3">
@@ -80,13 +85,13 @@
                                                         <i class="bi bi-phone-vibrate-fill"></i>
                                                     </div>
                                                     <span
-                                                        class="badge badge-primary pull-right digits">KSH.2,837.50</span>
+                                                        class="badge badge-primary pull-right digits kes">KSH.{{ number_format($total, 2) }}</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 pe-sm-0">
+                                <div class="col-sm-6 pe-sm-0 my-2">
                                     <div class="card mb-0">
                                         <div class="media p-20">
                                             <div class="radio radio-secondary me-3">
@@ -130,7 +135,7 @@
                                                         <i class="bi bi-cash-coin"></i>
                                                     </div>
                                                     <span
-                                                        class="badge badge-primary pull-right digits">KSH.2,837.50</span>
+                                                        class="badge badge-primary pull-right digits kes">KSH.{{ number_format($total, 2) }}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -181,7 +186,7 @@
                         </div>
                         <div class="col">
                             <h6 class="fw-bold">{{ $destination->name }}</h6>
-                            <p>--- rating and reviews---</p>
+                            <p>--- rating {{ $destination->rating }} ---</p>
                         </div>
                     </div>
 
@@ -191,16 +196,21 @@
                             <h5>Total cost summery</h5>
                             <ul class="list-group-flush">
                                 <li class="list-group-item bg-transparent d-flex row">
-                                    <small class="col">(Price per {night} - KSH.700) * 4</small>
-                                    <small class="col">KSH.2,800.00</small>
+                                    <small class="col-7">
+                                        Price per {person} per {night} <br>
+                                        KSH.{{ number_format($pricePerRating) }} <small id="price-times"> * 1</small>
+                                    </small>
+                                    <small class="col">
+                                        <small id="price-rate">KSH.{{ number_format($pricePerRating) }}</small>
+                                    </small>
                                 </li>
                                 <li class="list-group-item bg-transparent d-flex row">
-                                    <small class="col">Service charge</small>
-                                    <small class="col">KSH.37.50</small>
+                                    <small class="col-7">Service charge</small>
+                                    <small class="col">KSH.{{ number_format($serviceCharge, 2) }}</small>
                                 </li>
                                 <li class="list-group-item bg-transparent d-flex row fw-bolder">
-                                    <small class="col">Total</small>
-                                    <small class="col">KSH.{{ number_format($destination->price, 2) }}</small>
+                                    <small class="col-7">Total</small>
+                                    <small class="col" id="total-price">KSH.{{ number_format($total, 2) }}</small>
                                 </li>
                             </ul>
                         </div>
@@ -221,12 +231,12 @@
         <script
             src="https://www.paypal.com/sdk/js?client-id=AfzK9bEaxQ_TP4LIXl0Pp-akLxoKvaReVchEVlTfiRWdseaa1l1o-iXQ92FlhBla_M73KSLf4Y6NBWOG&disable-funding=credit,card&buyer-country=KE&components=buttons"></script>
         <script src="{{ asset('js/payment.js') }}"></script>
+        <script src="{{ asset('js/booking.js') }}"></script>
         <script>
             /**--------------------------------------------------------------------------------------------
              *                                  INIT INTERNATIONAL INPUT TELEPHONE
              * */
-            const PhoneEl = document.querySelector("#phone"),
-                datesEl = $('input[name="dates"]');
+            const PhoneEl = document.querySelector("#phone");
 
             // here, the index maps to the error code returned from getValidationError - see readme
             let errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
@@ -260,78 +270,53 @@
             PhoneEl.addEventListener('keyup', reset);
 
 
+
             /**--------------------------------------------------------------------------------------------
              *                                  INIT DATEPICKER
              * */
-            datesEl.daterangepicker({
+            const PRICE_PER_NIGHT = {{ $destination->price }},
+                SERVICE_FEE = {{ $serviceCharge }},
+                GUESTS_EL = $('input[name="guests"]')
+            let numberOfNights = 1,
+                priceRate = numberOfNights * PRICE_PER_NIGHT,
+                totalPrice = priceRate + SERVICE_FEE;
+
+            $('input[name="dates"]').daterangepicker({
+                minDate: new Date(),
                 autoUpdateInput: false,
                 locale: {
                     cancelLabel: 'Clear'
                 }
-            }).on('apply.daterangepicker', function (ev, picker) {
+            }).on('apply.daterangepicker', function(ev, picker) {
+                let timeDiff = Math.abs(picker.endDate.valueOf() - picker.startDate.valueOf());
+                numberOfNights = Math.ceil(timeDiff / (1000 * 3600 * 24)) - 1;
+
+                updatePrices()
+
                 $(this).val(picker.startDate.format('DD/MM/YYYY') + ' ~ ' + picker.endDate.format('DD/MM/YYYY'));
-            }).on('cancel.daterangepicker', function (ev, picker) {
+            }).on('cancel.daterangepicker', () => {
                 $(this).val('');
             });
-        </script>
-        <script>
-            /**--------------------------------------------------------------------------------------------
-             *                                  PROCESS BOOKING SUBMISSION
-             * */
-            $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
 
-            const checkoutForm = $('#checkout-form'),
-                submitButton = $('#booking-form button[type="submit"]');
+            GUESTS_EL.on('keyup', updatePrices)
+            GUESTS_EL.on('change', updatePrices)
 
-            let paymentMethod = $('input[name="payment_method"]:checked').val();
-
-            $('input[name="payment_method"]').on('change', function () {
-                paymentMethod = $(this).val()
-
-                if (paymentMethod === 'paypal') {
-                    submitButton.hide(300);
-                    $('#paypal_payment_button').show(300)
+            function updatePrices() {
+                let guestRate;
+                if(GUESTS_EL.val() > 3) {
+                    guestRate = ($(this).val() - 1) * 100
                 } else {
-                    submitButton.html(`Confirm Reservation <i class="fas fa-map-pin"></i>`)
-                    submitButton.show(300);
-                    $('#paypal_payment_button').hide(300)
-                }
-            })
-
-            $('#booking-form').on('submit', function (e) {
-                e.preventDefault()
-
-                const data = {}
-                $(this).serializeArray().map(input => data[input.name] = input.value)
-
-                const submitBooking = () => {
-                    $.ajax({
-                        data,
-                        url: ``,
-                        method: `POST`,
-                        dataType: 'json',
-                        /*beforeSend: () => submitButton.prop('disabled', true).html(`Reserving...
-                                            <span class="ld ld-ring ld-spin"></span>`).addClass('running'),*/
-                        success: response => {
-                            console.log(response)
-                        },
-                        complete: (xhr) => {
-                            let err = eval("(" + xhr.responseText + ")");
-
-                            if (err.status !== true) submitButton.prop('disabled', false).html(`Confirm reservation
-										<span class="ld ld-ring ld-spin"></span>`).removeClass('running')
-                        }
-                    })
+                    guestRate = 0
                 }
 
-                if (paymentMethod === 'mpesa') {
-                    payWithMpesa(data)
-                } else if (paymentMethod === 'paypal') {
-                    submitBooking()
-                } else {
-                    submitBooking()
-                }
-            })
+                priceRate = (numberOfNights * PRICE_PER_NIGHT) + guestRate
+                totalPrice = priceRate + SERVICE_FEE
+
+                $('#price-rate').html(`KSH.${_number_format(priceRate)}`)
+                $('#total-price').html(`KSH.${_number_format(totalPrice)}`)
+                $('.digits.kes').html(`KSH.${_number_format(totalPrice)}`)
+                $('#price-times').html(`* (${GUESTS_EL.val() === "" ? 1 : GUESTS_EL.val()}) * ${numberOfNights ?? 1}`)
+            }
         </script>
     @endpush
 @endsection

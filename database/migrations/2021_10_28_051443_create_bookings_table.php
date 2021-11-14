@@ -11,18 +11,17 @@ class CreateBookingsTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('bookings', function (Blueprint $table) {
+    public function up() {
+        Schema::create('bookings', function(Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('destination_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('payment_method_id')->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->smallInteger('guests')->default(1);
             $table->boolean('is_paid')->default(false);
-            $table->float('price');
-            $table->float('amount_paid');
-            $table->float('service_fee')->nullable();
+            $table->float('amount_paid')->default(0);
+            $table->float('total');
+            $table->float('service_fee')->nullable()->default(0);
             $table->timestamp('start_at');
             $table->timestamp('end_at')->nullable();
             $table->timestamps();
@@ -34,8 +33,7 @@ class CreateBookingsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('bookings');
     }
 }

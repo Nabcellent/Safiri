@@ -241,7 +241,8 @@ if(!function_exists('calculatePrice')) {
         ];
 
 //        dd($destinationResult['user_ratings_total'] / $destinationResult['rating']);
+        $price = $distance['nm'] * (pow($destinationResult['rating'] ?? ($distance['miles'] + 3), 3) * 70);
 
-        return $distance['nm'] * (pow($destinationResult['rating'] ?? ($distance['miles'] + 3), 3) * 70);
+        return round($price * 2) / 2;
     }
 }

@@ -17,7 +17,7 @@ class CreateDestinationsTable extends Migration
             $table->string('place_id')->unique();
             $table->foreignId('category_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('name');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->float('price');
             $table->string('rates', 20)->default('daily');
             $table->json('location');

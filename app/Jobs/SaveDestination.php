@@ -61,6 +61,8 @@ class SaveDestination implements ShouldQueue
                 if($destination['photo']) {
                     error_log("$i. Saving destination and details for..." . $destination['name']);
 
+                    $photo = $destination['photo'];
+
                     $categoryTitle = Arr::first($destination['types']);
                     $category = ['title' => $categoryTitle];
                     Category::updateOrCreate($category, $category);
@@ -71,7 +73,7 @@ class SaveDestination implements ShouldQueue
                         appendToApiDestination($destination));
 
                     if(empty($destination->image)) {
-                        $destination->image = downloadPhoto($destination['photo']);
+                        $destination->image = downloadPhoto($photo);
                         $destination->save();
                     }
 

@@ -63,6 +63,7 @@
     <script>
         $(() => {
             window.DESTINATIONS = [];
+
             const nextPageBtn = $('#next-page'),
                 firstPageBtn = $('#first-page')
 
@@ -157,6 +158,7 @@
                     method: 'GET',
                     url: 'http://localhost:8000/api/destination/v1/all',
                     success: response => {
+                        console.log(response)
                         if (response.next_page_token) {
                             nextPageBtn.attr('data-id', response.next_page_token).show(300)
                         } else {

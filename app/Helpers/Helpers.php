@@ -231,6 +231,7 @@ if(!function_exists('calculatePrice')) {
     function calculatePrice($destinationResult): float {
         $safiriLocation = new LatLong(-1.286389, 36.817223);
         $placeGeometry = $destinationResult['geometry']['location'];
+//        $placeGeometry = ['lat' => 6.46113, 'lng' => 3.39037];
         $placeLocation = new LatLong($placeGeometry['lat'], $placeGeometry['lng']);
         $distanceCalculator = new DistanceCalculator($safiriLocation, $placeLocation);
 
@@ -239,9 +240,13 @@ if(!function_exists('calculatePrice')) {
             'miles' => $distanceCalculator->get()->asMiles(),
             'nm'    => $distanceCalculator->get()->asNauticalMiles(),
         ];
+//        TODO: Find a better way to calculate price given: Distance, Rating, Total number of users who have rated.
 
 //        dd($destinationResult['user_ratings_total'] / $destinationResult['rating']);
+//        $price = $distance['nm'] * (pow($destinationResult['rating'] ?? ($distance['miles'] + 3), 3) * 70);
         $price = $distance['nm'] * (pow($destinationResult['rating'] ?? ($distance['miles'] + 3), 3) * 70);
+
+//        $distance['price'] = $price;
 
         return round($price * 2) / 2;
     }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DestinationController as AdminDestinationController;
+use App\Http\Controllers\API\StkController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\HomeController;
@@ -27,6 +28,7 @@ Route::prefix('/destinations')->name('destinations.')->group(function() {
     Route::post('/booking/{id}', [BookingController::class, 'reserve'])->name('reserve');
 });
 
+Route::get('/thanks',[BookingController::class,'thanks'])->name('thanks');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
@@ -37,6 +39,11 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function() {
     Route::prefix('/destinations')->middleware('auth')->name('destinations.')->group(function() {
         Route::get('/', [AdminDestinationController::class, 'index'])->name('index');
         Route::post('/store', [AdminDestinationController::class, 'store'])->name('store');
+    });
+    //  MPESA ROUTES
+    Route::prefix('/payments')->name('mpesa.stk.')->namespace('Mpesa')->group(function() {
+        Route::any('stk-request', [StkController::class, 'initiatePush'])->name('request');
+        Route::get('stk-status/{id}', [StkController::class, 'stkStatus']);
     });
 });
 

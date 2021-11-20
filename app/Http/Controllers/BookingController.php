@@ -52,4 +52,8 @@ class BookingController extends Controller
 
         dd($booking);
     }
+    public function thanks(){
+        return View('thanks');
+
+    }
 }

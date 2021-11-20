@@ -12,6 +12,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class PaymentMethod extends Model
 {
     use HasFactory;
+    protected $casts=[
+        'description'=>"array"
+    ];
 
     public function bookings(): HasMany {
         return $this->hasMany(Booking::class);

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
  */
 if(!function_exists('isAdmin')) {
     function isAdmin(): bool {
-        return in_array(Auth::user()->is_admin, [true, 7]);
+        return Auth::user()->is_admin;
     }
 }
 if(!function_exists('isRed')) {
@@ -45,7 +45,7 @@ if(!function_exists('createFail')) {
     }
 }
 if(!function_exists('deleteOk')) {
-    function deleteOk($routeName = null): RedirectResponse {
+    function deleteOk($msg = 'Deleted! ✔', $routeName = null): RedirectResponse {
         return goWithSuccess($routeName, __('msg.del_ok'));
     }
 }

@@ -12,32 +12,21 @@
 
     <div id="home">
         <div class="row justify-content-center py-4 banner-bg">
+            @foreach($banners as $banner)
             <div class="col-md-4">
                 <div class="card py-5 px-4">
                     <div class="mb-md-5">
-                        <h5>Banner</h5>
-                        <h4>Heading</h4>
+                        <h5>{{ $banner->title }}</h5>
+                        <h4>{{ $banner->content }}</h4>
                     </div>
                     <div>
-                        <a href="#" class="btn btn-sm btn-outline-primary">
+                        <a href="#" class="btn btn-outline-light">
                             More Info <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card py-5 px-4">
-                    <div class="mb-md-5">
-                        <h5>Banner</h5>
-                        <h4>Heading</h4>
-                    </div>
-                    <div>
-                        <a href="#" class="btn btn-sm btn-outline-primary">
-                            More Info <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
         <div class="container listing my-3">

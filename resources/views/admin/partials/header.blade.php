@@ -2,12 +2,12 @@
     <div class="main-header-right row m-0">
         <div class="main-header-left">
             <div class="logo-wrapper">
-                <a href="dashboard.html">
+                <a href="{{ route('dashboard') }}">
                     <h4 class="fw-bolder">SAFIRI</h4>
                 </a>
             </div>
             <div class="dark-logo-wrapper">
-                <a href="dashboard.html">
+                <a href="{{ route('dashboard') }}">
                     <h4 class="fw-bolder">SAFIRI</h4>
                 </a>
             </div>
@@ -18,7 +18,7 @@
                 <li>
                     <form class="form-inline search-form">
                         <div class="search-bg"><i class="fa fa-search"></i>
-                            <input class="form-control-plaintext" placeholder="Search here.....">
+                            <input class="form-control-plaintext" placeholder="Search here....." aria-label="Search">
                         </div>
                     </form>
                     <span class="d-sm-none mobile-search search-bg"><i class="fa fa-search"></i></span>

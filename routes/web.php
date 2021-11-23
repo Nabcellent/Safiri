@@ -45,6 +45,7 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(fu
     //  DESTINATION ROUTES
     Route::prefix('/destinations')->name('destinations.')->group(function() {
         Route::get('/', [AdminDestinationController::class, 'index'])->name('index');
+        Route::get('/list', [AdminDestinationController::class, 'showList'])->name('list');
         Route::post('/store', [AdminDestinationController::class, 'store'])->name('store');
     });
 

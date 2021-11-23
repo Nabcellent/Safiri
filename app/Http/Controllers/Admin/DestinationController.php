@@ -24,6 +24,13 @@ class DestinationController extends Controller
 
         return response()->view('admin.destination.index', $data);
     }
+    public function showList(): Response {
+        $data = [
+            'destinations' => Destination::with('category')->take(100)->get()
+        ];
+
+        return response()->view('admin.destination.list', $data);
+    }
 
     /**
      * @throws Exception

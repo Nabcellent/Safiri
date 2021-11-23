@@ -25,6 +25,7 @@ $('#booking-form').on('submit', function (e) {
 
     const data = {}
     $(this).serializeArray().map(input => data[input.name] = input.value)
+
     data.total = totalPrice;
     data.service_fee = SERVICE_FEE
 

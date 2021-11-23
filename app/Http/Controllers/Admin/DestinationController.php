@@ -22,14 +22,18 @@ class DestinationController extends Controller
     public function index(): Response {
         $data['savingDestinations'] = getSetting('saving_destinations');
 
-        return response()->view('admin.destination.index', $data);
+        return response()->view('admin.destinations.index', $data);
     }
     public function showList(): Response {
         $data = [
             'destinations' => Destination::with('category')->take(100)->get()
         ];
 
-        return response()->view('admin.destination.list', $data);
+        return response()->view('admin.destinations.list', $data);
+    }
+
+    public function create(): Response {
+        return response()->view('admin.destinations.upsert');
     }
 
     /**

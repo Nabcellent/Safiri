@@ -1399,3 +1399,34 @@
 /**=====================
     63. Box-layout CSS ends
 ==========================**/
+
+
+table th.actions,
+table td.actions {
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table td.actions .dropdown {
+    background-color: rgba(250, 250, 250, .9);
+    border-radius: 10rem;
+    padding: .3rem 1rem;
+}
+table td.actions .dropdown-menu > div > * {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+    text-align: center;
+}
+table td.actions ul.dropdown-menu {
+    min-width: 10rem;
+}
+table td.actions ul.dropdown-menu li {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+table td.actions a:hover i {
+    color: grey!important;
+}

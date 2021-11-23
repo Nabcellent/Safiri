@@ -23,8 +23,9 @@
             <!-- Flexible table width Starts-->
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between align-items-center">
                         <h5>List of Saved Destinations</h5>
+                        <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Create Destination</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -36,6 +37,7 @@
                                     <th>Price</th>
                                     <th>Vicinity</th>
                                     <th>Rating</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -47,6 +49,33 @@
                                     <td>{{ number_format($destination->price, 2) }}</td>
                                     <td>{{ $destination->vicinity }}</td>
                                     <td>{{ $destination->rating ?? 'N/A' }}</td>
+                                    <td class="actions">
+                                        <div class="dropdown shadow-sm">
+                                            <a href="javascript:void(0);" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                            <ul class="dropdown-menu shadow">
+                                                <li>
+                                                    <a href="{{ route('admin.destinations.show', ['id' => $destination->id]) }}" title="View Destination">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                    <a style="cursor:pointer" class="update-resource-status" data-id="{{ $destination->id }}"
+                                                       data-model="destination" title="Change Status">
+                                                        @if($destination->status)
+                                                            <i class="fas fa-toggle-on text-orange-dark" data-status="Active"></i>
+                                                        @else
+                                                            <i class="fas fa-toggle-off text-secondary" data-status="Inactive"></i>
+                                                        @endif
+                                                    </a>
+                                                    <a href="{{ route('admin.destinations.edit', ['id' => $destination->id]) }}" title="Edit Destination">
+                                                        <i class="fas fa-pen text-dark"></i>
+                                                    </a>
+                                                    <a href="javascript:void(0);" class="delete-resource" data-id="{{ $destination->id }}"
+                                                       data-model="destination"
+                                                       title="Delete Destination"><i class="fas fa-trash"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
                                 </tr>
                                 @endforeach
 
@@ -55,8 +84,9 @@
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Price</th>
-                                    <th>Location</th>
                                     <th>Vicinity</th>
+                                    <th>Rating</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </tfoot>
                             </table>

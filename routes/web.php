@@ -46,6 +46,9 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(fu
     Route::prefix('/destinations')->name('destinations.')->group(function() {
         Route::get('/', [AdminDestinationController::class, 'index'])->name('index');
         Route::get('/list', [AdminDestinationController::class, 'showList'])->name('list');
+        Route::get('/create', [AdminDestinationController::class, 'create'])->name('create');
+        Route::get('/show/{id}', [AdminDestinationController::class, 'show'])->name('show');
+        Route::get('/edit/{id}', [AdminDestinationController::class, 'edit'])->name('edit');
         Route::post('/store', [AdminDestinationController::class, 'store'])->name('store');
     });
 

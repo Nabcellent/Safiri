@@ -58,6 +58,7 @@
                         <ul class="nav-submenu menu-content" style="display: none;">
                             <li><a href="{{ route('admin.destinations.index') }}">API</a></li>
                             <li><a href="{{ route('admin.destinations.list') }}">List</a></li>
+                            <li><a href="{{ route('admin.destinations.create') }}">Create</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

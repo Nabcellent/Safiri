@@ -11,6 +11,7 @@
         "accentinteractive/laravel-logcleaner": "^1.0",
         "ballen/distical": "^3.0",
         "barryvdh/laravel-ide-helper": "^2.10",
+        "drh/mpesa": "^1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.65",

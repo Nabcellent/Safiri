@@ -11,26 +11,29 @@ function payWithMpesa(formData) {
                 Swal.showValidationMessage('Invalid phone number.')
             } else {
                 formData.phone = phoneNumber;
+                formData.amount = 1;
 
                 return $.ajax({
                     data: formData,
                     method: 'POST',
-                    url: `/payments/stk-requests`,
+                    url: `/admin/payments/stk-request`,
                     dataType: 'json',
-                    beforeSend: () => showLoader('Processing payment...'),
+                    // beforeSend: () => showLoader('Processing payment...'),
                     statusCode: {
                         200: response => {
                             if (response.status) {
                                 return response.content;
                             } else {
                                 $('loader').addClass('d-none');
-                                errorAlert(response.message)
+                                // errorAlert(response.message)
+                                console.log(response.message);
                             }
                         },
                     },
                     error: () => {
-                        oopsError();
-                        hideLoader();
+                        console.log("error");
+                        // oopsError();
+                        // hideLoader();
                     }
                 })
             }
@@ -57,7 +60,7 @@ class STK {
             showCancelButton: true,
             preConfirm: () => {
                 return $.ajax({
-                    url: '/payments/stk-status/' + this.CHECKOUT_REQUEST_ID,
+                    url: '/admin/payments/stk-status/' + this.CHECKOUT_REQUEST_ID,
                     type: 'GET',
                     dataType: 'json',
                     success: response => {
@@ -75,7 +78,7 @@ class STK {
                     text: 'Safiri',
                     timer: 3000,
                     showConfirmButton: false
-                }).then(() => hideLoader())
+                })//.then(() => hideLoader())
             } else if (result.isConfirmed) {
                 this.stkStatusResponse(result.value)
             } else {
@@ -113,7 +116,7 @@ class STK {
                 icon: 'error',
                 title: 'Sorry...',
                 text: data.message,
-                willClose: hideLoader,
+                // willClose: hideLoader,
                 footer: '<a href>Report this issue?</a>'
             });
         } else {
@@ -121,7 +124,7 @@ class STK {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Something went wrong!',
-                willClose: hideLoader,
+                // willClose: hideLoader,
                 footer: '<a href>Report this issue?</a>'
             });
         }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81ce7603476111e5609a616195c129cf",
+    "content-hash": "e9a24d2d4dfa9e6c03245b6eea9b1940",
     "packages": [
         {
             "name": "accentinteractive/laravel-logcleaner",
@@ -1575,6 +1575,77 @@
                 }
             ],
             "time": "2020-11-24T19:55:57+00:00"
+        },
+        {
+            "name": "drh/mpesa",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DrH97/mpesa.git",
+                "reference": "4ed892480c60a42ae58a52545cada8e629a5206f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DrH97/mpesa/zipball/4ed892480c60a42ae58a52545cada8e629a5206f",
+                "reference": "4ed892480c60a42ae58a52545cada8e629a5206f",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^3.1",
+                "ext-json": "*",
+                "ext-openssl": "*",
+                "guzzlehttp/guzzle": "^7.3",
+                "illuminate/cache": "~8.0",
+                "illuminate/container": "~8.0",
+                "illuminate/contracts": "~8.0",
+                "illuminate/routing": "~8.0",
+                "illuminate/support": "~8.0",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DrH\\Mpesa\\MpesaServiceProvider"
+                    ],
+                    "aliases": {
+                        "B2C": "DrH\\Mpesa\\Facades\\B2C",
+                        "Identity": "DrH\\Mpesa\\Facades\\Identity",
+                        "Registrar": "DrH\\Mpesa\\Facades\\Registrar",
+                        "STK": "DrH\\Mpesa\\Facades\\STK"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DrH\\Mpesa\\": "src\\Mpesa"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dr H",
+                    "email": "jmnabangi@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mpesa Payments Library",
+            "keywords": [
+                "library",
+                "mpesa"
+            ],
+            "support": {
+                "issues": "https://github.com/DrH97/mpesa/issues",
+                "source": "https://github.com/DrH97/mpesa/tree/v1.0.1"
+            },
+            "time": "2021-09-08T21:07:56+00:00"
         },
         {
             "name": "egulias/email-validator",

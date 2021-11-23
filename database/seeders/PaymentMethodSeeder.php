@@ -14,9 +14,9 @@ class PaymentMethodSeeder extends Seeder
      * @return void
      */
     public function run() {
-        DB::table('payment_methods')->insert([
-            ['name' => 'mpesa', 'description' => ['icon' => 'bi bi-cash-coin']],
-            ['name' => 'paypal', 'description' => ['icon' => ""]],
+        PaymentMethod::insert([
+            ['name' => 'mpesa', 'description' => json_encode(['icon' => 'bi bi-cash-coin'])],
+            ['name' => 'paypal', 'description' => json_encode(['icon' => ""])],
         ]);
     }
 }

@@ -20,6 +20,7 @@ class Destination extends Model
         'name',
         'image',
         'price',
+        'rates',
         'vicinity',
         'location',
         'website',

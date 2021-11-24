@@ -76,42 +76,6 @@
                 <li>
                     <div class="mode"><i class="fas fa-moon"></i></div>
                 </li>
-                <li class="onhover-dropdown">
-                    <i data-feather="message-square"></i>
-                    <ul class="chat-dropdown onhover-show-div">
-                        <li>
-                            <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="/images/admin/user/4.jpg" alt="">
-                                <div class="media-body">
-                                    <span>Ain Chavez</span>
-                                    <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
-                                </div>
-                                <p class="f-12">32 mins ago</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="/images/admin/user/1.jpg" alt="">
-                                <div class="media-body">
-                                    <span>Erica Hughes</span>
-                                    <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
-                                </div>
-                                <p class="f-12">58 mins ago</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="/images/admin/user/2.jpg" alt="">
-                                <div class="media-body">
-                                    <span>Kori Thomas</span>
-                                    <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
-                                </div>
-                                <p class="f-12">1 hr ago</p>
-                            </div>
-                        </li>
-                        <li class="text-center"><a class="f-w-700" href="javascript:void(0)">See All </a></li>
-                    </ul>
-                </li>
                 <li class="onhover-dropdown p-0">
                     <a href="{{ route('logout') }}" class="btn btn-primary-light"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i data-feather="log-out"></i>{{ __('Sign Out') }}</a>

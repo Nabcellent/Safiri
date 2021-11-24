@@ -1430,3 +1430,7 @@ table td.actions ul.dropdown-menu li {
 table td.actions a:hover i {
     color: grey!important;
 }
+
+.post-body table tr td {
+    padding-left: 1rem;
+}

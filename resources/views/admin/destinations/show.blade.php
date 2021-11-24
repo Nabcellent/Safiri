@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Destinations')
+@section('title', 'Destination')
 @push('links')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/photoswipe.css') }}">
 @endpush
@@ -29,11 +29,13 @@
                         <img class="img-fluid bg-img-cover"
                              src="{{ asset("images/destinations/{$destination->image}") }}" alt=""/>
                         <div class="profile-img-wrrap">
-                            <img class="img-fluid bg-img-cover" src="{{ asset("images/destinations/{$destination->image}") }}" alt=""/></div>
+                            <img class="img-fluid bg-img-cover"
+                                 src="{{ asset("images/destinations/{$destination->image}") }}" alt=""/></div>
                         <div class="userpro-box">
                             <div class="img-wrraper">
                                 <div class="avatar">
-                                    <img class="img-fluid" alt="" src="{{ asset('images/admin/big-masonry/7.jpg') }}"/></div>
+                                    <img class="img-fluid" alt="" src="{{ asset('images/admin/big-masonry/7.jpg') }}"/>
+                                </div>
                                 <a class="icon-wrapper"
                                    href="{{ route('admin.destinations.edit', ['id' => $destination->id]) }}">
                                     <i class="icofont icofont-pencil-alt-5"></i></a>
@@ -65,16 +67,16 @@
                                 <div class="follow">
                                     <ul class="follow-list">
                                         <li>
-                                            <div class="follow-num counter">325</div>
-                                            <span>Follower</span>
+                                            <div class="follow-num counter">{{ $destination->bookings_count }}</div>
+                                            <span>Bookings</span>
                                         </li>
                                         <li>
-                                            <div class="follow-num counter">450</div>
-                                            <span>Following</span>
+                                            <div class="follow-num counter">{{ $destination->reviews_count }}</div>
+                                            <span>Reviews</span>
                                         </li>
                                         <li>
-                                            <div class="follow-num counter">500</div>
-                                            <span>Likes</span>
+                                            <div class="follow-num counter">{{ $destination->rating }}</div>
+                                            <span>Rating</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -83,7 +85,7 @@
                     </div>
                 </div>
                 <!-- user profile header end-->
-                <div class="col-lg-12 col-md-7 xl-65">
+                <div class="col-lg-12">
                     <div class="row">
                         <!-- profile post start-->
                         <div class="col-sm-12">
@@ -91,81 +93,68 @@
                                 <div class="profile-post">
                                     <div class="post-header">
                                         <div class="media">
+                                            <?php $imgSrc = $destination->icon ?? asset("images/destinations/{$destination->image}") ?>
                                             <img class="img-thumbnail rounded-circle me-3"
-                                                 src="{{ asset("images/destinations/{$destination->image}") }}" alt="Generic placeholder image"/>
+                                                 src="{{ $imgSrc }}" alt="Placeholder image"/>
                                             <div class="media-body align-self-center">
                                                 <a href="#"><h5 class="user-name">{{ $destination->name }}</h5></a>
                                                 <h6>Created: {{ $destination->created_at->diffForHumans() }}</h6>
                                             </div>
                                         </div>
-                                        <div class="post-setting"><i class="fa fa-ellipsis-h"></i></div>
                                     </div>
                                     <div class="post-body">
-                                        <div class="img-container">
-                                            <div class="row mt-4 pictures my-gallery" id="aniimated-thumbnials-2"
-                                                 itemscope="">
-                                                <figure class="col-sm-6" itemprop="associatedMedia" itemscope="">
-                                                    <a href="../assets/images/user-profile/post2.jpg"
-                                                       itemprop="contentUrl" data-size="1600x950">
-                                                        <img class="img-fluid rounded"
-                                                             src="../assets/images/user-profile/post2.jpg"
-                                                             itemprop="thumbnail" alt="gallery"/>
-                                                    </a>
-                                                    <figcaption itemprop="caption description">Image caption 1
-                                                    </figcaption>
-                                                </figure>
-                                                <figure class="col-sm-6" itemprop="associatedMedia" itemscope="">
-                                                    <a href="../assets/images/user-profile/post3.jpg"
-                                                       itemprop="contentUrl" data-size="1600x950">
-                                                        <img class="img-fluid rounded"
-                                                             src="../assets/images/user-profile/post3.jpg"
-                                                             itemprop="thumbnail" alt="gallery"/>
-                                                    </a>
-                                                    <figcaption itemprop="caption description">Image caption 2
-                                                    </figcaption>
-                                                </figure>
+                                        <div class="row">
+                                            <div class="col">
+                                                <table>
+                                                    <tr>
+                                                        <th>Price</th>
+                                                        <td>~~~ {{ number_format($destination->price, 2) }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Charges</th>
+                                                        <td>~~~ {{ $destination->rates }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Vicinity</th>
+                                                        <td>~~~ {{ $destination->vicinity }}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col">
+                                                <table>
+                                                    <tr>
+                                                        <th>Website</th>
+                                                        <td>
+                                                            ~~~ <a href="{{ $destination->website }}"
+                                                               target="_blank">{{ $destination->name }} <i
+                                                                    class="fas fa-external-link-alt"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Description</th>
+                                                        <td>~~~ {{ $destination->description ?? "None" }}</td>
+                                                    </tr>
+                                                </table>
                                             </div>
                                         </div>
-                                        <div class="post-react">
-                                            <ul>
-                                                <li><img class="rounded-circle" src="../assets/images/user/3.jpg"
-                                                         alt=""/></li>
-                                                <li><img class="rounded-circle" src="../assets/images/user/5.jpg"
-                                                         alt=""/></li>
-                                                <li><img class="rounded-circle" src="../assets/images/user/1.jpg"
-                                                         alt=""/></li>
-                                            </ul>
-                                            <h6>+25 people react this post</h6>
+                                        <hr>
+                                        <div class="img-container">
+                                            <div class="row justify-content-center mt-4 pictures my-gallery"
+                                                 id="aniimated-thumbnials-2" itemscope="">
+                                                @foreach($destination->destinationImages as $image)
+                                                    <figure class="col-sm-3" itemprop="associatedMedia" itemscope="">
+                                                        <a href="{{ asset("images/destinations/{$image->image}") }}"
+                                                           itemprop="contentUrl" data-size="1600x950">
+                                                            <img class="img-fluid rounded"
+                                                                 src="{{ asset("images/destinations/{$image->image}") }}"
+                                                                 itemprop="thumbnail" alt="gallery"/>
+                                                        </a>
+                                                        <figcaption itemprop="caption description">Image caption 1
+                                                        </figcaption>
+                                                    </figure>
+                                                @endforeach
+                                            </div>
                                         </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis nostrud exercitation ullamco laboris nisi ut
-                                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                                            occaecat cupidatat non proident, sunt in culpa
-                                            qui officia deserunt mollit anim id est laborum.
-                                        </p>
-                                        <ul class="post-comment">
-                                            <li>
-                                                <label>
-                                                    <a href="#"><i data-feather="heart"></i>&nbsp;&nbsp;Like<span
-                                                            class="counter">520</span></a>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <a href="#"><i data-feather="message-square"></i>&nbsp;&nbsp;Comment<span
-                                                            class="counter">85</span></a>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <a href="#"><i data-feather="share"></i>&nbsp;&nbsp;share<span
-                                                            class="counter">30</span></a>
-                                                </label>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

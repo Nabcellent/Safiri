@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index(): Response {
         $data = [
-            'destinations' => Destination::take(10)->get(),
+            'destinations' => Destination::take(30)->get(),
             'banners'      => Banner::all(),
             'testimonials' => Review::with(['destination' => function($query) {
                 $query->select(['id', 'name']);

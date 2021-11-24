@@ -7,21 +7,16 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreStkRequest;
 use App\Models\Booking;
-use App\Models\PaymentMethod;
 use App\Models\StkRequest;
-
 use DrH\Mpesa\Facades\STK;
-
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\{Artisan, Auth, Log, Session};
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\{Artisan, Log, Session};
 use Illuminate\Support\Str;
-
 
 
 class StkController extends Controller
@@ -115,7 +110,7 @@ class StkController extends Controller
                     $icon = 'warning';
                 }
 
-                Artisan::queue('mpesa:query_status');
+//                Artisan::queue('mpesa:query_status');
 
                 return response()->json(['status' => $status, 'message' => $message, 'icon' => $icon, 'url' => $url]);
             }

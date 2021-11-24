@@ -37,7 +37,8 @@
 
         <div class="container px-xl-5">
             <div class="row px-xl-5 g-md-5">
-                <form id="booking-form" class="col">
+                <form id="booking-form" class="col" action="{{ route('destinations.reserve', ['id' => $destination->id]) }}" method="POST">
+                    @csrf
                     <div class="row mb-2">
                         <div class="form-group col">
                             <label class="small">Phone number *</label>
@@ -168,7 +169,8 @@
                     </div>
 
                     <div class="d-grid">
-                        <input type="hidden" name="destination_id" value="{{ $destination->id }}">
+                        <input type="hidden" name="total" id="total_amount">
+                        <input type="hidden" name="destination_id" id="destination_id" value="{{ $destination->id }}">
                         <button type="submit" class="btn btn-block btn-primary ld-ext-right">
                             Confirm Reservation <i class="fas fa-map-pin"></i><span class="ld ld-ring ld-spin"></span>
                         </button>
@@ -311,6 +313,8 @@
 
                 priceRate = (numberOfNights * PRICE_PER_NIGHT) + guestRate
                 totalPrice = priceRate + SERVICE_FEE
+
+                $('#total_amount').val(totalPrice)
 
                 $('#price-rate').html(`KSH.${_number_format(priceRate)}`)
                 $('#total-price').html(`KSH.${_number_format(totalPrice)}`)

@@ -16,7 +16,7 @@ function payWithMpesa(formData) {
                 return $.ajax({
                     data: formData,
                     method: 'POST',
-                    url: `/admin/payments/stk-request`,
+                    url: `/payments/stk-request`,
                     dataType: 'json',
                     statusCode: {
                         200: response => {
@@ -59,7 +59,7 @@ class STK {
             showCancelButton: true,
             preConfirm: () => {
                 return $.ajax({
-                    url: '/admin/payments/stk-status/' + this.CHECKOUT_REQUEST_ID,
+                    url: '/payments/stk-status/' + this.CHECKOUT_REQUEST_ID,
                     type: 'GET',
                     dataType: 'json',
                     success: response => {
@@ -136,10 +136,7 @@ class STK {
  * ---------------------------------------------------------------------------------------------------*/
 if ($('#paypal_payment_button').length) {
     const formData = {}
-
-    $('#checkout-form').serializeArray().map(input => {
-        formData[input.name] = input.value;
-    });
+    $('#booking-form').serializeArray().map(input => formData[input.name] = input.value)
 
     paypal.Buttons({
         style: {
@@ -173,7 +170,7 @@ if ($('#paypal_payment_button').length) {
                     type: 'POST',
                     url: PAYPAL_CALLBACK_URL,
                     dataType: 'json',
-                    beforeSend: () => showLoader('Processing payment...'),
+                    beforeSend: () => toast({msg:'Processing payment...', duration:30000}),
                     statusCode: {
                         200: (response) => {
                             if (response.status) {
@@ -188,13 +185,11 @@ if ($('#paypal_payment_button').length) {
                                     if (data.url !== "") window.location = response.url;
                                 });
                             } else {
-                                errorAlert(response.message)
+                                toast(response.message)
                             }
                         },
                     },
-                    error: () => {
-                        oopsError()
-                    }
+                    error: () => toast({msg: "Oops! something went wrong!"})
                 });
             });
         },

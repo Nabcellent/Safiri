@@ -56,8 +56,8 @@
                         <a class="nav-link menu-title" href="javascript:void(0)">
                             <i data-feather="shopping-bag"></i><span>Destinations</span></a>
                         <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="{{ route('admin.destinations.index') }}">API</a></li>
-                            <li><a href="{{ route('admin.destinations.list') }}">List</a></li>
+                            <li><a href="{{ route('admin.destinations.index') }}">List</a></li>
+                            <li><a href="{{ route('admin.destinations.api.index') }}">API</a></li>
                             <li><a href="{{ route('admin.destinations.create') }}">Create</a></li>
                         </ul>
                     </li>

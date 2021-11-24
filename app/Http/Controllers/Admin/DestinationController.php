@@ -18,20 +18,21 @@ use Throwable;
 
 class DestinationController extends Controller
 {
-    /**
-     * @return Response
-     */
     public function index(): Response {
-        $data['savingDestinations'] = getSetting('saving_destinations');
-
-        return response()->view('admin.destinations.index', $data);
-    }
-    public function showList(): Response {
         $data = [
             'destinations' => Destination::with('category')->take(100)->latest()->get()
         ];
 
         return response()->view('admin.destinations.list', $data);
+    }
+
+    /**
+     * @return Response
+     */
+    public function apiIndex(): Response {
+        $data['savingDestinations'] = getSetting('saving_destinations');
+
+        return response()->view('admin.destinations.index', $data);
     }
 
     public function create(): Response {

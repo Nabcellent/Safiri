@@ -13,19 +13,19 @@
     <div id="home">
         <div class="row justify-content-center py-4 banner-bg">
             @foreach($banners as $banner)
-            <div class="col-md-4">
-                <div class="card py-5 px-4">
-                    <div class="mb-md-5">
-                        <h5>{{ $banner->title }}</h5>
-                        <h4>{{ $banner->content }}</h4>
-                    </div>
-                    <div>
-                        <a href="#" class="btn btn-outline-light">
-                            More Info <i class="fas fa-chevron-right"></i>
-                        </a>
+                <div class="col-md-4">
+                    <div class="card py-5 px-4">
+                        <div class="mb-md-5">
+                            <h5>{{ $banner->title }}</h5>
+                            <h4>{{ $banner->content }}</h4>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-outline-light">
+                                More Info <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
 
@@ -54,7 +54,8 @@
                                         <img src="{{ asset("images/destinations/{$destination->image}") }}"
                                              class="card-img p-2"
                                              alt="...">
-                                        <a href="{{ route('destinations.show', $destination->id) }}" class="card-img-overlay">
+                                        <a href="{{ route('destinations.show', $destination->id) }}"
+                                           class="card-img-overlay">
                                             <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
                                         </a>
                                         <div class="card-body position-relative">
@@ -113,7 +114,8 @@
                                         <img src="{{ asset("images/destinations/{$destination->image}") }}"
                                              class="card-img p-2"
                                              alt="...">
-                                        <a href="{{ route('destinations.show', $destination->id) }}" class="card-img-overlay">
+                                        <a href="{{ route('destinations.show', $destination->id) }}"
+                                           class="card-img-overlay">
                                             <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
                                         </a>
                                         <div class="card-body position-relative">
@@ -155,20 +157,23 @@
         <div class="container-fluid testimonials my-5">
             <div class="row px-md-5 mx-md-5">
                 <div class="col">
-                    <h5 class="ms-md-5">Our travellers' say</h5>
+                    <h5 class="ms-md-5">Our travellers' say...</h5>
                     <div class="row">
-                        @for($i = 0; $i < 4; $i++)
-                            <div class="col px-3 position-relative">
-                                <figure class="card bg-transparent p-4 text-center">
-                                    <blockquote cite="https://www.huxley.net/bnw/four.html">
-                                        <q>This is a super place for your customers quote. Don't worry it works smooth
-                                            as pie. You will get all you need by writing a text here.</q>
-                                    </blockquote>
-                                    <figcaption class="text-muted">~ Name & surname, <cite>date</cite></figcaption>
-                                </figure>
+                        @foreach($testimonials as $testimonial)
+                            <div class="col-xl-3 col-6 px-3 mb-3 position-relative">
+                                <div class="card d-flex align-items-center bg-transparent p-4">
+                                    <figure class="text-center">
+                                        <small class="fw-bolder">{{ $testimonial->destination->name }}</small>
+                                        <blockquote cite="https://www.huxley.net/bnw/four.html">
+                                            <q>{{ $testimonial->comment }}</q>
+                                        </blockquote>
+                                        <figcaption class="text-muted">~ {{ $testimonial->name }},
+                                            <cite>{{ $testimonial->created_at->diffForHumans() }}</cite></figcaption>
+                                    </figure>
+                                </div>
                                 <div class="circle rounded-circle position-absolute"></div>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -196,7 +201,8 @@
                                         <img src="{{ asset("images/destinations/{$destination->image}") }}"
                                              class="card-img p-2"
                                              alt="...">
-                                        <a href="{{ route('destinations.show', $destination->id) }}" class="card-img-overlay">
+                                        <a href="{{ route('destinations.show', $destination->id) }}"
+                                           class="card-img-overlay">
                                             <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
                                         </a>
                                         <div class="card-body position-relative">

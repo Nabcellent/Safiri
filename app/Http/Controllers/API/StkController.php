@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Helpers\Help;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreStkRequest;
+use App\Models\Booking;
+use App\Models\PaymentMethod;
 use App\Models\StkRequest;
 
 use DrH\Mpesa\Facades\STK;
@@ -15,7 +18,8 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\{Artisan, Log, Session};
+use Illuminate\Support\Facades\{Artisan, Auth, Log, Session};
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
 
@@ -38,20 +42,20 @@ class StkController extends Controller
      * @return JsonResponse
      */
     public function initiatePush(StoreStkRequest $request): JsonResponse {
-        $phone = $request->input('phone');
-//        $videoId = $request->input('videoId');
+        $data = $request->all();
+        $phone = $data['phone'];
 //        $amount = $request->input('amount');
 
         $phone = "254" . (Str::length($phone) > 9 ? Str::substr($phone, -9) : $phone);
 
         try {
+            //  Send STK request to users phone and save the request
             $stkResponse = mpesa_request($phone, 1, 'Safiri', 'Payment made to Safiri');
 
-//            Session::put('video_id', $videoId);
+            //  Save the booking
+            Session::put('booking_id', BookingController::saveBooking($data)->id);
 
-//            $stkResponse->booking_id = $booking_id ;
-//            $stkResponse->save();
-
+            //  Return STK checkout request id and wait for user to accept/decline payment
             return response()->json(['status' => true, 'requestId' => $stkResponse->CheckoutRequestID]);
         } catch(Exception $exception) {
             Log::debug($exception->getMessage());
@@ -91,15 +95,15 @@ class StkController extends Controller
                     $icon = 'success';
                     $url = route('thanks');
 
-//                    try {
-//                        $video = Video::findOrFail(Session::pull('video_id'));
-//                        $video->is_paid = true;
-//                        $video->save();
-//                    } catch(Exception $e) {
-//                        Log::error($e->getMessage());
-//                        $message = 'Something went wrong. Kindly contact the Admin';
-//                        $icon = 'warning';
-//                    }
+                    try {
+                        $booking = Booking::findOrFail(Session::pull('booking_id'));
+                        $booking->is_paid = true;
+                        $booking->save();
+                    } catch(Exception $e) {
+                        Log::error($e->getMessage());
+                        $message = 'Something went wrong. Kindly contact the Admin';
+                        $icon = 'warning';
+                    }
                 } else if($resultCode === 1032) {
                     $message = 'Payment Cancelled';
                     $icon = 'info';
@@ -117,7 +121,6 @@ class StkController extends Controller
             }
         } catch(Exception $e) {
             Log::error($e->getMessage());
-
             return response()->json(['status' => 'failed', 'message' => 'Unable to complete transaction. please contact the admin.']);
         }
 

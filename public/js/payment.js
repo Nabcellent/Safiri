@@ -18,7 +18,6 @@ function payWithMpesa(formData) {
                     method: 'POST',
                     url: `/admin/payments/stk-request`,
                     dataType: 'json',
-                    // beforeSend: () => showLoader('Processing payment...'),
                     statusCode: {
                         200: response => {
                             if (response.status) {

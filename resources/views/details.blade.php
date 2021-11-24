@@ -153,7 +153,6 @@
 
         <hr>
 
-
         <div class="container listing my-3">
             <div class="d-flex justify-content-between">
                 <h6 class="m-0 fw-bold">Other destinations you may like:</h6>

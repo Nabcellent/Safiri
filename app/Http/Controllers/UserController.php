@@ -110,9 +110,11 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Response
+     * @return RedirectResponse
      */
     public function destroy($id) {
-        //
+        Auth::user()->delete();
+
+        return deleteOk("Account deleted successfully", 'home');
     }
 }

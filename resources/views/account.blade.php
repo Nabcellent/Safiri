@@ -8,7 +8,8 @@
     <div id="thanks">
         <div class="container listing my-3">
             <div class="card my-5 py-5 bg-transparent">
-                <div class="bg-holder d-none d-lg-block bg-card" style="background-image:url({{ asset('images/spot-illustrations/corner-2.png') }});"></div>
+                <div class="bg-holder d-none d-lg-block bg-card"
+                     style="background-image:url({{ asset('images/spot-illustrations/corner-2.png') }});"></div>
                 <div class="card-body position-relative">
                     <div class="row">
                         <div class="col text-center">
@@ -44,7 +45,8 @@
                                         <div class="card bg-transparent shadow" style="width: 17rem;">
                                             <img src="{{ asset("images/destinations/{$destination->image}") }}"
                                                  class="card-img p-2" alt="...">
-                                            <a href="{{ route('destinations.show', $destination->id) }}" class="card-img-overlay">
+                                            <a href="{{ route('destinations.show', $destination->id) }}"
+                                               class="card-img-overlay">
                                                 <span class="badge rounded-pill bg-light text-primary">- 36 %</span>
                                             </a>
                                             <div class="card-body position-relative">
@@ -63,7 +65,8 @@
                                                         @endif
                                                     </div>
                                                     <a href="{{ route('destinations.show.booking', ['id' => $destination->id]) }}"
-                                                       class="btn btn-sm btn-primary fs-13 fw-bold rounded-3">Book Now</a>
+                                                       class="btn btn-sm btn-primary fs-13 fw-bold rounded-3">Book
+                                                        Now</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -82,11 +85,13 @@
             </div>
 
             <div class="card my-5 py-5" style="background-color: #ba895d">
-                <div class="bg-holder d-none d-lg-block bg-card" style="background-image:url({{ asset('images/spot-illustrations/corner-4.png') }});"></div>
+                <div class="bg-holder d-none d-lg-block bg-card"
+                     style="background-image:url({{ asset('images/spot-illustrations/corner-4.png') }});"></div>
                 <div class="card-body position-relative">
                     <div class="row">
                         <div class="col text-light text-center">
-                            <button class="btn btn-sm btn-outline-light">Delete account <i class="fas fa-trash"></i></button>
+                            <button id="delete-account" class="btn btn-sm btn-outline-light">Delete account <i
+                                    class="fas fa-trash"></i></button>
                         </div>
                     </div>
                 </div>
@@ -116,6 +121,20 @@
                 },
             })
 
+            $('#delete-account').on('click', () => {
+                Swal.fire({
+                    title: 'Are you sure? 😢',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!',
+                    showLoaderOnConfirm: true,
+                }).then((result) => {
+                    if (result.isConfirmed) location.href = `{{ route('user.destroy', ['id' => $user->id]) }}`
+                })
+            })
         </script>
     @endpush
 @endsection

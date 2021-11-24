@@ -32,6 +32,15 @@ class Booking extends Model
         'end_at',
     ];
 
+    /**
+     * Get the user's full name.
+     *
+     * @return string
+     */
+    public function getDatesAttribute(): string {
+        return "{$this->start_at} ~ {$this->end_at}";
+    }
+
     public function user(): BelongsTo {
         return $this->belongsTo(User::class);
     }

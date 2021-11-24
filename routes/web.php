@@ -31,14 +31,20 @@ Route::prefix('/destinations')->name('destinations.')->group(function() {
     Route::post('/booking/{id}', [BookingController::class, 'reserve'])->name('reserve');
 });
 
-Route::get('/thanks',[BookingController::class,'thanks'])->name('thanks');
-Route::get('/profile',[UserController::class, 'profile'])->name('profile');
+Route::prefix('/user')->middleware('auth')->name('user.')->group(function() {
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::get('/account', [UserController::class, 'account'])->name('account');
+    Route::put('/profile', [UserController::class, 'update'])->name('profile.update');
+    Route::put('/password', [UserController::class, 'updatePassword'])->name('password.modify');
+    Route::get('/destroy/{id}', [UserController::class, 'destroy'])->name('destroy');
+});
 
+Route::get('/thanks', [BookingController::class, 'thanks'])->name('thanks');
 
 
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *                                      ADMIN ROUTES
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(function() {

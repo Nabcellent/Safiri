@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destination;
 use App\Models\User;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -27,15 +31,6 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return Response
-     */
-    public function store(Request $request) {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -44,10 +39,24 @@ class UserController extends Controller
      */
     public function profile(): Response {
         $data = [
-            'user' => User::withCount(['bookings', 'reviews'])->find(Auth::id()),
+            'user' => User::find(Auth::id()),
         ];
 
         return response()->view('profile', $data);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @return Response
+     */
+    public function account(): Response {
+        $data = [
+            'user' => User::withCount(['bookings', 'reviews'])->find(Auth::id()),
+            "suggestedDestinations" => Destination::inRandomOrder()->take(7)->get(),
+        ];
+
+        return response()->view('account', $data);
     }
 
     /**
@@ -63,21 +72,49 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
-     * @return Response
+     * @param Request $request
+     * @param int     $id
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id) {
-        //
+    public function update(Request $request): RedirectResponse {
+        try {
+            $data = $request->all();
+            $data['phone'] = strlen($data['phone']) > 9 ? substr($data['phone'], -9) : $data['phone'];
+
+            Auth::user()->update($data);
+
+            return updateOk();
+        } catch (Exception $e) {
+            return toastError($e->getMessage(), "unable to update profile. 😢");
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function updatePassword(Request $request): RedirectResponse {
+        try {
+            Auth::user()->password = Hash::make($request->input('password'));
+            Auth::user()->save();
+
+            return updateOk();
+        } catch (Exception $e) {
+            return toastError($e->getMessage(), "unable to change password. 😢");
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Response
+     * @return RedirectResponse
      */
     public function destroy($id) {
-        //
+        Auth::user()->delete();
+
+        return deleteOk("Account deleted successfully", 'home');
     }
 }

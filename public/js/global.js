@@ -9,7 +9,7 @@ window.sweet = data => {
 window.toast = data => {
     Toastify({
         text: data.msg,
-        duration: 7000,
+        duration: data.duration ?? 7000,
         close: true,
         className: data.type,
     }).showToast();

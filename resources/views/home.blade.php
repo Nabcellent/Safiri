@@ -33,7 +33,7 @@
             <div class="row py-3">
                 <div class="col-12 col-md-2">
                     <h6 class="fw-bold text-center">Best deals</h6>
-                    <a href="#" class="btn btn-sm btn-outline-secondary mt-4">
+                    <a href="{{ route('destinations.index') }}" class="btn btn-sm btn-outline-secondary mt-4">
                         See more <i class="bi bi-chevron-right"></i>
                     </a>
                 </div>
@@ -93,7 +93,7 @@
             <div class="row py-3">
                 <div class="col-2">
                     <h6 class="fw-bold text-center">Most Popular</h6>
-                    <a href="#" class="btn btn-sm btn-outline-secondary mt-4">
+                    <a href="{{ route('destinations.index') }}" class="btn btn-sm btn-outline-secondary mt-4">
                         See more <i class="bi bi-chevron-right"></i>
                     </a>
                 </div>

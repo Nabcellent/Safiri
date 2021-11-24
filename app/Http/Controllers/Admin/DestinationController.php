@@ -7,6 +7,7 @@ use App\Http\Requests\StoreDestinationRequest;
 use App\Jobs\SaveDestination;
 use App\Models\Category;
 use App\Models\Destination;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -26,13 +27,18 @@ class DestinationController extends Controller
         return response()->view('admin.destinations.list', $data);
     }
 
-    /**
-     * @return Response
-     */
-    public function apiIndex(): Response {
-        $data['savingDestinations'] = getSetting('saving_destinations');
+    public function show($id): Response|RedirectResponse {
+        try {
+            $data = [
+                'destination' => Destination::with(['category' => function($query) {
+                    $query->select(['id', 'title']);
+                }])->findOrFail($id),
+            ];
 
-        return response()->view('admin.destinations.index', $data);
+            return response()->view('admin.destinations.show', $data);
+        } catch (Exception $e) {
+            return toastError($e->getMessage(), "Something went wrong!");
+        }
     }
 
     public function create(): Response {
@@ -55,7 +61,7 @@ class DestinationController extends Controller
 
             Destination::create($data);
 
-            return createOk('Destination created successfully', 'admin.destinations.list');
+            return createOk('Destination created successfully', 'admin.destinations.index');
         } catch (Exception $e) {
             return toastError($e->getMessage(), "Unable to create destination");
         }
@@ -80,6 +86,8 @@ class DestinationController extends Controller
         try {
             $destination = Destination::findOrFail($id);
 
+            unset($data['image']);
+
             if($request->hasFile('image')) {
                 $file = $request->file('image');
                 $data['image'] = "dest_" . time() . ".{$file->guessClientExtension()}";
@@ -90,15 +98,36 @@ class DestinationController extends Controller
                 }
             }
 
+            if($request->hasFile('other_images')) {
+                $files = $request->file('other_images');
+                $otherImages = [];
+                foreach($files as $image) {
+                    $otherImages['image'] = "dest_" . time() . ".{$image->guessClientExtension()}";
+                    $otherImages['destination_id'] = $destination->id;
+                    $image->move(public_path('images/destinations'), $otherImages['image']);
+                }
+
+                $destination->destinationImages()->insert($otherImages);
+            }
+
             $destination->update($data);
 
-            return createOk('Destination updated successfully', 'admin.destinations.list');
+            return createOk('Destination updated successfully', 'admin.destinations.index');
         } catch (Exception $e) {
             return toastError($e->getMessage(), "Unable to update destination.");
         }
     }
 
 
+
+    /**
+     * @return Response
+     */
+    public function apiIndex(): Response {
+        $data['savingDestinations'] = getSetting('saving_destinations');
+
+        return response()->view('admin.destinations.index', $data);
+    }
 
     /**
      * @throws Exception
@@ -137,4 +166,20 @@ class DestinationController extends Controller
 
         return response()->json(['status' => false, 'message' => 'No destination(s) provided for saving.']);
     }
+
+
+
+
+
+    /*public function check() {
+        $email = $this->request->getVar('email');
+        $password = $this->request->getVar('password');
+        $user = User::whereEmail($email)->first();
+
+        if(isset($user) && password_verify($password, $user->password)) {
+            return json_encode(['status' => true, "url" => '/home']);
+        } else {
+            return json_encode(['status' => false, "message" => 'Invalid credentials.']);
+        }
+    }*/
 }

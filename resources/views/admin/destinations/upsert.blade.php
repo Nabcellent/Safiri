@@ -38,7 +38,7 @@
                             </div>
                         @endif
 
-                        <form method="POST"
+                        <form method="POST" enctype="multipart/form-data"
                               action="{{ isset($destination) ? route('admin.destinations.update', ['id' => $destination->id]) : route('admin.destinations.store') }}">
                             @csrf @isset($destination) @method('PUT') @endisset
                             <div class="row g-3 mb-3">
@@ -82,11 +82,15 @@
                                 </div>
                             </div>
                             <div class="row g-3 mb-3">
-                                <div class="col-md-6">
-                                    <label class="form-label" for="image">Image</label>
-                                    <input type="file" name="image" id="image" class="form-control" {{ !isset($destination) ? 'required' : '' }}>
+                                <div class="col-md-4">
+                                    <label class="form-label" for="main_image">Main image</label>
+                                    <input type="file" name="main_image" id="main_image" class="form-control" {{ !isset($destination) ? 'required' : '' }}>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
+                                    <label class="form-label" for="other_images">Other images</label>
+                                    <input type="file" name="other_images[]" id="other_images" class="form-control" multiple>
+                                </div>
+                                <div class="col-md-4">
                                     <label class="form-label" for="website">Link to website</label>
                                     <input class="form-control" id="website" name="website" type="url"
                                            value="{{ old('website', $destination->website ?? '') }}"

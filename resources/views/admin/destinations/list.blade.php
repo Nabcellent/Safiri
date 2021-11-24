@@ -25,7 +25,8 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5>List of Saved Destinations</h5>
-                        <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Create Destination</a>
+                        <a href="{{ route('admin.destinations.create') }}" class="btn btn-outline-primary">
+                            <i class="fas fa-plus"></i> Create Destination</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

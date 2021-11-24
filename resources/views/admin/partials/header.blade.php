@@ -2,12 +2,12 @@
     <div class="main-header-right row m-0">
         <div class="main-header-left">
             <div class="logo-wrapper">
-                <a href="dashboard.html">
+                <a href="{{ route('dashboard') }}">
                     <h4 class="fw-bolder">SAFIRI</h4>
                 </a>
             </div>
             <div class="dark-logo-wrapper">
-                <a href="dashboard.html">
+                <a href="{{ route('dashboard') }}">
                     <h4 class="fw-bolder">SAFIRI</h4>
                 </a>
             </div>
@@ -18,7 +18,7 @@
                 <li>
                     <form class="form-inline search-form">
                         <div class="search-bg"><i class="fa fa-search"></i>
-                            <input class="form-control-plaintext" placeholder="Search here.....">
+                            <input class="form-control-plaintext" placeholder="Search here....." aria-label="Search">
                         </div>
                     </form>
                     <span class="d-sm-none mobile-search search-bg"><i class="fa fa-search"></i></span>
@@ -75,42 +75,6 @@
                 </li>
                 <li>
                     <div class="mode"><i class="fas fa-moon"></i></div>
-                </li>
-                <li class="onhover-dropdown">
-                    <i data-feather="message-square"></i>
-                    <ul class="chat-dropdown onhover-show-div">
-                        <li>
-                            <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="/images/admin/user/4.jpg" alt="">
-                                <div class="media-body">
-                                    <span>Ain Chavez</span>
-                                    <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
-                                </div>
-                                <p class="f-12">32 mins ago</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="/images/admin/user/1.jpg" alt="">
-                                <div class="media-body">
-                                    <span>Erica Hughes</span>
-                                    <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
-                                </div>
-                                <p class="f-12">58 mins ago</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="/images/admin/user/2.jpg" alt="">
-                                <div class="media-body">
-                                    <span>Kori Thomas</span>
-                                    <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
-                                </div>
-                                <p class="f-12">1 hr ago</p>
-                            </div>
-                        </li>
-                        <li class="text-center"><a class="f-w-700" href="javascript:void(0)">See All </a></li>
-                    </ul>
                 </li>
                 <li class="onhover-dropdown p-0">
                     <a href="{{ route('logout') }}" class="btn btn-primary-light"

@@ -82,6 +82,12 @@ img {
     background: url('/images/admin/big-masonry/7.jpg') no-repeat center center fixed;
     background-size: cover;
 }
+#home .banner-bg .card {
+    background-color: rgba(0, 0, 0, .4);
+    border: none;
+    border-radius: 40px;
+    color: white;
+}
 #home .listing img {
     width: 100%;
     object-fit: cover;

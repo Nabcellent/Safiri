@@ -17,7 +17,7 @@ class CreateDestinationImagesTable extends Migration
             $table->id();
             $table->foreignId('destination_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('image');
-            $table->string('reference');
+            $table->string('reference')->nullable();
             $table->timestamps();
         });
     }

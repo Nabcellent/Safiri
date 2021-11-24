@@ -42,12 +42,8 @@
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link menu-title active" href="javascript:void(0)"><i
-                                data-feather="home"></i><span>Dashboard</span></a>
-                        <ul class="nav-submenu menu-content" style="display: block;">
-                            <li><a href="{{ route('admin.dashboard') }}" class="active">Default</a></li>
-                            <li><a href="dashboard/dashboard-02.html">Ecommerce</a></li>
-                        </ul>
+                        <a class="nav-link menu-title link-nav " href="{{ route('admin.dashboard') }}">
+                            <i data-feather="bar-chart-2"></i><span>Dashboard</span></a>
                     </li>
 
                     {{--==--==--==--==--==--==--==--==    APPLICATIONS    ==--==--==--==--==--==--==--==--}}
@@ -60,37 +56,22 @@
                         <a class="nav-link menu-title" href="javascript:void(0)">
                             <i data-feather="shopping-bag"></i><span>Destinations</span></a>
                         <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="{{ route('admin.destinations.index') }}">Grid</a></li>
-                            <li><a href="ecommerce/list-products.html">List</a></li>
+                            <li><a href="{{ route('admin.destinations.index') }}">List</a></li>
+                            <li><a href="{{ route('admin.destinations.api.index') }}">API</a></li>
+                            <li><a href="{{ route('admin.destinations.create') }}">Create</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link menu-title " href="javascript:void(0)"><i
-                                data-feather="mail"></i><span>Email</span></a>
-                        <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="email/email_inbox.html">Mail Inbox</a></li>
-                            <li><a href="email/email_read.html">Read mail</a></li>
-                            <li><a href="email/email_compose.html">Compose</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav " href="chat.html"><i
-                                data-feather="message-circle"></i><span>Chat</span></a>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav " href="contacts.html"><i data-feather="list"></i><span>Contacts</span></a>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav " href="calendar-basic.html">
-                            <i data-feather="calendar"></i><span>Calender </span>
+                        <a class="nav-link menu-title link-nav " href="{{ route('admin.banners.index') }}">
+                            <i data-feather="list"></i>
+                            <span>Banners</span>
                         </a>
                     </li>
                     <li class="dropdown">
                         <a class="nav-link menu-title " href="javascript:void(0)"><i data-feather="users"></i><span>Users</span></a>
                         <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="users/user-profile.html">Users Profile</a></li>
-                            <li><a href="users/edit-profile.html">Users Edit</a></li>
-                            <li><a href="users/user-cards.html">Users Cards</a></li>
+                            <li><a href="users/user-profile.html">List</a></li>
+                            <li><a href="users/edit-profile.html">Create</a></li>
                         </ul>
                     </li>
 
@@ -108,19 +89,6 @@
                         <ul class="nav-submenu menu-content" style="display: none;">
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('destinations.index') }}">Destinations</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title " href="javascript:void(0)">
-                            <i data-feather="image"></i>
-                            <span>Gallery</span>
-                        </a>
-                        <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="gallery.html">Gallery Grid</a></li>
-                            <li><a href="gallery/gallery-with-description.html">Gallery Grid Desc</a></li>
-                            <li><a href="gallery/gallery-masonry.html">Masonry Gallery</a></li>
-                            <li><a href="gallery/masonry-gallery-with-disc.html">Masonry with Desc</a></li>
-                            <li><a href="gallery/gallery-hover.html">Hover Effects</a></li>
                         </ul>
                     </li>
                     <li>

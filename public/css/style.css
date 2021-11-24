@@ -25,6 +25,10 @@ img {
 .form-control {
     font-size: 10pt;
 }
+.swiper img,
+.swiper img {
+    height: 170px;
+}
 
 
 
@@ -94,10 +98,6 @@ img {
 }
 #home .listing .card {
     border: 1px solid rgba(0, 0, 0, .3);
-}
-#details .listing .swiper img,
-#home .listing .swiper img {
-    height: 170px;
 }
 .swiper-btn-prev, .swiper-btn-next {
     cursor: pointer

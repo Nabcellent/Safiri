@@ -1,6 +1,8 @@
 @import 'bootstrap.red.css';
+
 :root {
     --safiri-green: #24695c;
+    --safiri-box-shadow: 0 7px 14px 0 rgba(3, 12, 51, 0.15), 0 3px 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 a {
@@ -8,55 +10,68 @@ a {
 }
 
 
-
 .fs-9 {
-    font-size: 9px!important
+    font-size: 9px !important
 }
+
 .fs-10 {
     font-size: 10px !important
 }
+
 .fs-11 {
     font-size: 11px !important
 }
+
 .fs-12 {
     font-size: 12px !important
 }
+
 .fs-13 {
     font-size: 13px !important
 }
+
 .fs-14 {
     font-size: 14px !important
 }
+
 .fs-15 {
     font-size: 15px !important
 }
+
 .fs-16 {
     font-size: 16px !important
 }
+
 .fs-17 {
     font-size: 17px !important
 }
+
 .fs-18 {
     font-size: 18px !important
 }
+
 .fs-20 {
     font-size: 20px !important
 }
+
 .fs-22 {
     font-size: 22px !important
 }
+
 .fs-24 {
     font-size: 24px !important
 }
+
 .fw-medium {
     font-weight: 500
 }
+
 .fw-semibold {
     font-weight: 600
 }
 
 del {
-    color:#6c757d!important;
+    color: #6c757d !important;
 }
 
 
@@ -79,4 +94,32 @@ del {
 
 .toastify.danger {
     background: linear-gradient(30deg, rgb(200, 20, 10), rgba(1200, 20, 10, .8), #73a5ff);
+}
+
+
+.card {
+    box-shadow: var(--safiri-box-shadow)
+}
+
+.bg-holder {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    will-change: transform, opacity, filter;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-repeat: no-repeat;
+    z-index: 0
+}
+
+.bg-card {
+    background-size: contain;
+    background-position: right;
+    border-top-right-radius: .375rem;
+    border-bottom-right-radius: .375rem
 }

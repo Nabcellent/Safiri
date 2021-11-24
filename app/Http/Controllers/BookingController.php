@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Destination;
 use App\Models\PaymentMethod;
 use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -34,7 +37,7 @@ class BookingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return Response
      */
     public function reserve(Request $request) {
@@ -52,8 +55,13 @@ class BookingController extends Controller
 
         dd($booking);
     }
-    public function thanks(){
-        return View('thanks');
+
+    public function thanks(): Factory|View|Application {
+        $data = [
+            "suggestedDestinations" => Destination::inRandomOrder()->take(7)->get(),
+        ];
+
+        return View('thanks', $data);
 
     }
 }

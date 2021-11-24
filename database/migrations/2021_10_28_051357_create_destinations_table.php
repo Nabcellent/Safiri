@@ -20,7 +20,7 @@ class CreateDestinationsTable extends Migration
             $table->string('image')->nullable();
             $table->float('price');
             $table->string('rates', 20)->default('daily');
-            $table->json('location');
+            $table->json('location')->nullable();
             $table->string('vicinity')->nullable();
             $table->json('availability')->nullable();
             $table->string('description')->nullable();

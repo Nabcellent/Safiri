@@ -235,7 +235,7 @@
                 const storeDestinations = (data, element) => {
                     $.ajax({
                         data: data,
-                        url: `{{ route('admin.destinations.store') }}`,
+                        url: `{{ route('admin.destinations.store-api') }}`,
                         method: 'POST',
                         beforeSend: () => {
                             element.html(`Saving... <span class="ld ld-ring ld-spin"></span>`).addClass('running disabled')

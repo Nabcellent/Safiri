@@ -32,6 +32,7 @@
                             <table class="display" id="basic-8">
                                 <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Price</th>
@@ -43,44 +44,53 @@
                                 <tbody>
 
                                 @foreach($destinations as $destination)
-                                <tr>
-                                    <td>{{ $destination->name }}</td>
-                                    <td>{{ $destination->category->title }}</td>
-                                    <td>{{ number_format($destination->price, 2) }}</td>
-                                    <td>{{ $destination->vicinity }}</td>
-                                    <td>{{ $destination->rating ?? 'N/A' }}</td>
-                                    <td class="actions">
-                                        <div class="dropdown shadow-sm">
-                                            <a href="javascript:void(0);" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                            <ul class="dropdown-menu shadow">
-                                                <li>
-                                                    <a href="{{ route('admin.destinations.show', ['id' => $destination->id]) }}" title="View Destination">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
-                                                    <a style="cursor:pointer" class="update-resource-status" data-id="{{ $destination->id }}"
-                                                       data-model="destination" title="Change Status">
-                                                        @if($destination->status)
-                                                            <i class="fas fa-toggle-on text-orange-dark" data-status="Active"></i>
-                                                        @else
-                                                            <i class="fas fa-toggle-off text-secondary" data-status="Inactive"></i>
-                                                        @endif
-                                                    </a>
-                                                    <a href="{{ route('admin.destinations.edit', ['id' => $destination->id]) }}" title="Edit Destination">
-                                                        <i class="fas fa-pen text-dark"></i>
-                                                    </a>
-                                                    <a href="javascript:void(0);" class="delete-resource" data-id="{{ $destination->id }}"
-                                                       data-model="destination"
-                                                       title="Delete Destination"><i class="fas fa-trash"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ $destination->name }}</td>
+                                        <td>{{ $destination->category->title }}</td>
+                                        <td>{{ number_format($destination->price, 2) }}</td>
+                                        <td>{{ $destination->vicinity }}</td>
+                                        <td>{{ $destination->rating ?? 'N/A' }}</td>
+                                        <td class="actions">
+                                            <div class="dropdown shadow-sm">
+                                                <a href="javascript:void(0);" data-bs-toggle="dropdown">
+                                                    <i class="bi bi-three-dots"></i>
+                                                </a>
+                                                <ul class="dropdown-menu shadow">
+                                                    <li>
+                                                        <a href="{{ route('admin.destinations.show', ['id' => $destination->id]) }}"
+                                                           title="View Destination">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                        <a style="cursor:pointer" class="update-resource-status"
+                                                           data-id="{{ $destination->id }}"
+                                                           data-model="destination" title="Change Status">
+                                                            @if($destination->status)
+                                                                <i class="fas fa-toggle-on text-orange-dark"
+                                                                   data-status="Active"></i>
+                                                            @else
+                                                                <i class="fas fa-toggle-off text-secondary"
+                                                                   data-status="Inactive"></i>
+                                                            @endif
+                                                        </a>
+                                                        <a href="{{ route('admin.destinations.edit', ['id' => $destination->id]) }}"
+                                                           title="Edit Destination">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="javascript:void(0);" class="delete-resource"
+                                                           data-id="{{ $destination->id }}" data-model="destination"
+                                                           title="Delete Destination"><i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 @endforeach
 
                                 <tfoot>
                                 <tr>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Price</th>
@@ -100,6 +110,14 @@
 
     @push('scripts')
         <script src="{{ asset('vendor/viho/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('vendor/viho/js/datatable/datatables/datatable.custom.js') }}"></script>
+        <script>
+            const table = $('#basic-8').DataTable();
+
+            table.on('order.dt search.dt', function () {
+                table.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
+                    cell["innerHTML"] = i + 1;
+                });
+            }).draw();
+        </script>
     @endpush
 @endsection

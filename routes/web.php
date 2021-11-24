@@ -47,9 +47,11 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(fu
         Route::get('/', [AdminDestinationController::class, 'index'])->name('index');
         Route::get('/list', [AdminDestinationController::class, 'showList'])->name('list');
         Route::get('/create', [AdminDestinationController::class, 'create'])->name('create');
+        Route::post('/store', [AdminDestinationController::class, 'store'])->name('store');
         Route::get('/show/{id}', [AdminDestinationController::class, 'show'])->name('show');
         Route::get('/edit/{id}', [AdminDestinationController::class, 'edit'])->name('edit');
-        Route::post('/store', [AdminDestinationController::class, 'store'])->name('store');
+        Route::put('/update/{id}', [AdminDestinationController::class, 'update'])->name('update');
+        Route::post('/store-api', [AdminDestinationController::class, 'storeApi'])->name('store-api');
     });
 
     //  BANNER ROUTES

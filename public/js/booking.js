@@ -32,7 +32,7 @@ $('#booking-form').on('submit', function (e) {
     const submitBooking = () => {
         $.ajax({
             data,
-            url: ``,
+            url: `/destinations/booking/` + $('#destination_id').val(),
             method: `POST`,
             dataType: 'json',
             beforeSend: () => submitButton/*.prop('disabled', true)*/.html(`Reserving...
@@ -54,6 +54,6 @@ $('#booking-form').on('submit', function (e) {
     } else if (paymentMethod === 'paypal') {
         submitBooking()
     } else {
-        submitBooking()
+        $('#booking-form').get(0).submit()
     }
 })

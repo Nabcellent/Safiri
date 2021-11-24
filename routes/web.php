@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DestinationController as AdminDestinationController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\API\StkController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DestinationController;
@@ -63,11 +64,21 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(fu
         Route::get('/destroy/{id}', [BannerController::class, 'destroy'])->name('destroy');
     });
 
-    //  MPESA ROUTES
-    Route::prefix('/payments')->name('mpesa.stk.')->namespace('Mpesa')->group(function() {
-        Route::any('stk-request', [StkController::class, 'initiatePush'])->name('request');
-        Route::get('stk-status/{id}', [StkController::class, 'stkStatus']);
+    //  USER ROUTES
+    Route::prefix('/users')->name('users.')->group(function() {
+        Route::get('/', [AdminUserController::class, 'index'])->name('index');
+        Route::post('/store', [AdminUserController::class, 'store'])->name('store');
+        Route::get('/show/{id}', [AdminUserController::class, 'show'])->name('show');
+        Route::get('/edit/{id}', [AdminUserController::class, 'edit'])->name('edit');
+        Route::put('/update/{id}', [AdminUserController::class, 'update'])->name('update');
+        Route::get('/destroy/{id}', [AdminUserController::class, 'destroy'])->name('destroy');
     });
+});
+
+//  MPESA PAYMENT ROUTES
+Route::prefix('/payments')->name('mpesa.stk.')->namespace('Mpesa')->group(function() {
+    Route::any('stk-request', [StkController::class, 'initiatePush'])->name('request');
+    Route::get('stk-status/{id}', [StkController::class, 'stkStatus']);
 });
 
 

@@ -26,9 +26,8 @@
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                     <input class="form-control" type="text" required placeholder="First Name"
-                                           name="first_name"
-                                           value="{{ old('first_name', $googleUser->user['given_name'] ?? '') }}"
-                                           aria-label=""/>
+                                           name="first_name" autofocus aria-label=""
+                                           value="{{ old('first_name', $googleUser->user['given_name'] ?? '') }}"/>
                                     <div class="invalid-tooltip">First name is required</div>
                                 </div>
                             </div>
@@ -37,9 +36,8 @@
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                     <input class="form-control" type="text" required placeholder="Last Name"
-                                           name="last_name"
                                            value="{{ old('last_name', $googleUser->user['family_name'] ?? '') }}"
-                                           aria-label/>
+                                           name="last_name" aria-label/>
                                     <div class="invalid-tooltip">Last name is required</div>
                                 </div>
                             </div>
@@ -59,14 +57,12 @@
                                 <div class="input-group">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="gender" id="male"
-                                               value="male"
-                                               @if(old('gender') === "male") checked @endif required>
+                                               value="male" @if(old('gender') === "male") checked @endif required>
                                         <label class="form-check-label" for="male">Male</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="gender" id="female"
-                                               value="female"
-                                               @if(old('gender') === "female") checked @endif required>
+                                               value="female" @if(old('gender') === "female") checked @endif required>
                                         <label class="form-check-label" for="female">Female</label>
                                     </div>
                                 </div>

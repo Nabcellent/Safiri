@@ -70,8 +70,8 @@
                     <li class="dropdown">
                         <a class="nav-link menu-title " href="javascript:void(0)"><i data-feather="users"></i><span>Users</span></a>
                         <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="users/user-profile.html">List</a></li>
-                            <li><a href="users/edit-profile.html">Create</a></li>
+                            <li><a href="{{ route('admin.users.index') }}">List</a></li>
+                            {{--                            <li><a href="users/edit-profile.html">Create</a></li>--}}
                         </ul>
                     </li>
 
@@ -92,13 +92,12 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="nav-link menu-title link-nav " href="faq.html">
-                            <i data-feather="help-circle"></i><span>FAQ</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link menu-title link-nav " href="knowledgebase.html">
-                            <i data-feather="database"></i><span>Knowledgebase</span>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        <a class="nav-link menu-title link-nav " href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i data-feather="log-out"></i><span>Leave</span>
                         </a>
                     </li>
                 </ul>

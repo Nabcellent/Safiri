@@ -13,8 +13,6 @@ class HomeController extends Controller {
             'banners' => Banner::all()
         ];
 
-//        dd($data['destinations']);
-
         return response()->view('home', $data);
     }
 }

@@ -43,6 +43,10 @@ class Destination extends Model
         return self::hasMany(DestinationImage::class);
     }
 
+    public function bookings(): HasMany {
+        return self::hasMany(Booking::class);
+    }
+
     public function reviews(): HasMany {
         return self::hasMany(Review::class);
     }

@@ -31,8 +31,14 @@ Route::prefix('/destinations')->name('destinations.')->group(function() {
     Route::post('/booking/{id}', [BookingController::class, 'reserve'])->name('reserve');
 });
 
+Route::prefix('/user')->middleware('auth')->name('user.')->group(function() {
+    Route::get('/profile',[UserController::class, 'profile'])->name('profile');
+    Route::get('/account',[UserController::class, 'account'])->name('account');
+    Route::put('/profile',[UserController::class, 'update'])->name('profile.update');
+    Route::put('/password',[UserController::class, 'updatePassword'])->name('password.modify');
+});
+
 Route::get('/thanks',[BookingController::class,'thanks'])->name('thanks');
-Route::get('/profile',[UserController::class, 'profile'])->name('profile');
 
 
 

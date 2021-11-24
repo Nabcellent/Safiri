@@ -62,8 +62,8 @@
                     <i class="fas fa-user-alt"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
-                    <li><a class="dropdown-item" href="#">Account</a></li>
+                    <li><a class="dropdown-item" href="{{ route('user.profile') }}">Profile</a></li>
+                    <li><a class="dropdown-item" href="{{ route('user.account') }}">Account</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>

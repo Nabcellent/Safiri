@@ -16,7 +16,7 @@ function payWithMpesa(formData) {
                 return $.ajax({
                     data: formData,
                     method: 'POST',
-                    url: `/admin/payments/stk-request`,
+                    url: `/payments/stk-request`,
                     dataType: 'json',
                     statusCode: {
                         200: response => {
@@ -59,7 +59,7 @@ class STK {
             showCancelButton: true,
             preConfirm: () => {
                 return $.ajax({
-                    url: '/admin/payments/stk-status/' + this.CHECKOUT_REQUEST_ID,
+                    url: '/payments/stk-status/' + this.CHECKOUT_REQUEST_ID,
                     type: 'GET',
                     dataType: 'json',
                     success: response => {

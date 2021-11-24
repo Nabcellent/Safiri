@@ -73,12 +73,12 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(fu
         Route::put('/update/{id}', [AdminUserController::class, 'update'])->name('update');
         Route::get('/destroy/{id}', [AdminUserController::class, 'destroy'])->name('destroy');
     });
+});
 
-    //  MPESA PAYMENT ROUTES
-    Route::prefix('/payments')->name('mpesa.stk.')->namespace('Mpesa')->group(function() {
-        Route::any('stk-request', [StkController::class, 'initiatePush'])->name('request');
-        Route::get('stk-status/{id}', [StkController::class, 'stkStatus']);
-    });
+//  MPESA PAYMENT ROUTES
+Route::prefix('/payments')->name('mpesa.stk.')->namespace('Mpesa')->group(function() {
+    Route::any('stk-request', [StkController::class, 'initiatePush'])->name('request');
+    Route::get('stk-status/{id}', [StkController::class, 'stkStatus']);
 });
 
 

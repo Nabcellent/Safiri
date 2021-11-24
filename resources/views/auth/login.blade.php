@@ -28,7 +28,7 @@
                             <div class="input-group">
                                 <span class="input-group-text"><i class="icon-email"></i></span>
                                 <input class="form-control" type="email" name="email" value="{{ old('email') }}"
-                                       aria-label required placeholder="Jane@doe.com"/>
+                                       aria-label required placeholder="Jane@doe.com" autofocus/>
                                 <div class="invalid-tooltip">Please enter a valid email.</div>
                             </div>
                         </div>

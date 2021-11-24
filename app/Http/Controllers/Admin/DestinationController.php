@@ -7,7 +7,6 @@ use App\Http\Requests\StoreDestinationRequest;
 use App\Jobs\SaveDestination;
 use App\Models\Category;
 use App\Models\Destination;
-use App\Models\User;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -32,7 +31,11 @@ class DestinationController extends Controller
             $data = [
                 'destination' => Destination::with(['category' => function($query) {
                     $query->select(['id', 'title']);
-                }])->findOrFail($id),
+                }, 'destinationImages' =>function($query) {
+                    $query->select(['id', 'destination_id', 'image']);
+                }, 'reviews' => function($query) {
+                    $query->take(3)->select(['id', 'user_id', 'destination_id']);
+                }])->withCount(['reviews', 'bookings'])->findOrFail($id),
             ];
 
             return response()->view('admin.destinations.show', $data);
@@ -59,7 +62,9 @@ class DestinationController extends Controller
                 $file->move(public_path('images/destinations'), $data['image']);
             }
 
-            Destination::create($data);
+            $destination = Destination::create($data);
+
+            $this->storeOtherImages($request, $destination);
 
             return createOk('Destination created successfully', 'admin.destinations.index');
         } catch (Exception $e) {
@@ -98,23 +103,36 @@ class DestinationController extends Controller
                 }
             }
 
-            if($request->hasFile('other_images')) {
-                $files = $request->file('other_images');
-                $otherImages = [];
-                foreach($files as $image) {
-                    $otherImages['image'] = "dest_" . time() . ".{$image->guessClientExtension()}";
-                    $otherImages['destination_id'] = $destination->id;
-                    $image->move(public_path('images/destinations'), $otherImages['image']);
-                }
-
-                $destination->destinationImages()->insert($otherImages);
-            }
+            $this->storeOtherImages($request, $destination);
 
             $destination->update($data);
 
             return createOk('Destination updated successfully', 'admin.destinations.index');
         } catch (Exception $e) {
             return toastError($e->getMessage(), "Unable to update destination.");
+        }
+    }
+
+    /**
+     * @param StoreDestinationRequest $request
+     * @param Destination             $destination
+     * @return void
+     */
+    private function storeOtherImages(Request $request, Destination $destination): void {
+        if($request->hasFile('other_images')) {
+            $files = $request->file('other_images');
+            $otherImages = [];
+
+            foreach($files as $image) {
+                $imageName = "dest_" . uniqid() . ".{$image->guessClientExtension()}";
+                array_push($otherImages, [
+                    'image'          => $imageName,
+                    'destination_id' => $destination->id,
+                ]);
+                $image->move(public_path('images/destinations'), $imageName);
+            }
+
+            $destination->destinationImages()->insert($otherImages);
         }
     }
 
@@ -151,10 +169,12 @@ class DestinationController extends Controller
             $destination = Destination::updateOrCreate(['place_id' => $request->input('place_id')],
                 appendToApiDestination($result));
 
-            if(empty($destination->image)) {
-                $destination->image = downloadPhoto(getPhotoUrl(array_shift($photos)['photo_reference']));
-                $destination->save();
+            if(isset($destination->image) && file_exists("images/destinations/{$destination->image}")) {
+                unlink(public_path('images/destinations/' . $destination->image));
             }
+
+            $destination->image = downloadPhoto(getPhotoUrl(array_shift($photos)['photo_reference']));
+            $destination->save();
 
             //  SAVE DESTINATION REVIEWS & PHOTOS *IF NOT EXISTS
             if(savePhotosAndReviews($destination, $result)) {
@@ -166,20 +186,4 @@ class DestinationController extends Controller
 
         return response()->json(['status' => false, 'message' => 'No destination(s) provided for saving.']);
     }
-
-
-
-
-
-    /*public function check() {
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
-        $user = User::whereEmail($email)->first();
-
-        if(isset($user) && password_verify($password, $user->password)) {
-            return json_encode(['status' => true, "url" => '/home']);
-        } else {
-            return json_encode(['status' => false, "message" => 'Invalid credentials.']);
-        }
-    }*/
 }

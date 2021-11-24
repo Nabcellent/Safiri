@@ -72,10 +72,12 @@ class SaveDestination implements ShouldQueue
                     $destination = Destination::updateOrCreate(['place_id' => $destination['place_id']],
                         appendToApiDestination($destination));
 
-                    if(empty($destination->image)) {
-                        $destination->image = downloadPhoto($photo);
-                        $destination->save();
+                    if(isset($destination->image) && file_exists("images/destinations/{$destination->image}")) {
+                        unlink(public_path('images/destinations/' . $destination->image));
                     }
+
+                    $destination->image = downloadPhoto($photo);
+                    $destination->save();
 
                     $this->processDetails($destination);
 

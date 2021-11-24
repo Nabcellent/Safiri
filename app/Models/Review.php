@@ -21,7 +21,10 @@ class Review extends Model
         'created_at',
     ];
 
-    public function reviews(): BelongsTo {
+    public function user(): BelongsTo {
+        return self::belongsTo(User::class);
+    }
+    public function destination(): BelongsTo {
         return self::belongsTo(Destination::class);
     }
 }

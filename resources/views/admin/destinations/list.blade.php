@@ -47,7 +47,7 @@
                                     <tr>
                                         <td></td>
                                         <td>{{ $destination->name }}</td>
-                                        <td>{{ $destination->category->title }}</td>
+                                        <td>{{ ucwords(str_replace('_', ' ', $destination->category->title)) }}</td>
                                         <td>{{ number_format($destination->price, 2) }}</td>
                                         <td>{{ $destination->vicinity }}</td>
                                         <td>{{ $destination->rating ?? 'N/A' }}</td>

@@ -17,9 +17,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><small>About Us</small></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.dashboard') }}"><small>Dashboard</small></a>
-                </li>
+                @if(Auth::check() && isAdmin())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.dashboard') }}"><small>Dashboard</small></a>
+                    </li>
+                @endauth
                 <li class="nav-item">
                     <small class="nav-link">
                         <script>document.write(new Date().toDateString())</script>
@@ -38,10 +40,12 @@
                 <div class="col-md-6">
                     <div class="search-form">
                         <i class="fas fa-search"></i>
-                        <input type="text" class="form-control form-input" placeholder="Search destinations..." aria-label>
+                        <input type="text" class="form-control form-input" placeholder="Search destinations..."
+                               aria-label>
                         <span class="left-pan d-flex align-items-center">
                             <i class="fa fa-microphone"></i>
-                            <select name="destination" id="destination" class="border-0 bg-transparent form-control" aria-label="">
+                            <select name="destination" id="destination" class="border-0 bg-transparent form-control"
+                                    aria-label="">
                                 <option value="" selected hidden>Destinations</option>
                                 <option value="">Some place</option>
                                 <option value="">Some place</option>
@@ -53,7 +57,8 @@
         </div>
         @auth()
             <div class="dropdown">
-                <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                     <i class="fas fa-user-alt"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -81,13 +86,15 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         Domestic
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -97,7 +104,8 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         International
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -107,7 +115,8 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         Featured
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -117,7 +126,8 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         Deals
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

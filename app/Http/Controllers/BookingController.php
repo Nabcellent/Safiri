@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Destination;
 use App\Models\PaymentMethod;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -38,11 +40,21 @@ class BookingController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return RedirectResponse
      */
-    public function reserve(Request $request) {
+    public function reserve(Request $request): RedirectResponse {
         $data = $request->all();
 
+        try {
+            self::saveBooking($data);
+
+            return redirect()->route('thanks');
+        } catch (Exception $e) {
+            return toastError($e->getMessage(), "Something went wrong.😢");
+        }
+    }
+
+    public static function saveBooking(array $data): Booking|Model {
         foreach(explode('~', $data['dates']) as $key => $date) {
             $key = $key === 0 ? 'start_at' : 'end_at';
 
@@ -51,9 +63,9 @@ class BookingController extends Controller
 
         $data['payment_method_id'] = PaymentMethod::whereName($data['payment_method'])->first()->id;
 
-        $booking = Auth::user()->bookings()->create($data);
+        $data['user_id'] = Auth::id();
 
-        dd($booking);
+        return Booking::create($data);
     }
 
     public function thanks(): Factory|View|Application {

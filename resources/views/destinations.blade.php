@@ -67,7 +67,10 @@
                                                     </div>
                                                     <div class="col-5 col-lg-6 text-child d-flex flex-column justify-content-between">
                                                         <div class="small fw-bold">
-                                                            <p class="mb-0">KSH.{{ number_format($destination->price) }}</p>
+                                                            <p class="mb-0">
+                                                                KSH.{{ number_format($destination->price) }}
+                                                                / {{ $destination->price_frequency }}
+                                                            </p>
                                                             @isset($destination->discount)
                                                                 <del class="text-muted small">25,000</del>
                                                             @endisset

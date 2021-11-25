@@ -7,12 +7,12 @@
         <div class="sticky-top pt-4">
             <div><h6 class="fw-bold mb-4 text-uppercase">Categories</h6></div>
             <ul class="list-group list-group-flush">
-                @for($i = 0; $i < 4; $i++)
+                @foreach($categories as $category)
                     <label class="list-group-item">
                         <input class="form-check-input me-1" type="checkbox" value="">
-                        Destination name
+                        {{ ucwords(str_replace('_',' ', $category->title)) }}
                     </label>
-                @endfor
+                @endforeach
             </ul>
 
             <h6 class="fw-bold mb-4 mt-5 text-uppercase">Price</h6>
@@ -34,12 +34,12 @@
 
             <h6 class="fw-bold mb-4 mt-5 text-uppercase">Vicinities</h6>
             <ul class="list-group list-group-flush">
-                @for($i = 0; $i < 4; $i++)
+                @foreach($vicinities as $vicinity)
                     <label class="list-group-item">
                         <input class="form-check-input me-1" type="checkbox" value="">
-                        Vicinity name
+                        {{ $vicinity->vicinity }}
                     </label>
-                @endfor
+                @endforeach
             </ul>
         </div>
     </div>

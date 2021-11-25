@@ -62,6 +62,12 @@
                         </ul>
                     </li>
                     <li class="dropdown">
+                        <a class="nav-link menu-title link-nav " href="{{ route('admin.bookings.index') }}">
+                            <i data-feather="calendar"></i>
+                            <span>Bookings</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
                         <a class="nav-link menu-title link-nav " href="{{ route('admin.banners.index') }}">
                             <i data-feather="list"></i>
                             <span>Banners</span>

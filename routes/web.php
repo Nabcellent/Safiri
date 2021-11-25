@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DestinationController as AdminDestinationController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -61,6 +62,14 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(fu
         Route::get('/edit/{id}', [AdminDestinationController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [AdminDestinationController::class, 'update'])->name('update');
         Route::post('/store-api', [AdminDestinationController::class, 'storeApi'])->name('store-api');
+    });
+
+    //  BOOKING ROUTES
+    Route::prefix('/bookings')->name('bookings.')->group(function() {
+        Route::get('/', [AdminBookingController::class, 'index'])->name('index');
+        Route::get('/edit/{id}', [AdminBookingController::class, 'edit'])->name('edit');
+        Route::put('/update/{id}', [AdminBookingController::class, 'update'])->name('update');
+        Route::get('/destroy/{id}', [AdminBookingController::class, 'destroy'])->name('destroy');
     });
 
     //  BANNER ROUTES

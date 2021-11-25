@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @mixin IdeHelperBooking
@@ -32,13 +31,18 @@ class Booking extends Model
         'end_at',
     ];
 
+    protected $casts = [
+        'start_at' => 'datetime',
+        'end_at' => 'datetime',
+    ];
+
     /**
      * Get the user's full name.
      *
      * @return string
      */
     public function getDatesAttribute(): string {
-        return "{$this->start_at} ~ {$this->end_at}";
+        return "{$this->start_at->format('jS M y')} ~ {$this->end_at->format('jS M y')}";
     }
 
     public function user(): BelongsTo {

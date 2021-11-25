@@ -67,6 +67,7 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(fu
     //  BOOKING ROUTES
     Route::prefix('/bookings')->name('bookings.')->group(function() {
         Route::get('/', [AdminBookingController::class, 'index'])->name('index');
+        Route::get('/show/{id}', [AdminBookingController::class, 'show'])->name('show');
         Route::get('/edit/{id}', [AdminBookingController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [AdminBookingController::class, 'update'])->name('update');
         Route::get('/destroy/{id}', [AdminBookingController::class, 'destroy'])->name('destroy');

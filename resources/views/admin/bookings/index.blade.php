@@ -71,7 +71,7 @@
                                                 </a>
                                                 <ul class="dropdown-menu shadow">
                                                     <li>
-                                                        <a href="{{ route('admin.users.show', ['id' => $booking->id]) }}"
+                                                        <a href="{{ route('admin.bookings.show', ['id' => $booking->id]) }}"
                                                            title="View Destination">
                                                             <i class="fas fa-eye"></i>
                                                         </a>

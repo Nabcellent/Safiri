@@ -11,16 +11,12 @@
         <p class="mb-0 font-roboto">{{ isAdmin() ? isRed() ? '~Sir.' : 'Admin' : 'Human Resources Department' }}</p>
         <ul>
             <li>
-                <span><span class="counter">19.8</span>k</span>
-                <p>Follow</p>
+                <span><span class="counter">{{ Auth::user()->bookings()->count() }}</span></span>
+                <p>Bookings</p>
             </li>
             <li>
-                <span>2 year</span>
-                <p>Experince</p>
-            </li>
-            <li>
-                <span><span class="counter">95.2</span>k</span>
-                <p>Follower</p>
+                <span>{{ Auth::user()->created_at->diffForHumans() }}</span>
+                <p>Created</p>
             </li>
         </ul>
     </div>

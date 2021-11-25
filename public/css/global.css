@@ -4,10 +4,30 @@
     --safiri-green: #24695c;
     --safiri-brown: #ba895d;
     --safiri-box-shadow: 0 7px 14px 0 rgba(3, 12, 51, 0.15), 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+
+    --safiri-badge-soft-primary-background-color: #09192e;
+    --safiri-badge-soft-primary-color: #78abee;
+    --safiri-badge-soft-secondary-background-color: #171a1e;
+    --safiri-badge-soft-secondary-color: #6d798b;
+    --safiri-badge-soft-success-background-color: #002a18;
+    --safiri-badge-soft-success-color: #5ce2aa;
+    --safiri-badge-soft-info-background-color: #082633;
+    --safiri-badge-soft-info-color: #75d4fe;
+    --safiri-badge-soft-warning-background-color: #311a0c;
+    --safiri-badge-soft-warning-color: #f9ae83;
+    --safiri-badge-soft-danger-background-color: #2e0b11;
+    --safiri-badge-soft-danger-color: #ef7f93;
+    --safiri-badge-soft-light-background-color: rgba(1, 2, 2, 0.85);
+    --safiri-badge-soft-light-color: rgba(210, 213, 216, 0.52);
+    --safiri-badge-soft-dark-background-color: #323233;
+    --safiri-badge-soft-dark-color: #fbfcfe;
 }
 
 a {
     text-decoration: none;
+}
+img {
+    object-fit: cover;
 }
 
 

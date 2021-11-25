@@ -3,14 +3,17 @@
 .text-primary {
     color: var(--safiri-green);
 }
+
 .btn-primary {
     background-color: var(--safiri-green) !important;
     border-color: var(--safiri-green) !important;
 }
+
 .btn-outline-primary {
     color: var(--safiri-green);
     border-color: var(--safiri-green);
 }
+
 .btn-outline-primary:hover {
     color: #fff;
     border-color: var(--safiri-green);
@@ -21,6 +24,38 @@
     background-color: #24695c !important;
     color: #fff;
 }
+
+.badge-soft-primary {color: var(--safiri-badge-soft-primary-color);background-color: var(--safiri-badge-soft-primary-background-color)}
+
+.badge-soft-primary[href]:hover, .badge-soft-primary[href]:focus {text-decoration: none;color: var(--safiri-badge-soft-primary-color)}
+
+.badge-soft-secondary {color: var(--safiri-badge-soft-secondary-color);background-color: var(--safiri-badge-soft-secondary-background-color)}
+
+.badge-soft-secondary[href]:hover, .badge-soft-secondary[href]:focus {text-decoration: none;color: var(--safiri-badge-soft-secondary-color)}
+
+.badge-soft-success {color: var(--safiri-badge-soft-success-color);background-color: var(--safiri-badge-soft-success-background-color)}
+
+.badge-soft-success[href]:hover, .badge-soft-success[href]:focus {text-decoration: none;color: var(--safiri-badge-soft-success-color)}
+
+.badge-soft-info {color: var(--safiri-badge-soft-info-color);background-color: var(--safiri-badge-soft-info-background-color)}
+
+.badge-soft-info[href]:hover, .badge-soft-info[href]:focus {text-decoration: none;color: var(--safiri-badge-soft-info-color)}
+
+.badge-soft-warning {color: var(--safiri-badge-soft-warning-color);background-color: var(--safiri-badge-soft-warning-background-color)}
+
+.badge-soft-warning[href]:hover, .badge-soft-warning[href]:focus {text-decoration: none;color: var(--safiri-badge-soft-warning-color)}
+
+.badge-soft-danger {color: var(--safiri-badge-soft-danger-color);background-color: var(--safiri-badge-soft-danger-background-color)}
+
+.badge-soft-danger[href]:hover, .badge-soft-danger[href]:focus {text-decoration: none;color: var(--safiri-badge-soft-danger-color)}
+
+.badge-soft-light {color: var(--safiri-badge-soft-light-color);background-color: var(--safiri-badge-soft-light-background-color)}
+
+.badge-soft-light[href]:hover, .badge-soft-light[href]:focus {text-decoration: none;color: var(--safiri-badge-soft-light-color)}
+
+.badge-soft-dark {color: var(--safiri-badge-soft-dark-color);background-color: var(--safiri-badge-soft-dark-background-color)}
+
+.badge-soft-dark[href]:hover, .badge-soft-dark[href]:focus {text-decoration: none;color: var(--safiri-badge-soft-dark-color)}
 
 
 @media (min-width: 768px) {
@@ -34,6 +69,7 @@
         padding-left: 7rem !important;
     }
 }
+
 @media (min-width: 992px) {
     .px-lg-7 {
         padding-right: 5rem !important;

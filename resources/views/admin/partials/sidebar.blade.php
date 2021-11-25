@@ -11,16 +11,12 @@
         <p class="mb-0 font-roboto">{{ isAdmin() ? isRed() ? '~Sir.' : 'Admin' : 'Human Resources Department' }}</p>
         <ul>
             <li>
-                <span><span class="counter">19.8</span>k</span>
-                <p>Follow</p>
+                <span><span class="counter">{{ Auth::user()->bookings()->count() }}</span></span>
+                <p>Bookings</p>
             </li>
             <li>
-                <span>2 year</span>
-                <p>Experince</p>
-            </li>
-            <li>
-                <span><span class="counter">95.2</span>k</span>
-                <p>Follower</p>
+                <span>{{ Auth::user()->created_at->diffForHumans() }}</span>
+                <p>Created</p>
             </li>
         </ul>
     </div>
@@ -60,6 +56,12 @@
                             <li><a href="{{ route('admin.destinations.api.index') }}">API</a></li>
                             <li><a href="{{ route('admin.destinations.create') }}">Create</a></li>
                         </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link menu-title link-nav " href="{{ route('admin.bookings.index') }}">
+                            <i data-feather="calendar"></i>
+                            <span>Bookings</span>
+                        </a>
                     </li>
                     <li class="dropdown">
                         <a class="nav-link menu-title link-nav " href="{{ route('admin.banners.index') }}">

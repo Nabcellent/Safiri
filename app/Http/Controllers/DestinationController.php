@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Destination;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -17,10 +18,14 @@ class DestinationController extends Controller
         try {
             $data = [
                 'destinations' => Destination::paginate(10),
+                'categories' => Category::select(['id', 'title'])->get(),
+                'vicinities' => Destination::select('vicinity')->distinct()->take(10)->get()->reject(function($vicinity) {
+                    return strlen($vicinity->vicinity) > 30;
+                }),
             ];
 
             return response()->view('destinations',$data);
-        } catch (Exception $e) {
+        } catch (Exception) {
             return failNotFound();
         }
     }

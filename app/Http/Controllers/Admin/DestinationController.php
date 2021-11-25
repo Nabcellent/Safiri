@@ -26,7 +26,7 @@ class DestinationController extends Controller
         return response()->view('admin.destinations.list', $data);
     }
 
-    public function show($id): Response|RedirectResponse {
+    public function show(int $id): Response|RedirectResponse {
         try {
             $data = [
                 'destination' => Destination::with(['category' => function($query) {

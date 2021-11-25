@@ -35,6 +35,14 @@ class Destination extends Model
         'availability' => 'array',
     ];
 
+    public function getPriceFrequencyAttribute(): string {
+        return match ($this->rates) {
+            'nightly' => 'night',
+            'hourly' => 'hour',
+            default => 'day'
+        };
+    }
+
     public function category(): BelongsTo {
         return self::belongsTo(Category::class);
     }

@@ -81,7 +81,10 @@
                             class="col card-body d-flex justify-content-between align-items-center border shadow-sm p-4"
                             style="border-radius:20px">
                             <div class="price">
-                                <h5>KSH.{{ number_format($destination->price) }}</h5>
+                                <h5>
+                                    KSH.{{ number_format($destination->price) }}
+                                    / {{ $destination->price_frequency }}
+                                </h5>
                                 @isset($destination->discount)
                                     <del class="text-muted small">KSH.25,000</del>
                                 @endisset

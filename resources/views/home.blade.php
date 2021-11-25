@@ -71,9 +71,9 @@
                                             <div class="d-flex justify-content-between align-items-end">
                                                 <div class="small fw-bold" style="height: 2rem">
                                                     <p class="mb-0">KSH.{{ number_format($destination->price) }}</p>
-                                                    {{--@if($destination->id === 2)
-                                                        <del class="small">25,000</del>
-                                                    @endif--}}
+                                                    @isset($destination->discount)
+                                                        <del class="text-muted small">25,000</del>
+                                                    @endisset
                                                 </div>
                                                 <a href="{{ route('destinations.show.booking', ['id' => $destination->id]) }}"
                                                    class="btn btn-sm btn-primary fs-13 fw-bold rounded-3">Book Now</a>
@@ -133,6 +133,9 @@
                                             <div class="d-flex justify-content-between align-items-end">
                                                 <div class="small fw-bold" style="height: 2rem">
                                                     <p class="mb-0">KSH.{{ number_format($destination->price) }}</p>
+                                                    @isset($destination->discount)
+                                                        <del class="text-muted small">25,000</del>
+                                                    @endisset
                                                 </div>
                                                 <a href="{{ route('destinations.show.booking', ['id' => $destination->id]) }}"
                                                    class="btn btn-sm btn-primary fs-13 fw-bold rounded-3">Book Now</a>
@@ -217,6 +220,9 @@
                                             <div class="d-flex justify-content-between align-items-end">
                                                 <div class="small fw-bold" style="height: 2rem">
                                                     <p class="mb-0">KSH.{{ number_format($destination->price) }}</p>
+                                                    @isset($destination->discount)
+                                                        <del class="text-muted small">25,000</del>
+                                                    @endisset
                                                 </div>
                                                 <a href="{{ route('destinations.show.booking', ['id' => $destination->id]) }}"
                                                    class="btn btn-sm btn-primary fs-13 fw-bold rounded-3">Book Now</a>

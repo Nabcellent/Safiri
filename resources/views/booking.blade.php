@@ -199,7 +199,7 @@
                             <ul class="list-group-flush">
                                 <li class="list-group-item bg-transparent d-flex row">
                                     <small class="col-7">
-                                        Price per {person} per {night} <br>
+                                        Price per { person } per { {{ $destination->price_frequency }} } <br>
                                         KSH.{{ number_format($pricePerRating) }} <small id="price-times"> * 1</small>
                                     </small>
                                     <small class="col">

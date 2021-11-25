@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container-fluid dashboard-default-sec">
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-xl-5 box-col-12 des-xl-100">
                 <div class="row align-items-center">
                     <div class="col-xl-12 col-md-6 box-col-6 des-xl-50">

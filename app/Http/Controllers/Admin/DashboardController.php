@@ -13,7 +13,7 @@ class DashboardController extends Controller
             'annualIncome' => Booking::whereIsPaid(true)->whereBetween('created_at', [now()->startOfYear(), now()])
                 ->sum('total'),
             'recentBookings' => Booking::with(['destination' => function($query) {
-                $query->select(['id', 'name']);
+                $query->select(['id', 'name', 'image']);
             }])->latest()->take(5)->get()
         ];
 

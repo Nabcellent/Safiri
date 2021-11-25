@@ -105,7 +105,7 @@
                                     <div class="post-body">
                                         <div class="row">
                                             <div class="col">
-                                                <table>
+                                                <table class="table table-borderless table-hover p-2">
                                                     <tr>
                                                         <th>Price</th>
                                                         <td>~~~ {{ number_format($destination->price, 2) }}</td>
@@ -121,7 +121,7 @@
                                                 </table>
                                             </div>
                                             <div class="col">
-                                                <table>
+                                                <table class="table table-borderless table-hover p-2">
                                                     <tr>
                                                         <th>Website</th>
                                                         <td>

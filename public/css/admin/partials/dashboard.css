@@ -609,6 +609,11 @@
 	align-items: center;
 }
 
+.recent-order-sec .table tr .media img {
+	width: 3rem;
+	height: 3rem;
+}
+
 .recent-order-sec .table tr:hover {
 	background-color: rgba(36, 105, 92, 0.1);
 }

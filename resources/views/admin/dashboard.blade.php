@@ -5,7 +5,7 @@
     <div class="container-fluid dashboard-default-sec">
         <div class="row">
             <div class="col-xl-5 box-col-12 des-xl-100">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-xl-12 col-md-6 box-col-6 des-xl-50">
                         <div class="card profile-greeting">
                             <div class="card-header">
@@ -26,8 +26,7 @@
                             </div>
                             <div class="card-body text-center p-t-0">
                                 <h3 class="font-light">Welcome Back, {{ Auth::user()->first_name }}!!</h3>
-                                <p>Welcome to the {{ config('app.name', 'TA') }} Family! we are glad that you are visite
-                                    this dashboard. we will be
+                                <p>Welcome to the {{ config('app.name', 'SAFIRI') }} Family! we are glad to see you today. We will be
                                     happy to help you grow your business.</p>
                                 <button class="btn btn-light">Update</button>
                             </div>
@@ -55,7 +54,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-12 col-md-3 col-sm-6 box-col-3 des-xl-25 rate-sec">
+                    <div class="col-xl-12 col-md-6 box-col-6 des-xl-50 rate-sec">
                         <div class="card income-card card-secondary">
                             <div class="card-body text-center">
                                 <div class="round-box">
@@ -81,37 +80,13 @@
                 </div>
             </div>
             <div class="col-xl-7 box-col-12 des-xl-100 dashboard-sec">
-                <div class="card income-card">
-                    <div class="card-header">
-                        <div class="header-top d-sm-flex align-items-center">
-                            <h5>Sales overview</h5>
-                            <div class="center-content">
-                                <p class="d-sm-flex align-items-center"><span class="font-primary m-r-10 f-w-700">$859.25k</span><i
-                                        class="toprightarrow-primary fa fa-arrow-up m-r-10"></i>86% More than last year
-                                </p>
-                            </div>
-                            <div class="setting-list">
-                                <ul class="list-unstyled setting-option">
-                                    <li>
-                                        <div class="setting-primary"><i class="icon-settings"></i></div>
-                                    </li>
-                                    <li><i class="view-html fa fa-code font-primary"></i></li>
-                                    <li><i class="icofont icofont-maximize full-card font-primary"></i></li>
-                                    <li><i class="icofont icofont-minus minimize-card font-primary"></i></li>
-                                    <li><i class="icofont icofont-refresh reload-card font-primary"></i></li>
-                                    <li><i class="icofont icofont-error close-card font-primary"></i></li>
-                                </ul>
-                            </div>
-                        </div>
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <h5>Revenue</h5>
+                        <div class="chart-config select d-flex align-items-center"></div>
                     </div>
-                    <div class="card-body p-0">
-                        <div id="chart-timeline-dashbord"></div>
-                        <div class="code-box-copy">
-                            <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#yearly-overview"
-                                    title="Copy"><i
-                                    class="icofont icofont-copy-alt"></i></button>
-                            <pre><code class="language-html" id="yearly-overview"></code></pre>
-                        </div>
+                    <div class="card-body">
+                        <div data-chart-name="revenue" id="revenue-chart" style="height: 300px;"></div>
                     </div>
                 </div>
             </div>
@@ -186,9 +161,10 @@
                                 </div>
                                 <div class="code-box-copy">
                                     <button class="code-box-copy__btn btn-clipboard"
-                                            data-clipboard-target="#recent-order" title="Copy"><i
-                                            class="icofont icofont-copy-alt"></i></button>
-                                    <pre><code class="language-html" id="recent-order"></code></pre>
+                                            data-clipboard-target="#recent-order" title="Copy">
+                                        <i class="icofont icofont-copy-alt"></i>
+                                    </button>
+                                    <pre><code class="language-html" id="recent-bookings"></code></pre>
                                 </div>
                             </div>
                         </div>
@@ -201,14 +177,42 @@
     @once
         @push('scripts')
             <!-- Plugins JS start-->
-            <script src="/vendor/viho/js/chart/chartist/chartist.js"></script>
-            <script src="/vendor/viho/js/chart/chartist/chartist-plugin-tooltip.js"></script>
-            <script src="/vendor/viho/js/chart/knob/knob.min.js"></script>
-            <script src="/vendor/viho/js/chart/knob/knob-chart.js"></script>
-            <script src="/vendor/viho/js/chart/apex-chart/apex-chart.js"></script>
-            <script src="/vendor/viho/js/chart/apex-chart/stock-prices.js"></script>
-            <script src="/vendor/viho/js/dashboard/default.js"></script>
+            <script src="{{ asset('vendor/viho/js/dashboard/default.js') }}"></script>
+            <!-- Charting library -->
+            <script src="{{ asset('vendor/chartisan/chart.min.js') }}"></script>
+            <script src="{{ asset('vendor/chartisan/chartisan.umd.js') }}"></script>
+            <script src="{{ asset('js/admin/chartisan.js') }}"></script>
             <!-- Plugins JS Ends-->
+            <script>
+                const chart = {
+                    revenue: new Chartisan({
+                        el: '#revenue-chart',
+                        url: "@chart('revenue')",
+                        loader: LOADER,
+                        hooks: globalHooks()
+                            .beginAtZero()
+                            .title('Revenue earned.')
+                            .colors(['rgb(30, 100, 225)'])
+                            .tooltip({
+                                callbacks: {
+                                    label: function (tooltipItem, data) {
+                                        let dataset = data.datasets[tooltipItem.datasetIndex];
+                                        let currentValue = dataset.data[tooltipItem.index];
+
+                                        return new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'KES'}).format(currentValue)
+                                    }
+                                }
+                            })
+                            .datasets([
+                                {
+                                    type: 'line', fill: true,
+                                    backgroundColor: gradientColor([50, 155, 255]),
+                                    borderColor: `rgb(30, 100, 225)`,
+                                }
+                            ])
+                    }),
+                }
+            </script>
         @endpush
     @endonce
 @endsection

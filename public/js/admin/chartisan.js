@@ -40,17 +40,14 @@ const gradientColor = rgbColor => {
 
 setInterval(() => {
     chart.users.update({background: true})
-    chart.genderCount.update({background: true})
     chart.revenue.update({background: true})
 }, 300000)
 
 const chartFreqOptions = [
-    {title: 'Hourly', value: 'hourly'},
     {title: 'Daily', value: 'daily'},
     {title: 'Weekly', value: 'weekly'},
     {title: 'Monthly', value: 'monthly'},
     {title: 'Yearly', value: 'yearly'},
-    {title: 'All time', value: 'all-time'}
 ];
 
 const chartConfigRefresh = () => {

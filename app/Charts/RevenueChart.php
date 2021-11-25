@@ -33,7 +33,7 @@ class RevenueChart extends BaseChart {
     public function handler(Request $request): Chartisan {
         $frequency = $request->has('frequency') ? $request->input('frequency') : 'weekly';
 
-        $chartAid = new ChartAid($frequency, 'sum', 'price');
+        $chartAid = new ChartAid($frequency, 'sum', 'total');
 
         $revenue = Booking::select(['created_at', 'total'])->whereBetween('created_at', [
             $chartAid->chartStartDate(), now()])

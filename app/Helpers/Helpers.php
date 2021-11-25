@@ -46,7 +46,7 @@ if(!function_exists('createFail')) {
 }
 if(!function_exists('deleteOk')) {
     function deleteOk($msg = 'Deleted! ✔', $routeName = null): RedirectResponse {
-        return goWithSuccess($routeName, __('msg.del_ok'));
+        return goWithSuccess($routeName, $msg);
     }
 }
 if(!function_exists('failNotFound')) {

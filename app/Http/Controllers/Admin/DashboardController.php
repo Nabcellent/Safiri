@@ -3,12 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
+use App\Models\Booking;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller {
+class DashboardController extends Controller
+{
     public function index(): Response {
-        return response()->view('admin.dashboard');
+        $data = [
+            'annualIncome' => Booking::whereIsPaid(true)->whereBetween('created_at', [now()->startOfYear(), now()])
+                ->sum('total'),
+            'recentBookings' => Booking::with(['destination' => function($query) {
+                $query->select(['id', 'name']);
+            }])->latest()->take(5)->get()
+        ];
+
+        return response()->view('admin.dashboard', $data);
     }
 }

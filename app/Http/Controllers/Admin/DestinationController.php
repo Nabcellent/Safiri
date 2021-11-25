@@ -56,8 +56,8 @@ class DestinationController extends Controller
         $data = $request->except(['_token', '_method']);
 
         try {
-            if($request->hasFile('image')) {
-                $file = $request->file('image');
+            if($request->hasFile('main_image')) {
+                $file = $request->file('main_image');
                 $data['image'] = "dest_" . time() . ".{$file->guessClientExtension()}";
                 $file->move(public_path('images/destinations'), $data['image']);
             }
@@ -93,8 +93,8 @@ class DestinationController extends Controller
 
             unset($data['image']);
 
-            if($request->hasFile('image')) {
-                $file = $request->file('image');
+            if($request->hasFile('main_image')) {
+                $file = $request->file('main_image');
                 $data['image'] = "dest_" . time() . ".{$file->guessClientExtension()}";
                 $file->move(public_path('images/destinations'), $data['image']);
 

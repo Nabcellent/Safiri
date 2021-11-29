@@ -50,11 +50,13 @@ class STK {
         this.CHECKOUT_REQUEST_ID = checkout_request_id;
     }
 
-    checkStkStatus() {
+    checkStkStatus(data = {}) {
+        let sweetText = data.sweetText ?? "Your request has been received and is being processed. PLEASE ENTER MPESA PIN when prompted, then click OK.";
+
         Swal.fire({
             icon: "info",
             title: "Info",
-            text: "Your request has been received and is being processed. PLEASE ENTER MPESA PIN when prompted, then click OK.",
+            text: sweetText,
             showLoaderOnConfirm: true,
             showCancelButton: true,
             preConfirm: () => {
@@ -96,7 +98,7 @@ class STK {
 
     stkStatusResponse(data) {
         if (data.status === 'processing') {
-            this.checkStkStatus(this.CHECKOUT_REQUEST_ID)
+            this.checkStkStatus({sweetText: 'Payment still in process. Kindly retry after getting the Mpesa message or in 3 seconds if cancelled.'})
         } else if (data.status === 'processed') {
             Swal.fire({
                 position: 'top-end',
@@ -170,7 +172,7 @@ if ($('#paypal_payment_button').length) {
                     type: 'POST',
                     url: PAYPAL_CALLBACK_URL,
                     dataType: 'json',
-                    beforeSend: () => toast({msg:'Processing payment...', duration:30000}),
+                    beforeSend: () => toast({msg: 'Processing payment. Please wait...', duration: 30000}),
                     statusCode: {
                         200: (response) => {
                             if (response.status) {
@@ -182,7 +184,8 @@ if ($('#paypal_payment_button').length) {
                                     timer: 3000,
                                     showConfirmButton: false
                                 }).then(() => {
-                                    if (data.url !== "") window.location = response.url;
+                                    $('#is_paid').val(response.id)
+                                    $('#booking-form').get(0).submit()
                                 });
                             } else {
                                 toast(response.message)

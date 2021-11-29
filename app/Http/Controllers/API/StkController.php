@@ -37,7 +37,7 @@ class StkController extends Controller
      * @return JsonResponse
      */
     public function initiatePush(StoreStkRequest $request): JsonResponse {
-        $data = $request->all();
+        $data = $request->except(['_token', 'is_paid']);
         $phone = $data['phone'];
 //        $amount = $request->input('amount');
 
@@ -90,16 +90,10 @@ class StkController extends Controller
                     $icon = 'success';
                     $url = route('thanks');
 
-                    try {
-                        $booking = Booking::findOrFail(Session::pull('booking_id'));
-                        $booking->is_paid = true;
-                        $booking->save();
-                    } catch(Exception $e) {
-                        Log::error($e->getMessage());
-                        $message = 'Something went wrong. Kindly contact the Admin';
-                        $icon = 'warning';
-                    }
-                } else if($resultCode === 1032) {
+                    $booking = Booking::findOrFail(Session::pull('booking_id'));
+                    $booking->is_paid = true;
+                    $booking->save();
+                } else if(in_array($resultCode, [1031, 1032])) {
                     $message = 'Payment Cancelled';
                     $icon = 'info';
                 } else if($resultCode === 1) {
@@ -116,6 +110,12 @@ class StkController extends Controller
             }
         } catch(Exception $e) {
             Log::error($e->getMessage());
+
+            if($e->getCode() === 0) return response()->json([
+                'status'  => 'processing',
+                'message' => 'Waiting for customer response...'
+            ]);
+
             return response()->json(['status' => 'failed', 'message' => 'Unable to complete transaction. please contact the admin.']);
         }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Destination;
 use App\Models\PaymentMethod;
+use App\Models\PaypalCallback;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -56,16 +57,26 @@ class BookingController extends Controller
 
     public static function saveBooking(array $data): Booking|Model {
         foreach(explode('~', $data['dates']) as $key => $date) {
-            $key = $key === 0 ? 'start_at' : 'end_at';
+            $key = $key === 0
+                ? 'start_at'
+                : 'end_at';
 
             $data[$key] = Carbon::createFromFormat('d/m/Y', trim($date));
         }
 
         $data['payment_method_id'] = PaymentMethod::whereName($data['payment_method'])->first()->id;
-
         $data['user_id'] = Auth::id();
 
-        return Booking::create($data);
+        $booking = Booking::create($data);
+
+        if(isset($data['is_paid']) && $payment = PaypalCallback::findOrFail($data['is_paid'])) {
+            $payment->booking_id = $booking->id;
+            $payment->save();
+            $booking->is_paid = true;
+            $booking->save();
+        }
+
+        return $booking;
     }
 
     public function thanks(): Factory|View|Application {

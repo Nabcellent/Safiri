@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DestinationController as AdminDestinationController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\API\PaypalController;
 use App\Http\Controllers\API\StkController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DestinationController;
@@ -28,19 +29,29 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::prefix('/destinations')->name('destinations.')->group(function() {
     Route::get('/', [DestinationController::class, 'index'])->name('index');
     Route::get('/show/{id}', [DestinationController::class, 'show'])->name('show');
-    Route::get('/booking/{id}', [BookingController::class, 'booking'])->name('show.booking');
-    Route::post('/booking/{id}', [BookingController::class, 'reserve'])->name('reserve');
+    Route::get('/booking/{id}', [BookingController::class, 'booking'])->middleware('auth')->name('show.booking');
+    Route::post('/booking/{id}', [BookingController::class, 'reserve'])->middleware('auth')->name('reserve');
 });
 
-Route::prefix('/user')->middleware('auth')->name('user.')->group(function() {
-    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
-    Route::get('/account', [UserController::class, 'account'])->name('account');
-    Route::put('/profile', [UserController::class, 'update'])->name('profile.update');
-    Route::put('/password', [UserController::class, 'updatePassword'])->name('password.modify');
-    Route::get('/destroy/{id}', [UserController::class, 'destroy'])->name('destroy');
-});
+Route::middleware(['auth'])->group(function() {
+    //  USER ROUTES
+    Route::prefix('/user')->middleware('auth')->name('user.')->group(function() {
+        Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+        Route::get('/account', [UserController::class, 'account'])->name('account');
+        Route::put('/profile', [UserController::class, 'update'])->name('profile.update');
+        Route::put('/password', [UserController::class, 'updatePassword'])->name('password.modify');
+        Route::get('/destroy/{id}', [UserController::class, 'destroy'])->name('destroy');
+    });
 
-Route::get('/thanks', [BookingController::class, 'thanks'])->name('thanks');
+    //  PAYMENT ROUTES
+    Route::prefix('/payments')->name('payments.')->group(function() {
+        Route::any('stk-request', [StkController::class, 'initiatePush'])->name('request');
+        Route::get('stk-status/{id}', [StkController::class, 'stkStatus']);
+    });
+    Route::post('/payments/paypal-callback', [PaypalController::class, 'store']);
+
+    Route::get('/thanks', [BookingController::class, 'thanks'])->name('thanks');
+});
 
 
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,12 +102,6 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(fu
         Route::put('/update/{id}', [AdminUserController::class, 'update'])->name('update');
         Route::get('/destroy/{id}', [AdminUserController::class, 'destroy'])->name('destroy');
     });
-});
-
-//  MPESA PAYMENT ROUTES
-Route::prefix('/payments')->name('mpesa.stk.')->namespace('Mpesa')->group(function() {
-    Route::any('stk-request', [StkController::class, 'initiatePush'])->name('request');
-    Route::get('stk-status/{id}', [StkController::class, 'stkStatus']);
 });
 
 

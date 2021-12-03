@@ -170,6 +170,7 @@
 
                     <div class="d-grid">
                         <input type="hidden" name="total" id="total_amount">
+                        <input type="hidden" name="is_paid" id="is_paid">
                         <input type="hidden" name="destination_id" id="destination_id" value="{{ $destination->id }}">
                         <button type="submit" class="btn btn-block btn-primary ld-ext-right">
                             Confirm Reservation <i class="fas fa-map-pin"></i><span class="ld ld-ring ld-spin"></span>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\Reserved;
 use App\Models\Booking;
 use App\Models\Destination;
 use App\Models\PaymentMethod;
@@ -75,6 +76,8 @@ class BookingController extends Controller
             $booking->is_paid = true;
             $booking->save();
         }
+
+        if($booking->is_paid) Reserved::dispatch($booking);
 
         return $booking;
     }

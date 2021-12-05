@@ -14,8 +14,8 @@
         input[name="phone"],
         input[name="guests"],
         input[name="dates"] {
-            padding: .7rem 1.3rem;
-            border-radius: 17px;
+            /*padding: .7rem 1.3rem;*/
+            /*border-radius: 17px;*/
         }
     </style>
 @endpush
@@ -37,7 +37,8 @@
 
         <div class="container px-xl-5">
             <div class="row px-xl-5 g-md-5">
-                <form id="booking-form" class="col" action="{{ route('destinations.reserve', ['id' => $destination->id]) }}" method="POST">
+                <form id="booking-form" class="col"
+                      action="{{ route('destinations.reserve', ['id' => $destination->id]) }}" method="POST">
                     @csrf
                     <div class="row mb-2">
                         <div class="form-group col">
@@ -153,8 +154,14 @@
                             <section>
                                 <div class="_kcwzmp"><h4 tabindex="-1" class="fw-bolder">Cancellation policy</h4></div>
                             </section>
-                            <strong id="CANCELLATION_POLICY-title">Free cancellation before 3:00 PM on Nov
-                                25.</strong><span> <span>After that, cancel before 3:00 PM on Nov 26 and get a full refund, minus the service fee.</span> </span>
+                            <strong id="CANCELLATION_POLICY-title">
+                                Free cancellation before 7:00 PM on {{ now()->addDays(3)->format('M jS') }}.</strong>
+                            <span>
+                                <span>
+                                    After that, cancel before 7:00 PM on {{ now()->addWeek()->format('M jS') }}
+                                    and get a full refund, minus the service fee.
+                                </span>
+                            </span>
                         </div>
                     </div>
 
@@ -180,7 +187,7 @@
                     </div>
                 </form>
 
-                <div class="col-5">
+                <div class="col-6">
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <img src="{{ asset("images/destinations/{$destination->image}") }}"
@@ -273,7 +280,6 @@
             PhoneEl.addEventListener('keyup', reset);
 
 
-
             /**--------------------------------------------------------------------------------------------
              *                                  INIT DATEPICKER
              * */
@@ -290,7 +296,7 @@
                 locale: {
                     cancelLabel: 'Clear'
                 }
-            }).on('apply.daterangepicker', function(ev, picker) {
+            }).on('apply.daterangepicker', function (ev, picker) {
                 let timeDiff = Math.abs(picker.endDate.valueOf() - picker.startDate.valueOf());
                 numberOfNights = Math.ceil(timeDiff / (1000 * 3600 * 24)) - 1;
 
@@ -306,7 +312,7 @@
 
             function updatePrices() {
                 let guestRate;
-                if(GUESTS_EL.val() > 3) {
+                if (GUESTS_EL.val() > 3) {
                     guestRate = ($(this).val() - 1) * 100
                 } else {
                     guestRate = 0

@@ -26,7 +26,7 @@ class ReservationMade extends Notification
      * @param mixed $notifiable
      * @return array
      */
-    public function via($notifiable) {
+    public function via(mixed $notifiable) {
         return ['mail'];
     }
 

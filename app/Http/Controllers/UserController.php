@@ -57,11 +57,13 @@ class UserController extends Controller
                 'user' => User::withCount(['bookings', 'reviews'])->find(Auth::id()),
                 "suggestedDestinations" => Destination::inRandomOrder()->take(7)->get(),
                 "bookings" => Booking::whereUserId(Auth::id())->with(['destination' => function($query) {
-                    $query->select(['id', 'name', 'price', 'rates']);
+                    $query->select(['id', 'name', 'price', 'rates', 'image']);
                 }, 'paymentMethod' => function($query) {
                     $query->select(['id', 'name']);
                 }])->latest()->get()
             ];
+
+            $data['latestActiveBooking'] = $data['bookings']->firstWhere('end_at', '>', now());
 
             return response()->view('account', $data);
         } catch (Exception $e) {

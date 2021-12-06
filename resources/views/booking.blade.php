@@ -44,24 +44,24 @@
                         <div class="form-group col">
                             <label class="small">Phone number *</label>
                             <input type="tel" id="phone" class="form-control form-control-lg" name="phone"
-                                   placeholder="Phone number *" aria-label required>
+                                   placeholder="Phone number *" value="{{ old('phone') }}" aria-label required>
                             <div id="phone-error-message" class="invalid-feedback"></div>
                         </div>
                         <div class="form-group col">
                             <label class="small">Email</label>
-                            <input type="email" id="email" class="form-control form-control-lg" name="email"
+                            <input type="email" id="email" value="{{ old('email') }}" class="form-control form-control-lg" name="email"
                                    placeholder="Email address (optional)" aria-label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="small">Range of dates*</label>
-                        <input class="form-control form-control-lg digits" type="text" name="dates" value="" aria-label>
+                        <input class="form-control form-control-lg digits" type="text"  name="dates" value="{{ old('dates') }}" aria-label>
                     </div>
 
                     <div class="form-group">
                         <label class="small">Guests *</label>
-                        <input class="form-control form-control-lg" type="number" name="guests" value="1" min="1"
+                        <input class="form-control form-control-lg" type="number" name="guests" value="{{ old('guests', 1) }}" min="1"
                                placeholder="Number of guests *" aria-label/>
                     </div>
 
@@ -75,8 +75,7 @@
                                         <div class="media p-20">
                                             <div class="radio radio-primary me-3">
                                                 <input id="mpesa" type="radio" name="payment_method" value="mpesa"
-                                                       required
-                                                       checked/>
+                                                       required checked/>
                                                 <label for="mpesa"></label>
                                             </div>
                                             <div class="media-body">
@@ -176,8 +175,8 @@
                     </div>
 
                     <div class="d-grid">
-                        <input type="hidden" name="total" id="total_amount">
-                        <input type="hidden" name="is_paid" id="is_paid">
+                        <input type="hidden" name="total" id="total_amount" value="{{ old('total') }}">
+                        <input type="hidden" name="is_paid" id="is_paid" value="{{ old('is_paid', 0) }}">
                         <input type="hidden" name="destination_id" id="destination_id" value="{{ $destination->id }}">
                         <button type="submit" class="btn btn-block btn-primary ld-ext-right">
                             Confirm Reservation <i class="fas fa-map-pin"></i><span class="ld ld-ring ld-spin"></span>
@@ -191,8 +190,7 @@
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <img src="{{ asset("images/destinations/{$destination->image}") }}"
-                                 class="img-fluid rounded-circle shadow p-2"
-                                 style="object-fit:cover;width:10rem; height:10rem" alt="">
+                                 class="img-fluid rounded-circle shadow p-2" style="object-fit:cover;width:10rem; height:10rem" alt="">
                         </div>
                         <div class="col">
                             <h6 class="fw-bold">{{ $destination->name }}</h6>

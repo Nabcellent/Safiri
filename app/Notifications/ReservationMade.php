@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use App\Models\Booking;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
@@ -26,7 +27,7 @@ class ReservationMade extends Notification
      * @param mixed $notifiable
      * @return array
      */
-    public function via(mixed $notifiable) {
+    public function via(mixed $notifiable): array {
         return ['mail'];
     }
 
@@ -36,9 +37,23 @@ class ReservationMade extends Notification
      * @param mixed $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail($notifiable) {
-        return (new MailMessage)->line('The introduction to the notification.')->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
+    public function toMail(mixed $notifiable): MailMessage {
+        if($this->sendToAdmins) {
+            $greeting = Carbon::timelyGreeting() . "!";
+            $intro = "A booking has been made by {$this->booking->user->full_name}.";
+            $actionUrl = route('admin.bookings.show', ['id' => $this->booking->id]);
+            $closing = "Thank you!";
+        } else {
+            $greeting = "Hey {$notifiable->first_name},";
+            $intro = "Thank you very much for your reservation to {$this->booking->destination->name} which has been received successfully.";
+            $actionUrl = route('user.account');
+            $closing = "Thank you for being part of the safiri family! Can't wait for the trip😁";
+        }
+
+        return (new MailMessage)->greeting($greeting)
+                                ->line($intro)
+                                ->action('View Booking', $actionUrl)
+                                ->line($closing);
     }
 
     /**
@@ -47,7 +62,7 @@ class ReservationMade extends Notification
      * @param mixed $notifiable
      * @return array
      */
-    public function toArray($notifiable) {
+    public function toArray(mixed $notifiable): array {
         return [//
         ];
     }

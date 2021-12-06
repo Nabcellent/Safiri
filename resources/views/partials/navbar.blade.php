@@ -17,11 +17,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><small>About Us</small></a>
                 </li>
+
                 @if(Auth::check() && isAdmin())
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.dashboard') }}"><small>Dashboard</small></a>
                     </li>
                 @endauth
+
                 <li class="nav-item">
                     <small class="nav-link">
                         <script>document.write(new Date().toDateString())</script>

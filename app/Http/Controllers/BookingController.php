@@ -70,7 +70,7 @@ class BookingController extends Controller
 
         $booking = Booking::create($data);
 
-        if(isset($data['is_paid']) && $payment = PaypalCallback::findOrFail($data['is_paid'])) {
+        if(isset($data['is_paid']) && $payment = PaypalCallback::find($data['is_paid'])) {
             $payment->booking_id = $booking->id;
             $payment->save();
             $booking->is_paid = true;

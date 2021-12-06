@@ -18,25 +18,17 @@ class DestinationController extends Controller
         try {
             $data = [
                 'categories' => Category::select(['id', 'title'])->get(),
-                'vicinities' => Destination::select('vicinity')->distinct()->take(10)->get()->reject(function($vicinity) {
-                    return strlen($vicinity->vicinity) > 30;
-                }),
+                'vicinities' => Destination::select(['id', 'vicinity'])->distinct()->take(10)->get()
+                    ->reject(function($vicinity) {
+                        return strlen($vicinity->vicinity) > 30;
+                    }),
             ];
 
-            return response()->view('destinations',$data);
+            return response()->view('destinations', $data);
         } catch (Exception $e) {
-            dd($e->getMessage());
+//            dd($e->getMessage());
             return failNotFound();
         }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create() {
-        //
     }
 
     /**
@@ -48,7 +40,7 @@ class DestinationController extends Controller
     public function show(int $id): Response|RedirectResponse {
         try {
             $data = [
-                'destination' => Destination::with(['destinationImages', 'category'])->findOrFail($id),
+                'destination'           => Destination::with(['destinationImages', 'category'])->findOrFail($id),
                 "suggestedDestinations" => Destination::inRandomOrder()->take(7)->get(),
             ];
 
@@ -58,24 +50,40 @@ class DestinationController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
-     * @return Response
-     */
-    public function update(Request $request, $id) {
-        //
+    public function filter(Request $request): bool|string {
+        $data = $request->all();
+        $data['perPage'] = 10;
+
+//        dd($data);
+
+//        $priceString = 'destinations.price - (destinations.price * (destinations.discount / 100))';
+        $priceString = 'destinations.price';
+        $query = Destination::with('category')->where('destinations.status', true)
+            ->whereRaw("$priceString >= {$data['priceRange'][0]}")->whereRaw("$priceString <= {$data['priceRange'][1]}")
+            ->join('categories', 'destinations.category_id', 'categories.id')->select('destinations.*');
+
+        if(isset($data['category'])) {
+            $query->whereIn('categories.id', $data['category']);
+        }
+
+        if(isset($data['sort']) && !empty($data['sort'])) {
+            if($data['sort'] === "newest") {
+                $query->orderByDesc('destinations.id');
+            } else if($data['sort'] === "oldest") {
+                $query->orderBy('destinations.id');
+            } else if($data['sort'] === "price_asc") {
+                $query->orderByRaw($priceString);
+            } else if($data['sort'] === "price_desc") {
+                $query->orderByRaw("$priceString DESC");
+            }
+        }
+
+        $products = $query->paginate($data['perPage']);
+
+        return json_encode([
+            'view'  => view('partials.listing', compact('products')),
+            'count' => count($products)
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function destroy($id) {
-        //
-    }
 }

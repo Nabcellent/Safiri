@@ -9,7 +9,7 @@
             <ul class="list-group list-group-flush">
                 @foreach($categories as $category)
                     <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
+                        <input class="form-check-input me-1 filter-check fil-category" type="checkbox" value="{{ $category->id }}">
                         {{ ucwords(str_replace('_',' ', $category->title)) }}
                     </label>
                 @endforeach
@@ -36,7 +36,7 @@
             <ul class="list-group list-group-flush">
                 @foreach($vicinities as $vicinity)
                     <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
+                        <input class="form-check-input me-1 filter-check fil-vicinity" type="checkbox" value="{{ $vicinity->id }}">
                         {{ $vicinity->vicinity }}
                     </label>
                 @endforeach
@@ -47,6 +47,7 @@
 
 @push('scripts')
     <script src="{{ asset('vendor/ionrangeslider/ion.rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('js/filter.js') }}"></script>
     <script>
         /**
          * --------------------------------------------------------------------------------------   RANGE SELECTOR

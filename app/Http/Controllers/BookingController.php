@@ -88,6 +88,5 @@ class BookingController extends Controller
         ];
 
         return View('thanks', $data);
-
     }
 }

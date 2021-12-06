@@ -19,8 +19,7 @@
                         <p class="card-text">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta doloremque et
                             facere facilis harum ipsam itaque laudantium nesciunt nostrum, odit quaerat reprehenderit
-                            sequi
-                            veritatis voluptas voluptatum! Illum quaerat quasi vitae.
+                            sequi veritatis voluptas voluptatum! Illum quaerat quasi vitae.
                         </p>
                     </div>
                 </div>
@@ -39,7 +38,7 @@
 
                 <div class="col-md-9">
 
-                    <livewire:search-destination />
+                    <livewire:search-destination/>
 
                 </div>
             </div>
@@ -49,8 +48,8 @@
     </div>
 
     <script>
-        $('.display').on('click', function() {
-            if($(this).hasClass('fa-th-large')) {
+        $('.display').on('click', function () {
+            if ($(this).hasClass('fa-th-large')) {
                 $('.listing-item .body').addClass('col-lg-6')
                 $('.listing-item .image').addClass('col-lg-12')
                 $('.listing-item .image img').css('height', '275px')

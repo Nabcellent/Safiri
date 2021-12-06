@@ -31,6 +31,7 @@ Route::prefix('/destinations')->name('destinations.')->group(function() {
     Route::get('/show/{id}', [DestinationController::class, 'show'])->name('show');
     Route::get('/booking/{id}', [BookingController::class, 'booking'])->middleware('auth')->name('show.booking');
     Route::post('/booking/{id}', [BookingController::class, 'reserve'])->middleware('auth')->name('reserve');
+    Route::get('/filter', [DestinationController::class, 'filter'])->name('filter');
 });
 
 Route::middleware(['auth'])->group(function() {

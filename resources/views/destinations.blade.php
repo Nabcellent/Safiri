@@ -6,7 +6,7 @@
         <nav class="container-fluid my-2" aria-label="breadcrumb">
             <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Domestic deals</li>
+                <li class="breadcrumb-item active" aria-current="page">Destinations</li>
             </ol>
         </nav>
 

@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div wire:loading.remove>
+    <div id="filtered-destinations" wire:loading.remove>
         <!--    notice that $term is available as a public variable, even though it's not part of the data array    -->
         @if (empty($term))
             <p class=" fs-12 text-muted text-center mb-0">Search for title or description</p>

@@ -45,16 +45,14 @@ class DestinationController extends Controller
             ];
 
             return response()->view('details', $data);
-        } catch (Exception $e) {
+        } catch (Exception) {
             return failNotFound();
         }
     }
 
-    public function filter(Request $request): bool|string {
+    public function filter(Request $request) {
         $data = $request->all();
         $data['perPage'] = 10;
-
-//        dd($data);
 
 //        $priceString = 'destinations.price - (destinations.price * (destinations.discount / 100))';
         $priceString = 'destinations.price';
@@ -78,12 +76,12 @@ class DestinationController extends Controller
             }
         }
 
-        $products = $query->paginate($data['perPage']);
+        $destinations = $query->paginate($data['perPage']);
 
-        return json_encode([
-            'view'  => view('partials.listing', compact('products')),
-            'count' => count($products)
-        ]);
+        return [
+            'view'  => (string)view('partials.listing', compact('destinations')),
+            'count' => count($destinations)
+        ];
     }
 
 }

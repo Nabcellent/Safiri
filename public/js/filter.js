@@ -28,9 +28,22 @@ const getProducts = (url = '/destinations/filter') => {
         },
         type: 'GET',
         url: url,
-        dataType: 'json',
-        success: function (response) {
-            $('#products').html(response.view);
+        success: response => {
+            if (response.count) {
+                $('#filtered-destinations').html(response.view);
+            } else {
+                $('#filtered-destinations').html(`<div class="row justify-content-center align-items-center"
+                                                      style="height: 70vh">
+                    <div class="col-7">
+                        <div class="divider divider-left mb-0">
+                            <div class="divider-text bg-blue-dark card-header">
+                                <h3 class="text-blue-light">No destination matches your filter.</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>`);
+            }
+
             $('#shop-count').text(response.count);
             $('#loader').hide();
 

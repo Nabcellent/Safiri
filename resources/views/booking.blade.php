@@ -57,13 +57,13 @@
 
                     <div class="form-group">
                         <label class="small">Range of dates*</label>
-                        <input class="form-control form-control-lg digits" type="text"  name="dates" value="{{ old('dates') }}" aria-label>
+                        <input class="form-control form-control-lg digits" type="text" name="dates" value="{{ old('dates') }}" aria-label required>
                     </div>
 
                     <div class="form-group">
                         <label class="small">Guests *</label>
                         <input class="form-control form-control-lg" type="number" name="guests" value="{{ old('guests', 1) }}" min="1"
-                               placeholder="Number of guests *" aria-label/>
+                               placeholder="Number of guests *" aria-label required/>
                     </div>
 
                     <hr class="my-4">
@@ -232,6 +232,7 @@
     </div>
 
     @push('scripts')
+        <script src="{{ asset('js/validation.js') }}"></script>
         <script src="{{ asset('vendor/intltelinput/intlTelInput-jquery.min.js') }}"></script>
         <script src="{{ asset('vendor/intltelinput/intlTelInput.min.js') }}"></script>
         <script src="{{ asset('vendor/viho/js/datepicker/daterange-picker/moment.min.js') }}"></script>

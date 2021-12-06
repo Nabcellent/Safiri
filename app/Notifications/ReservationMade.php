@@ -42,7 +42,7 @@ class ReservationMade extends Notification
             $greeting = Carbon::timelyGreeting() . "!";
             $intro = "A booking has been made by {$this->booking->user->full_name}.";
             $actionUrl = route('admin.bookings.show', ['id' => $this->booking->id]);
-            $closing = "Thank you!";
+            $closing = "Please attend to it at your earliest convenience😌!";
         } else {
             $greeting = "Hey {$notifiable->first_name},";
             $intro = "Thank you very much for your reservation to {$this->booking->destination->name} which has been received successfully.";
@@ -50,10 +50,7 @@ class ReservationMade extends Notification
             $closing = "Thank you for being part of the Safiri family! Can't wait for the trip😁";
         }
 
-        return (new MailMessage)->greeting($greeting)
-                                ->line($intro)
-                                ->action('View Booking', $actionUrl)
-                                ->line($closing);
+        return (new MailMessage)->greeting($greeting)->line($intro)->action('View Booking', $actionUrl)->line($closing);
     }
 
     /**

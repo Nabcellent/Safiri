@@ -6,7 +6,6 @@ use App\Helpers\Help;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreStkRequest;
-use App\Models\Booking;
 use App\Models\StkRequest;
 use DrH\Mpesa\Facades\STK;
 use Exception;
@@ -22,16 +21,37 @@ use Illuminate\Support\Str;
 class StkController extends Controller
 {
     public function index(): Factory|View|Application {
-        $requests = StkRequest::with(['user' => function($query) {
-            $query->select(['id', 'email']);
-        }, 'response' => function($query) {
-            $query->select(['id', 'CheckoutRequestID', 'ResultDesc', 'Amount', 'TransactionDate', 'phoneNumber', 'created_at']);
-        }, 'video' =>function($query) {
-            $query->select(['id', 'title']);
-        }])->select(['id', 'user_id', 'video_id', 'CheckoutRequestID', 'phone', 'created_at', 'status'])->latest()->get();
+        $requests = StkRequest::with([
+            'user'     => function($query) {
+                $query->select(['id', 'email']);
+            },
+            'response' => function($query) {
+                $query->select([
+                    'id',
+                    'CheckoutRequestID',
+                    'ResultDesc',
+                    'Amount',
+                    'TransactionDate',
+                    'phoneNumber',
+                    'created_at'
+                ]);
+            },
+            'video'    => function($query) {
+                $query->select(['id', 'title']);
+            }
+        ])->select([
+            'id',
+            'user_id',
+            'video_id',
+            'CheckoutRequestID',
+            'phone',
+            'created_at',
+            'status'
+        ])->latest()->get();
 
         return view('admin.payments.mpesa', ['requests' => $requests]);
     }
+
     /**
      * @param StoreStkRequest $request
      * @return JsonResponse
@@ -39,23 +59,28 @@ class StkController extends Controller
     public function initiatePush(StoreStkRequest $request): JsonResponse {
         $data = $request->except(['_token', 'is_paid']);
         $phone = $data['phone'];
-//        $amount = $request->input('amount');
+        $amount = 1; //$request->input('amount');
 
-        $phone = "254" . (Str::length($phone) > 9 ? Str::substr($phone, -9) : $phone);
+        $phone = "254" . (Str::length($phone) > 9
+                ? Str::substr($phone, -9)
+                : $phone);
 
         try {
             //  Send STK request to users phone and save the request
-            $stkResponse = mpesa_request($phone, 1, 'Safiri', 'Payment made to Safiri');
+            $stkResponse = mpesa_request($phone, $amount, 'Safiri', 'Payment made to Safiri');
 
             //  Save the booking
-            Session::put('booking_id', BookingController::saveBooking($data)->id);
+            Session::put('booking', $data);
 
             //  Return STK checkout request id and wait for user to accept/decline payment
             return response()->json(['status' => true, 'requestId' => $stkResponse->CheckoutRequestID]);
-        } catch(Exception $exception) {
+        } catch (Exception $exception) {
             Log::debug($exception->getMessage());
 
-            return response()->json(['status' => false, 'message' => 'Unable to process request at this time. Please try again shortly.']);
+            return response()->json([
+                'status'  => false,
+                'message' => 'Unable to process request at this time. Please try again shortly.'
+            ]);
         }
     }
 
@@ -64,7 +89,7 @@ class StkController extends Controller
             Artisan::queue('mpesa:query_status');
 
             return Help::updateOk('Querying Missing Requests... please refresh in a few.', url()->previous());
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             return Help::toastError($e->getMessage(), 'Unable to query status💔');
         }
     }
@@ -90,9 +115,10 @@ class StkController extends Controller
                     $icon = 'success';
                     $url = route('thanks');
 
-                    $booking = Booking::findOrFail(Session::pull('booking_id'));
-                    $booking->is_paid = true;
-                    $booking->save();
+                    $data = Session::pull('booking');
+                    $data['is_paid'] = true;
+
+                    BookingController::saveBooking($data);
                 } else if(in_array($resultCode, [1031, 1032])) {
                     $message = 'Payment Cancelled';
                     $icon = 'info';
@@ -104,11 +130,9 @@ class StkController extends Controller
                     $icon = 'warning';
                 }
 
-//                Artisan::queue('mpesa:query_status');
-
                 return response()->json(['status' => $status, 'message' => $message, 'icon' => $icon, 'url' => $url]);
             }
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage());
 
             if($e->getCode() === 0) return response()->json([
@@ -116,7 +140,10 @@ class StkController extends Controller
                 'message' => 'Waiting for customer response...'
             ]);
 
-            return response()->json(['status' => 'failed', 'message' => 'Unable to complete transaction. please contact the admin.']);
+            return response()->json([
+                'status'  => 'failed',
+                'message' => 'Unable to complete transaction. please contact the admin.'
+            ]);
         }
 
         return response()->json(['status' => $status, 'message' => $message]);

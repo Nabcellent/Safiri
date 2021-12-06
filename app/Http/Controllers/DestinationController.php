@@ -17,7 +17,7 @@ class DestinationController extends Controller
     public function index(): Response|RedirectResponse {
         try {
             $data = [
-                'destinations' => Destination::paginate(10),
+//                'destinations' => Destination::paginate(10),
                 'categories' => Category::select(['id', 'title'])->get(),
                 'vicinities' => Destination::select('vicinity')->distinct()->take(10)->get()->reject(function($vicinity) {
                     return strlen($vicinity->vicinity) > 30;
@@ -25,7 +25,8 @@ class DestinationController extends Controller
             ];
 
             return response()->view('destinations',$data);
-        } catch (Exception) {
+        } catch (Exception $e) {
+            dd($e->getMessage());
             return failNotFound();
         }
     }

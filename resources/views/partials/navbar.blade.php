@@ -40,10 +40,10 @@
         <div id="search-bar" class="container">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-6">
-                    <div class="search-form">
+                    <form method="get" class="search-form">
                         <i class="fas fa-search"></i>
                         <input type="text" class="form-control form-input" placeholder="Search destinations..."
-                               aria-label>
+                                aria-label>
                         <span class="left-pan d-flex align-items-center">
                             <i class="fa fa-microphone"></i>
                             <select name="destination" id="destination" class="border-0 bg-transparent form-control"
@@ -53,7 +53,7 @@
                                 <option value="">Some place</option>
                             </select>
                         </span>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

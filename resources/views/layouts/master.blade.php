@@ -11,6 +11,8 @@
 
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap5/bootstrap.bundle.min.js') }}"></script>
+
+    @livewireStyles
 </head>
 <body>
 
@@ -27,5 +29,7 @@
 <!-- SCRIPTS -->
 @include('partials.scripts')
 <!-- -->
+
+@livewireScripts
 </body>
 </html>

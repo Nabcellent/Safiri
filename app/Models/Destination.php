@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Destination extends Model
 {
-    use HasFactory;
+    use HasFactory, Search;
 
     protected $fillable = [
         'place_id',
@@ -33,6 +33,13 @@ class Destination extends Model
     protected $casts = [
         'location' => 'array',
         'availability' => 'array',
+    ];
+
+    protected array $searchable = [
+        'name',
+        'vicinity',
+        'description',
+        'website',
     ];
 
     public function getPriceFrequencyAttribute(): string {

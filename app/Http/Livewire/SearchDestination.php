@@ -16,7 +16,7 @@ class SearchDestination extends Component
         $data = [
             'destinations' => empty($this->term)
                 ? Destination::paginate(10)
-                : Destination::search($this->term)->paginate(10),
+                : Destination::search($this->term)->paginate(2),
         ];
 
         return view('livewire.search-destination', $data);

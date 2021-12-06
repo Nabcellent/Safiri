@@ -43,7 +43,7 @@
                     <form method="get" class="search-form">
                         <i class="fas fa-search"></i>
                         <input type="text" class="form-control form-input" placeholder="Search destinations..."
-                                aria-label>
+                               wire:model.debounce.200ms="term" aria-label>
                         <span class="left-pan d-flex align-items-center">
                             <i class="fa fa-microphone"></i>
                             <select name="destination" id="destination" class="border-0 bg-transparent form-control"

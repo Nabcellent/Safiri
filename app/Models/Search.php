@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-trait Search {
+trait Search
+{
     private function buildWildCards($term) {
         if($term == "") return $term;
 
@@ -12,8 +13,9 @@ trait Search {
 
         $words = explode(' ', $term);
         foreach($words as $idx => $word) {
-            // Add operators, so we can leverage the boolean mode of fulltext indices.
-            $words[$idx] = "+" . $word . "*";
+            if(!empty($word))
+                // Add operators, so we can leverage the boolean mode of fulltext indices.
+                $words[$idx] = "+" . $word . "*";
         }
 
         return implode(' ', $words);

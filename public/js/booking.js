@@ -37,7 +37,7 @@ $('#booking-form').on('submit', function (e) {
             url: `/destinations/booking/` + $('#destination_id').val(),
             method: `POST`,
             dataType: 'json',
-            beforeSend: () => submitButton/*.prop('disabled', true)*/.html(`Reserving...
+            beforeSend: () => submitButton.prop('disabled', true).html(`Reserving...
                                             <span class="ld ld-ring ld-spin"></span>`).addClass('running'),
             success: response => {
                 console.log(response)

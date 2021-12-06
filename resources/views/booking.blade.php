@@ -45,24 +45,28 @@
                         <div class="form-group col">
                             <label class="small">Phone number *</label>
                             <input type="tel" id="phone" class="form-control form-control-lg" name="phone"
-                                   placeholder="Phone number *" value="{{ old('phone', Auth::user()->phone) }}" aria-label required>
+                                   placeholder="Phone number *" value="{{ old('phone', Auth::user()->phone) }}"
+                                   aria-label required>
                             <div id="phone-error-message" class="invalid-feedback"></div>
                         </div>
                         <div class="form-group col">
                             <label class="small">Email</label>
-                            <input type="email" id="email" value="{{ old('email', Auth::user()->email) }}" class="form-control form-control-lg" name="email"
+                            <input type="email" id="email" value="{{ old('email', Auth::user()->email) }}"
+                                   class="form-control form-control-lg" name="email"
                                    placeholder="Email address (optional)" aria-label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="small">Range of dates*</label>
-                        <input class="form-control form-control-lg digits" type="text" name="dates" value="{{ old('dates') }}" aria-label required>
+                        <input class="form-control form-control-lg" type="text" name="dates"
+                               value="{{ old('dates') }}" aria-label required>
                     </div>
 
                     <div class="form-group">
                         <label class="small">Guests *</label>
-                        <input class="form-control form-control-lg" type="number" name="guests" value="{{ old('guests', 1) }}" min="1"
+                        <input class="form-control form-control-lg" type="number" name="guests"
+                               value="{{ old('guests', 1) }}" min="1"
                                placeholder="Number of guests *" aria-label required/>
                     </div>
 
@@ -191,7 +195,8 @@
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <img src="{{ asset("images/destinations/{$destination->image}") }}"
-                                 class="img-fluid rounded-circle shadow p-2" style="object-fit:cover;width:10rem; height:10rem" alt="">
+                                 class="img-fluid rounded-circle shadow p-2"
+                                 style="object-fit:cover;width:10rem; height:10rem" alt="">
                         </div>
                         <div class="col">
                             <h6 class="fw-bold">{{ $destination->name }}</h6>
@@ -246,7 +251,8 @@
             /**--------------------------------------------------------------------------------------------
              *                                  INIT INTERNATIONAL INPUT TELEPHONE
              * */
-            const PhoneEl = document.querySelector("#phone");
+            const PhoneEl = document.querySelector("#phone"),
+                datesEl = $('input[name="dates"]')
 
             // here, the index maps to the error code returned from getValidationError - see readme
             let errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
@@ -290,7 +296,9 @@
                 priceRate = duration * PRICE_RATE,
                 totalPrice = priceRate + SERVICE_FEE;
 
-            $('input[name="dates"]').daterangepicker({
+            datesEl.rules('remove', 'digits')
+
+            datesEl.daterangepicker({
                 minDate: new Date(),
                 autoUpdateInput: false,
                 locale: {
@@ -315,7 +323,7 @@
 
                 if (duration > 3) {
                     duration -= 1
-                } else if(duration > 10) {
+                } else if (duration > 10) {
                     duration -= 3
                 }
 

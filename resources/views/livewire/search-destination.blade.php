@@ -9,7 +9,7 @@
         </div>
     </form>
 
-    <div wire:loading.flex class="row justify-content-center align-items-center" style="height: 70vh">
+    <div id="loader" wire:loading.flex class="row justify-content-center align-items-center" style="height: 70vh">
         <div class="col-7">
             <img src="{{ asset('images/svg-loaders/three-dots-safiri.svg') }}" alt="Loader" class="img-fluid w-100">
         </div>

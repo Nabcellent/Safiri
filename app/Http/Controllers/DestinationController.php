@@ -22,6 +22,8 @@ class DestinationController extends Controller
                     ->reject(function($vicinity) {
                         return strlen($vicinity->vicinity) > 30;
                     }),
+                'minPrice' => ceil(Destination::min('price')),
+                'maxPrice' => floor(Destination::max('price')),
             ];
 
             return response()->view('destinations', $data);
@@ -62,6 +64,9 @@ class DestinationController extends Controller
 
         if(isset($data['category'])) {
             $query->whereIn('categories.id', $data['category']);
+        }
+        if(isset($data['vicinity'])) {
+            $query->whereIn('destinations.id', $data['vicinity']);
         }
 
         if(isset($data['sort']) && !empty($data['sort'])) {

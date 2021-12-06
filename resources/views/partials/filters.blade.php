@@ -22,12 +22,12 @@
                     <input type="text" class="js-range-slider" name="my_range" id="price-range" aria-label/>
                 </div>
                 <div class="col-6 form-group">
-                    <input type="number" min="0" value="2000"
+                    <input type="number" min="0" value="{{ $minPrice }}"
                            class="form-control form-control-sm bg-transparent text-center rounded-0 price-range"
                            style="border:none; border-bottom: 1px solid var(--safiri-green)" aria-label id="min_price">
                 </div>
                 <div class="col-6 form-group">
-                    <input type="number" min="0" value="35000"
+                    <input type="number" min="0" value="{{ $maxPrice }}"
                            class="form-control form-control-sm bg-transparent text-center rounded-0 price-range"
                            style="border:none; border-bottom: 1px solid var(--safiri-green)" aria-label id="max_price">
                 </div>
@@ -61,9 +61,9 @@
             type: "double",
             skin: "sharp",
             min: 0,
-            max: 50000,
-            from: 2000,
-            to: 35000,
+            max: `{{ $maxPrice }}`,
+            from: `{{ $minPrice }}`,
+            to: `{{ $maxPrice }}`,
             drag_interval: true,
             min_interval: 2,
             keyboard: true,
@@ -72,6 +72,7 @@
                 minPrice.val(data.from);
                 maxPrice.val(data.to)
             },
+            onFinish: () => getProducts()
         }).data("ionRangeSlider");
 
         priceRangeEl.on('keyup', () => {

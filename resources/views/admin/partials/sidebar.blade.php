@@ -7,7 +7,7 @@
                 <span class="badge badge-primary">New</span>
             </div>
         @endif
-        <a href="user-profile.html"><h6 class="mt-3 f-14 f-w-600">{{ Auth::user()->full_name }}</h6></a>
+        <a href="{{ route('user.profile') }}"><h6 class="mt-3 f-14 f-w-600">{{ Auth::user()->full_name }}</h6></a>
         <p class="mb-0 font-roboto">{{ isAdmin() ? isRed() ? '~Sir.' : 'Admin' : 'Human Resources Department' }}</p>
         <ul>
             <li>
@@ -91,6 +91,8 @@
                         <ul class="nav-submenu menu-content" style="display: none;">
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('destinations.index') }}">Destinations</a></li>
+                            <li><a href="{{ route('user.profile') }}">Profile</a></li>
+                            <li><a href="{{ route('user.account') }}">Account</a></li>
                         </ul>
                     </li>
                     <li>

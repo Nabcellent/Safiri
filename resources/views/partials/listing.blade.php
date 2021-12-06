@@ -17,8 +17,7 @@
                                 <div class="col-7 col-lg-6 d-flex justify-content-between flex-column text-child">
                                     <h5 class="card-title fs-13 fw-bold">{{ $destination->name }}</h5>
                                     <p class="card-text text-secondary d-none small description">
-                                        Space for a small
-                                        product description
+                                        {{ $destination->vicinity }}
                                     </p>
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item small">Availability</li>

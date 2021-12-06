@@ -1,13 +1,17 @@
-const PAYPAL_CALLBACK_URL = '/payments/paypal-callback';
+const PAYPAL_CALLBACK_URL = '/payments/paypal-callback',
+    PHONE_REGEX = /^((0)?((?:7(?:[01249][0-9]|5[789]|6[89])|1[1][0-5])[0-9]{6})|(?:254|\+254|0)?((?:7(?:[01249][0-9]|5[789]|6[89])|1[1][0-5])[0-9]{6}))$/
 
 function payWithMpesa(formData) {
+    const phone = $("#phone").val().replace(/\s/g,'')
+
     Swal.fire({
         input: 'tel',
         inputLabel: 'Phone number',
         inputPlaceholder: 'Enter the phone number',
+        inputValue: phone.match(PHONE_REGEX) ? phone : '',
         showLoaderOnConfirm: true,
         preConfirm: phoneNumber => {
-            if (!phoneNumber.match(/^((0)?((?:7(?:[01249][0-9]|5[789]|6[89])|1[1][0-5])[0-9]{6})|(?:254|\+254|0)?((?:7(?:[01249][0-9]|5[789]|6[89])|1[1][0-5])[0-9]{6}))$/)) {
+            if (!phoneNumber.match(PHONE_REGEX)) {
                 Swal.showValidationMessage('Invalid phone number.')
             } else {
                 formData.phone = phoneNumber;

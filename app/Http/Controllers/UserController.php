@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Destination;
 use App\Models\User;
 use Exception;
@@ -48,15 +49,24 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @return Response
+     * @return RedirectResponse|Response
      */
-    public function account(): Response {
-        $data = [
-            'user' => User::withCount(['bookings', 'reviews'])->find(Auth::id()),
-            "suggestedDestinations" => Destination::inRandomOrder()->take(7)->get(),
-        ];
+    public function account(): Response|RedirectResponse {
+        try {
+            $data = [
+                'user' => User::withCount(['bookings', 'reviews'])->find(Auth::id()),
+                "suggestedDestinations" => Destination::inRandomOrder()->take(7)->get(),
+                "bookings" => Booking::whereUserId(Auth::id())->with(['destination' => function($query) {
+                    $query->select(['id', 'name', 'price', 'rates']);
+                }, 'paymentMethod' => function($query) {
+                    $query->select(['id', 'name']);
+                }])->latest()->get()
+            ];
 
-        return response()->view('account', $data);
+            return response()->view('account', $data);
+        } catch (Exception $e) {
+            return failNotFound("Something went wrong.");
+        }
     }
 
     /**

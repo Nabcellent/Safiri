@@ -14,8 +14,9 @@
         input[name="phone"],
         input[name="guests"],
         input[name="dates"] {
-            /*padding: .7rem 1.3rem;*/
-            /*border-radius: 17px;*/
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid lightseagreen;
         }
     </style>
 @endpush
@@ -44,12 +45,12 @@
                         <div class="form-group col">
                             <label class="small">Phone number *</label>
                             <input type="tel" id="phone" class="form-control form-control-lg" name="phone"
-                                   placeholder="Phone number *" value="{{ old('phone') }}" aria-label required>
+                                   placeholder="Phone number *" value="{{ old('phone', Auth::user()->phone) }}" aria-label required>
                             <div id="phone-error-message" class="invalid-feedback"></div>
                         </div>
                         <div class="form-group col">
                             <label class="small">Email</label>
-                            <input type="email" id="email" value="{{ old('email') }}" class="form-control form-control-lg" name="email"
+                            <input type="email" id="email" value="{{ old('email', Auth::user()->email) }}" class="form-control form-control-lg" name="email"
                                    placeholder="Email address (optional)" aria-label>
                         </div>
                     </div>
@@ -281,11 +282,11 @@
             /**--------------------------------------------------------------------------------------------
              *                                  INIT DATEPICKER
              * */
-            const PRICE_PER_NIGHT = {{ $destination->price }},
+            const PRICE_RATE = {{ $destination->price }},
                 SERVICE_FEE = {{ $serviceCharge }},
                 GUESTS_EL = $('input[name="guests"]')
-            let numberOfNights = 1,
-                priceRate = numberOfNights * PRICE_PER_NIGHT,
+            let duration = 1,
+                priceRate = duration * PRICE_RATE,
                 totalPrice = priceRate + SERVICE_FEE;
 
             $('input[name="dates"]').daterangepicker({
@@ -296,7 +297,7 @@
                 }
             }).on('apply.daterangepicker', function (ev, picker) {
                 let timeDiff = Math.abs(picker.endDate.valueOf() - picker.startDate.valueOf());
-                numberOfNights = Math.ceil(timeDiff / (1000 * 3600 * 24)) - 1;
+                duration = Math.ceil(timeDiff / (1000 * 3600 * 24)) - 1;
 
                 updatePrices()
 
@@ -309,14 +310,15 @@
             GUESTS_EL.on('change', updatePrices)
 
             function updatePrices() {
-                let guestRate;
-                if (GUESTS_EL.val() > 3) {
-                    guestRate = ($(this).val() - 1) * 100
-                } else {
-                    guestRate = 0
+                let GUESTS = GUESTS_EL.val();
+
+                if (duration > 3) {
+                    duration -= 1
+                } else if(duration > 10) {
+                    duration -= 3
                 }
 
-                priceRate = (numberOfNights * PRICE_PER_NIGHT) + guestRate
+                priceRate = (duration * PRICE_RATE) * GUESTS
                 totalPrice = priceRate + SERVICE_FEE
 
                 $('#total_amount').val(totalPrice)
@@ -324,7 +326,7 @@
                 $('#price-rate').html(`KSH.${_number_format(priceRate)}`)
                 $('#total-price').html(`KSH.${_number_format(totalPrice)}`)
                 $('.digits.kes').html(`KSH.${_number_format(totalPrice)}`)
-                $('#price-times').html(`* (${GUESTS_EL.val() === "" ? 1 : GUESTS_EL.val()}) * ${numberOfNights ?? 1}`)
+                $('#price-times').html(`* (${GUESTS_EL.val() === "" ? 1 : GUESTS_EL.val()}) * ${duration ?? 1}`)
             }
         </script>
     @endpush

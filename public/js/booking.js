@@ -23,6 +23,8 @@ $('input[name="payment_method"]').on('change', function () {
 $('#booking-form').on('submit', function (e) {
     e.preventDefault()
 
+    if(!$(this).valid()) return;
+
     const data = {}
     $(this).serializeArray().map(input => data[input.name] = input.value)
 

@@ -25,9 +25,9 @@
                 @endauth
 
                 <li class="nav-item">
-                    <small class="nav-link">
+                    <p class="text-secondary nav-link">
                         <script>document.write(new Date().toDateString())</script>
-                    </small>
+                    </p>
                 </li>
             </ul>
         </div>
@@ -35,28 +35,26 @@
 </nav>
 
 <div class="px-5 py-3 bg-light">
-    <div class="container-fluid py-2 d-flex justify-between align-items-center">
-        <h5 class="fw-bold text-dark">SAFIRI</h5>
-        <div id="search-bar" class="container">
+    <div class="container-fluid py-2 d-flex justify-content-evenly align-items-center">
+        <a href="/"><h4 class="fw-bold text-primary">SAFIRI</h4></a>
+        {{--<div id="search-bar" class="container">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-6">
-                    <div class="search-form">
+                    <form method="get" class="search-form">
                         <i class="fas fa-search"></i>
                         <input type="text" class="form-control form-input" placeholder="Search destinations..."
-                               aria-label>
+                               wire:model.debounce.200ms="term" aria-label>
                         <span class="left-pan d-flex align-items-center">
                             <i class="fa fa-microphone"></i>
                             <select name="destination" id="destination" class="border-0 bg-transparent form-control"
                                     aria-label="">
                                 <option value="" selected hidden>Destinations</option>
-                                <option value="">Some place</option>
-                                <option value="">Some place</option>
                             </select>
                         </span>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </div>
+        </div>--}}
         @auth()
             <div class="dropdown">
                 <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"

@@ -100,6 +100,7 @@
                                         <thead>
                                         <tr>
                                             <th>Destination</th>
+                                            <th>User</th>
                                             <th>Guests</th>
                                             <th>Dates</th>
                                             <th>Total</th>
@@ -138,20 +139,17 @@
                                                              src="{{ asset("images/destinations/{$booking->destination->image}") }}"
                                                              alt="" data-original-title="" title="">
                                                         <div class="media-body">
-                                                            <a href="#"><span>{{ $booking->destination->name }}</span></a>
+                                                            <a href="{{ route('admin.bookings.show', ['id' => $booking->id]) }}">
+                                                                <span>{{ $booking->destination->name }}</span>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    <p>{{ $booking->guests }}</p>
-                                                </td>
-                                                <td>
-                                                    <p>{{ $booking->dates }}</p>
-                                                </td>
+                                                <td><a href="{{ route('admin.users.show', ['id' => $booking->user->id ]) }}">{{ $booking->user->email }}</a></td>
+                                                <td><p>{{ $booking->guests }}</p></td>
+                                                <td><p>{{ $booking->dates }}</p></td>
                                                 <td>{{ number_format($booking->total) }}/=</td>
-                                                <td>
-                                                    <p>{{ $booking->is_paid ? "Paid" : "Pending" }}</p>
-                                                </td>
+                                                <td><p>{{ $booking->is_paid ? "Paid" : "Pending" }}</p></td>
                                             </tr>
                                         @endforeach
 

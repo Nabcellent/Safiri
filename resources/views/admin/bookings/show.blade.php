@@ -165,7 +165,7 @@
                                                     <figure class="col-sm-3" itemprop="associatedMedia" itemscope="">
                                                         <a href="{{ asset("images/destinations/{$image->image}") }}"
                                                            itemprop="contentUrl" data-size="1600x950">
-                                                            <img class="img-fluid rounded" style="max-height: 15rem"
+                                                            <img class="img-fluid rounded" style="height: 13rem"
                                                                  src="{{ asset("images/destinations/{$image->image}") }}"
                                                                  itemprop="thumbnail" alt="gallery"/>
                                                         </a>

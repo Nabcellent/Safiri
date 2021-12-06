@@ -48,7 +48,7 @@ class UserController extends Controller
      * @return Response
      */
     public function show($id) {
-        //
+        dd($id);
     }
 
     /**

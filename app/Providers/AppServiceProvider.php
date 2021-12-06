@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Charts\RevenueChart;
 use ConsoleTVs\Charts\Registrar as Charts;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -28,7 +29,15 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         $charts->register([
-            RevenueChart::class
-        ]);
+                              RevenueChart::class
+                          ]);
+
+        Carbon::macro('timelyGreeting', function() {
+            return match (true) {
+                now()->isAfter(Carbon::parse('today 6pm')) => 'Good Evening',
+                now()->isAfter(Carbon::parse('today 12pm')) => 'Good Afternoon',
+                now()->isAfter(Carbon::parse('today 12am')) => 'Good Morning',
+            };
+        });
     }
 }

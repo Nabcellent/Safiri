@@ -14,6 +14,8 @@ class DashboardController extends Controller
                 ->sum('total'),
             'recentBookings' => Booking::with(['destination' => function($query) {
                 $query->select(['id', 'name', 'image']);
+            }, 'user' => function($query) {
+                $query->select(['id', 'email']);
             }])->latest()->take(5)->get()
         ];
 

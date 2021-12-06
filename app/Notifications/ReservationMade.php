@@ -38,12 +38,11 @@ class ReservationMade extends Notification
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail(mixed $notifiable): MailMessage {
-        $salutation = $notifiable->gender === 'male'
-            ? 'Sir.'
-            : "Ma'am";
-
         if($this->sendToAdmins) {
-            $greeting = Carbon::timelyGreeting() . "!";
+            $salutation = $notifiable->gender === 'male'
+                ? 'Sir.'
+                : "Ma'am";
+            $greeting = Carbon::timelyGreeting() . " $salutation!";
             $intro = "A booking has been made by {$this->booking->user->full_name}.";
             $actionUrl = route('admin.bookings.show', ['id' => $this->booking->id]);
             $closing = "Please attend to it at your earliest convenience😌!";
@@ -54,7 +53,7 @@ class ReservationMade extends Notification
             $closing = "Thank you for being part of the Safiri family! Can't wait for the trip😁";
         }
 
-        return (new MailMessage)->salutation($salutation)->greeting($greeting)->line($intro)
+        return (new MailMessage)->greeting($greeting)->line($intro)
             ->action('View Booking', $actionUrl)->line($closing);
     }
 

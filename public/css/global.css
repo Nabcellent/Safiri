@@ -144,3 +144,7 @@ del {
     border-top-right-radius: .375rem;
     border-bottom-right-radius: .375rem
 }
+
+.bg-card.bg-left {
+    background-position: left;
+}

@@ -56,7 +56,7 @@
                                         <td>{{ $booking->destination->name }}</td>
                                         <td>{{ $booking->guests ?? "N/A" }}</td>
                                         <td>{{ $booking->dates }}</td>
-                                        <td>{{ $booking->total }}</td>
+                                        <td>{{ number_format($booking->total, 2) }}</td>
                                         <td class="status py-2 align-middle text-center fs-0 white-space-nowrap">
 									<span class="badge badge rounded-pill d-block badge-soft-{{ $status['color'] }}">
 										{{ $booking->is_paid ? "Paid" : "Pending" }}

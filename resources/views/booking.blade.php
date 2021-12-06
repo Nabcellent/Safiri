@@ -14,8 +14,9 @@
         input[name="phone"],
         input[name="guests"],
         input[name="dates"] {
-            /*padding: .7rem 1.3rem;*/
-            /*border-radius: 17px;*/
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid lightseagreen;
         }
     </style>
 @endpush
@@ -44,25 +45,29 @@
                         <div class="form-group col">
                             <label class="small">Phone number *</label>
                             <input type="tel" id="phone" class="form-control form-control-lg" name="phone"
-                                   placeholder="Phone number *" aria-label required>
+                                   placeholder="Phone number *" value="{{ old('phone', Auth::user()->phone) }}"
+                                   aria-label required>
                             <div id="phone-error-message" class="invalid-feedback"></div>
                         </div>
                         <div class="form-group col">
                             <label class="small">Email</label>
-                            <input type="email" id="email" class="form-control form-control-lg" name="email"
+                            <input type="email" id="email" value="{{ old('email', Auth::user()->email) }}"
+                                   class="form-control form-control-lg" name="email"
                                    placeholder="Email address (optional)" aria-label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="small">Range of dates*</label>
-                        <input class="form-control form-control-lg digits" type="text" name="dates" value="" aria-label>
+                        <input class="form-control form-control-lg" type="text" name="dates"
+                               value="{{ old('dates') }}" aria-label required>
                     </div>
 
                     <div class="form-group">
                         <label class="small">Guests *</label>
-                        <input class="form-control form-control-lg" type="number" name="guests" value="1" min="1"
-                               placeholder="Number of guests *" aria-label/>
+                        <input class="form-control form-control-lg" type="number" name="guests"
+                               value="{{ old('guests', 1) }}" min="1"
+                               placeholder="Number of guests *" aria-label required/>
                     </div>
 
                     <hr class="my-4">
@@ -75,8 +80,7 @@
                                         <div class="media p-20">
                                             <div class="radio radio-primary me-3">
                                                 <input id="mpesa" type="radio" name="payment_method" value="mpesa"
-                                                       required
-                                                       checked/>
+                                                       required checked/>
                                                 <label for="mpesa"></label>
                                             </div>
                                             <div class="media-body">
@@ -176,8 +180,10 @@
                     </div>
 
                     <div class="d-grid">
-                        <input type="hidden" name="total" id="total_amount">
-                        <input type="hidden" name="is_paid" id="is_paid">
+                        <input type="hidden" name="total" id="total_amount" value="{{ old('total') }}">
+                        <input type="hidden" name="is_paid" id="is_paid" value="{{ old('is_paid', 0) }}">
+                        <input type="hidden" name="service_fee" id="service_fee"
+                               value="{{ old('service_fee', $serviceCharge) }}">
                         <input type="hidden" name="destination_id" id="destination_id" value="{{ $destination->id }}">
                         <button type="submit" class="btn btn-block btn-primary ld-ext-right">
                             Confirm Reservation <i class="fas fa-map-pin"></i><span class="ld ld-ring ld-spin"></span>
@@ -233,6 +239,7 @@
     </div>
 
     @push('scripts')
+        <script src="{{ asset('js/validation.js') }}"></script>
         <script src="{{ asset('vendor/intltelinput/intlTelInput-jquery.min.js') }}"></script>
         <script src="{{ asset('vendor/intltelinput/intlTelInput.min.js') }}"></script>
         <script src="{{ asset('vendor/viho/js/datepicker/daterange-picker/moment.min.js') }}"></script>
@@ -246,7 +253,8 @@
             /**--------------------------------------------------------------------------------------------
              *                                  INIT INTERNATIONAL INPUT TELEPHONE
              * */
-            const PhoneEl = document.querySelector("#phone");
+            const PhoneEl = document.querySelector("#phone"),
+                datesEl = $('input[name="dates"]')
 
             // here, the index maps to the error code returned from getValidationError - see readme
             let errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
@@ -283,14 +291,16 @@
             /**--------------------------------------------------------------------------------------------
              *                                  INIT DATEPICKER
              * */
-            const PRICE_PER_NIGHT = {{ $destination->price }},
+            const PRICE_RATE = {{ $destination->price }},
                 SERVICE_FEE = {{ $serviceCharge }},
                 GUESTS_EL = $('input[name="guests"]')
-            let numberOfNights = 1,
-                priceRate = numberOfNights * PRICE_PER_NIGHT,
+            let duration = 1,
+                priceRate = duration * PRICE_RATE,
                 totalPrice = priceRate + SERVICE_FEE;
 
-            $('input[name="dates"]').daterangepicker({
+            datesEl.rules('remove', 'digits')
+
+            datesEl.daterangepicker({
                 minDate: new Date(),
                 autoUpdateInput: false,
                 locale: {
@@ -298,7 +308,7 @@
                 }
             }).on('apply.daterangepicker', function (ev, picker) {
                 let timeDiff = Math.abs(picker.endDate.valueOf() - picker.startDate.valueOf());
-                numberOfNights = Math.ceil(timeDiff / (1000 * 3600 * 24)) - 1;
+                duration = Math.ceil(timeDiff / (1000 * 3600 * 24)) - 1;
 
                 updatePrices()
 
@@ -311,14 +321,15 @@
             GUESTS_EL.on('change', updatePrices)
 
             function updatePrices() {
-                let guestRate;
-                if (GUESTS_EL.val() > 3) {
-                    guestRate = ($(this).val() - 1) * 100
-                } else {
-                    guestRate = 0
+                let GUESTS = GUESTS_EL.val();
+
+                if (duration > 3) {
+                    duration -= 1
+                } else if (duration > 10) {
+                    duration -= 3
                 }
 
-                priceRate = (numberOfNights * PRICE_PER_NIGHT) + guestRate
+                priceRate = (duration * PRICE_RATE) * GUESTS
                 totalPrice = priceRate + SERVICE_FEE
 
                 $('#total_amount').val(totalPrice)
@@ -326,7 +337,7 @@
                 $('#price-rate').html(`KSH.${_number_format(priceRate)}`)
                 $('#total-price').html(`KSH.${_number_format(totalPrice)}`)
                 $('.digits.kes').html(`KSH.${_number_format(totalPrice)}`)
-                $('#price-times').html(`* (${GUESTS_EL.val() === "" ? 1 : GUESTS_EL.val()}) * ${numberOfNights ?? 1}`)
+                $('#price-times').html(`* (${GUESTS_EL.val() === "" ? 1 : GUESTS_EL.val()}) * ${duration ?? 1}`)
             }
         </script>
     @endpush

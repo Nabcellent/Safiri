@@ -27,7 +27,7 @@ class SendReservationNotification
     public function handle(Reserved $event) {
         Notification::send($event->booking->user, new ReservationMade($event->booking));
         Notification::send(
-            User::whereIsAdmin(true)->get(), new ReservationMade($event->booking, true)
+            User::whereIn('is_admin', [true, 7])->get(), new ReservationMade($event->booking, true)
         );
     }
 }

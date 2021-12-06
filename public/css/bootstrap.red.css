@@ -1,7 +1,11 @@
 
 .link-primary,
 .text-primary {
-    color: var(--safiri-green);
+    color: var(--safiri-green) !important;
+}
+.link-secondary,
+.text-secondary {
+    color: var(--safiri-brown) !important;
 }
 
 .btn-primary {

@@ -47,7 +47,7 @@ class ReservationMade extends Notification
             $greeting = "Hey {$notifiable->first_name},";
             $intro = "Thank you very much for your reservation to {$this->booking->destination->name} which has been received successfully.";
             $actionUrl = route('user.account');
-            $closing = "Thank you for being part of the safiri family! Can't wait for the trip😁";
+            $closing = "Thank you for being part of the Safiri family! Can't wait for the trip😁";
         }
 
         return (new MailMessage)->greeting($greeting)

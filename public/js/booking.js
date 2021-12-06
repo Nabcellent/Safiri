@@ -31,30 +31,8 @@ $('#booking-form').on('submit', function (e) {
     data.total = totalPrice;
     data.service_fee = SERVICE_FEE
 
-    const submitBooking = () => {
-        $.ajax({
-            data,
-            url: `/destinations/booking/` + $('#destination_id').val(),
-            method: `POST`,
-            dataType: 'json',
-            beforeSend: () => submitButton.prop('disabled', true).html(`Reserving...
-                                            <span class="ld ld-ring ld-spin"></span>`).addClass('running'),
-            success: response => {
-                console.log(response)
-            },
-            complete: (xhr) => {
-                let err = eval("(" + xhr.responseText + ")");
-
-                if (err.status !== true) submitButton.prop('disabled', false).html(`Confirm reservation
-										<span class="ld ld-ring ld-spin"></span>`).removeClass('running')
-            }
-        })
-    }
-
     if (paymentMethod === 'mpesa') {
         payWithMpesa(data)
-    } else if (paymentMethod === 'paypal') {
-        submitBooking()
     } else {
         $('#booking-form').get(0).submit()
     }

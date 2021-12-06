@@ -182,6 +182,8 @@
                     <div class="d-grid">
                         <input type="hidden" name="total" id="total_amount" value="{{ old('total') }}">
                         <input type="hidden" name="is_paid" id="is_paid" value="{{ old('is_paid', 0) }}">
+                        <input type="hidden" name="service_fee" id="service_fee"
+                               value="{{ old('service_fee', $serviceCharge) }}">
                         <input type="hidden" name="destination_id" id="destination_id" value="{{ $destination->id }}">
                         <button type="submit" class="btn btn-block btn-primary ld-ext-right">
                             Confirm Reservation <i class="fas fa-map-pin"></i><span class="ld ld-ring ld-spin"></span>

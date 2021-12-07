@@ -156,7 +156,7 @@
                 $.ajax({
                     data,
                     method: 'GET',
-                    url: 'http://localhost:8000/api/destination/v1/all',
+                    url: '/api/destination/v1/all',
                     success: response => {
                         console.log(response)
                         if (response.next_page_token) {

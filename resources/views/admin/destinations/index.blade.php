@@ -48,7 +48,7 @@
     <div class="container-fluid product-wrapper">
         <div class="product-grid">
 
-{{--            @include('admin.destinations.filters')--}}
+            @include('admin.destinations.filters')
 
             <div class="product-wrapper-grid">
                 <div class="row">

@@ -6,6 +6,7 @@ use App\Charts\RevenueChart;
 use ConsoleTVs\Charts\Registrar as Charts;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -28,9 +29,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(Charts $charts) {
         Paginator::useBootstrap();
 
+        if(config('app.env') === 'production') URL::forceScheme('https');
+
         $charts->register([
-                              RevenueChart::class
-                          ]);
+            RevenueChart::class
+        ]);
 
         Carbon::macro('timelyGreeting', function() {
             return match (true) {

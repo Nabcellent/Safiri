@@ -32,7 +32,7 @@ Route::prefix('/destinations')->name('destinations.')->group(function() {
     Route::get('/booking/{id}', [BookingController::class, 'booking'])->middleware('auth')->name('show.booking');
     Route::post('/booking/{id}', [BookingController::class, 'reserve'])->middleware('auth')->name('reserve');
     Route::get('/filter', [DestinationController::class, 'filter'])->name('filter');
-});s
+});
 
 Route::middleware(['auth'])->group(function() {
     //  USER ROUTES

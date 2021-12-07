@@ -11,6 +11,16 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
+if(!function_exists('gcs_asset')) {
+    function gcs_asset($path): string {
+        if(env('FILESYSTEM_DRIVER') === 'gcs') {
+            return Storage::url($path);
+        } else {
+            return asset($path);
+        }
+    }
+}
+
 /**
  * ----------------------------------------------------------------------------------------    MIDDLEWARE HELPERS
  */

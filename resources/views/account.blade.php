@@ -9,14 +9,14 @@
         <div class="container listing my-3">
             <div class="card my-md-4 py-md-4 bg-transparent">
                 <div class="bg-holder d-none d-lg-block bg-card bg-left"
-                     style="background-image:url({{ asset("images/destinations/{$latestActiveBooking->destination->image}") }}); width: 20rem;"></div>
+                     style="background-image:url({{ asset("images/destinations/{$latestActiveBooking?->destination->image}") }}); width: 20rem;"></div>
                 <div class="bg-holder d-none d-lg-block bg-card"
                      style="background-image:url({{ asset('images/spot-illustrations/corner-2.png') }});"></div>
                 <div class="card-body position-relative">
                     <div class="row fw-bold">
                         <div class="col-md-7 text-center">
                             <h6 class="fw-bold">Latest active destination</h6>
-                            <p class="small">{{ $latestActiveBooking->destination->name }}</p>
+                            <p class="small">{{ $latestActiveBooking?->destination->name ?? 'N/A' }}</p>
                         </div>
                         <div class="col text-center">
                             <p class="m-0">Total Bookings - {{ $user->bookings_count }}</p>

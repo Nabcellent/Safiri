@@ -52,7 +52,7 @@ class UserController extends Controller
      * @return RedirectResponse|Response
      */
     public function account(): Response|RedirectResponse {
-        try {
+//        try {
             $data = [
                 'user' => User::withCount(['bookings', 'reviews'])->find(Auth::id()),
                 "suggestedDestinations" => Destination::inRandomOrder()->take(7)->get(),
@@ -66,9 +66,10 @@ class UserController extends Controller
             $data['latestActiveBooking'] = $data['bookings']->firstWhere('end_at', '>', now());
 
             return response()->view('account', $data);
-        } catch (Exception $e) {
-            return failNotFound("Something went wrong.");
-        }
+//        } catch (Exception $e) {
+//            dd($e);
+//            return failNotFound("Something went wrong.");
+//        }
     }
 
     /**

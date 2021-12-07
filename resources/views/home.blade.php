@@ -51,7 +51,7 @@
                             @foreach($destinations as $destination)
                                 <div class="swiper-slide">
                                     <div class="card bg-transparent shadow" style="width: 18rem;">
-                                        <img src="{{ asset("images/destinations/{$destination->image}") }}"
+                                        <img src="{{ gcs_asset("images/destinations/{$destination->image}") }}"
                                              class="card-img p-2"
                                              alt="...">
                                         <a href="{{ route('destinations.show', $destination->id) }}"

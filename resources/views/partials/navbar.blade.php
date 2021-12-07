@@ -77,9 +77,11 @@
                 </ul>
             </div>
         @else
-            <a href="{{ route('login') }}" class="link-primary text-nowrap">Sign In</a>
-            <span class="text-dark">&nbsp;|&nbsp;</span>
-            <a href="{{ route('register') }}" class="link-primary text-nowrap">Sign Up</a>
+            <div>
+                <a href="{{ route('login') }}" class="link-primary text-nowrap">Sign In</a>
+                <span class="text-dark">&nbsp;|&nbsp;</span>
+                <a href="{{ route('register') }}" class="link-primary text-nowrap">Sign Up</a>
+            </div>
         @endauth
     </div>
 </div>

@@ -19,11 +19,6 @@
                             <h5>{{ $banner->title }}</h5>
                             <h4>{{ $banner->content }}</h4>
                         </div>
-                        <div>
-                            <a href="#" class="btn btn-outline-light">
-                                More Info <i class="fas fa-chevron-right"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
             @endforeach

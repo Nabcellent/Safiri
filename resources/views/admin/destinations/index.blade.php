@@ -87,12 +87,6 @@
 									<div class="product-hover">
 										<ul>
 											<li>
-												<a href="cart.html"><i class="icon-shopping-cart"></i></a>
-											</li>
-											<li>
-												<a data-bs-toggle="modal" data-bs-target="#exampleModalCenter16"><i class="icon-eye"></i></a>
-											</li>
-											<li>
 												<a data-id="${place.place_id}" class="save-destination" title="Save"><i class="icon-save"></i></a>
 											</li>
 										</ul>

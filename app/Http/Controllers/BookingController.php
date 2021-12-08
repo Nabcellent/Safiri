@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
@@ -79,7 +80,9 @@ class BookingController extends Controller
 
         try {
             Reserved::dispatch($booking);
-        } catch (Exception) {}
+        } catch (Exception $e) {
+            Log::error($e);
+        }
 
         return $booking;
     }

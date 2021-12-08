@@ -59,7 +59,8 @@
                         <input class="form-control" type="search" placeholder="Search..." aria-label required/>
                     </div>
                     <div class="col-auto form-group">
-                        <button type="submit" class="btn btn-outline-secondary"><i class="fa fa-search me-2"></i> Search
+                        <button type="submit" class="btn btn-outline-secondary ld-ext-right">
+                            <i class="fa fa-search me-2"></i> Search  <span class="ld ld-ring ld-spin"></span>
                         </button>
                     </div>
                 </form>

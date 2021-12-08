@@ -56,21 +56,27 @@ const storeDestinations = (data, element) => {
 $('#search-vicinity').on('submit', (e) => {
     e.preventDefault()
 
+    const submitButton = $('#search-vicinity').find($('button'));
+
     $.ajax({
         data: {text: $('#search-vicinity input').val()},
         url: `/admin/destinations/find-place`,
+        beforeSend: () => {
+            submitButton.html(`Searching... <span class="ld ld-ring ld-spin"></span>`).addClass('running disabled')
+        },
         success: response => {
-            if(response.status) {
+            if (response.status) {
                 let {location} = response.data.geometry
                 const locationString = `${location.lat},${location.lng}`
 
                 fetchDestinations({location: locationString})
             } else {
-                toast({msg: response.message, type:'info'})
+                toast({msg: response.message, type: 'info'})
             }
         },
-        error: error => {
-            console.log(error)
+        error: error =>  console.log(error),
+        complete: () => {
+            submitButton.html(`<i class="fa fa-search me-2"></i> Search`).removeClass('running disabled')
         }
     })
 })

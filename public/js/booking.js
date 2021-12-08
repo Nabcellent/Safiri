@@ -10,6 +10,11 @@ let paymentMethod = $('input[name="payment_method"]:checked').val();
 $('input[name="payment_method"]').on('change', function () {
     paymentMethod = $(this).val()
 
+    if(!$('#booking-form').valid()) {
+        $('input[name="payment_method"]').prop('checked', false)
+        return
+    }
+
     if (paymentMethod === 'paypal') {
         submitButton.hide(300);
         $('#paypal_payment_button').show(300)

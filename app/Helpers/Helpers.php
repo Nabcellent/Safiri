@@ -6,10 +6,19 @@ use App\Models\Category;
 use App\Models\Setting;
 use Ballen\Distical\Calculator as DistanceCalculator;
 use Ballen\Distical\Entities\LatLong;
-use Faker\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+
+if(!function_exists('gcs_asset')) {
+    function gcs_asset($path): string {
+        if(env('FILESYSTEM_DRIVER') === 'gcs') {
+            return Storage::url($path);
+        } else {
+            return asset($path);
+        }
+    }
+}
 
 /**
  * ----------------------------------------------------------------------------------------    MIDDLEWARE HELPERS
@@ -182,7 +191,7 @@ if(!function_exists('appendToApiDestination')) {
 }
 if(!function_exists('downloadPhoto')) {
     function downloadPhoto(string $url): string {
-        $imageName = uniqid() . Factory::create()->randomElement(['.png', '.jpg']);
+        $imageName = uniqid() . Arr::random(['.png', '.jpg']);;
         $filePath = public_path("/images/destinations/$imageName");
 
         file_put_contents($filePath, file_get_contents($url));

@@ -1,0 +1,11 @@
+/node_modules
+/vendor
+.env
+/.idea
+
+/.run
+/y.hide
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+/storage/framework/sessions/

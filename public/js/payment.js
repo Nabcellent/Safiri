@@ -24,27 +24,28 @@ function payWithMpesa(formData) {
                     dataType: 'json',
                     statusCode: {
                         200: response => {
-                            if (response.status) {
-                                return response.content;
-                            } else {
-                                $('loader').addClass('d-none');
-                                // errorAlert(response.message)
-                                console.log(response.message);
-                            }
+                            return response.content;
                         },
                     },
                     error: () => {
                         console.log("error");
-                        // oopsError();
-                        // hideLoader();
+                        return {
+                            message: 'Something went wrong!'
+                        };
                     }
                 })
             }
         },
         allowOutsideClick: () => !Swal.isLoading()
     }).then(result => {
-        if (result.isConfirmed) {
+        if (result.isConfirmed && result.value.requestId) {
             new STK(result.value.requestId).checkStkStatus()
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Sorry...',
+                text: result.value.message,
+            });
         }
     })
 }

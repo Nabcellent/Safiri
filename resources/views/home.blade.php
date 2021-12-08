@@ -156,7 +156,7 @@
         <div class="container-fluid testimonials my-5">
             <div class="row px-md-5 mx-md-5">
                 <div class="col">
-                    <h5 class="ms-md-5">Our travellers' say...</h5>
+                    <h5 class="ms-md-5">Our travellers say...</h5>
                     <div class="row">
                         @foreach($testimonials as $testimonial)
                             <div class="col-xl-3 col-6 px-3 mb-3 position-relative">

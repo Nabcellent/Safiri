@@ -14,7 +14,7 @@ class HomeController extends Controller
             'destinations' => Destination::take(30)->get(),
             'banners'      => Banner::all(),
             'testimonials' => Review::with(['destination' => function($query) {
-                $query->select(['id', 'name']);
+                $query->select(['id', 'name','created_at']);
             }])->orderByDesc('rating')->latest()->select([
                 'destination_id',
                 'name',

@@ -77,7 +77,9 @@ class BookingController extends Controller
             $booking->save();
         }
 
-        Reserved::dispatch($booking);
+        try {
+            Reserved::dispatch($booking);
+        } catch (Exception) {}
 
         return $booking;
     }

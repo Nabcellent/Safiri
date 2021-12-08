@@ -5,9 +5,10 @@ namespace App\Listeners;
 use App\Events\Reserved;
 use App\Models\User;
 use App\Notifications\ReservationMade;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
 
-class SendReservationNotification
+class SendReservationNotification implements ShouldQueue
 {
     /**
      * Create the event listener.

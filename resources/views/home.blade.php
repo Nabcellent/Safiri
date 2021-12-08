@@ -50,7 +50,7 @@
                             <!-- Slides -->
                             @foreach($destinations as $destination)
                                 <div class="swiper-slide">
-                                    <div class="card bg-transparent shadow" style="width: 18rem;">
+                                    <div class="card bg-transparent shadow">
                                         <img src="{{ gcs_asset("images/destinations/{$destination->image}") }}"
                                              class="card-img p-2"
                                              alt="...">
@@ -112,7 +112,7 @@
                             <!-- Slides -->
                             @foreach($destinations->shuffle() as $destination)
                                 <div class="swiper-slide">
-                                    <div class="card bg-transparent shadow" style="width: 18rem;">
+                                    <div class="card bg-transparent shadow">
                                         <img src="{{ asset("images/destinations/{$destination->image}") }}"
                                              class="card-img p-2"
                                              alt="...">
@@ -201,7 +201,7 @@
                             <!-- Slides -->
                             @foreach($destinations as $destination)
                                 <div class="swiper-slide">
-                                    <div class="card bg-transparent shadow" style="width: 17rem;">
+                                    <div class="card bg-transparent shadow">
                                         <img src="{{ asset("images/destinations/{$destination->image}") }}"
                                              class="card-img p-2"
                                              alt="...">
@@ -249,7 +249,7 @@
         <script>
             const swiperOptions = {
                 // Optional parameters
-                spaceBetween: 30,
+                spaceBetween: 10,
                 grabCursor: true,
                 loop: true,
 
@@ -267,11 +267,30 @@
 
             const swiper = new Swiper('.swiper', {
                 ...swiperOptions,
-                slidesPerView: 4,
+                slidesPerView: 2,
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                    }
+                },
             });
             const swiperIntl = new Swiper('.swiper.intl', {
                 ...swiperOptions,
-                slidesPerView: 5,
+                slidesPerView: 2,
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                    },
+                },
             })
         </script>
     @endpush

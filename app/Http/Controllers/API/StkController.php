@@ -128,6 +128,7 @@ class StkController extends Controller
                 } else {
                     $message = 'Something did not go right somewhere.';
                     $icon = 'warning';
+                    Log::error($stkStatus);
                 }
 
                 return response()->json(['status' => $status, 'message' => $message, 'icon' => $icon, 'url' => $url]);

@@ -29,6 +29,9 @@ img {
 .swiper img {
     height: 170px;
 }
+.swiper .card .card-body {
+    padding: 1rem;
+}
 
 
 

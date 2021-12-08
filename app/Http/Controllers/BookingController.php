@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
@@ -77,7 +78,11 @@ class BookingController extends Controller
             $booking->save();
         }
 
-        if($booking->is_paid) Reserved::dispatch($booking);
+        try {
+            Reserved::dispatch($booking);
+        } catch (Exception $e) {
+            Log::error($e);
+        }
 
         return $booking;
     }

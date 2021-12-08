@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\PaymentMethod;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class PaymentMethodSeeder extends Seeder
 {
@@ -17,6 +16,7 @@ class PaymentMethodSeeder extends Seeder
         PaymentMethod::insert([
             ['name' => 'mpesa', 'description' => json_encode(['icon' => 'bi bi-cash-coin'])],
             ['name' => 'paypal', 'description' => json_encode(['icon' => ""])],
+            ['name' => 'cash', 'description' => json_encode(['icon' => ""])],
         ]);
     }
 }

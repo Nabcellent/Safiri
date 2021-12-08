@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
@@ -47,13 +48,13 @@ class BookingController extends Controller
     public function reserve(Request $request): RedirectResponse {
         $data = $request->all();
 
-//        try {
+        try {
             self::saveBooking($data);
 
             return redirect()->route('thanks');
-//        } catch (Exception $e) {
-//            return toastError($e->getMessage(), "Something went wrong.😢");
-//        }
+        } catch (Exception $e) {
+            return toastError($e->getMessage(), "Something went wrong.😢");
+        }
     }
 
     public static function saveBooking(array $data): Booking|Model {
@@ -77,11 +78,11 @@ class BookingController extends Controller
             $booking->save();
         }
 
-//        try {
+        try {
             Reserved::dispatch($booking);
-//        } catch (Exception $e) {
-//            Log::error($e);
-//        }
+        } catch (Exception $e) {
+            Log::error($e);
+        }
 
         return $booking;
     }

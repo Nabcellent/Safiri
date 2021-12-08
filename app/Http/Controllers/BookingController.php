@@ -77,7 +77,7 @@ class BookingController extends Controller
             $booking->save();
         }
 
-        if($booking->is_paid) Reserved::dispatch($booking);
+        Reserved::dispatch($booking);
 
         return $booking;
     }

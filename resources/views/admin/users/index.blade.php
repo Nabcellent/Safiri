@@ -78,8 +78,8 @@
                                                             <i class="fas fa-pen"></i>
                                                         </a>
                                                         <a href="javascript:void(0);" class="delete-resource"
-                                                           data-id="{{ $user->id }}" data-model="destination"
-                                                           title="Delete Destination"><i class="fas fa-trash"></i>
+                                                           data-id="{{ $user->id }}" data-model="user"
+                                                           title="Delete User"><i class="fas fa-trash"></i>
                                                         </a>
                                                     </li>
                                                 </ul>

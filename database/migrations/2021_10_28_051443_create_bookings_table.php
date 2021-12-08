@@ -19,8 +19,8 @@ class CreateBookingsTable extends Migration
             $table->foreignId('payment_method_id')->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->smallInteger('guests')->default(1);
             $table->boolean('is_paid')->default(false);
-            $table->float('amount_paid')->default(0);
-            $table->float('total');
+            $table->float('amount_paid', 10)->default(0);
+            $table->float('total', 10);
             $table->float('service_fee')->nullable()->default(0);
             $table->timestamp('start_at');
             $table->timestamp('end_at')->nullable();

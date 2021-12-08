@@ -4,12 +4,11 @@
 namespace App\Helpers;
 
 
-
+use App\Models\Booking;
+use App\Models\Destination;
 use App\Models\PayPalCallback;
-
 use App\Models\Setting;
 use App\Models\User;
-
 use Auth;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\Eloquent\Collection;
@@ -24,7 +23,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 
-class Help {
+class Help
+{
     private int $counter = 0;
 
     /**
@@ -34,9 +34,10 @@ class Help {
 
     public static function getSetting(string|array $type) {
         if(is_array($type)) {
-            return Setting::whereIn('type', $type)->select(['type', 'description'])->get()->mapWithKeys(function($setting) {
-                return [$setting->type => $setting->description];
-            });
+            return Setting::whereIn('type', $type)->select(['type', 'description'])->get()
+                ->mapWithKeys(function($setting) {
+                    return [$setting->type => $setting->description];
+                });
         }
 
         return Setting::where('type', $type)->first()->description;
@@ -47,33 +48,46 @@ class Help {
     }
 
     public static function json($msg, $ok = TRUE, $arr = []): JsonResponse {
-        return $arr ? response()->json($arr) : response()->json(['ok' => $ok, 'msg' => $msg]);
+        return $arr
+            ? response()->json($arr)
+            : response()->json(['ok' => $ok, 'msg' => $msg]);
     }
+
     public static function jsonStoreOk(): JsonResponse {
         return self::json(__('msg.store_ok'));
     }
 
     public static function goWithInfo($to, $msg): RedirectResponse {
-        $route = $to ? self::goToRoute($to) : back();
+        $route = $to
+            ? self::goToRoute($to)
+            : back();
 
         return $route->with('toast_info', $msg);
     }
 
     public static function goWithSuccess($to, $msg): RedirectResponse {
-        $route = $to ? self::goToRoute($to) : back();
+        $route = $to
+            ? self::goToRoute($to)
+            : back();
 
         return $route->with('toast_success', $msg);
     }
+
     public static function goWithDanger($to = 'dashboard', $msg = NULL): RedirectResponse {
-        $msg = $msg ? $msg : __('msg.rnf');
+        $msg = $msg
+            ? $msg
+            : __('msg.rnf');
         return self::goToRoute($to)->with('flash_danger', $msg);
     }
 
     public static function goToRoute($goto): RedirectResponse {
         $data = [];
-        $to = (is_array($goto) ? $goto[0] : $goto) ?: 'dashboard';
+        $to = (is_array($goto)
+            ? $goto[0]
+            : $goto)
+            ? : 'dashboard';
 
-        if(is_array($goto)){
+        if(is_array($goto)) {
             array_shift($goto);
             $data = $goto;
         }
@@ -88,9 +102,11 @@ class Help {
     public static function updateOk($msg = 'Update successful!', $routeName = null): RedirectResponse {
         return self::goWithSuccess($routeName, __($msg));
     }
+
     public static function createOk($msg = 'Created successfully!', $routeName = null): RedirectResponse {
         return self::goWithSuccess($routeName, __($msg));
     }
+
     public static function deleteOk($routeName = null): RedirectResponse {
         return self::goWithSuccess($routeName, __('msg.del_ok'));
     }
@@ -98,26 +114,26 @@ class Help {
     public static function toastInfo($msg, $routeName = null): RedirectResponse {
         return self::goWithInfo($routeName, $msg);
     }
+
     public static function toastError($serverError, $clientMessage): RedirectResponse {
         Log::error($serverError);
 
-        return back()->withInput()
-            ->with('toast_error', __($clientMessage));
+        return back()->withInput()->with('toast_error', __($clientMessage));
     }
+
     public static function sweetInfo($msg, $routeName = null): RedirectResponse {
-        $route = $routeName ? self::goToRoute($routeName) : back();
+        $route = $routeName
+            ? self::goToRoute($routeName)
+            : back();
 
         return $route->with('sweet_info', $msg);
     }
+
     public static function sweetError($serverError, $clientMessage): RedirectResponse {
         Log::error($serverError);
 
-        return back()->withInput()
-            ->with('sweet_error', __($clientMessage));
+        return back()->withInput()->with('sweet_error', __($clientMessage));
     }
-
-
-
 
 
     public static function getModel($model): string {
@@ -125,6 +141,8 @@ class Help {
 
         return match ($table) {
             'users' => User::class,
+            'destinations' => Destination::class,
+            'bookings' => Booking::class,
 
             'settings' => Setting::class,
             'pay_pal_callbacks' => PayPalCallback::class,
@@ -135,8 +153,10 @@ class Help {
     public static function filterVideos(Request $request, $videoBuilder): Collection|Redirector|Application|RedirectResponse {
         $videos = $videoBuilder->whereHas('videoSetting', function($query) {
             $age = Auth::user()->age();
-            $query->whereIn('target_gender', ['both', Auth::user()->gender])
-                ->where([['min_age', '<=', $age], ['max_age', '>=', $age]]);
+            $query->whereIn('target_gender', ['both', Auth::user()->gender])->where([
+                    ['min_age', '<=', $age],
+                    ['max_age', '>=', $age]
+                ]);
         })->get();
 
         return (new Help)->filterByLocation($request, $videos);
@@ -176,8 +196,7 @@ class Help {
         $codeLength = ($length - strlen($userId));
         $referralCode = str_shuffle($userId . substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, $codeLength));
 
-        while (User::where('referral_code', $referralCode)->exists())
-            self::generateReferralCode($userId, $length);
+        while(User::where('referral_code', $referralCode)->exists()) self::generateReferralCode($userId, $length);
 
         return $referralCode;
     }

@@ -25,6 +25,7 @@
 <script src="{{ asset('vendor/viho/js/script.js') }}"></script>
 <script src="{{ asset('vendor/viho/js/theme-customizer/customizer.js') }}"></script>
 <script src="{{ asset('js/admin/theme.js') }}"></script>
+<script src="{{ asset('js/admin/dynamic.js') }}"></script>
 <script src="{{ asset('js/global.js') }}"></script>
 
 @include('partials.javascript')

@@ -16,7 +16,7 @@ class DashboardController extends Controller
                 $query->select(['id', 'name', 'image']);
             }, 'user' => function($query) {
                 $query->select(['id', 'email']);
-            }])->latest()->take(5)->get()
+            }])->latest('id')->take(5)->get()
         ];
 
         return response()->view('admin.dashboard', $data);

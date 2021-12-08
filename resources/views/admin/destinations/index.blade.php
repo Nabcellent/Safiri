@@ -48,7 +48,7 @@
     <div class="container-fluid product-wrapper">
         <div class="product-grid">
 
-{{--            @include('admin.destinations.filters')--}}
+            @include('admin.destinations.filters')
 
             <div class="product-wrapper-grid">
                 <div class="row">
@@ -107,13 +107,12 @@
                 $('.product-wrapper-grid > .row').html(HTML_DESTINATIONS)
             }
 
-            const fetchDestinations = data => {
+            window.fetchDestinations = data => {
                 $.ajax({
                     data,
                     method: 'GET',
                     url: '/api/destination/v1/all',
                     success: response => {
-                        console.log(response)
                         if (response.next_page_token) {
                             nextPageBtn.attr('data-id', response.next_page_token).show(300)
                         } else {
@@ -160,68 +159,10 @@
             <script src="{{ asset('vendor/viho/js/touchspin/touchspin.js') }}"></script>
             <script src="{{ asset('vendor/viho/js/touchspin/input-groups.min.js') }}"></script>
             <script src="{{ asset('vendor/viho/js/owlcarousel/owl.carousel.js') }}"></script>
-            <script src="{{ asset('vendor/viho/js/select2/select2.full.min.js') }}"></script>
-            <script src="{{ asset('vendor/viho/js/select2/select2-custom.js') }}"></script>
             <script src="{{ asset('vendor/viho/js/tooltip-init.js') }}"></script>
             <script src="{{ asset('vendor/viho/js/product-tab.js') }}"></script>
             <!-- Plugins JS Ends-->
-
-            <script>
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-
-                $('#save-destinations').on('click', function () {
-                    storeDestinations({destinations: window.DESTINATIONS}, $(this))
-                });
-
-                $(document).on('click', '.save-destination', function () {
-                    const savingOverlay = $(this).closest('.product-box').find($('.saving-overlay'));
-
-                    $(this).closest('ul').addClass('d-none');
-                    savingOverlay.show(300);
-                    $(this).closest('.product-box').addClass('saving');
-
-                    storeDestinations({place_id: $(this).data('id')}, savingOverlay)
-                });
-
-                const storeDestinations = (data, element) => {
-                    $.ajax({
-                        data: data,
-                        url: `{{ route('admin.destinations.store-api') }}`,
-                        method: 'POST',
-                        beforeSend: () => {
-                            element.html(`Saving... <span class="ld ld-ring ld-spin"></span>`).addClass('running disabled')
-                        },
-                        success: response => toast({
-                            msg: response.message,
-                            type: (response.status ? 'success' : 'warning')
-                        }),
-                        error: error => {
-                            console.log(error)
-
-                            sweet({
-                                title: 'Error',
-                                msg: 'Something went wrong while saving destinations.',
-                                type: 'error'
-                            })
-                        },
-                        complete: xhr => {
-                            let err = eval("(" + xhr.responseText + ")");
-
-                            if (err.status !== true) element.prop('disabled', false).removeClass('running')
-
-                            if (data.place_id) {
-                                element.hide(300);
-                                element.closest('.product-box').removeClass('saving');
-                                element.closest('.product-box').find($('ul')).removeClass('d-none');
-                            }
-                        }
-                    });
-                }
-            </script>
+            <script src="{{ asset('js/admin/destination.js') }}"></script>
         @endpush
     @endonce
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AjaxController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -74,6 +75,7 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(fu
         Route::get('/edit/{id}', [AdminDestinationController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [AdminDestinationController::class, 'update'])->name('update');
         Route::post('/store-api', [AdminDestinationController::class, 'storeApi'])->name('store-api');
+        Route::get('/find-place', [AdminDestinationController::class, 'findPlace'])->name('find-place');
     });
 
     //  BOOKING ROUTES
@@ -103,6 +105,8 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(fu
         Route::put('/update/{id}', [AdminUserController::class, 'update'])->name('update');
         Route::get('/destroy/{id}', [AdminUserController::class, 'destroy'])->name('destroy');
     });
+
+    Route::delete('/delete', [AjaxController::class, 'destroy'])->name('destroy');
 });
 
 

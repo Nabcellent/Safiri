@@ -8,6 +8,7 @@ use App\Jobs\SaveDestination;
 use App\Models\Category;
 use App\Models\Destination;
 use Exception;
+use GooglePlaces;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -145,6 +146,15 @@ class DestinationController extends Controller
         $data['savingDestinations'] = getSetting('saving_destinations');
 
         return response()->view('admin.destinations.index', $data);
+    }
+
+    public function findPlace(Request $request) {
+        $text = $request->input('text');
+        $places = GooglePlaces::findPlace($text, 'textquery', ['fields' => 'geometry,name,rating']);
+
+        $data = Arr::first($places['candidates']);
+
+        return $data ? ['status' => true, 'data' => $data] : ['status' => false, 'message' => 'Location not found...'];
     }
 
     /**

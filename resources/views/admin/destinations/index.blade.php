@@ -96,7 +96,7 @@
                                     Saving...<span class="ld ld-ring ld-spin"></span>
                                 </div>
 								<div class="product-details">
-									<a href="product-page.html"><h4>${place.name}</h4></a>
+									<h4>${place.name}</h4>
 									<div class="d-flex justify-content-between"><p>${openingHours}</p> ${rating} </div>
 								</div>
 							</div>

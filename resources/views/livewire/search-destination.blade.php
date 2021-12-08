@@ -2,7 +2,7 @@
     <form id="search-ads-form" method="get" class="row justify-content-center mt-2">
         <div class="col-md-6 p-1 bg-light rounded rounded-pill shadow-sm">
             <div class="input-group px-3">
-                <input type="search" placeholder="Search for ads..." wire:model.debounce.200ms="term"
+                <input type="search" placeholder="Search destinations..." wire:model.debounce.200ms="term"
                        class="form-control form-control-sm border-0 me-2 bg-transparent" aria-label="">
                 <div class="input-group-append d-flex align-items-center"><i class="fa fa-search text-primary"></i></div>
             </div>

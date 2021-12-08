@@ -95,48 +95,9 @@
                                 <div class="position-absolute saving-overlay py-2 px-3 ld-ext-right">
                                     Saving...<span class="ld ld-ring ld-spin"></span>
                                 </div>
-								<div class="modal fade" id="exampleModalCenter16">
-									<div class="modal-dialog modal-lg modal-dialog-centered">
-										<div class="modal-content">
-											<div class="modal-header">
-												<div class="product-box row">
-													<div class="product-img col-lg-6">
-                                                        <img class="img-fluid" src="/images/admin/ecommerce/01.jpg" alt=""/>
-                                                    </div>
-													<div class="product-details col-lg-6 text-start">
-														<a href="product-page.html"><h4>${place.name}</h4></a>
-														<div class="product-price">
-															$26.00 <del>$35.00</del>
-														</div>
-														<div class="product-view">
-															<h6 class="f-w-600">Destination Details</h6>
-															<p class="mb-0">Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
-																accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.</p>
-														</div>
-														<div class="product-qnty">
-															<h6 class="f-w-600">Quantity</h6>
-															<fieldset>
-																<div class="input-group">
-																	<input class="touchspin text-center" type="text" value="5"/>
-																</div>
-															</fieldset>
-															<div class="addcart-btn">
-                                                                <a class="btn btn-primary me-3" href="cart.html">Save</a>
-                                                            </div>
-														</div>
-													</div>
-												</div>
-												<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-											</div>
-										</div>
-									</div>
-								</div>
 								<div class="product-details">
 									<a href="product-page.html"><h4>${place.name}</h4></a>
 									<div class="d-flex justify-content-between"><p>${openingHours}</p> ${rating} </div>
-									<div class="product-price">
-										$26.00<del>$35.00</del>
-									</div>
 								</div>
 							</div>
 						</div>

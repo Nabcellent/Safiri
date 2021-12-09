@@ -20,8 +20,7 @@
                     <h3>Product</h3>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item">ECommerce</li>
-                        <li class="breadcrumb-item active">Product</li>
+                        <li class="breadcrumb-item active">Destinations</li>
                     </ol>
                 </div>
                 <div class="col-auto d-flex align-items-center">

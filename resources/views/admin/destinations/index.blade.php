@@ -17,7 +17,7 @@
         <div class="page-header">
             <div class="row justify-content-between">
                 <div class="col-lg-6">
-                    <h3>Product</h3>
+
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active">Destinations</li>

@@ -209,13 +209,12 @@ if(!function_exists('savePhotosAndReviews')) {
                     'comment'        => $review['text'],
                     'rating'         => $review['rating'],
                     'profile_photo'  => $review['profile_photo_url'],
-                    'created_at'     => Carbon::createFromTimestampMs($review['time'])
+                    'created_at'     => Carbon::now()->subHours(rand(1, 55))
                 ];
 
                 $destination->reviews()->updateOrCreate([
                     'name'           => $review['name'],
                     'destination_id' => $review['destination_id'],
-                    'created_at'     => Carbon::now()->subHours(rand(1, 55))
                 ], $review);
             });
 

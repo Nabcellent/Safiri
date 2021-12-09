@@ -113,7 +113,6 @@
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-description" role="tabpanel"
                                  aria-labelledby="nav-description-tab">
-                                <h6 class="my-3">Category</h6>
                                 <p class="small">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur esse illo nam
                                     vitae
@@ -126,25 +125,28 @@
                                  aria-labelledby="nav-reviews-tab">
                                 <div class="list-group list-group-flush my-3">
 
-                                    @for($i = 0; $i < 3; $i++)
+                                    @foreach($reviews as $review)
                                         <div class="list-group-item bg-transparent">
                                             <div class="row">
                                                 <div class="col-auto">
-                                                    <img src="{{ asset('images/admin/avtar/11.jpg') }}" alt=""
+                                                    <img src="{{ $review->profile_photo }}" alt=""
                                                          class="img-fluid rounded-circle shadow-sm p-1" width="40px"
                                                          height="40px">
                                                 </div>
                                                 <div class="col">
                                                     <div class="d-flex w-100 justify-content-between">
-                                                        <p class="mb-1">Lindsey Stirling</p>
-                                                        <small>3 days ago</small>
+                                                        <p class="mb-1">{{ $review->name }}</p>
+                                                        <small>
+                                                            {{ now()->subDays(rand(1, $review->id))->diffForHumans() }}
+                                                        </small>
                                                     </div>
-                                                    <small class="">This is <strong>THE</strong> place to be
-                                                        !!!😍😍😍</small>
+                                                    <small class="">
+                                                        {!! $review->comment !!}
+                                                    </small>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endfor
+                                    @endforeach
 
                                 </div>
                             </div>

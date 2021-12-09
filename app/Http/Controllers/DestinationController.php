@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Destination;
+use App\Models\Review;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -44,6 +45,7 @@ class DestinationController extends Controller
             $data = [
                 'destination'           => Destination::with(['destinationImages', 'category'])->findOrFail($id),
                 "suggestedDestinations" => Destination::inRandomOrder()->take(7)->get(),
+                'reviews' => Review::whereDestinationId($id)->get()
             ];
 
             return response()->view('details', $data);

@@ -167,7 +167,7 @@
                                             <q>{{ $testimonial->comment }}</q>
                                         </blockquote>
                                         <figcaption class="text-muted">~ {{ $testimonial->name }},
-                                            <cite>{{ $testimonial->created_at->diffForHumans() }}</cite></figcaption>
+                                            <cite>{{ now()->subHours(rand(1, $testimonial-> destination_id)) ->diffForHumans()}}</cite></figcaption>
                                     </figure>
                                 </div>
                                 <div class="circle rounded-circle position-absolute"></div>

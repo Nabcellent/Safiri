@@ -166,7 +166,7 @@
                                         <blockquote cite="https://www.huxley.net/bnw/four.html">
                                             <q>{{ $testimonial->comment }}</q>
                                         </blockquote>
-                                        <figcaption class="text-muted">~ {{ $testimonial->name }},
+                                        <figcaption class="text-muted">~ {{ ucwords($testimonial->name) }},
                                             <cite>{{ now()->subHours(rand(1, $testimonial-> destination_id)) ->diffForHumans()}}</cite></figcaption>
                                     </figure>
                                 </div>

@@ -9,7 +9,7 @@
         <nav class="container-fluid my-2" aria-label="breadcrumb">
             <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('destinations.index') }}">Domestic deals</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('destinations.index') }}">Destinations</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $destination->name }}</li>
             </ol>
         </nav>
@@ -22,11 +22,11 @@
                         <div class="swiper-wrapper">
                             <!-- Slides -->
                             <div class="swiper-slide">
-                                <img src="{{ asset("images/destinations/{$destination->image}") }}" alt="">
+                                <img src="{{ asset("images/destinations/{$destination->image}") }}" alt="Destination img">
                             </div>
                             @foreach($destination->destinationImages as $image)
                                 <div class="swiper-slide">
-                                    <img src="{{ asset("images/destinations/$image->image") }}" alt="">
+                                    <img src="{{ asset("images/destinations/$image->image") }}" alt="Destination img">
                                 </div>
                             @endforeach
                         </div>
@@ -40,11 +40,11 @@
                     <div thumbsSlider="" class="swiper thumbSwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="{{ asset("images/destinations/{$destination->image}") }}" alt=""/>
+                                <img src="{{ asset("images/destinations/{$destination->image}") }}" alt="Destination img"/>
                             </div>
                             @foreach($destination->destinationImages as $image)
                             <div class="swiper-slide">
-                                <img src="{{ asset("images/destinations/$image->image") }}" alt=""/>
+                                <img src="{{ asset("images/destinations/$image->image") }}" alt="Destination img"/>
                             </div>
                             @endforeach
                         </div>

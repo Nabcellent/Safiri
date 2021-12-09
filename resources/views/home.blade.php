@@ -19,11 +19,6 @@
                             <h5>{{ $banner->title }}</h5>
                             <h4>{{ $banner->content }}</h4>
                         </div>
-                        <div>
-                            <a href="#" class="btn btn-outline-light">
-                                More Info <i class="fas fa-chevron-right"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
             @endforeach
@@ -172,7 +167,7 @@
                                             <q>{{ $testimonial->comment }}</q>
                                         </blockquote>
                                         <figcaption class="text-muted">~ {{ $testimonial->name }},
-                                            <cite>{{ $testimonial->created_at->diffForHumans() }}</cite></figcaption>
+                                            <cite>{{ now()->subHours(rand(1, $testimonial-> destination_id)) ->diffForHumans()}}</cite></figcaption>
                                     </figure>
                                 </div>
                                 <div class="circle rounded-circle position-absolute"></div>

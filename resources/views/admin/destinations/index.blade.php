@@ -20,8 +20,7 @@
                     <h3>Product</h3>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item">ECommerce</li>
-                        <li class="breadcrumb-item active">Product</li>
+                        <li class="breadcrumb-item active">Destinations</li>
                     </ol>
                 </div>
                 <div class="col-auto d-flex align-items-center">
@@ -48,7 +47,7 @@
     <div class="container-fluid product-wrapper">
         <div class="product-grid">
 
-{{--            @include('admin.destinations.filters')--}}
+            @include('admin.destinations.filters')
 
             <div class="product-wrapper-grid">
                 <div class="row">
@@ -87,12 +86,6 @@
 									<div class="product-hover">
 										<ul>
 											<li>
-												<a href="cart.html"><i class="icon-shopping-cart"></i></a>
-											</li>
-											<li>
-												<a data-bs-toggle="modal" data-bs-target="#exampleModalCenter16"><i class="icon-eye"></i></a>
-											</li>
-											<li>
 												<a data-id="${place.place_id}" class="save-destination" title="Save"><i class="icon-save"></i></a>
 											</li>
 										</ul>
@@ -101,48 +94,9 @@
                                 <div class="position-absolute saving-overlay py-2 px-3 ld-ext-right">
                                     Saving...<span class="ld ld-ring ld-spin"></span>
                                 </div>
-								<div class="modal fade" id="exampleModalCenter16">
-									<div class="modal-dialog modal-lg modal-dialog-centered">
-										<div class="modal-content">
-											<div class="modal-header">
-												<div class="product-box row">
-													<div class="product-img col-lg-6">
-                                                        <img class="img-fluid" src="/images/admin/ecommerce/01.jpg" alt=""/>
-                                                    </div>
-													<div class="product-details col-lg-6 text-start">
-														<a href="product-page.html"><h4>${place.name}</h4></a>
-														<div class="product-price">
-															$26.00 <del>$35.00</del>
-														</div>
-														<div class="product-view">
-															<h6 class="f-w-600">Destination Details</h6>
-															<p class="mb-0">Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
-																accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.</p>
-														</div>
-														<div class="product-qnty">
-															<h6 class="f-w-600">Quantity</h6>
-															<fieldset>
-																<div class="input-group">
-																	<input class="touchspin text-center" type="text" value="5"/>
-																</div>
-															</fieldset>
-															<div class="addcart-btn">
-                                                                <a class="btn btn-primary me-3" href="cart.html">Save</a>
-                                                            </div>
-														</div>
-													</div>
-												</div>
-												<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-											</div>
-										</div>
-									</div>
-								</div>
 								<div class="product-details">
-									<a href="product-page.html"><h4>${place.name}</h4></a>
+									<h4>${place.name}</h4>
 									<div class="d-flex justify-content-between"><p>${openingHours}</p> ${rating} </div>
-									<div class="product-price">
-										$26.00<del>$35.00</del>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -152,13 +106,12 @@
                 $('.product-wrapper-grid > .row').html(HTML_DESTINATIONS)
             }
 
-            const fetchDestinations = data => {
+            window.fetchDestinations = data => {
                 $.ajax({
                     data,
                     method: 'GET',
                     url: '/api/destination/v1/all',
                     success: response => {
-                        console.log(response)
                         if (response.next_page_token) {
                             nextPageBtn.attr('data-id', response.next_page_token).show(300)
                         } else {
@@ -205,68 +158,10 @@
             <script src="{{ asset('vendor/viho/js/touchspin/touchspin.js') }}"></script>
             <script src="{{ asset('vendor/viho/js/touchspin/input-groups.min.js') }}"></script>
             <script src="{{ asset('vendor/viho/js/owlcarousel/owl.carousel.js') }}"></script>
-            <script src="{{ asset('vendor/viho/js/select2/select2.full.min.js') }}"></script>
-            <script src="{{ asset('vendor/viho/js/select2/select2-custom.js') }}"></script>
             <script src="{{ asset('vendor/viho/js/tooltip-init.js') }}"></script>
             <script src="{{ asset('vendor/viho/js/product-tab.js') }}"></script>
             <!-- Plugins JS Ends-->
-
-            <script>
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-
-                $('#save-destinations').on('click', function () {
-                    storeDestinations({destinations: window.DESTINATIONS}, $(this))
-                });
-
-                $(document).on('click', '.save-destination', function () {
-                    const savingOverlay = $(this).closest('.product-box').find($('.saving-overlay'));
-
-                    $(this).closest('ul').addClass('d-none');
-                    savingOverlay.show(300);
-                    $(this).closest('.product-box').addClass('saving');
-
-                    storeDestinations({place_id: $(this).data('id')}, savingOverlay)
-                });
-
-                const storeDestinations = (data, element) => {
-                    $.ajax({
-                        data: data,
-                        url: `{{ route('admin.destinations.store-api') }}`,
-                        method: 'POST',
-                        beforeSend: () => {
-                            element.html(`Saving... <span class="ld ld-ring ld-spin"></span>`).addClass('running disabled')
-                        },
-                        success: response => toast({
-                            msg: response.message,
-                            type: (response.status ? 'success' : 'warning')
-                        }),
-                        error: error => {
-                            console.log(error)
-
-                            sweet({
-                                title: 'Error',
-                                msg: 'Something went wrong while saving destinations.',
-                                type: 'error'
-                            })
-                        },
-                        complete: xhr => {
-                            let err = eval("(" + xhr.responseText + ")");
-
-                            if (err.status !== true) element.prop('disabled', false).removeClass('running')
-
-                            if (data.place_id) {
-                                element.hide(300);
-                                element.closest('.product-box').removeClass('saving');
-                                element.closest('.product-box').find($('ul')).removeClass('d-none');
-                            }
-                        }
-                    });
-                }
-            </script>
+            <script src="{{ asset('js/admin/destination.js') }}"></script>
         @endpush
     @endonce
 @endsection

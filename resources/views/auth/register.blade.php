@@ -95,12 +95,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="checkbox">
-                                <input id="agree" type="checkbox"/>
-                                <label class="text-muted" for="agree">Agree with<span> Privacy Policy</span>.</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <input type="hidden" name="google_id" value="{{ old('google_id', $googleUser->id ?? '') }}">
                             <button class="btn btn-sm btn-primary btn-block" type="submit">Create Account</button>
                         </div>

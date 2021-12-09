@@ -76,8 +76,8 @@
                                                             <i class="fas fa-eye"></i>
                                                         </a>
                                                         <a href="javascript:void(0);" class="delete-resource"
-                                                           data-id="{{ $booking->id }}" data-model="destination"
-                                                           title="Delete Destination"><i class="fas fa-trash"></i>
+                                                           data-id="{{ $booking->id }}" data-model="booking"
+                                                           title="Delete Booking"><i class="fas fa-trash"></i>
                                                         </a>
                                                     </li>
                                                 </ul>

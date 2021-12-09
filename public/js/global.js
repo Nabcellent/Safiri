@@ -1,3 +1,11 @@
+function oopsError(title = 'Oops...', message = 'Something went wrong') {
+    return Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: message,
+    })
+}
+
 window.sweet = data => {
     Swal.fire({
         title: data.title ? data.title : 'Oops...',

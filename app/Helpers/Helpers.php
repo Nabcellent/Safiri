@@ -215,7 +215,7 @@ if(!function_exists('savePhotosAndReviews')) {
                 $destination->reviews()->updateOrCreate([
                     'name'           => $review['name'],
                     'destination_id' => $review['destination_id'],
-                    'created_at' =>Carbon::now()->subHours(mt_rand(1,96))
+                    'created_at'     => Carbon::now()->subHours(rand(1, 55))
                 ], $review);
             });
 

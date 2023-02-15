@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Charts\RevenueChart;
-use ConsoleTVs\Charts\Registrar as Charts;
+//use Nabcellent\Chartisan\Registrar as Chartisan;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\URL;
@@ -26,14 +26,14 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(Charts $charts) {
+    public function boot(/*Chartisan $chartisan*/) {
         Paginator::useBootstrap();
 
         if(config('app.env') === 'production') URL::forceScheme('https');
 
-        $charts->register([
+        /*$chartisan->register([
             RevenueChart::class
-        ]);
+        ]);*/
 
         Carbon::macro('timelyGreeting', function() {
             return match (true) {

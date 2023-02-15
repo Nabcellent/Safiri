@@ -11,7 +11,6 @@
         "accentinteractive/laravel-logcleaner": "^1.0",
         "amrshawky/laravel-currency": "^4.0",
         "ballen/distical": "^3.0",
-        "consoletvs/charts": "7.*",
         "drh/mpesa": "^1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
